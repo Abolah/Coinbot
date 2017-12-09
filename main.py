@@ -482,5 +482,5 @@ async def redirect_chan():
                         pass
     return -1
 
-
-client.run('MzY3MDYxMzA0MDQyNTg2MTI0.DL2Q_g.Bm_r1kuCPTBwfQOhR2dZQtosDHU')
+#Put your secret Discord Dev App Token between the quotes
+client.run('')
