@@ -5,8 +5,10 @@ import datetime
 import discord
 from random import randint
 import time
+
+
 class Poloniex:
-    def __init__(self,arg,auth):
+    def __init__(self, arg, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         self.coin = arg
@@ -50,44 +52,44 @@ class Poloniex:
             return 0
         return 0
 
-
     async def fetch(self):
         list_json = []
-        list_name = ["Poloniex","Coinmarketcap"]
-        list_urls = ["https://poloniex.com/public?command=returnTicker","https://api.coinmarketcap.com/v1/ticker/" + self.idcoin + "/?convert=EUR"]
-        for i,name in zip(list_urls,list_name):
+        list_name = ["Poloniex", "Coinmarketcap"]
+        list_urls = ["https://poloniex.com/public?command=returnTicker",
+                     "https://api.coinmarketcap.com/v1/ticker/" + self.idcoin + "/?convert=EUR"]
+        for i, name in zip(list_urls, list_name):
             async with aiohttp.ClientSession() as session:
                 try:
                     async with async_timeout.timeout(5):
                         async with session.get(i) as resp:
                             if resp.status == 200:
-                                list_json.append([await resp.json(),name])
+                                list_json.append([await resp.json(), name])
                 except asyncio.TimeoutError as e:
-                    list_json.append([e,name])
+                    list_json.append([e, name])
         return list_json
 
-    def affichage(self,list_json):
+    def affichage(self, list_json):
         polo_json = {}
         cmc_json = {}
         for i in list_json:
             if i[1] == "Poloniex":
                 polo_json = i[0]
-            if i [1] == "Coinmarketcap":
+            if i[1] == "Coinmarketcap":
                 cmc_json = i[0]
         try:
-            name_logo = self.long_name.replace(" ","-").lower()
-            url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/"+ name_logo + ".png"
+            name_logo = self.long_name.replace(" ", "-").lower()
+            url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/" + name_logo + ".png"
         except Exception as e:
-            print("err url",e)
+            print("err url", e)
             url_logo = ""
 
         try:
             if self.coin.upper() == "BTC":
-                pair = "Pair :" + self.key.replace("_","-") + "\n"
+                pair = "Pair :" + self.key.replace("_", "-") + "\n"
                 last = "Last : " + "{0:.2f}".format(float(polo_json[self.key]["last"])) + "\n"
                 bid = "Bid : " + "{0:.2f}".format(float(polo_json[self.key]["highestBid"])) + "\n"
                 ask = "Ask : " + "{0:.2f}".format(float(polo_json[self.key]["lowestAsk"])) + "\n"
-                volume = "Volume : " +  "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + "\n"
                 value_polo = "```css\n" + pair + volume + last + bid + ask + "```"
             else:
                 pair = "Pair :" + self.key.replace("_", "-") + "\n"
@@ -97,15 +99,15 @@ class Poloniex:
                 volume = "Volume : " + "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + "\n"
                 value_polo = "```css\n" + pair + volume + last + bid + ask + "```"
         except Exception as e:
-            print("err main_polo",e)
+            print("err main_polo", e)
             value_polo = "```Erreur API Poloniex```"
 
         try:
             high = "24 High : " + polo_json[self.key]["high24hr"] + "\n"
             low = "24 Low : " + polo_json[self.key]["low24hr"] + "\n"
-            value_annex = "```css\n" + low + high +  "```"
+            value_annex = "```css\n" + low + high + "```"
         except Exception as e:
-            print("err annex_polo",e)
+            print("err annex_polo", e)
             value_annex = "```Error API Poloniex```"
 
         try:
@@ -114,14 +116,16 @@ class Poloniex:
             except Exception as e:
                 marketcap = "MC : Unknown\n"
                 print("mc err", e)
-            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(float(cmc_json[0]["price_eur"])) + "€\n"
+            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(
+                float(cmc_json[0]["price_eur"])) + "€\n"
             rank = "Rank : [Rank " + str(cmc_json[0]["rank"]) + "]\n"
             change_1 = "1h Swing: " + str(cmc_json[0]["percent_change_1h"]) + "%\n"
             change_24 = "24h Swing: " + str(cmc_json[0]["percent_change_24h"]) + "%\n"
             change_7 = "7 days Swing : " + str(cmc_json[0]["percent_change_7d"]) + "%\n"
-            value_mc = "```css\n" + str(rank) + str(marketcap) + str(price) + str(change_1) + str(change_24) + str(change_7) + "```"
+            value_mc = "```css\n" + str(rank) + str(marketcap) + str(price) + str(change_1) + str(change_24) + str(
+                change_7) + "```"
         except Exception as e:
-            print("err cmc",e)
+            print("err cmc", e)
             value_mc = "```\nCMC formating Error```"
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",

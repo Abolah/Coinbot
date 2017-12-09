@@ -1,13 +1,10 @@
-import discord
 import datetime
-import aiohttp
-import async_timeout
-import asyncio
 from random import randint
 from aylienapiclient import textapi
 
-class Sumarize():
-    def __init__(self, auth,url,limit):
+
+class Sumarize:
+    def __init__(self, auth, url, limit):
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
         self.time = datetime.datetime.now().timestamp()
@@ -32,10 +29,10 @@ class Sumarize():
             value_sum = "```" + value_sum + "```"
             value_sent += "\n```css\nAnalyse of the present link in the tweet :\nPolarity : " + str(
                 sentiment['polarity_confidence']) + " [" + str(sentiment['polarity']) \
-                     + "]\nSubjectivité : " + str(sentiment['subjectivity_confidence']) + " [" + str(
+                          + "]\nSubjectivité : " + str(sentiment['subjectivity_confidence']) + " [" + str(
                 sentiment['subjectivity']) + "]```"
         except Exception as e:
             value_sum = value_sent = "```Your link is apparently not valid```"
             print(e)
-        list_v.append([value_sum,value_sent])
+        list_v.append([value_sum, value_sent])
         return list_v

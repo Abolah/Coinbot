@@ -5,17 +5,20 @@ import aiohttp
 import async_timeout
 import asyncio
 
-class Name():
-    def __init__(self,auth,arg):
+
+class Name:
+    def __init__(self, auth, arg):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
         self.coin = arg
         return
-    async def query_name(self):
+
+    @staticmethod
+    async def query_name():
         url = "https://api.coinmarketcap.com/v1/ticker/?limit=1000"
-        data =""
+        data = ""
         async with aiohttp.ClientSession() as session:
             try:
                 async with async_timeout.timeout(5):
@@ -26,7 +29,7 @@ class Name():
                 data = e
         return data
 
-    async def affichage(self,data):
+    async def affichage(self, data):
         idcoin = "NONE"
         long_name = "NONE"
         price_usd = "0"
@@ -36,7 +39,6 @@ class Name():
                 if i["symbol"] == self.coin.upper():
                     long_name = i["name"]
                     idcoin = i["id"]
-                    rank = i["rank"]
                     price_btc = i["price_btc"]
                     price_usd = i["price_usd"]
                     break
@@ -49,7 +51,7 @@ class Name():
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/" + idcoin + ".png")
         embed.set_footer(text="Request achieved on")
         embed.add_field(name=":star2: Request for the name of " + self.coin.upper(),
-                        value="Here are the information that I could retrieve " +self.auth,
+                        value="Here are the information that I could retrieve " + self.auth,
                         inline=False)
         embed.add_field(name=":tada: Information about the coin " + self.coin.upper(), value=data,
                         inline=True)

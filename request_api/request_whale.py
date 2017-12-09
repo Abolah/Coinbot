@@ -5,8 +5,9 @@ import discord
 import datetime
 from random import randint
 
-class whale():
-    def __init__(self,arg, auth):
+
+class whale:
+    def __init__(self, arg, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         self.coin = arg
@@ -20,7 +21,7 @@ class whale():
         if self.coin.upper() == "USD":
             self.key_topia = "BTC_USDT"
             self.key_polo = "USDXBT"
-            self.key_finex =  "btcusd"
+            self.key_finex = "btcusd"
             self.key_rex = "USDT-BTC"
             self.key_kraken = "XBTUSD"
         else:
@@ -33,12 +34,12 @@ class whale():
 
     async def fetch(self):
         list_json = []
-        list_urls = ["https://bittrex.com/api/v1.1/public/getorderbook?market=" + self.key_rex +"&type=both",
-                     "https://api.bitfinex.com/v1/book/"+self.key_finex+"?limit_bids=125&limit_asks=125",
+        list_urls = ["https://bittrex.com/api/v1.1/public/getorderbook?market=" + self.key_rex + "&type=both",
+                     "https://api.bitfinex.com/v1/book/" + self.key_finex + "?limit_bids=125&limit_asks=125",
                      "https://poloniex.com/public?command=returnOrderBook&currencyPair=" + self.key_polo + "&depth=150",
                      "https://www.cryptopia.co.nz/api/GetMarketOrders/" + self.key_topia,
                      "https://api.kraken.com/0/public/Depth?pair=" + self.key_kraken + "&count=250"]
-        list_name = ["Bittrex","Bitfinex","Poloniex","Cryptopia","Kraken"]
+        list_name = ["Bittrex", "Bitfinex", "Poloniex", "Cryptopia", "Kraken"]
         for url, name in zip(list_urls, list_name):
             try:
                 async with aiohttp.ClientSession() as session:
@@ -55,10 +56,9 @@ class whale():
                 return 0
         return list_json
 
-
-
-
-    async def sort_kraken(self,book_kraken, seuil):
+    @staticmethod
+    async def sort_kraken(book_kraken, seuil):
+        global key_k
         book_out = []
         print(book_kraken)
         for key in book_kraken["result"]:
@@ -66,24 +66,26 @@ class whale():
             break
         for i in book_kraken["result"][key_k]["asks"]:
             if float(i[1]) * float(i[0]) >= seuil:
-                book_out.append(["Kraken","Sell",float(i[1]) * float(i[0]),float(i[0])])
+                book_out.append(["Kraken", "Sell", float(i[1]) * float(i[0]), float(i[0])])
         for i in book_kraken["result"][key_k]["bids"]:
             if float(i[1]) * float(i[0]) >= seuil:
                 book_out.append(["Kraken", "Buy", float(i[1]) * float(i[0]), float(i[0])])
         return book_out
 
-
-    async def sort_all(self,list_json,seuil):
+    @staticmethod
+    async def sort_all(list_json, seuil):
         book_sorted = []
         for exchange in list_json:
             if exchange[1] == "Bitfinex":
                 try:
                     for i in exchange[0]["bids"]:
                         if float(i["amount"]) * float(i["price"]) >= float(seuil):
-                            book_sorted.append(["Bitfinex", "Buy", float(i["amount"]) * float(i["price"]), float(i["price"])])
+                            book_sorted.append(
+                                ["Bitfinex", "Buy", float(i["amount"]) * float(i["price"]), float(i["price"])])
                     for i in exchange[0]["asks"]:
                         if float(i["amount"]) * float(i["price"]) >= float(seuil):
-                            book_sorted.append(["Bitfinex", "Sell", float(i["amount"]) * float(i["price"]), float(i["price"])])
+                            book_sorted.append(
+                                ["Bitfinex", "Sell", float(i["amount"]) * float(i["price"]), float(i["price"])])
                 except Exception as e:
                     print(e)
             if exchange[1] == "Poloniex":
@@ -121,12 +123,12 @@ class whale():
             if exchange[1] == "Kraken":
                 try:
                     for key in exchange[0]["result"]:
-                        key_k = key
+                        key_key = key
                         break
-                    for i in exchange[0]["result"][key_k]["asks"]:
+                    for i in exchange[0]["result"][key_key]["asks"]:
                         if float(i[1]) * float(i[0]) >= seuil:
                             book_sorted.append(["Kraken", "Sell", float(i[1]) * float(i[0]), float(i[0])])
-                    for i in exchange[0]["result"][key_k]["bids"]:
+                    for i in exchange[0]["result"][key_key]["bids"]:
                         if float(i[1]) * float(i[0]) >= seuil:
                             book_sorted.append(["Kraken", "Buy", float(i[1]) * float(i[0]), float(i[0])])
                 except Exception as e:
@@ -134,7 +136,7 @@ class whale():
         final_book = sorted(book_sorted, key=lambda x: x[3], reverse=True)
         return final_book
 
-    async def affichage(self,book):
+    async def affichage(self, book):
         limit = 10
         sell = 0
         buy = 0
@@ -153,7 +155,8 @@ class whale():
         try:
             for i in book:
                 if i[1] == "Buy" and buy < limit:
-                    whale_buy +=  "[" + str(i[0]) + "] "+ "{0:.3f}".format(float(i[2])) + symb + " [Price] " + "{0:.8f}".format(float(i[3])) + symb + "\n"
+                    whale_buy += "[" + str(i[0]) + "] " + "{0:.3f}".format(
+                        float(i[2])) + symb + " [Price] " + "{0:.8f}".format(float(i[3])) + symb + "\n"
                     buy += 1
                 if buy == limit:
                     break
@@ -164,7 +167,8 @@ class whale():
         try:
             for i in reversed(book):
                 if i[1] == "Sell" and sell < limit:
-                    whale_sell += "[" + str(i[0]) + "] "+ "{0:.3f}".format(float(i[2])) + symb + " [Price] " + "{0:.8f}".format(float(i[3])) + symb + "\n"
+                    whale_sell += "[" + str(i[0]) + "] " + "{0:.3f}".format(
+                        float(i[2])) + symb + " [Price] " + "{0:.8f}".format(float(i[3])) + symb + "\n"
                     sell += 1
                 if sell == limit:
                     break
@@ -174,9 +178,9 @@ class whale():
         embed.add_field(name=":whale: Informations about the selling whales", value=whale_sell, inline=False)
         return embed
 
-    async def query_whale(self,limit):
+    async def query_whale(self, limit):
         print(limit)
         list_book = await self.fetch()
-        list_sorted = await self.sort_all(list_book,limit)
+        list_sorted = await self.sort_all(list_book, limit)
         embed = await self.affichage(list_sorted)
         return embed

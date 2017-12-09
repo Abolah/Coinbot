@@ -5,8 +5,10 @@ import datetime
 import discord
 from random import randint
 import time
-class Bitfinex():
-    def __init__(self,arg,auth):
+
+
+class Bitfinex:
+    def __init__(self, arg, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         self.coin = arg
@@ -24,10 +26,10 @@ class Bitfinex():
     async def general_cmc(self):
         try:
             async with aiohttp.ClientSession() as session:
-                    async with async_timeout.timeout(5):
-                        async with session.get("https://api.coinmarketcap.com/v1/ticker/?limit=1000") as resp:
-                            if resp.status == 200:
-                                self.generalcmc = await resp.json()
+                async with async_timeout.timeout(5):
+                    async with session.get("https://api.coinmarketcap.com/v1/ticker/?limit=1000") as resp:
+                        if resp.status == 200:
+                            self.generalcmc = await resp.json()
         except asyncio.TimeoutError as e:
             self.generalcmc = "Timeout Error"
             print(e)
@@ -47,39 +49,39 @@ class Bitfinex():
 
     async def fetch(self):
         list_json = []
-        list_name = ["Bitfinex","Coinmarketcap"]
-        list_urls = ["https://api.bitfinex.com/v1/pubticker/" + self.pair ,"https://api.coinmarketcap.com/v1/ticker/" + self.idcoin + "/?convert=EUR"]
-        for i,name in zip(list_urls,list_name):
+        list_name = ["Bitfinex", "Coinmarketcap"]
+        list_urls = ["https://api.bitfinex.com/v1/pubticker/" + self.pair,
+                     "https://api.coinmarketcap.com/v1/ticker/" + self.idcoin + "/?convert=EUR"]
+        for i, name in zip(list_urls, list_name):
             try:
                 async with aiohttp.ClientSession() as session:
-                        async with async_timeout.timeout(5):
-                            async with session.get(i) as resp:
-                                if resp.status == 200:
-                                    time.sleep(0.01)
-                                    list_json.append([await resp.json(),name])
+                    async with async_timeout.timeout(5):
+                        async with session.get(i) as resp:
+                            if resp.status == 200:
+                                time.sleep(0.01)
+                                list_json.append([await resp.json(), name])
             except asyncio.TimeoutError as e:
                 print(e)
-                list_json.append([e,name])
-                return  list_json
+                list_json.append([e, name])
+                return list_json
             except Exception as e:
                 print(e)
                 return 0
         return list_json
 
-
-    def affichage(self,list_json):
+    def affichage(self, list_json):
         finex_json = {}
         cmc_json = {}
         for i in list_json:
             if i[1] == "Bitfinex":
                 finex_json = i[0]
-            if i [1] == "Coinmarketcap":
+            if i[1] == "Coinmarketcap":
                 cmc_json = i[0]
         try:
-            name_logo = self.long_name.replace(" ","-").lower()
-            url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/"+ name_logo + ".png"
+            name_logo = self.long_name.replace(" ", "-").lower()
+            url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/" + name_logo + ".png"
         except Exception as e:
-            print("err url",e)
+            print("err url", e)
             url_logo = ""
 
         try:
@@ -99,15 +101,15 @@ class Bitfinex():
                 value_finex = "```css\n" + pair + volume + last + bid + ask + "```"
 
         except Exception as e:
-            print("err main_finex",e)
+            print("err main_finex", e)
             value_finex = "```Erreur API Bitfinex```"
 
         try:
             high = "High : " + "{0:.8f}".format(float(finex_json["low"])) + "\n"
             low = "Low : " + "{0:.8f}".format(float(finex_json["high"])) + "\n"
-            value_annex = "```css\n" + low + high +  "```"
+            value_annex = "```css\n" + low + high + "```"
         except Exception as e:
-            print("err annex_finex",e)
+            print("err annex_finex", e)
             value_annex = "```Error API Bitfinex```"
 
         try:
@@ -116,14 +118,16 @@ class Bitfinex():
             except Exception as e:
                 marketcap = "MC : Unknown\n"
                 print("mc err", e)
-            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(float(cmc_json[0]["price_eur"])) + "€\n"
+            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(
+                float(cmc_json[0]["price_eur"])) + "€\n"
             rank = "Rank : [Rank " + str(cmc_json[0]["rank"]) + "]\n"
             change_1 = "1h Swing : " + str(cmc_json[0]["percent_change_1h"]) + "%\n"
             change_24 = "24h Swing : " + str(cmc_json[0]["percent_change_24h"]) + "%\n"
             change_7 = "7 days Swing : " + str(cmc_json[0]["percent_change_7d"]) + "%\n"
-            value_mc = "```css\n" + str(rank) + str(marketcap) + str(price) + str(change_1) + str(change_24) + str(change_7) + "```"
+            value_mc = "```css\n" + str(rank) + str(marketcap) + str(price) + str(change_1) + str(change_24) + str(
+                change_7) + "```"
         except Exception as e:
-            print("err cmc",e)
+            print("err cmc", e)
             value_mc = "```\nErreur formatage CMC```"
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",

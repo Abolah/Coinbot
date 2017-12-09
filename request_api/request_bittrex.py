@@ -6,8 +6,9 @@ import asyncio
 from random import randint
 import time
 
+
 class bittrex:
-    def __init__(self,arg,auth):
+    def __init__(self, arg, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         self.coin = arg.upper()
@@ -37,7 +38,7 @@ class bittrex:
                             self.generalcmc = await resp.json()
         except asyncio.TimeoutError as e:
             self.generalcmc = "Timeout Error"
-            print("err",e)
+            print("err", e)
         except Exception as e:
             print(e)
         try:
@@ -53,7 +54,7 @@ class bittrex:
     async def fetch(self):
         list_json = []
         list_name = ["Bittrex", "Coinmarketcap"]
-        list_urls = ["https://bittrex.com/api/v1.1/public/getmarketsummary?market=" + self.pair ,
+        list_urls = ["https://bittrex.com/api/v1.1/public/getmarketsummary?market=" + self.pair,
                      "https://api.coinmarketcap.com/v1/ticker/" + self.idcoin + "/?convert=EUR"]
         for i, name in zip(list_urls, list_name):
             try:
@@ -72,7 +73,7 @@ class bittrex:
                 return 0
         return list_json
 
-    def affichage(self,list_json):
+    def affichage(self, list_json):
         rex_json = {}
         cmc_json = {}
         for i in list_json:
@@ -82,14 +83,14 @@ class bittrex:
                 cmc_json = i[0]
         # Try/Except sur l'API Logo CMC
         try:
-        #A changer ici
-            name_logo = self.long_name.replace(" ","-").lower()
-            url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/"+ name_logo + ".png"
+            # A changer ici
+            name_logo = self.long_name.replace(" ", "-").lower()
+            url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/" + name_logo + ".png"
         except Exception as e:
-            print("err url",e)
+            print("err url", e)
             url_logo = ""
 
-        #Try/Except sur l'API Bittrex
+        # Try/Except sur l'API Bittrex
         try:
             if self.coin == "BTC":
                 name = "Pair :" + str(rex_json["result"][0]["MarketName"]) + "\n"
@@ -114,7 +115,7 @@ class bittrex:
                 value_rex = "```css\n" + name + volume + last + bid + ask + "```"
                 value_annex = "```css\n" + low + high + prev + "```"
         except Exception as e:
-            print("err main_rex",e)
+            print("err main_rex", e)
             value_rex = "```\nError API Bittrex```"
             value_annex = "```Markdown\nError API Bittrex```"
 
@@ -125,27 +126,28 @@ class bittrex:
             except Exception as e:
                 marketcap = "MC : Unknown\n"
                 print("mc err", e)
-            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(float(cmc_json[0]["price_eur"])) + "€\n"
+            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(
+                float(cmc_json[0]["price_eur"])) + "€\n"
             rank = "Rank : [Rank " + str(cmc_json[0]["rank"]) + "]\n"
             change_1 = "1h Swing : " + str(cmc_json[0]["percent_change_1h"]) + "%\n"
             change_24 = "24h Swing: " + str(cmc_json[0]["percent_change_24h"]) + "%\n"
             change_7 = "7 days Swing : " + str(cmc_json[0]["percent_change_7d"]) + "%\n"
-            value_mc = "```css\n" + str(rank) + str(marketcap) + str(price) + str(change_1) + str(change_24) + str(change_7) + "```"
+            value_mc = "```css\n" + str(rank) + str(marketcap) + str(price) + str(change_1) + str(change_24) + str(
+                change_7) + "```"
         except Exception as e:
-            print("err cmc",e)
+            print("err cmc", e)
             value_mc = "```\nErreur formatage CMC```"
-
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url=url_logo)
         embed.set_footer(text="Request achieved on")
         embed.add_field(name=":star2: Request about " + str(self.long_name),
-                        value="Here are the informations I could retrieve " +self.auth,
+                        value="Here are the informations I could retrieve " + self.auth,
                         inline=False)
         embed.add_field(name=":dragon: Bittrex Information", value=value_rex, inline=True)
         embed.add_field(name=":medal: CoinMarketCap Information", value=value_mc, inline=True)
-        embed.add_field(name=":information_source: Additional Informations", value = value_annex)
+        embed.add_field(name=":information_source: Additional Informations", value=value_annex)
 
         return embed
 

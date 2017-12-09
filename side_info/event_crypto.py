@@ -8,15 +8,18 @@ import asyncio
 import re
 from random import randint
 
-class Event_Crypto():
-    def __init__(self,auth):
+
+class Event_Crypto:
+    def __init__(self, auth):
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         return
-    async def get_html(self):
-        data_http=""
+
+    @staticmethod
+    async def get_html():
+        data_http = ""
         generalevent = "http://www.coincalendar.info/"
         async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
             try:
@@ -26,26 +29,28 @@ class Event_Crypto():
                             data_http = await resp.text()
             except asyncio.TimeoutError as e:
                 print(e)
-                data_http= -1
+                data_http = -1
         return data_http
 
-    def stripwhite(self,text):
+    @staticmethod
+    def stripwhite(text):
         lst = text.split('"')
         for i, item in enumerate(lst):
             if not i % 2:
                 lst[i] = re.sub("\s+", "", item)
         return '"'.join(lst)
 
-    def parsing(self,data):
+    def parsing(self, data):
         list_event = []
         if data == -1:
             return list_event.append(-1)
 
-        soup = BeautifulSoup(data,"html.parser")
-        for i in soup.find_all('script',attrs={"type":u"application/ld+json"}):
-            data = str(i).replace('<script type="application/ld+json">',"						  	").replace("</script>","")
+        soup = BeautifulSoup(data, "html.parser")
+        for i in soup.find_all('script', attrs={"type": u"application/ld+json"}):
+            data = str(i).replace('<script type="application/ld+json">', "						  	").replace(
+                "</script>", "")
             try:
-                data = json.loads(self.stripwhite(data).replace(",}","}").replace("\n","").replace("\r",""))
+                data = json.loads(self.stripwhite(data).replace(",}", "}").replace("\n", "").replace("\r", ""))
                 if data not in list_event:
                     list_event.append(data)
             except json.decoder.JSONDecodeError:
@@ -58,11 +63,12 @@ class Event_Crypto():
 
         return list_event
 
-    def affichage_event(self,list_event,limit):
+    def affichage_event(self, list_event, limit):
         event_value = ""
         list_event_final = []
         date_now = datetime.datetime.now()
-        date_1 = datetime.datetime.strptime(str(str(date_now.year) + "-" + str(date_now.month) + "-" + str(date_now.day)), "%Y-%m-%d")
+        date_1 = datetime.datetime.strptime(
+            str(str(date_now.year) + "-" + str(date_now.month) + "-" + str(date_now.day)), "%Y-%m-%d")
         limit = limit * 10
         try:
             for i in list_event:
@@ -72,16 +78,16 @@ class Event_Crypto():
                     list_event_final.append(i)
 
             if limit < len(list_event_final):
-                for i in range(limit,len(list_event_final)):
+                for i in range(limit, len(list_event_final)):
                     if i <= limit + 10:
-                            date_event = str(list_event_final[i]["startDate"]).split("T")
-                            event_value += "[" + date_event[0] + "] " + list_event_final[i]["name"] + "\n"
+                        date_event = str(list_event_final[i]["startDate"]).split("T")
+                        event_value += "[" + date_event[0] + "] " + list_event_final[i]["name"] + "\n"
                     else:
                         break
             else:
                 event_value = "No more event to come sorry"
         except:
-            event_value = "Coincalendar seems not reachable"
+            event_value = "CoinCalendar seems to be unreachable"
 
         event_value = "```css\n" + event_value + "```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
@@ -89,14 +95,14 @@ class Event_Crypto():
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
         embed.set_footer(text="Request achieved on")
         embed.add_field(name=":star2: Request about the Cryptomarket's events ",
-                        value="Here are the information that I could retrieve " +self.auth,
+                        value="Here are the information that I could retrieve " + self.auth,
                         inline=False)
         embed.add_field(name=":floppy_disk: Information about the incoming events", value=event_value,
                         inline=True)
         return embed
 
-    async def get_event(self,limit):
+    async def get_event(self, limit):
         data = await self.get_html()
         list_event = self.parsing(data)
-        embed = self.affichage_event(list_event,limit)
+        embed = self.affichage_event(list_event, limit)
         return embed

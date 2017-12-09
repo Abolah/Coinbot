@@ -2,8 +2,9 @@ from random import randint
 import datetime
 import discord
 
-class Info():
-    def __init__(self,auth):
+
+class Info:
+    def __init__(self, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         self.auth = str(auth).split("#")
@@ -18,7 +19,7 @@ class Info():
         topia = "!topia [coin(s)] : Request on Cryptopia\n"
         binance = "!binance [coin(s)] : Request on Binance\n\n"
         btc = "!btc : Request on BTC price\n"
-        top= "!top : Request about the best/worst tendancies\n"
+        top = "!top : Request about the best/worst tendancies\n"
         cmc = "!cmc : Request on the MarketCap\n\n"
         order = "!order [price][win][lose] : To estimate your possible wins/losses\n"
         conv = "!conv [coin][nombre_coin] : To know the coin's price in BTC/USD\n"
@@ -31,8 +32,7 @@ class Info():
         event = "!event {If following page : 1,2,3,etc} : Display the next events\n\n"
         sum = "!sum [url]{Number of sentences to return} : shorten an article on a website\n"
 
-
-        data_info = "```css\n" + all + rex + finex + polo + topia + binance + btc + top + cmc + order + conv + name + stats + whale +  event + list + info + money + sum +  "```"
+        data_info = "```css\n" + all + rex + finex + polo + topia + binance + btc + top + cmc + order + conv + name + stats + whale + event + list + info + money + sum + "```"
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))

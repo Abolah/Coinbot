@@ -5,13 +5,15 @@ import asyncio
 import async_timeout
 from random import randint
 
+
 class Coinmarketcap:
 
     def __init__(self):
         self.time = datetime.datetime.now().timestamp()
-        self.color = randint(0,0xffffff)
+        self.color = randint(0, 0xffffff)
 
-    async def fetch(self):
+    @staticmethod
+    async def fetch():
         list_json = []
         list_name = ["Bitcoin", "Coinmarketcap"]
         list_urls = ["https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=USD",
@@ -32,12 +34,12 @@ class Coinmarketcap:
                 return 0
         return list_json
 
-    def format_affichage(self,json_data,json_data_btc,author):
+    def format_affichage(self, json_data, json_data_btc, author):
 
         url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png"
         try:
             author = str(author).split("#")
-        except :
+        except:
             author = "khey"
         try:
             marketcap = "Market Cap = " + "{:,}".format(json_data["total_market_cap_usd"]) + "$\n"
@@ -69,10 +71,10 @@ class Coinmarketcap:
                         inline=False)
         embed.add_field(name=":trophy: CoinMarketCap Informations", value=value)
         embed.add_field(name=":medal: Bitcoin Informations", value=value_btc, inline=True)
-        embed.add_field(name=":information_source: Additional Informations", value=value_annex,inline=True)
+        embed.add_field(name=":information_source: Additional Informations", value=value_annex, inline=True)
         return embed
 
-    async def cmc_query(self,author):
+    async def cmc_query(self, author):
         json_data = ""
         json_data_btc = ""
         result = await self.fetch()
@@ -80,5 +82,5 @@ class Coinmarketcap:
             json_data_btc = result[0][0]
         if result[1][1] == "Coinmarketcap":
             json_data = result[1][0]
-        embed = self.format_affichage(json_data,json_data_btc,author)
+        embed = self.format_affichage(json_data, json_data_btc, author)
         return embed

@@ -5,7 +5,9 @@ import async_timeout
 import asyncio
 import discord
 import time
-class all_currencies():
+
+
+class all_currencies:
     def __init__(self, arg, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
@@ -35,11 +37,13 @@ class all_currencies():
 
     async def fetch(self):
         list_json = []
-        list_name = ["Bitfinex", "Bittrex","Cryptopia","Poloniex","Binance","Coinmarketcap"]
+        list_name = ["Bitfinex", "Bittrex", "Cryptopia", "Poloniex", "Binance", "Coinmarketcap"]
         list_urls = ["https://api.bitfinex.com/v1/pubticker/" + self.pair_finex,
-                     "https://bittrex.com/api/v1.1/public/getmarketsummary?market=" + self.pair_rex,"https://www.cryptopia.co.nz/api/GetMarket/"+ self.pair_topia,
-                     "https://poloniex.com/public?command=returnTicker","https://www.binance.com/api/v1/ticker/24hr?symbol=" + self.pair_binance,
-                     "https://api.coinmarketcap.com/v1/ticker/" + self.idcoin +"/?convert=EUR"]
+                     "https://bittrex.com/api/v1.1/public/getmarketsummary?market=" + self.pair_rex,
+                     "https://www.cryptopia.co.nz/api/GetMarket/" + self.pair_topia,
+                     "https://poloniex.com/public?command=returnTicker",
+                     "https://www.binance.com/api/v1/ticker/24hr?symbol=" + self.pair_binance,
+                     "https://api.coinmarketcap.com/v1/ticker/" + self.idcoin + "/?convert=EUR"]
         for i, name in zip(list_urls, list_name):
             try:
                 async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
@@ -82,7 +86,7 @@ class all_currencies():
             return -1
         return 0
 
-    def affichage(self,list_json):
+    def affichage(self, list_json):
         finex_json = polo_json = bin_json = topia_json = rex_json = cmc_json = 0
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
@@ -93,38 +97,40 @@ class all_currencies():
         for i in list_json:
             if i[1] == "Bitfinex":
                 finex_json = i[0]
-            if i [1] == "Bittrex":
+            if i[1] == "Bittrex":
                 rex_json = i[0]
             if i[1] == "Cryptopia":
                 topia_json = i[0]
-            if i [1] == "Poloniex":
+            if i[1] == "Poloniex":
                 polo_json = i[0]
             if i[1] == "Binance":
                 bin_json = i[0]
-            if i [1] == "Coinmarketcap":
+            if i[1] == "Coinmarketcap":
                 cmc_json = i[0]
 
         try:
-            name_logo = self.long_name.replace(" ","-").lower()
-            url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/"+ name_logo + ".png"
+            name_logo = self.long_name.replace(" ", "-").lower()
+            url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/" + name_logo + ".png"
         except Exception as e:
-            print("err url",e)
+            print("err url", e)
             url_logo = ""
         try:
             try:
                 marketcap = "MarketCap : " + "{:,}".format(float(cmc_json[0]["market_cap_usd"])) + "$\n"
             except Exception as e:
                 marketcap = "MarketCap : Unknown\n"
-                print("mc err",e)
-            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(float(cmc_json[0]["price_eur"])) + "€\n"
+                print("mc err", e)
+            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(
+                float(cmc_json[0]["price_eur"])) + "€\n"
             rank = "Rank : [Rank " + str(cmc_json[0]["rank"]) + "]\n"
             change_1 = "1h Swing : " + str(cmc_json[0]["percent_change_1h"]) + "%\n"
             change_24 = "24h Swing : " + str(cmc_json[0]["percent_change_24h"]) + "%\n"
             change_7 = "Variation 7 jours : " + str(cmc_json[0]["percent_change_7d"]) + "%\n"
-            value_mc = "```css\n" + str(rank) + str(marketcap) + str(price) + str(change_1) + str(change_24) + str(change_7) + "```"
+            value_mc = "```css\n" + str(rank) + str(marketcap) + str(price) + str(change_1) + str(change_24) + str(
+                change_7) + "```"
             embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=False)
         except Exception as e:
-            print("err cmc",e)
+            print("err cmc", e)
 
         try:
             if self.coin.upper() == "BTC":
@@ -141,7 +147,7 @@ class all_currencies():
                 value_finex = "```css\n" + volume + last + bid + ask + "```"
             embed.add_field(name=":fleur_de_lis: Bitfinex Informations", value=value_finex, inline=True)
         except Exception as e:
-            print("err main_finex",e)
+            print("err main_finex", e)
 
         try:
             if self.coin.upper() == "BTC":
@@ -158,7 +164,7 @@ class all_currencies():
                 value_rex = "```css\n" + volume + last + bid + ask + "```"
             embed.add_field(name=":dragon: Bittrex Informations", value=value_rex, inline=True)
         except Exception as e:
-            print("err main_rex",e)
+            print("err main_rex", e)
 
         try:
             if self.coin.upper() == "BTC":
@@ -175,14 +181,14 @@ class all_currencies():
                 value_topia = "```css\n" + volume + last + bid + ask + "```"
             embed.add_field(name=":space_invader: Cryptopia Informations", value=value_topia, inline=True)
         except Exception as e:
-            print("err main_cryptopia",e)
+            print("err main_cryptopia", e)
 
         try:
             if self.coin.upper() == "BTC":
                 last = "Last : " + "{0:.2f}".format(float(polo_json[self.key]["last"])) + "\n"
                 bid = "Bid : " + "{0:.2f}".format(float(polo_json[self.key]["highestBid"])) + "\n"
                 ask = "Ask : " + "{0:.2f}".format(float(polo_json[self.key]["lowestAsk"])) + "\n"
-                volume = "Volume : " +  "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + "\n"
                 value_polo = "```css\n" + volume + last + bid + ask + "```"
             else:
                 last = "Last : " + "{0:.8f}".format(float(polo_json[self.key]["last"])) + "\n"
@@ -192,7 +198,7 @@ class all_currencies():
                 value_polo = "```css\n" + volume + last + bid + ask + "```"
             embed.add_field(name=":crystal_ball: Poloniex Informations", value=value_polo, inline=True)
         except Exception as e:
-            print("err main_polo",e)
+            print("err main_polo", e)
 
         try:
             if self.coin.upper() == "BTC":
@@ -215,6 +221,7 @@ class all_currencies():
         embed.set_footer(text="Request achieved on")
 
         return embed
+
     async def query_all(self):
         await self.general_cmc()
         data = await self.fetch()
