@@ -7,7 +7,6 @@ from random import randint
 import time
 
 class bitcoin():
-
     def __init__(self):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
@@ -102,21 +101,12 @@ class bitcoin():
                 except Exception as e:
                     print(e)
 
-
-
-
         value_other = "```css\n" + value_other + " ```"
         value = "```css\n" + value + " ```"
-        embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
-                              timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com", timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
         embed.set_footer(text="Request achieved on")
-        embed.add_field(name=":star2: Request about Bitcoin",
-                        value="Here are the informations I could retrieve " + str(author[0]),
-                        inline=False)
+        embed.add_field(name=":star2: Request about Bitcoin", value="Here are the informations I could retrieve " + str(author[0]), inline=False)
         embed.add_field(name=":trophy: Informations about Bitcoin", value=value)
         embed.add_field(name=" :flag_mp: Informations about the other Exchanges", value= value_other)
         return embed
-
-
-

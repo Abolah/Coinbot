@@ -13,9 +13,9 @@ class Donate():
         value_ETH = "```css\n Ethereum : [abowallet.eth]```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com")
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
-        embed.add_field(name=":slot_machine: Tu veux me donner des sous ?", value="Envoie moi des BTC ou des ETH a ces adresses !", inline=False)
-        embed.add_field(name=":dvd: Adresses de donation BTC\n", value=value_test, inline=True)
-        embed.add_field(name=":dvd: Adresses de donation ETH\n", value=value_ETH, inline=True)
+        embed.add_field(name=":slot_machine: Wanna give me some money for my work ?", value="You can send me BTC or ETH to this addresses", inline=False)
+        embed.add_field(name=":dvd: BTC donation Address\n", value=value_test, inline=True)
+        embed.add_field(name=":dvd: ETH donation Adsress\n", value=value_ETH, inline=True)
         return embed
 
 

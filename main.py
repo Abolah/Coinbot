@@ -41,7 +41,7 @@ async def all(ctx,*coin):
             else:
                 await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
-        print("Global error on ?all\n",e)
+        print("Global Error on ?all\n",e)
 
 @client.command(pass_context=True)
 async def rex(ctx,*coin):
@@ -64,7 +64,7 @@ async def rex(ctx,*coin):
             else:
                 await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
-        print("Global error on ?rex\n",e)
+        print("Global Error on ?rex\n",e)
 
 @client.command(pass_context=True)
 async def polo(ctx,*coin):
@@ -87,7 +87,7 @@ async def polo(ctx,*coin):
             else:
                 await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
-        print("Erreur globale sur ?polo\n",e)
+        print("Global Error on ?polo\n",e)
 
 @client.command(pass_context=True)
 async def topia(ctx,*coin):
@@ -110,7 +110,7 @@ async def topia(ctx,*coin):
             else:
                 await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
-        print("Erreur globale sur ?topia\n",e)
+        print("Global Error on ?topia\n",e)
 
 @client.command(pass_context=True)
 async def finex(ctx,*coin):
@@ -133,7 +133,7 @@ async def finex(ctx,*coin):
             else:
                 await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
-        print("Erreur globale sur ?finex\n",e)
+        print("Global Error on ?finex\n",e)
 
 @client.command(pass_context=True)
 async def binance(ctx,*coin):
@@ -156,7 +156,7 @@ async def binance(ctx,*coin):
             else:
                 await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
-        print("Erreur globale sur ?binance\n",e)
+        print("Global Error on ?binance\n",e)
 
 @client.command(pass_context=True)
 async def whale(ctx,arg,limit=4):
@@ -179,7 +179,7 @@ async def whale(ctx,arg,limit=4):
         else:
             await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
-        print("Erreur globale sur ?whale\n",e)
+        print("Global Error on ?whale\n",e)
 
 @client.command(pass_context=True)
 async def cmc(ctx):
@@ -200,7 +200,7 @@ async def cmc(ctx):
         else:
             await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
-        print("Erreur globale sur ?cmc\n",e)
+        print("Global Error on ?cmc\n",e)
 
 @client.command(pass_context=True)
 async def top(ctx):
@@ -221,7 +221,7 @@ async def top(ctx):
         else:
             await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
-        print("Erreur globale sur ?top\n",e)
+        print("Global Error on ?top\n",e)
 
 @client.command(pass_context=True)
 async def db(ctx,arg,rank=None,coin=None,*comment):
@@ -241,7 +241,7 @@ async def db(ctx,arg,rank=None,coin=None,*comment):
         embed = db.db_query(arg,rank,coin,comment)
         await client.send_message(ctx.message.channel,ctx.message.author.mention,embed=embed)
     except Exception as e:
-        print("Erreur globale sur ?db\n",e)
+        print("Global Error on ?db\n",e)
 
 @client.command(pass_context=True)
 async def btc(ctx):
@@ -278,12 +278,12 @@ async def stats(ctx,arg=None):
         embed = db.get_affichage(data,arg)
         await client.send_message(ctx.message.channel,ctx.message.author.mention,embed=embed)
     except Exception as e:
-        print("Erreur globale sur ?db\n",e)
+        print("Global Error on ?db\n",e)
 
 @client.command(pass_context=True)
 async def order(ctx,price,profit,loss):
     """
-    To simulate an order on Bittrew with a TP and SL || ex : ?order 0.005 5 5
+    To simulate an order on Bittrex with a TP and SL || ex : ?order 0.005 5 5
     :param ctx: Context i.e metadata of the message
     :param price: The price in satoshi or bitcoin
     :param profit: The % of profit needed
@@ -298,7 +298,7 @@ async def order(ctx,price,profit,loss):
         embed = the_order.order(price,profit,loss)
         await client.send_message(ctx.message.channel,ctx.message.author.mention,embed=embed)
     except Exception as e:
-        print("Erreur globale sur ?order\n",e)
+        print("Global Error on ?order\n",e)
 
 @client.command(pass_context=True)
 async def conv(ctx,coin,qty):
@@ -318,7 +318,7 @@ async def conv(ctx,coin,qty):
         embed = conv.affichage(data,coin,qty)
         await client.send_message(ctx.message.channel,ctx.message.author.mention, embed=embed)
     except Exception as e:
-        print("Erreur globale sur ?conv\n",e)
+        print("Global Error on ?conv\n",e)
 
 @client.command(pass_context=True)
 async def name(ctx,coin):
@@ -337,10 +337,10 @@ async def name(ctx,coin):
         embed = await coin_name.affichage(data)
         await client.send_message(ctx.message.channel,ctx.message.author.mention, embed=embed)
     except Exception as e:
-        print("Erreur globale sur ?name\n",e)
+        print("Global Error on ?name\n",e)
 
 @client.command(pass_context=True)
-async def info(ctx):
+async def infos(ctx):
     """
     The help command in embed version || ex : ?help
     :param ctx: Context i.e metadata of the message
@@ -354,7 +354,7 @@ async def info(ctx):
         embed = info.info()
         await client.send_message(ctx.message.channel,ctx.message.author.mention, embed=embed)
     except Exception as e:
-        print("Erreur globale sur ?info\n",e)
+        print("Global Error on ?info\n",e)
 
 @client.command(pass_context=True)
 async def event(ctx,limit=0):
@@ -372,15 +372,15 @@ async def event(ctx,limit=0):
         embed = await event.get_event(limit)
         await client.send_message(ctx.message.channel,ctx.message.author.mention, embed=embed)
     except Exception as e:
-        print("Erreur globale sur ?event\n",e)
+        print("Global Error on ?event\n",e)
 
 @client.command(pass_context=True)
-async def donate(ctx,limit=0):
+async def money(ctx,limit=0):
     await client.send_typing(ctx.message.channel)
     dona = side_info.donate.Donate()
     embed = dona.affichage()
     await client.send_message(ctx.message.channel,embed=embed)
-    print("Erreur globale sur ?donate\n",e)
+    print("Global error on ?donate\n",e)
 
 @client.command(pass_context=True)
 async def sum(ctx,url=None,limit=4):
@@ -416,6 +416,8 @@ async def twitter(ctx,param):
             client.loop.create_task(background_twitter(chan_id,twit))
         except Exception as e :
             print("Erreur Twitter",e)
+
+'''            
 @client.command(pass_context=True)
 async def members(ctx):
     serv_val = "La CryptoSphère"
@@ -425,6 +427,7 @@ async def members(ctx):
             print(j,i)
             j+=1
         await client.send_message(ctx.message.channel, "Nombre de personnes : " + str(j) + " Serv : "+ str(serv.name))
+'''
 
 """
 Fonction hors scope du bot
@@ -481,8 +484,3 @@ async def redirect_chan():
 
 
 client.run('MzY3MDYxMzA0MDQyNTg2MTI0.DL2Q_g.Bm_r1kuCPTBwfQOhR2dZQtosDHU')
-
-
-
-
-
