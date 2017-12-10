@@ -46,8 +46,8 @@ class Conv:
     def affichage(self, data, coin, qty):
 
         if isinstance(data[0], float):
-            value = "```css\n" + qty + " " + coin.upper() + " valent " + "{0:.8f}".format(
-                data[0]) + " BTC\n" + qty + " " + coin.upper() + " valent " + "{0:.2f}".format(data[1]) + " $```"
+            value = "```css\n" + qty + " " + coin.upper() + " are worth " + "{0:.8f}".format(
+                data[0]) + " BTC\n" + qty + " " + coin.upper() + " are worth " + "{0:.2f}".format(data[1]) + " $```"
         else:
             value = "```css\nImpossible to calculate the price```"
 
