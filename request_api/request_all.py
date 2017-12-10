@@ -125,7 +125,7 @@ class all_currencies:
             rank = "Rank : [Rank " + str(cmc_json[0]["rank"]) + "]\n"
             change_1 = "1h Swing : " + str(cmc_json[0]["percent_change_1h"]) + "%\n"
             change_24 = "24h Swing : " + str(cmc_json[0]["percent_change_24h"]) + "%\n"
-            change_7 = "7 jours Swing : " + str(cmc_json[0]["percent_change_7d"]) + "%\n"
+            change_7 = "7 days Swing : " + str(cmc_json[0]["percent_change_7d"]) + "%\n"
             value_mc = "```css\n" + str(rank) + str(marketcap) + str(price) + str(change_1) + str(change_24) + str(
                 change_7) + "```"
             embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=False)
