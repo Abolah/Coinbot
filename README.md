@@ -1,6 +1,3 @@
-
-#CoinBot
-
 Coinbot is a Discord bot created in Python and used to display some usefull informations about CryptoMarket trading.
 
 ## Getting Started
@@ -11,10 +8,13 @@ The bot is ready to deploy. Just add you Secret token you created with your disc
 
 You'll need python3.6 installed and some dependancies.
 
-```
-discord aiohttp asyncio requests aylien-apiclient beautifulsoup4 tweepy
+To Install Python3.6 you can follow this tutorial :
 
-Tweepy is used only for !twitter
+* [Tutorial](https://unix.stackexchange.com/questions/332641/how-to-install-python-3-6)
+
+```
+discord aiohttp asyncio requests aylien-apiclient beautifulsoup4
+
 beautifulsoup4 is used only for !event
 ```
 
@@ -129,7 +129,7 @@ Using the !db command needs to init the database to start registering the coins
 ?db init
 ```
 
-## Coded with love and
+## Tools Used:
 
 * [PyCharm](https://www.jetbrains.com/pycharm/) - L'IDE de développement 
 * [DIscord.py](https://github.com/Rapptz/discord.py) - Le wrapper de communication Discord pour python
@@ -143,9 +143,10 @@ ETH  [abowallet.eth]
 BTC  [1jc3V3T5mefuD9asa7en976NKVGssQuMq]
 ```
 
-## Autor
+## Autors
 
-* **Abolah ** - *Initial work* - [Abolah](https://github.com/Abolah)
+* **Pridwen** - *Forked from* [Pridwen](https://github.com/Pridwen/Celestina)
+* **Abolah** - *Initial work* - [Abolah](https://github.com/Abolah)
 
 
 ## License
