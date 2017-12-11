@@ -1,8 +1,10 @@
+# CoinBot
+
 Coinbot is a Discord bot created in Python and used to display some usefull informations about CryptoMarket trading.
 
 ## Getting Started
 
-The bot is ready to deploy. Just add you Secret token you created with your discord dev account.
+The bot is ready to deploy. Just add your Bot Secret token you created with your discord dev account.
 
 ### Prerequisites
 
