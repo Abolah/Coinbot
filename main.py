@@ -22,7 +22,7 @@ async def on_ready():
 @client.command(pass_context=True)
 async def all(ctx, *coin):
     """
-    Request on a cryptocurrency on all the exchanges which are supported by the bot ||  ex : ?all xzc
+    Request  on all the exchanges which are supported || ex : !all xzc
     :param ctx: Context i.e metadata of the message
     :param coin: The coin symbol
     :return: The whole message (embed)
@@ -46,7 +46,7 @@ async def all(ctx, *coin):
 @client.command(pass_context=True)
 async def rex(ctx, *coin):
     """
-    Request on a cryptocurrency which is on Bittrex ||  ex : ?rex xzc
+    Request on a cryptocurrency which is on Bittrex || ex : !rex xzc
     :param ctx: Context i.e metadata of the message
     :param coin: The coin symbol
     :return: The whole message (embed)
@@ -70,7 +70,7 @@ async def rex(ctx, *coin):
 @client.command(pass_context=True)
 async def polo(ctx, *coin):
     """
-    Request on a cryptocurrency which is on Poloniex ||  ex : ?polo xzc
+    Request on a cryptocurrency which is on Poloniex || ex : !polo xzc
     :param ctx: Context i.e metadata of the message
     :param coin: The coin symbol
     :return: The whole message (embed)
@@ -94,7 +94,7 @@ async def polo(ctx, *coin):
 @client.command(pass_context=True)
 async def topia(ctx, *coin):
     """
-    Request on a cryptocurrency which is on Cryptopia ||  ex : ?topia sumo
+    Request on a cryptocurrency which is on Cryptopia || ex : !topia sumo
     :param ctx: Context i.e metadata of the message
     :param coin: The coin symbol
     :return: The whole message (embed)
@@ -118,7 +118,7 @@ async def topia(ctx, *coin):
 @client.command(pass_context=True)
 async def finex(ctx, *coin):
     """
-    Request on a cryptocurrency which is on Bitfinex ||  ex : ?finex eth
+    Request on a cryptocurrency which is on Bitfinex || ex : !finex eth
     :param ctx: Context i.e metadata of the message
     :param coin: The coin symbol
     :return: The whole message (embed)
@@ -142,7 +142,7 @@ async def finex(ctx, *coin):
 @client.command(pass_context=True)
 async def binance(ctx, *coin):
     """
-    Request on a cryptocurrency which is on Binance ||  ex : ?binance eth
+    Request on a cryptocurrency which is on Binance || ex : !binance eth
     :param ctx: Context i.e metadata of the message
     :param coin: The coin symbol
     :return: The whole message (embed)
@@ -166,7 +166,7 @@ async def binance(ctx, *coin):
 @client.command(pass_context=True)
 async def whale(ctx, arg, limit=4):
     """
-    Request for all the whale order || ex : ?whale xzc 6
+    Request for all the whale order || ex : !whale xzc 6
     :param ctx: Context i.e metadata of the message
     :param arg: The coin symbol
     :param limit: The limit in BTC
@@ -190,7 +190,7 @@ async def whale(ctx, arg, limit=4):
 @client.command(pass_context=True)
 async def cmc(ctx):
     """
-    Request for the global data of coinmarketcap || ex : ?cmc
+    Request for the global data of coinmarketcap || ex : !cmc
     :param ctx: Context i.e metadata of the message
     :return: The whole message (embed)
     """
@@ -212,7 +212,7 @@ async def cmc(ctx):
 @client.command(pass_context=True)
 async def top(ctx):
     """
-    Request for the highest change of the day (neg and pos) || ex : ?top
+    Request for the highest change of the day (neg and pos) || ex : !top
     :param ctx: Context i.e metadata of the message
     :return: The whole message (embed)
     """
@@ -234,7 +234,7 @@ async def top(ctx):
 @client.command(pass_context=True)
 async def db(ctx, arg, rank=None, coin=None, *comment):
     """
-    See ?db info for more info
+    See !db info for more informations
     :param ctx: Context i.e metadata of the message
     :param arg: The coin
     :param rank: The rank that we want
@@ -255,7 +255,7 @@ async def db(ctx, arg, rank=None, coin=None, *comment):
 @client.command(pass_context=True)
 async def btc(ctx):
     """
-    Request the price of the btc from many exchanges || ex : ?btc
+    Request the price of the btc from many exchanges || ex : !btc
     :param ctx: Context i.e metadata of the message
     :return: The whole message (embed)
     """
@@ -275,7 +275,7 @@ async def btc(ctx):
 @client.command(pass_context=True)
 async def stats(ctx, arg=None):
     """
-    The stats of the command which has been used on the discord ||ex ?stats
+    The stats of the command which has been used on the discord || ex !stats
     :param ctx: Context i.e metadata of the message
     :param arg: No arg
     :return: The whole message (embed)
@@ -294,7 +294,7 @@ async def stats(ctx, arg=None):
 @client.command(pass_context=True)
 async def order(ctx, price, profit, loss):
     """
-    To simulate an order on Bittrex with a TP and SL || ex : ?order 0.005 5 5
+    To simulate an order on Bittrex with a TP and SL || ex : !order 0.005 5 5
     :param ctx: Context i.e metadata of the message
     :param price: The price in satoshi or bitcoin
     :param profit: The % of profit needed
@@ -315,7 +315,7 @@ async def order(ctx, price, profit, loss):
 @client.command(pass_context=True)
 async def conv(ctx, coin, qty):
     """
-    To convert an amount of cryptocurrency in dollars ||ex ?conv xzc 100
+    To convert an amount of cryptocurrency in dollars || ex !conv xzc 100
     :param ctx: Context i.e metadata of the message
     :param coin: The coin
     :param qty: The quantity
@@ -356,13 +356,13 @@ async def name(ctx, coin):
 @client.command(pass_context=True)
 async def infos(ctx):
     """
-    The help command in embed version || ex : ?help
+    The help command in embed version || ex : !infos
     :param ctx: Context i.e metadata of the message
     :return: The whole message (embed)
     """
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
-    await statistiques.stats_add("!info", "")
+    await statistiques.stats_add("!infos", "")
     try:
         info = side_info.info.Info(ctx.message.author)
         embed = info.info()
@@ -374,7 +374,7 @@ async def infos(ctx):
 @client.command(pass_context=True)
 async def event(ctx, limit=0):
     """
-    Query coincalendar to get the last event ||ex : ?event ?event 1
+    Query coincalendar to get the last event || ex : !event !event 1
     :param ctx: Context i.e metadata of the message
     :param limit: The next page
     :return: The whole message (embed)
@@ -401,7 +401,7 @@ async def money(ctx):
 @client.command(pass_context=True)
 async def sum(ctx, url=None, limit=4):
     """
-    To get a summary of an article || ex : ?sum http://www.lemonde.fr 5
+    To get a summary of an article || ex : !sum http://https://www.nytimes.com/2017/12/11/business/dealbook/bitcoin-futures.html?rref=collection%2Fsectioncollection%2Fbusiness 8
     :param ctx: Context i.e metadata of the message
     :param url: The url of the article
     :param limit: The limit in lines lower = shorter

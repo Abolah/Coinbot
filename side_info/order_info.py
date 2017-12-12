@@ -32,7 +32,7 @@ class Order:
         tp2 = float(price) + float(float(profit) / 200) * float(price) + fees_tp2
         take_profit1 = "{0:.2f}".format(float(profit) / 1.0) + "% Take profit : {0:.8f}".format(tp1) + "\n"
         take_profit2 = "{0:.2f}".format(float(profit) / 2.0) + "% Take profit : {0:.8f}".format(tp2) + "\n"
-        achat = "Gain nul : {0:.8f}".format(float(price + fees))
+        achat = "No Win : {0:.8f}".format(float(price + fees))
 
         data_achat = "```css\n" + take_profit1 + take_profit2 + "```"
         data_vente = "```css\n" + stop_loss2 + stop_loss1 + "```"
@@ -43,7 +43,7 @@ class Order:
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
         embed.set_footer(text="Request achieved on")
         embed.add_field(name=":star2: Request on the orders of " + self.auth,
-                        value="Here are the information that I could retrieve" + self.auth,
+                        value="Here are the information that I could retrieve " + self.auth,
                         inline=False)
         embed.add_field(name=":chart_with_upwards_trend: Information about your take profit", value=data_achat,
                         inline=True)

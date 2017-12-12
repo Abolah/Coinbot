@@ -132,7 +132,7 @@ class Binance:
         embed.set_thumbnail(url=url_logo)
         embed.set_footer(text="Request achieved on")
         embed.add_field(name=":star2: Request about " + self.long_name,
-                        value="Here are the informations I could retrieve" + self.auth,
+                        value="Here are the informations I could retrieve " + self.auth,
                         inline=False)
         embed.add_field(name=":game_die: Binance Informations", value=value_bin, inline=True)
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=True)

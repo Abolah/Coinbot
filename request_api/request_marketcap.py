@@ -67,7 +67,7 @@ class Coinmarketcap:
         embed.set_thumbnail(url=url_logo)
         embed.set_footer(text="Request achieved on")
         embed.add_field(name=":star2: Request on the whole CryptoMarket",
-                        value="Here are the informations I could retrieve" + str(author[0]),
+                        value="Here are the informations I could retrieve " + str(author[0]),
                         inline=False)
         embed.add_field(name=":trophy: CoinMarketCap Informations", value=value)
         embed.add_field(name=":medal: Bitcoin Informations", value=value_btc, inline=True)
