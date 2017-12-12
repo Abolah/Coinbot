@@ -98,7 +98,7 @@ class Stats:
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
         embed.set_footer(text="has been succesfully removed")
         embed.add_field(name=":star2: Request on the coin on the server",
-                        value="Here are the informations I could retrieve" + str(self.author),
+                        value="Here are the informations I could retrieve " + str(self.author),
                         inline=False)
 
         if arg is None:

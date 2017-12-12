@@ -157,7 +157,7 @@ class Listsql:
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
         embed.set_footer(text="Request achieved on")
         embed.add_field(name=":star2: Request on the coin on the server",
-                        value="Here are the informations I could retrieve" + str(self.author),
+                        value="Here are the informations I could retrieve " + str(self.author),
                         inline=False)
         embed.add_field(name=":boom: DataBase Informations", value=data, inline=True)
         return embed
@@ -189,11 +189,11 @@ class Listsql:
 
     @staticmethod
     def info():
-        db = "?db [command]\n"
-        add = "\r?db add [Rank] [Coin] {Comment}\nExemple ?db add 5 eth I like Vitalik\n"
-        delete = "\r?db del [Rank] OU [Coin]\nExemple : ?db del 5\n"
-        get = "\r?db get [Coin] OU [Nickname]\nExemple : ?db get xzc\n"
-        info = "\r?db info\n"
+        db = "!db [command]\n"
+        add = "\r!db add [Rank] [Coin] {Comment}\nExemple !db add 5 eth I like Vitalik\n"
+        delete = "\r!db del [Rank] OU [Coin]\nExemple : !db del 5\n"
+        get = "\r!db get [Coin] OU [Nickname]\nExemple : !db get xzc\n"
+        info = "\r!db info\n"
         return "```css\n" + db + add + delete + get + info + "```"
 
     @staticmethod
