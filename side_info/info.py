@@ -2,6 +2,8 @@ from random import randint
 import datetime
 import discord
 
+# event = "!event {If following page : 1,2,3,etc} : Display the next events\n\n"
+
 
 class Info:
     def __init__(self, auth):
@@ -29,10 +31,9 @@ class Info:
         info = "!infos : Know all the bot commands\n"
         list = "!db info : Retrieve data about the commands used on the server\n"
         money = "!money : If you want to Donate to Abolah, the creator of this bot\n"
-        event = "!event {If following page : 1,2,3,etc} : Display the next events\n\n"
         sum = "!sum [url]{Number of sentences to return} : shorten an article on a website\n"
 
-        data_info = "```css\n" + all + rex + finex + polo + topia + binance + btc + top + cmc + order + conv + name + stats + whale + event + list + info + money + sum + "```"
+        data_info = "```css\n" + all + rex + finex + polo + topia + binance + btc + top + cmc + order + conv + name + stats + whale + list + info + money + sum + "```"
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))

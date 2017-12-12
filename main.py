@@ -371,15 +371,15 @@ async def infos(ctx):
     except Exception as e:
         print("Global Error on !infos\n", e)
 
-
+"""
 @client.command(pass_context=True)
 async def event(ctx, limit=0):
-    """
+    ""
     Query coincalendar to get the last event || ex : !event !event 1
     :param ctx: Context i.e metadata of the message
     :param limit: The next page
     :return: The whole message (embed)
-    """
+    ""
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
     await statistiques.stats_add("!event", "")
@@ -389,6 +389,8 @@ async def event(ctx, limit=0):
         await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
     except Exception as e:
         print("Global Error on !event\n", e)
+
+"""
 
 
 @client.command(pass_context=True)

@@ -27,66 +27,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+            <state relative-caret-position="599">
+              <caret line="393" column="0" lean-forward="true" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list_sql.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/request_database/list_sql.py">
+      <file leaf-file-name="event_crypto.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/side_info/event_crypto.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="180" column="41" lean-forward="true" selection-start-line="180" selection-start-column="41" selection-end-line="180" selection-end-column="41" />
-              <folding>
-                <marker date="1513081507004" expanded="true" signature="674:784" ph="CREATE TABLE... users" />
-                <marker date="1513081507004" expanded="true" signature="1460:1517" ph="SELECT rank users" />
-                <marker date="1513081507004" expanded="true" signature="2407:2468" ph="INSERT INTO users... " />
-                <marker date="1513081507004" expanded="true" signature="3316:3375" ph="DELETE FROM " />
-                <marker date="1513081507004" expanded="true" signature="4050:4097" ph="SELECT * FRO... users" />
-                <marker date="1513081507004" expanded="true" signature="4182:4233" ph="SELECT * FRO... users" />
-                <marker date="1513081507004" expanded="true" signature="6968:6987" ph="SELECT * FRO... users" />
-              </folding>
+            <state relative-caret-position="810">
+              <caret line="53" column="42" lean-forward="true" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stats_sql.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/request_database/stats_sql.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1517">
-              <caret line="100" column="74" lean-forward="false" selection-start-line="100" selection-start-column="74" selection-end-line="100" selection-end-column="74" />
-              <folding>
-                <marker date="1513081538656" expanded="true" signature="947:1030" ph="CREATE TABLE... stats" />
-                <marker date="1513081538656" expanded="true" signature="1581:1626" ph="INSERT INTO stats... " />
-                <marker date="1513081538656" expanded="true" signature="2086:2137" ph="SELECT comma... stats" />
-                <marker date="1513081538656" expanded="true" signature="2239:2284" ph="SELECT coin,... stats" />
-                <marker date="1513081538656" expanded="true" signature="2415:2476" ph="SELECT count... stats" />
-                <marker date="1513081538656" expanded="true" signature="2590:2648" ph="SELECT count... stats" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="info.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/side_info/info.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="38" column="35" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="request_whale.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/request_api/request_whale.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2106">
-              <caret line="122" column="39" lean-forward="false" selection-start-line="122" selection-start-column="39" selection-end-line="122" selection-end-column="39" />
+            <state relative-caret-position="288">
+              <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -126,10 +91,10 @@
         <option value="$PROJECT_DIR$/request_api/request_binance.py" />
         <option value="$PROJECT_DIR$/side_info/order_info.py" />
         <option value="$PROJECT_DIR$/request_api/request_marketcap.py" />
-        <option value="$PROJECT_DIR$/side_info/info.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/request_database/list_sql.py" />
         <option value="$PROJECT_DIR$/request_database/stats_sql.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/side_info/info.py" />
       </list>
     </option>
   </component>
@@ -162,6 +127,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,7 +154,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -519,14 +484,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE.md" />
-    <entry file="file://$PROJECT_DIR$/side_info/event_crypto.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="53" column="42" lean-forward="true" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/side_info/donate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -536,12 +493,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="3" lean-forward="true" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
@@ -551,6 +502,12 @@
           <second_editor>
             <js_state />
           </second_editor>
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="3" lean-forward="true" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -578,14 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/side_info/info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="38" column="35" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/request_api/request_whale.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2106">
@@ -596,8 +545,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/request_database/list_sql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="180" column="41" lean-forward="true" selection-start-line="180" selection-start-column="41" selection-end-line="180" selection-end-column="41" />
+        <state relative-caret-position="3168">
+          <caret line="180" column="41" lean-forward="false" selection-start-line="180" selection-start-column="41" selection-end-line="180" selection-end-column="41" />
           <folding>
             <marker date="1513081507004" expanded="true" signature="674:784" ph="CREATE TABLE... users" />
             <marker date="1513081507004" expanded="true" signature="1460:1517" ph="SELECT rank users" />
@@ -612,7 +561,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/request_database/stats_sql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1517">
+        <state relative-caret-position="869">
           <caret line="100" column="74" lean-forward="false" selection-start-line="100" selection-start-column="74" selection-end-line="100" selection-end-column="74" />
           <folding>
             <marker date="1513081538656" expanded="true" signature="947:1030" ph="CREATE TABLE... stats" />
@@ -625,10 +574,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/side_info/event_crypto.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="53" column="42" lean-forward="true" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+        <state relative-caret-position="599">
+          <caret line="393" column="0" lean-forward="true" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/side_info/info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
           <folding />
         </state>
       </provider>
