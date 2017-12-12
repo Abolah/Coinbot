@@ -5,6 +5,7 @@ import side_info
 
 client = Bot(command_prefix='!')
 channel = None
+secret_token = ""
 
 
 @client.event
@@ -422,4 +423,4 @@ async def sum(ctx, url=None, limit=4):
 
 
 # Put your secret Discord Dev App Token between the quotes
-client.run('')
+client.run(secret_token)
