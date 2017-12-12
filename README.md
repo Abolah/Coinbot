@@ -30,20 +30,20 @@ python3.6 main.py
 If you want to run the bot on a VPS you should install Screen and run the bot on another detached screen to not stop the bot.
 
 ```
-screen -S Celestina
+screen -S CoinBot
 python3.6 main.py
 Ctrl A + D
 ```
 
 
-To see if the bot is running correctly just run the command !info
+To see if the bot is running correctly just run the command !infos
 ```
-!info
+!infos
 ```
 # The commands 
 
 ```
-!info : List of all the available commands
+!infos : List of all the available commands
 ```
 ```
 !all [coin(s)] : Get the value of the coin on all exchanges it's listed on
@@ -74,47 +74,48 @@ To see if the bot is running correctly just run the command !info
 ```
 ```
 !order [price][% win][% lose] :  To estimate a win/loss trade
-Example : ?order 750 5 10
+Example : !order 750 5 10
 ```
 ```
-!whale [coin] {Limit en BTC, de base à 4 BTC}  :  Retrieve the Whale orders on the differents exchanges
-Example : ?whale xzc || ?whale xzc 5
+!whale [coin] {Limit in BTC, based with 4 BTC}  :  Retrieve the Whale orders on the differents exchanges
+Example : !whale xzc || !whale xzc 5
 ```
 ```
 !stats  :  Retrieve the most used commands 
-Example : ?stats || ?stats ?rex || ?stats xzc
+Example : !stats || !stats !rex || !stats xzc
 ```
 ```
 !name [name] :  Get the full name of the coin and some additionnal infos
-Example : ?name eth
+Example : !name eth
 ```
 ```
-!event {Page suivante :1,2,3 etc} :  Retrieve the incoming events
-Example : ?event  || ?event 2
+!event {next page :1,2,3 etc} :  Retrieve the incoming events
+Example : !event  || !event 2
 ```
 ```
-!donate :  Get the donation informations
-Example : ?donate
+!money :  Get the donation informations
+Example : !money
+If you want to modify the donation addresses you can go to Coinbot/side_info/donate.py
 ```
 ```
 !conv [coin][quantité] :  To convert the coin value in BTC/USD
-Example : ?conv eth 10.245
+Example : !conv eth 10.245
 ```
 ```
 !sum [url]{limit} :  Shorten an article from a website
-Example : ?sum www.url.com
+Example : !sum www.url.com
 ```
 ```
 !db [command] : Can stock someone favorite coin (up to 5 coin/person)
 
 !db add [Rank] [Coin] {Commentaire} : Add a coin for the person using the command in the Database
-Example ?db add 5 eth J'aime Vitalik
+Example !db add 5 eth I like Vitalik
 
 !db del [Rank] OU [Coin] : Delete the coin depending on the rank or the coin itself for the person who uses the command
-Example : ?db del 5
+Example : !db del 5
 
 !db get [coin] or [nickname] : Allow to retrieve the coin or the nickname of a person
-Example : ?db get xzc
+Example : !db get xzc
 
 !db info : Command's information
 ```
@@ -123,12 +124,12 @@ Example : ?db get xzc
 
 Using the !stats command needs to init the database to start registering the stats
 ```
-?stats init
+!stats init
 ```
 
 Using the !db command needs to init the database to start registering the coins
 ```
-?db init
+!db init
 ```
 
 ## Tools Used:
@@ -153,4 +154,4 @@ BTC  [1jc3V3T5mefuD9asa7en976NKVGssQuMq]
 
 ## License
 
-This project is under the GNU General Public License as seen in  license.md
+This project is under the GNU General Public License as seen in license.md

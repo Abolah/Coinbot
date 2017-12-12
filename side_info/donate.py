@@ -17,7 +17,7 @@ class Donate:
         embed.add_field(name=":slot_machine: Wanna give me some money for my work ?",
                         value="You can send me BTC or ETH to this addresses", inline=False)
         embed.add_field(name=":dvd: BTC donation Address\n", value=value_test, inline=True)
-        embed.add_field(name=":dvd: ETH donation Adsress\n", value=value_ETH, inline=True)
+        embed.add_field(name=":dvd: ETH donation Address\n", value=value_ETH, inline=True)
         return embed
 
     async def get_donate(self):
