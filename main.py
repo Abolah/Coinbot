@@ -392,6 +392,11 @@ async def event(ctx, limit=0):
 
 @client.command(pass_context=True)
 async def money(ctx):
+    """
+    Display the donation informations || ex : !money
+    :param ctx:
+    :return:
+    """
     await client.send_typing(ctx.message.channel)
     dona = side_info.donate.Donate()
     embed = dona.affichage()
