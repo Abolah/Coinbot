@@ -137,6 +137,8 @@ class whale:
         return final_book
 
     async def affichage(self, book):
+        coin_wanted = self.coin.upper()
+        coin_wanted = " " + coin_wanted
         limit = 10
         sell = 0
         buy = 0
@@ -156,7 +158,7 @@ class whale:
             for i in book:
                 if i[1] == "Buy" and buy < limit:
                     whale_buy += "[" + str(i[0]) + "] " + "{0:.3f}".format(
-                        float(i[2])) + symb + " [Price] " + "{0:.8f}".format(float(i[3])) + symb + "\n"
+                        float(i[2])) + coin_wanted + " [Price] " + "{0:.8f}".format(float(i[3])) + symb + "\n"
                     buy += 1
                 if buy == limit:
                     break
@@ -168,7 +170,7 @@ class whale:
             for i in reversed(book):
                 if i[1] == "Sell" and sell < limit:
                     whale_sell += "[" + str(i[0]) + "] " + "{0:.3f}".format(
-                        float(i[2])) + symb + " [Price] " + "{0:.8f}".format(float(i[3])) + symb + "\n"
+                        float(i[2])) + coin_wanted + " [Price] " + "{0:.8f}".format(float(i[3])) + symb + "\n"
                     sell += 1
                 if sell == limit:
                     break
