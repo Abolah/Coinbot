@@ -5,7 +5,7 @@ import side_info
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = ""
+secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DRMcAg.ZYLyvvM-D_7gp3AWgQlerfiUkc4"
 
 
 @client.event
@@ -403,6 +403,19 @@ async def money(ctx):
     await client.send_typing(ctx.message.channel)
     dona = side_info.donate.Donate()
     embed = dona.affichage()
+    await client.send_message(ctx.message.channel, embed=embed)
+
+
+@client.command(pass_context=True)
+async def code(ctx):
+    """
+    Display the url to the source code
+    :param ctx:
+    :return:
+    """
+    await client.send_typing(ctx.message.channel)
+    source_code = side_info.code.Code()
+    embed = source_code.affichage()
     await client.send_message(ctx.message.channel, embed=embed)
 
 
