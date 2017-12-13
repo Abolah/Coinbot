@@ -39,7 +39,7 @@ class Info:
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="")
         embed.set_footer(text="Request achieved on")
-        embed.add_field(name=":hammer: Version", value="1.3.3")
+        embed.add_field(name=":hammer: Version", value="1.3.4")
         embed.add_field(name=":star2: Request about Coinbot's commands",
                         value="Here are the informations I could retrieve " + self.auth,
                         inline=False)

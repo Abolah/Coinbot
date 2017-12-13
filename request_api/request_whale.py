@@ -153,31 +153,39 @@ class whale:
         if self.coin.upper() == "BTC":
             symb = " $"
         else:
-            symb = " BTC"
+            symb = "BTC"
         try:
             for i in book:
                 if i[1] == "Buy" and buy < limit:
-                    whale_buy += "[" + str(i[0]) + "] " + "{0:.3f}".format(
-                        float(i[2])) + coin_wanted + " [Price] " + "{0:.8f}".format(float(i[3])) + symb + "\n"
+                    whale_buy += "[" + str(i[0]) + "] " + "Buying " + "{0:.3f}".format(float(i[2])) + coin_wanted + " at " + "{0:.8f}".format(float(i[3])) + coin_wanted + "/" + symb + "\n"
                     buy += 1
                 if buy == limit:
                     break
         except Exception as e:
             print(e)
-        whale_buy = "```css\n" + whale_buy + "```"
-        embed.add_field(name=":whale2: Informations about the buying whales", value=whale_buy, inline=False)
+
+        if whale_buy == "":
+            whale_buy = "```css\n Error. The amount you asked may be too high```"
+        else:
+            whale_buy = "```css\n" + whale_buy + "```"
+
+        embed.add_field(name=":whale2: Informations about the Bidding Whales", value=whale_buy, inline=False)
         try:
             for i in reversed(book):
                 if i[1] == "Sell" and sell < limit:
-                    whale_sell += "[" + str(i[0]) + "] " + "{0:.3f}".format(
-                        float(i[2])) + coin_wanted + " [Price] " + "{0:.8f}".format(float(i[3])) + symb + "\n"
+                    whale_sell += "[" + str(i[0]) + "] " + "Selling " + "{0:.3f}".format(float(i[2])) + coin_wanted + " at " + "{0:.8f}".format(float(i[3])) + coin_wanted + "/" + symb + "\n"
                     sell += 1
                 if sell == limit:
                     break
         except Exception as e:
             print(e)
-        whale_sell = "```css\n" + whale_sell + "```"
-        embed.add_field(name=":whale: Informations about the selling whales", value=whale_sell, inline=False)
+
+        if whale_sell == "":
+            whale_sell = "```css\n Error. The amount you asked may be too high```"
+        else:
+            whale_sell = "```css\n" + whale_sell + "```"
+
+        embed.add_field(name=":whale: Informations about the Asking Whales", value=whale_sell, inline=False)
         return embed
 
     async def query_whale(self, limit):
