@@ -32,7 +32,7 @@ class Order:
         tp2 = float(price) + float(float(profit) / 200) * float(price) + fees_tp2
         take_profit1 = "{0:.2f}".format(float(profit) / 1.0) + "% Take profit : {0:.8f}".format(tp1) + "\n"
         take_profit2 = "{0:.2f}".format(float(profit) / 2.0) + "% Take profit : {0:.8f}".format(tp2) + "\n"
-        achat = "No Win : {0:.8f}".format(float(price + fees))
+        achat = "No Gain : {0:.8f}".format(float(price + fees))
 
         data_achat = "```css\n" + take_profit1 + take_profit2 + "```"
         data_vente = "```css\n" + stop_loss2 + stop_loss1 + "```"
