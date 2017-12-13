@@ -5,7 +5,7 @@ import side_info
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DRMcAg.ZYLyvvM-D_7gp3AWgQlerfiUkc4"
+secret_token = ""
 
 
 @client.event
