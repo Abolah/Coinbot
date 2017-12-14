@@ -138,7 +138,6 @@ class whale:
 
     async def affichage(self, book):
         coin_wanted = self.coin.upper()
-        coin_wanted = " " + coin_wanted
         limit = 10
         sell = 0
         buy = 0
@@ -151,13 +150,13 @@ class whale:
                         inline=False)
 
         if self.coin.upper() == "BTC":
-            symb = " $"
+            symb = " $US"
         else:
-            symb = "BTC"
+            symb = " BTC"
         try:
             for i in book:
                 if i[1] == "Buy" and buy < limit:
-                    whale_buy += "[" + str(i[0]) + "] " + "Buying " + "{0:.3f}".format(float(i[2])) + coin_wanted + " at " + "{0:.8f}".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
+                    whale_buy += "[" + str(i[0]) + "] " + "Buying " + "{0:.3f}".format(float(i[2])) + " " + coin_wanted + " at " + "{0:.8f}".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
                     buy += 1
                 if buy == limit:
                     break
@@ -173,7 +172,7 @@ class whale:
         try:
             for i in reversed(book):
                 if i[1] == "Sell" and sell < limit:
-                    whale_sell += "[" + str(i[0]) + "] " + "Selling " + "{0:.3f}".format(float(i[2])) + coin_wanted + " at " + "{0:.8f}".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
+                    whale_sell += "[" + str(i[0]) + "] " + "Selling " + "{0:.3f}".format(float(i[2])) + " " + coin_wanted + " at " + "{0:.8f}".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
                     sell += 1
                 if sell == limit:
                     break
