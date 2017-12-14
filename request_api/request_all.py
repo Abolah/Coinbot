@@ -137,13 +137,13 @@ class all_currencies:
                 last = "Last : " + "{0:.2f}".format(float(finex_json["last_price"])) + "\n"
                 bid = "Bid : " + "{0:.2f}".format(float(finex_json["bid"])) + "\n"
                 ask = "Ask : " + "{0:.2f}".format(float(finex_json["ask"])) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(float(finex_json["volume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(finex_json["volume"])) + " BTC" + "\n"
                 value_finex = "```css\n" + volume + last + bid + ask + "```"
             else:
                 last = "Last : " + "{0:.8f}".format(float(finex_json["last_price"])) + "\n"
                 bid = "Bid : " + "{0:.8f}".format(float(finex_json["bid"])) + "\n"
                 ask = "Ask : " + "{0:.8f}".format(float(finex_json["ask"])) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(float(finex_json["volume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(finex_json["volume"])) + " BTC" + "\n"
                 value_finex = "```css\n" + volume + last + bid + ask + "```"
             embed.add_field(name=":fleur_de_lis: Bitfinex Informations", value=value_finex, inline=True)
         except Exception as e:
@@ -151,13 +151,13 @@ class all_currencies:
 
         try:
             if self.coin.upper() == "BTC":
-                volume = "Volume : " + "{0:.2f}".format(rex_json["result"][0]["BaseVolume"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(rex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
                 last = "Last : " + "{0:.2f}".format(rex_json["result"][0]["Last"]) + "\n"
                 bid = "Bid : " + "{0:.2f}".format(rex_json["result"][0]["Bid"]) + "\n"
                 ask = "Ask : " + "{0:.2f}".format(rex_json["result"][0]["Ask"]) + "\n"
                 value_rex = "```css\n" + volume + last + bid + ask + "```"
             else:
-                volume = "Volume : " + "{0:.2f}".format(rex_json["result"][0]["BaseVolume"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(rex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
                 last = "Last : " + "{0:.8f}".format(rex_json["result"][0]["Last"]) + "\n"
                 bid = "Bid : " + "{0:.8f}".format(rex_json["result"][0]["Bid"]) + "\n"
                 ask = "Ask : " + "{0:.8f}".format(rex_json["result"][0]["Ask"]) + "\n"
@@ -171,13 +171,13 @@ class all_currencies:
                 last = "Last : " + "{0:.2f}".format(topia_json["Data"]["LastPrice"]) + "\n"
                 bid = "Bid : " + "{0:.2f}".format(topia_json["Data"]["BidPrice"]) + "\n"
                 ask = "Ask : " + "{0:.2f}".format(topia_json["Data"]["AskPrice"]) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + " BTC" + "\n"
                 value_topia = "```css\n" + volume + last + bid + ask + "```"
             else:
                 last = "Last : " + "{0:.8f}".format(topia_json["Data"]["LastPrice"]) + "\n"
                 bid = "Bid : " + "{0:.8f}".format(topia_json["Data"]["BidPrice"]) + "\n"
                 ask = "Ask : " + "{0:.8f}".format(topia_json["Data"]["AskPrice"]) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + " BTC" + "\n"
                 value_topia = "```css\n" + volume + last + bid + ask + "```"
             embed.add_field(name=":space_invader: Cryptopia Informations", value=value_topia, inline=True)
         except Exception as e:
@@ -188,13 +188,13 @@ class all_currencies:
                 last = "Last : " + "{0:.2f}".format(float(polo_json[self.key]["last"])) + "\n"
                 bid = "Bid : " + "{0:.2f}".format(float(polo_json[self.key]["highestBid"])) + "\n"
                 ask = "Ask : " + "{0:.2f}".format(float(polo_json[self.key]["lowestAsk"])) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + " BTC" + "\n"
                 value_polo = "```css\n" + volume + last + bid + ask + "```"
             else:
                 last = "Last : " + "{0:.8f}".format(float(polo_json[self.key]["last"])) + "\n"
                 bid = "Bid : " + "{0:.8f}".format(float(polo_json[self.key]["highestBid"])) + "\n"
                 ask = "Ask : " + "{0:.8f}".format(float(polo_json[self.key]["lowestAsk"])) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + " BTC" + "\n"
                 value_polo = "```css\n" + volume + last + bid + ask + "```"
             embed.add_field(name=":crystal_ball: Poloniex Informations", value=value_polo, inline=True)
         except Exception as e:
@@ -205,14 +205,14 @@ class all_currencies:
                 last = "Last : " + "{0:.2f}".format(float(bin_json["lastPrice"])) + "\n"
                 bid = "Bid : " + "{0:.2f}".format(float(bin_json["bidPrice"])) + "\n"
                 ask = "Ask : " + "{0:.2f}".format(float(bin_json["askPrice"])) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(float(bin_json["quoteVolume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(bin_json["quoteVolume"])) + " BTC" + "\n"
                 value_bin = "```css\n" + volume + last + bid + ask + "```"
 
             else:
                 last = "Last : " + bin_json["lastPrice"] + "\n"
                 bid = "Bid : " + bin_json["bidPrice"] + "\n"
                 ask = "Ask : " + bin_json["askPrice"] + "\n"
-                volume = "Volume : " + "{0:.2f}".format(float(bin_json["quoteVolume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(bin_json["quoteVolume"])) + " BTC" + "\n"
                 value_bin = "```css\n" + volume + last + bid + ask + "```"
             embed.add_field(name=":game_die: Binance Informations", value=value_bin, inline=True)
         except Exception as e:
