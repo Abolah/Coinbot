@@ -28,12 +28,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="request_all.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/request_api/request_all.py">
+      <file leaf-file-name="stats_sql.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/request_database/stats_sql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="215" column="74" lean-forward="true" selection-start-line="215" selection-start-column="74" selection-end-line="215" selection-end-column="74" />
-              <folding />
+            <state relative-caret-position="545">
+              <caret line="136" column="59" lean-forward="false" selection-start-line="136" selection-start-column="59" selection-end-line="136" selection-end-column="59" />
+              <folding>
+                <marker date="1513269903335" expanded="true" signature="947:1030" ph="CREATE TABLE... stats" />
+                <marker date="1513269903335" expanded="true" signature="1581:1626" ph="INSERT INTO stats... " />
+                <marker date="1513269903335" expanded="true" signature="2086:2137" ph="SELECT comma... stats" />
+                <marker date="1513269903335" expanded="true" signature="2239:2284" ph="SELECT coin,... stats" />
+                <marker date="1513269903335" expanded="true" signature="2415:2476" ph="SELECT count... stats" />
+                <marker date="1513269903335" expanded="true" signature="2590:2648" ph="SELECT count... stats" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -80,7 +87,6 @@
         <option value="$PROJECT_DIR$/request_api/request_binance.py" />
         <option value="$PROJECT_DIR$/request_api/request_marketcap.py" />
         <option value="$PROJECT_DIR$/request_database/list_sql.py" />
-        <option value="$PROJECT_DIR$/request_database/stats_sql.py" />
         <option value="$PROJECT_DIR$/side_info/code.py" />
         <option value="$PROJECT_DIR$/side_info/__init__.py" />
         <option value="$PROJECT_DIR$/side_info/order_info.py" />
@@ -88,6 +94,7 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/side_info/info.py" />
         <option value="$PROJECT_DIR$/request_api/request_all.py" />
+        <option value="$PROJECT_DIR$/request_database/stats_sql.py" />
       </list>
     </option>
   </component>
@@ -132,6 +139,11 @@
               <item name="Coinbot" type="b2602c69:ProjectViewProjectNode" />
               <item name="Coinbot" type="462c0819:PsiDirectoryNode" />
               <item name="request_api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Coinbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Coinbot" type="462c0819:PsiDirectoryNode" />
+              <item name="request_database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Coinbot" type="b2602c69:ProjectViewProjectNode" />
@@ -458,13 +470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/request_database/stats_sql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="869">
-          <caret line="100" column="74" lean-forward="false" selection-start-line="100" selection-start-column="74" selection-end-line="100" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/side_info/event_crypto.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -539,15 +544,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="689">
           <caret line="43" column="59" lean-forward="false" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/request_api/request_all.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
-          <caret line="215" column="74" lean-forward="true" selection-start-line="215" selection-start-column="74" selection-end-line="215" selection-end-column="74" />
+          <caret line="215" column="74" lean-forward="false" selection-start-line="215" selection-start-column="74" selection-end-line="215" selection-end-column="74" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/request_database/stats_sql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="136" column="59" lean-forward="false" selection-start-line="136" selection-start-column="59" selection-end-line="136" selection-end-column="59" />
+          <folding>
+            <marker date="1513269903335" expanded="true" signature="947:1030" ph="CREATE TABLE... stats" />
+            <marker date="1513269903335" expanded="true" signature="1581:1626" ph="INSERT INTO stats... " />
+            <marker date="1513269903335" expanded="true" signature="2086:2137" ph="SELECT comma... stats" />
+            <marker date="1513269903335" expanded="true" signature="2239:2284" ph="SELECT coin,... stats" />
+            <marker date="1513269903335" expanded="true" signature="2415:2476" ph="SELECT count... stats" />
+            <marker date="1513269903335" expanded="true" signature="2590:2648" ph="SELECT count... stats" />
+          </folding>
         </state>
       </provider>
     </entry>
