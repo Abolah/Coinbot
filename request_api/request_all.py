@@ -13,13 +13,13 @@ class all_currencies:
         self.color = randint(0, 0xffffff)
         self.coin = arg
         if self.coin.upper() == "BTC":
-            self.pair_binance = self.coin + "USDT"
+            self.pair_binance = self.coin.upper() + "USDT"
             self.pair_finex = self.coin.lower() + "usd"
             self.pair_rex = "usdt-" + self.coin.lower()
             self.pair_topia = self.coin + "_USDT"
             self.key = "USDT_BTC"
         else:
-            self.pair_binance = self.coin + "BTC"
+            self.pair_binance = self.coin.upper() + "BTC"
             self.pair_finex = self.coin.lower() + "btc"
             self.pair_rex = "btc-" + self.coin.lower()
             self.pair_topia = self.coin + "_BTC"
@@ -207,6 +207,7 @@ class all_currencies:
                 ask = "Ask : " + "{0:.2f}".format(float(bin_json["askPrice"])) + "\n"
                 volume = "Volume : " + "{0:.2f}".format(float(bin_json["quoteVolume"])) + "\n"
                 value_bin = "```css\n" + volume + last + bid + ask + "```"
+
             else:
                 last = "Last : " + bin_json["lastPrice"] + "\n"
                 bid = "Bid : " + bin_json["bidPrice"] + "\n"
