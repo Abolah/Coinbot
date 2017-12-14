@@ -94,7 +94,7 @@ class bittrex:
         try:
             if self.coin == "BTC":
                 name = "Pair :" + str(rex_json["result"][0]["MarketName"]) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(rex_json["result"][0]["BaseVolume"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(rex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
                 last = "Last : " + "{0:.2f}".format(rex_json["result"][0]["Last"]) + "\n"
                 bid = "Bid : " + "{0:.2f}".format(rex_json["result"][0]["Bid"]) + "\n"
                 ask = "Ask : " + "{0:.2f}".format(rex_json["result"][0]["Ask"]) + "\n"
@@ -105,7 +105,7 @@ class bittrex:
                 value_annex = "```css\n" + low + high + prev + "```"
             else:
                 name = "Pair :" + str(rex_json["result"][0]["MarketName"]) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(rex_json["result"][0]["BaseVolume"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(rex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
                 last = "Last : " + "{0:.8f}".format(rex_json["result"][0]["Last"]) + "\n"
                 bid = "Bid : " + "{0:.8f}".format(rex_json["result"][0]["Bid"]) + "\n"
                 ask = "Ask : " + "{0:.8f}".format(rex_json["result"][0]["Ask"]) + "\n"
@@ -122,12 +122,11 @@ class bittrex:
         # Try/Except sur l'API CMC
         try:
             try:
-                marketcap = "MC : " + "{:,}".format(float(cmc_json[0]["market_cap_usd"])) + "$\n"
+                marketcap = "MC : " + "$ " + "{:,}".format(float(cmc_json[0]["market_cap_usd"])) + "\n"
             except Exception as e:
                 marketcap = "MC : Unknown\n"
                 print("mc err", e)
-            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(
-                float(cmc_json[0]["price_eur"])) + "€\n"
+            price = "Price : " + "$ " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + " | " + "{0:.3f}".format(float(cmc_json[0]["price_eur"])) + " €    \n"
             rank = "Rank : [Rank " + str(cmc_json[0]["rank"]) + "]\n"
             change_1 = "1h Swing : " + str(cmc_json[0]["percent_change_1h"]) + "%\n"
             change_24 = "24h Swing: " + str(cmc_json[0]["percent_change_24h"]) + "%\n"

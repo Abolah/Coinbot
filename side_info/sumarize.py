@@ -16,10 +16,9 @@ class Sumarize:
         return
 
     def sum(self):
-        value_sum = value_sent = sumarize = sentiment = ""
+        value_sum = value_sent = sumarize = ""
         list_v = []
         try:
-            sentiment = self.client.Sentiment({'url': self.url})
             sumarize = self.client.Summarize({'url': self.url, 'sentences_number': self.limit})
         except Exception as e:
             print(e)
@@ -27,10 +26,6 @@ class Sumarize:
             for i in sumarize['sentences']:
                 value_sum += str(i) + "\n\n"
             value_sum = "```" + value_sum + "```"
-            value_sent += "\n```css\nAnalyse of the present link in the tweet :\nPolarity : " + str(
-                sentiment['polarity_confidence']) + " [" + str(sentiment['polarity']) \
-                          + "]\nSubjectivité : " + str(sentiment['subjectivity_confidence']) + " [" + str(
-                sentiment['subjectivity']) + "]```"
         except Exception as e:
             value_sum = value_sent = "```Your link is apparently not valid```"
             print(e)

@@ -27,9 +27,9 @@ class Info:
         order = "!order [price][win][lose] : To estimate your possible wins/losses\n"
         whale = "!whale [Coin]{Limit in BTC} : Retrieve the big orders\n\n"
         info = "!infos : Know all the bot commands\n"
-        conv = "!conv [coin][nombre_coin] : To know the coin's price in BTC/USD\n"
+        conv = "!conv [coin][number of coins] : To know the coin's price in BTC/USD\n"
         name = "!name [coin] : Request about the Coin itself and some side infos\n"
-        sum = "!sum [url]{Number of sentences to return} : shorten an article on a website\n\n"
+        sum = "!sum [url] : shorten an article on a website. (The result may be unclear, sorry :( )\n\n"
         stats = "!stats [Coin OR Command] : Retrieve the stats of a coin/command\n"
         list = "!db info : Retrieve data about the commands used on the server\n\n"
         code = "!code : Display the url of the GitHub repository used for this bot\n"
@@ -41,7 +41,7 @@ class Info:
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="")
         embed.set_footer(text="Request achieved on")
-        embed.add_field(name=":hammer: Version", value="1.5")
+        embed.add_field(name=":hammer: Version", value="1.5.1")
         embed.add_field(name=":star2: Request about Coinbot's commands",
                         value="Here are the informations I could retrieve " + self.auth,
                         inline=False)

@@ -42,8 +42,8 @@ class Coinmarketcap:
         except:
             author = "khey"
         try:
-            marketcap = "Market Cap = " + "{:,}".format(json_data["total_market_cap_usd"]) + "$\n"
-            volume = "Market Volume : " + "{:,}".format(json_data["total_24h_volume_usd"]) + "$\n"
+            marketcap = "Market Cap = " + "$ " + "{:,}".format(json_data["total_market_cap_usd"]) + "\n"
+            volume = "Market Volume : " + "$ " + "{:,}".format(json_data["total_24h_volume_usd"]) + "\n"
             dominance = "Bitcoin Dominance = " + str(json_data["bitcoin_percentage_of_market_cap"]) + "%\n"
             nb_coin = "Coins : " + str(json_data["active_currencies"]) + "\n"
             active_markets = "Pairs : " + str(json_data["active_markets"]) + "\n"
@@ -53,8 +53,8 @@ class Coinmarketcap:
             value = "```css\nCMC API Error: MAIN API```"
             value_annex = "```css\nCMC API Error : SIDE API```"
         try:
-            price = "BTC Price : " + "{:,}".format(float(json_data_btc[0]["price_usd"])) + "$\n"
-            volume = "24h Volume: " + "{:,}".format(float(json_data_btc[0]["24h_volume_usd"])) + "$\n"
+            price = "BTC Price : " + "$ " + "{:,}".format(float(json_data_btc[0]["price_usd"])) + "\n"
+            volume = "24h Volume: "  "$ " + "{:,}".format(float(json_data_btc[0]["24h_volume_usd"])) + "         \n"
             change_1 = "24h Swing : " + str(json_data_btc[0]["percent_change_24h"]) + "%\n"
             change_7 = "7 days Swing : " + str(json_data_btc[0]["percent_change_7d"]) + "%\n\n"
             value_btc = "```css\n" + price + volume + change_1 + change_7 + "```"

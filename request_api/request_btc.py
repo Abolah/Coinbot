@@ -52,59 +52,58 @@ class bitcoin:
         for i in list_json:
             if i[1] == "Kraken":
                 try:
-                    value = value + "Kraken : " + "{0:.2f}".format(
-                        float(i[0]["result"]["XXBTZUSD"]["c"][0])) + "$ [USD]\n"
+                    value = value + "Kraken : " + "$ " + "{0:.2f}".format(
+                        float(i[0]["result"]["XXBTZUSD"]["c"][0])) + " [USD]\n"
                 except Exception as e:
                     print(e)
             if i[1] == "Bitmex":
                 try:
-                    value = value + "Bitmex " + "{0:.2f}".format(float(i[0][0]["lastPrice"])) + "$ [USD]+\n"
+                    value = value + "Bitmex : " + "$ " + "{0:.2f}".format(float(i[0][0]["lastPrice"])) + " [USD]\n"
                 except Exception as e:
                     print(e)
             if i[1] == "Coinbase":
                 try:
-                    value = value + "Coinbase : " + "{0:.2f}".format(float(i[0]["data"]["amount"])) + "$ [USD]\n"
+                    value = value + "Coinbase : " + "$ " + "{0:.2f}".format(float(i[0]["data"]["amount"])) + " [USD]\n"
                 except Exception as e:
                     print(e)
             if i[1] == "Bitstamp":
                 try:
-                    value = value + "Bitstamp : " + "{0:.2f}".format(float(i[0]["last"])) + "$ [USD]\n"
+                    value = value + "Bitstamp : " + "$ " + "{0:.2f}".format(float(i[0]["last"])) + " [USD]\n"
                 except Exception as e:
                     print(e)
             if i[1] == "Bittrex":
                 try:
-                    value = value + "Bittrex : " + "{0:.2f}".format(i[0]["result"][0]["Last"]) + "$ [USDT]\n"
+                    value = value + "Bittrex : " + "$ " + "{0:.2f}".format(i[0]["result"][0]["Last"]) + " [USDT]\n"
                 except Exception as e:
                     print(e)
             if i[1] == "Bitfinex":
                 try:
-                    value = value + "Bitfinex " + "{0:.2f}".format(float(i[0]["last_price"])) + "$ [USDT]\n"
+                    value = value + "Bitfinex " + "$ " + "{0:.2f}".format(float(i[0]["last_price"])) + " [USDT]\n"
                 except Exception as e:
                     print(e)
             if i[1] == "Binance":
                 try:
-                    value = value + "Binance " + "{0:.2f}".format(float(i[0]["bidPrice"])) + "$ [USDT]"
+                    value = value + "Binance " + "$ " + "{0:.2f}".format(float(i[0]["bidPrice"])) + " [USDT]"
                 except Exception as e:
                     print(e)
             if i[1] == "Bitflyer":
                 try:
-                    value_other = value_other + "Bitflyer : " + "{0:.2f}".format(float(i[0]["best_bid"])) + "$ [USDT]\n"
+                    value_other = value_other + "Bitflyer : " + "$ " + "{0:.2f}".format(float(i[0]["best_bid"])) + " [USDT]\n"
                 except Exception as e:
                     print(e)
             if i[1] == "Bithumb":
                 try:
-                    value_other = value_other + "Bithumb : " + "{0:.2f}".format(
-                        float(i[0]["data"]["buy_price"]) * won_value) + "$ [USD]\n"
+                    value_other = value_other + "Bithumb : " + "$ " + "{0:.2f}".format(float(i[0]["data"]["buy_price"]) * won_value) + " [USD]\n"
                 except Exception as e:
                     print(e)
             if i[1] == "HitBTC":
                 try:
-                    value_other = value_other + "HitBTC : " + "{0:.2f}".format(float(i[0]["bid"])) + "$ [USDT]\n"
+                    value_other = value_other + "HitBTC : " + "$ " + "{0:.2f}".format(float(i[0]["bid"])) + " [USDT]\n"
                 except Exception as e:
                     print(e)
             if i[1] == "Gemini":
                 try:
-                    value_other = value_other + "Gemini : " + "{0:.2f}".format(float(i[0]["bid"])) + "$ [USD]"
+                    value_other = value_other + "Gemini : " + "$ " + "{0:.2f}".format(float(i[0]["bid"])) + " [USD]"
                 except Exception as e:
                     print(e)
 

@@ -90,14 +90,14 @@ class Bitfinex:
                 last = "Last : " + "{0:.2f}".format(float(finex_json["last_price"])) + "\n"
                 bid = "Bid : " + "{0:.2f}".format(float(finex_json["bid"])) + "\n"
                 ask = "Ask : " + "{0:.2f}".format(float(finex_json["ask"])) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(float(finex_json["volume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(finex_json["volume"])) + " BTC" + "\n"
                 value_finex = "```css\n" + pair + volume + last + bid + ask + "```"
             else:
                 pair = "Pair : BTC-" + self.coin.upper() + "\n"
                 last = "Last : " + "{0:.8f}".format(float(finex_json["last_price"])) + "\n"
                 bid = "Bid : " + "{0:.8f}".format(float(finex_json["bid"])) + "\n"
                 ask = "Ask : " + "{0:.8f}".format(float(finex_json["ask"])) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(float(finex_json["volume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(finex_json["volume"])) + " BTC" + "\n"
                 value_finex = "```css\n" + pair + volume + last + bid + ask + "```"
 
         except Exception as e:
@@ -114,12 +114,11 @@ class Bitfinex:
 
         try:
             try:
-                marketcap = "MC : " + "{:,}".format(float(cmc_json[0]["market_cap_usd"])) + "$\n"
+                marketcap = "MC : " + "$ " + "{:,}".format(float(cmc_json[0]["market_cap_usd"])) + "\n"
             except Exception as e:
                 marketcap = "MC : Unknown\n"
                 print("mc err", e)
-            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(
-                float(cmc_json[0]["price_eur"])) + "€\n"
+            price = "Price : " + "$ " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + " | " + "{0:.3f}".format(float(cmc_json[0]["price_eur"])) + " €      \n"
             rank = "Rank : [Rank " + str(cmc_json[0]["rank"]) + "]\n"
             change_1 = "1h Swing : " + str(cmc_json[0]["percent_change_1h"]) + "%\n"
             change_24 = "24h Swing : " + str(cmc_json[0]["percent_change_24h"]) + "%\n"
@@ -128,7 +127,7 @@ class Bitfinex:
                 change_7) + "```"
         except Exception as e:
             print("err cmc", e)
-            value_mc = "```\nErreur formatage CMC```"
+            value_mc = "```\nCMC Formating Error```"
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))

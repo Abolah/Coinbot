@@ -93,8 +93,8 @@ class Topcoin:
             value_loose = "```css\nErreur de l'API CMC : Principal loose```"
 
         try:
-            marketcap = "Market Cap = " + "{:,}".format(data_global["total_market_cap_usd"]) + "$\n"
-            volume = "Market Volume : " + "{:,}".format(data_global["total_24h_volume_usd"]) + "$\n"
+            marketcap = "Market Cap = " + "$ " + "{:,}".format(data_global["total_market_cap_usd"]) + "\n"
+            volume = "Market Volume : " + "$ " + "{:,}".format(data_global["total_24h_volume_usd"]) + "\n"
             dominance = "Bitcoin Dominance = " + str(data_global["bitcoin_percentage_of_market_cap"]) + "%\n"
             value_annex = "```css\n" + marketcap + volume + dominance + "```"
         except Exception as e:

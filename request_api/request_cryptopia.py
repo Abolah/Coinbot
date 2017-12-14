@@ -87,14 +87,14 @@ class Cryptopia:
                 last = "Last : " + "{0:.2f}".format(topia_json["Data"]["LastPrice"]) + "\n"
                 bid = "Bid : " + "{0:.2f}".format(topia_json["Data"]["BidPrice"]) + "\n"
                 ask = "Ask : " + "{0:.2f}".format(topia_json["Data"]["AskPrice"]) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) +  " BTC" + "\n"
                 value_topia = "```css\n" + pair + volume + last + bid + ask + "```"
             else:
                 pair = "Pair : BTC-" + self.coin + "\n"
                 last = "Last : " + "{0:.8f}".format(topia_json["Data"]["LastPrice"]) + "\n"
                 bid = "Bid : " + "{0:.8f}".format(topia_json["Data"]["BidPrice"]) + "\n"
                 ask = "Ask : " + "{0:.8f}".format(topia_json["Data"]["AskPrice"]) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + " BTC" + "\n"
                 value_topia = "```css\n" + pair + volume + last + bid + ask + "```"
         except Exception as e:
             print("err main_topia", e)
@@ -110,12 +110,11 @@ class Cryptopia:
 
         try:
             try:
-                marketcap = "MC : " + "{:,}".format(float(cmc_json[0]["market_cap_usd"])) + "$\n"
+                marketcap = "MC : " + "$ " + "{:,}".format(float(cmc_json[0]["market_cap_usd"])) + "\n"
             except Exception as e:
                 marketcap = "MC : Unknown\n"
                 print("mc err", e)
-            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(
-                float(cmc_json[0]["price_eur"])) + "€\n"
+            price = "Price : " + "$ " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + " | " + "{0:.3f}".format(float(cmc_json[0]["price_eur"])) + " €     \n"
             rank = "Rank : [Rank " + str(cmc_json[0]["rank"]) + "]\n"
             change_1 = "1h Swing : " + str(cmc_json[0]["percent_change_1h"]) + "%\n"
             change_24 = "24h Swing : " + str(cmc_json[0]["percent_change_24h"]) + "%\n"
@@ -124,7 +123,7 @@ class Cryptopia:
                 change_7) + "```"
         except Exception as e:
             print("err cmc", e)
-            value_mc = "```\nErreur formatage CMC```"
+            value_mc = "```\nCMC Formatting Error```"
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))

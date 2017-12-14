@@ -89,14 +89,14 @@ class Poloniex:
                 last = "Last : " + "{0:.2f}".format(float(polo_json[self.key]["last"])) + "\n"
                 bid = "Bid : " + "{0:.2f}".format(float(polo_json[self.key]["highestBid"])) + "\n"
                 ask = "Ask : " + "{0:.2f}".format(float(polo_json[self.key]["lowestAsk"])) + "\n"
-                volume = "Volume : " + "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + " BTC" + "\n"
                 value_polo = "```css\n" + pair + volume + last + bid + ask + "```"
             else:
                 pair = "Pair :" + self.key.replace("_", "-") + "\n"
                 last = "Last : " + polo_json[self.key]["last"] + "\n"
                 bid = "Bid : " + polo_json[self.key]["highestBid"] + "\n"
                 ask = "Ask : " + polo_json[self.key]["lowestAsk"] + "\n"
-                volume = "Volume : " + "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(polo_json[self.key]["baseVolume"])) + " BTC" + "\n"
                 value_polo = "```css\n" + pair + volume + last + bid + ask + "```"
         except Exception as e:
             print("err main_polo", e)
@@ -112,12 +112,11 @@ class Poloniex:
 
         try:
             try:
-                marketcap = "MC : " + "{:,}".format(float(cmc_json[0]["market_cap_usd"])) + "$\n"
+                marketcap = "MC : " + "$ " + "{:,}".format(float(cmc_json[0]["market_cap_usd"])) + "\n"
             except Exception as e:
                 marketcap = "MC : Unknown\n"
                 print("mc err", e)
-            price = "Price : " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + "$ | " + "{0:.3f}".format(
-                float(cmc_json[0]["price_eur"])) + "€\n"
+            price = "Price : " + "$ " + "{0:.3f}".format(float(cmc_json[0]["price_usd"])) + " | " + "{0:.3f}".format(float(cmc_json[0]["price_eur"])) + " €      \n"
             rank = "Rank : [Rank " + str(cmc_json[0]["rank"]) + "]\n"
             change_1 = "1h Swing: " + str(cmc_json[0]["percent_change_1h"]) + "%\n"
             change_24 = "24h Swing: " + str(cmc_json[0]["percent_change_24h"]) + "%\n"
