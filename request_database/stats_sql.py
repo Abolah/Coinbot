@@ -133,7 +133,7 @@ class Stats:
             result = "```css\nCommands " + arg + " has been asked " + str(data[0][0]) + " times on the bot```"
             embed.add_field(name=":boom: Command Information " + arg, value=result, inline=True)
         else:
-            result = "```css\nCoin " + arg.upper() + " ahs been asked " + str(data[0][0]) + " times on the bot```"
+            result = "```css\nCoin " + arg.upper() + " has been asked " + str(data[0][0]) + " times on the bot```"
             embed.add_field(name=":boom: Coin Informations " + arg.upper(), value=result, inline=True)
 
         return embed

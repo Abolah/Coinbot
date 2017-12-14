@@ -31,15 +31,15 @@
       <file leaf-file-name="stats_sql.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/request_database/stats_sql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="136" column="59" lean-forward="false" selection-start-line="136" selection-start-column="59" selection-end-line="136" selection-end-column="59" />
+            <state relative-caret-position="527">
+              <caret line="135" column="57" lean-forward="false" selection-start-line="135" selection-start-column="57" selection-end-line="135" selection-end-column="57" />
               <folding>
-                <marker date="1513269903335" expanded="true" signature="947:1030" ph="CREATE TABLE... stats" />
-                <marker date="1513269903335" expanded="true" signature="1581:1626" ph="INSERT INTO stats... " />
-                <marker date="1513269903335" expanded="true" signature="2086:2137" ph="SELECT comma... stats" />
-                <marker date="1513269903335" expanded="true" signature="2239:2284" ph="SELECT coin,... stats" />
-                <marker date="1513269903335" expanded="true" signature="2415:2476" ph="SELECT count... stats" />
-                <marker date="1513269903335" expanded="true" signature="2590:2648" ph="SELECT count... stats" />
+                <marker date="1513270407539" expanded="true" signature="947:1030" ph="CREATE TABLE... stats" />
+                <marker date="1513270407539" expanded="true" signature="1581:1626" ph="INSERT INTO stats... " />
+                <marker date="1513270407539" expanded="true" signature="2086:2137" ph="SELECT comma... stats" />
+                <marker date="1513270407539" expanded="true" signature="2239:2284" ph="SELECT coin,... stats" />
+                <marker date="1513270407539" expanded="true" signature="2415:2476" ph="SELECT count... stats" />
+                <marker date="1513270407539" expanded="true" signature="2590:2648" ph="SELECT count... stats" />
               </folding>
             </state>
           </provider>
@@ -105,8 +105,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-591" />
-    <option name="y" value="-25" />
+    <option name="x" value="10" />
+    <option name="y" value="-12" />
     <option name="width" value="1936" />
     <option name="height" value="1066" />
   </component>
@@ -126,8 +126,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -154,6 +152,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -551,21 +551,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="215" column="74" lean-forward="false" selection-start-line="215" selection-start-column="74" selection-end-line="215" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/request_database/stats_sql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="136" column="59" lean-forward="false" selection-start-line="136" selection-start-column="59" selection-end-line="136" selection-end-column="59" />
+        <state relative-caret-position="527">
+          <caret line="135" column="57" lean-forward="false" selection-start-line="135" selection-start-column="57" selection-end-line="135" selection-end-column="57" />
           <folding>
-            <marker date="1513269903335" expanded="true" signature="947:1030" ph="CREATE TABLE... stats" />
-            <marker date="1513269903335" expanded="true" signature="1581:1626" ph="INSERT INTO stats... " />
-            <marker date="1513269903335" expanded="true" signature="2086:2137" ph="SELECT comma... stats" />
-            <marker date="1513269903335" expanded="true" signature="2239:2284" ph="SELECT coin,... stats" />
-            <marker date="1513269903335" expanded="true" signature="2415:2476" ph="SELECT count... stats" />
-            <marker date="1513269903335" expanded="true" signature="2590:2648" ph="SELECT count... stats" />
+            <marker date="1513270407539" expanded="true" signature="947:1030" ph="CREATE TABLE... stats" />
+            <marker date="1513270407539" expanded="true" signature="1581:1626" ph="INSERT INTO stats... " />
+            <marker date="1513270407539" expanded="true" signature="2086:2137" ph="SELECT comma... stats" />
+            <marker date="1513270407539" expanded="true" signature="2239:2284" ph="SELECT coin,... stats" />
+            <marker date="1513270407539" expanded="true" signature="2415:2476" ph="SELECT count... stats" />
+            <marker date="1513270407539" expanded="true" signature="2590:2648" ph="SELECT count... stats" />
           </folding>
         </state>
       </provider>
