@@ -5,14 +5,13 @@ import side_info
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DRReAQ.9OXdsjDeX2EFOemvHP77YFHxmMc"
+secret_token = ""
 
 
 @client.event
 async def on_ready():
     """
     Verify that the bot is connected and is working
-    :return:
     """
     global channel
     print("Logged in as :")
@@ -23,10 +22,11 @@ async def on_ready():
 @client.command(pass_context=True)
 async def all(ctx, *coin):
     """
-    Request  on all the exchanges which are supported || ex : !all xzc
-    :param ctx: Context i.e metadata of the message
-    :param coin: The coin symbol
-    :return: The whole message (embed)
+    This command is used to know the price of a coin on the following exchanges
+    Bitfinex; Bittrex, Cryptopia, Poloniex and Binance
+
+    Example : !all eth
+
     """
     global channel
     await client.send_typing(ctx.message.channel)
@@ -47,10 +47,10 @@ async def all(ctx, *coin):
 @client.command(pass_context=True)
 async def rex(ctx, *coin):
     """
-    Request on a cryptocurrency which is on Bittrex || ex : !rex xzc
-    :param ctx: Context i.e metadata of the message
-    :param coin: The coin symbol
-    :return: The whole message (embed)
+    This command is used to know the value of a coin listed on Bittrex
+    BTC-Coin Pair only.
+
+    Example : !rex eth
     """
     global channel
     await client.send_typing(ctx.message.channel)
@@ -71,10 +71,10 @@ async def rex(ctx, *coin):
 @client.command(pass_context=True)
 async def polo(ctx, *coin):
     """
-    Request on a cryptocurrency which is on Poloniex || ex : !polo xzc
-    :param ctx: Context i.e metadata of the message
-    :param coin: The coin symbol
-    :return: The whole message (embed)
+    This command is used to know the value of a coin listed on Poloniex
+    BTC-Coin Pair only.
+
+    Example : !polo eth
     """
     global channel
     await client.send_typing(ctx.message.channel)
@@ -95,10 +95,10 @@ async def polo(ctx, *coin):
 @client.command(pass_context=True)
 async def topia(ctx, *coin):
     """
-    Request on a cryptocurrency which is on Cryptopia || ex : !topia sumo
-    :param ctx: Context i.e metadata of the message
-    :param coin: The coin symbol
-    :return: The whole message (embed)
+    This command is used to know the value of a coin listed on Cryptopia
+    BTC-Coin Pair only.
+
+    Example : !topia eth
     """
     global channel
     await client.send_typing(ctx.message.channel)
@@ -119,10 +119,10 @@ async def topia(ctx, *coin):
 @client.command(pass_context=True)
 async def finex(ctx, *coin):
     """
-    Request on a cryptocurrency which is on Bitfinex || ex : !finex eth
-    :param ctx: Context i.e metadata of the message
-    :param coin: The coin symbol
-    :return: The whole message (embed)
+    This command is used to know the value of a coin listed on Bitfinex
+    BTC-Coin Pair only.
+
+    Example : !finex eth
     """
     global channel
     await client.send_typing(ctx.message.channel)
@@ -143,10 +143,10 @@ async def finex(ctx, *coin):
 @client.command(pass_context=True)
 async def binance(ctx, *coin):
     """
-    Request on a cryptocurrency which is on Binance || ex : !binance eth
-    :param ctx: Context i.e metadata of the message
-    :param coin: The coin symbol
-    :return: The whole message (embed)
+    This command is used to know the value of a coin listed on Binance
+    BTC-Coin Pair only.
+
+    Example : !binance eth
     """
     global channel
     await client.send_typing(ctx.message.channel)
@@ -167,11 +167,13 @@ async def binance(ctx, *coin):
 @client.command(pass_context=True)
 async def whale(ctx, arg, limit=4):
     """
-    Request for all the whale order || ex : !whale xzc 6
-    :param ctx: Context i.e metadata of the message
-    :param arg: The coin symbol
-    :param limit: The limit in BTC
-    :return: The whole message (embed)
+    This command is used to know the big orders placed by whales on several exchanges.
+    The command return the Number of coin bought at which price and the number of coin sold at which price
+
+    A parameter can be added to set a limit in the number of BTC put in the order (Default is 4)
+
+    Example : !whale eth
+              !whale eth 10
     """
     global channel
     await client.send_typing(ctx.message.channel)
@@ -191,9 +193,10 @@ async def whale(ctx, arg, limit=4):
 @client.command(pass_context=True)
 async def cmc(ctx):
     """
-    Request for the global data of coinmarketcap || ex : !cmc
-    :param ctx: Context i.e metadata of the message
-    :return: The whole message (embed)
+    This command is used to know the actual state of the market.
+    The wesbite used is CoinMarketCap
+
+    Example : !cmc
     """
     global channel
     await client.send_typing(ctx.message.channel)
@@ -213,9 +216,9 @@ async def cmc(ctx):
 @client.command(pass_context=True)
 async def top(ctx):
     """
-    Request for the highest change of the day (neg and pos) || ex : !top
-    :param ctx: Context i.e metadata of the message
-    :return: The whole message (embed)
+    This command is used to know the biggest gainer and loser since 24h on the marketcap.
+
+    Example : !top
     """
     global channel
     await client.send_typing(ctx.message.channel)
@@ -235,13 +238,11 @@ async def top(ctx):
 @client.command(pass_context=True)
 async def db(ctx, arg, rank=None, coin=None, *comment):
     """
-    See !db info for more informations
-    :param ctx: Context i.e metadata of the message
-    :param arg: The coin
-    :param rank: The rank that we want
-    :param coin: The coin symbol
-    :param comment: The comment of the coin
-    :return: The whole message (embed)
+    This command is used to make several request on the database.
+
+    Use !db info for more informations
+
+    Example : !db info
     """
     await client.send_typing(ctx.message.channel)
     try:
@@ -256,9 +257,9 @@ async def db(ctx, arg, rank=None, coin=None, *comment):
 @client.command(pass_context=True)
 async def btc(ctx):
     """
-    Request the price of the btc from many exchanges || ex : !btc
-    :param ctx: Context i.e metadata of the message
-    :return: The whole message (embed)
+    This command is used to know the price of the Bitcoin on several exchanges.
+
+    Example : !btc
     """
     global channel
     await client.send_typing(ctx.message.channel)
@@ -276,10 +277,9 @@ async def btc(ctx):
 @client.command(pass_context=True)
 async def stats(ctx, arg=None):
     """
-    The stats of the command which has been used on the discord || ex !stats
-    :param ctx: Context i.e metadata of the message
-    :param arg: No arg
-    :return: The whole message (embed)
+    This command is used to know which command and which coin was asked the most on the server.
+
+    Example : !stats
     """
     await client.send_typing(ctx.message.channel)
     try:
@@ -295,12 +295,13 @@ async def stats(ctx, arg=None):
 @client.command(pass_context=True)
 async def order(ctx, price, profit, loss):
     """
-    To simulate an order on Bittrex with a TP and SL || ex : !order 0.005 5 5
-    :param ctx: Context i.e metadata of the message
-    :param price: The price in satoshi or bitcoin
-    :param profit: The % of profit needed
-    :param loss: The % of loss needed
-    :return: The whole message (emebed)
+    This command is used to calculate the exit point of a trade depending of the profit target and the stop-loss target
+
+    The first parameter is the price of the buy ( ex : 0.015) .You don't need to add the coin
+    The second parameter is the percentage of the profit you are aiming ( ex 50% profit)
+    The third parameter is the percentage of the stop loss you want ( ex 10% loss)
+
+    Example : !order 0.015 50 10
     """
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
@@ -316,11 +317,12 @@ async def order(ctx, price, profit, loss):
 @client.command(pass_context=True)
 async def conv(ctx, coin, qty):
     """
-    To convert an amount of cryptocurrency in dollars || ex !conv xzc 100
-    :param ctx: Context i.e metadata of the message
-    :param coin: The coin
-    :param qty: The quantity
-    :return: The whole message (embed)
+    This command is used to convert the amount of coins you have into BTC and US$
+
+    The first parameter is the coin name (ex eth)
+    The second parameter is the number of coin you have ( ex 2.5)
+
+    Example : !conv eth 2.5
     """
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
@@ -337,10 +339,9 @@ async def conv(ctx, coin, qty):
 @client.command(pass_context=True)
 async def name(ctx, coin):
     """
-    Ask for the full name of a symbol
-    :param ctx: Context i.e metadata of the message
-    :param coin: The symbol of the coin
-    :return: The whole message (embed)
+    This command is used to know the full name of a coin and some side informations associated with it.
+
+    Example : !name eth
     """
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
@@ -357,9 +358,9 @@ async def name(ctx, coin):
 @client.command(pass_context=True)
 async def infos(ctx):
     """
-    The help command in embed version || ex : !infos
-    :param ctx: Context i.e metadata of the message
-    :return: The whole message (embed)
+    This command is used to display all the available commands on the bot.
+
+    Example : !infos
     """
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
@@ -396,9 +397,10 @@ async def event(ctx, limit=0):
 @client.command(pass_context=True)
 async def money(ctx):
     """
-    Display the donation informations || ex : !money
-    :param ctx:
-    :return:
+    This command is used to display Abolah's donation addresses.
+    If you like this bot you can donate to help me improving the bot :)
+
+    Example : !money
     """
     await client.send_typing(ctx.message.channel)
     dona = side_info.donate.Donate()
@@ -409,9 +411,11 @@ async def money(ctx):
 @client.command(pass_context=True)
 async def code(ctx):
     """
-    Display the url to the source code
-    :param ctx:
-    :return:
+    This command is used to display the url to the source code of this Bot on GitHub.
+    Don't hesitate to Star it and Fork if you want to :)
+    The code will remain open source an free for everyone.
+
+    Example : !code
     """
     await client.send_typing(ctx.message.channel)
     source_code = side_info.code.Code()
@@ -422,9 +426,9 @@ async def code(ctx):
 @client.command(pass_context=True)
 async def wolf(ctx):
     """
-    Display the advantages of becoming a VIP member
-    :param ctx:
-    :return:
+    This command is used to know all the advantages of being a VIP in Wolf of Poloniex's Discord server.
+
+    Example : !wolf
     """
     await client.send_typing(ctx.message.channel)
     vip = side_info.wolf.Wolf()
@@ -433,13 +437,14 @@ async def wolf(ctx):
 
 
 @client.command(pass_context=True)
-async def sum(ctx, url=None, limit=4):
+async def sum(ctx, url=None, limit=10):
     """
-    To get a summary of an article || ex : !sum http://https://www.nytimes.com/2017/12/11/business/dealbook/bitcoin-futures.html?rref=collection%2Fsectioncollection%2Fbusiness 8
-    :param ctx: Context i.e metadata of the message
-    :param url: The url of the article
-    :param limit: The limit in lines lower = shorter
-    :return: The whole message (embed)
+    This command is used to shorten a website article.
+    The parameter is the url of the article.
+
+    The result may be unclear or buggy (Discord is limiting the message number of characters at 2000 atm)
+
+    Example : !sum https://www.forbes.com/sites/forbestechcouncil/2017/11/27/five-reasons-bitcoin-will-be-your-best-high-growth-investment-for-2018/#229c706c47e8
     """
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)

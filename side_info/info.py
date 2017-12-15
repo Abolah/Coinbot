@@ -31,17 +31,15 @@ class Info:
         conv = "!conv [coin][number of coins]\n"
         name = "!name [coin]\n"
         sum = "!sum [url]\n\n"
-        stats = "!stats [Coin]\n"
+        stats = "!stats\n"
         list = "!db info\n\n"
         wolf = "!wolf\n"
         code = "!code\n"
         money = "!money\n"
 
-        data_info = "```css\n" + all + btc + rex + finex + polo + topia + binance + top + cmc + order + whale + info + help + conv + name + sum + stats + list + wolf + money + "```"
-        print(data_info)
-        embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
-                              timestamp=datetime.datetime.utcfromtimestamp(self.time))
-        embed.set_thumbnail(url="")
+        data_info = "```css\n" + all + btc + rex + finex + polo + topia + binance + top + cmc + order + whale + info + help + conv + name + sum + stats + list + wolf + code + money + "```"
+        embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com", timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed.set_thumbnail(url="https://cdn4.iconfinder.com/data/icons/space-and-astronomy-1/800/robot-512.png")
         embed.set_footer(text="Request achieved on")
         embed.add_field(name=":hammer: Version", value="1.6.0")
         embed.add_field(name=":star2: Request about Coinbot's commands",
