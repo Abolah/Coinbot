@@ -36,12 +36,12 @@ class Wolf:
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com", timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url=url_logo)
-        embed.add_field(name=":wolfz: Do you know what you can have by becoming a VIP ?", value="Here are all the advantages !", inline=False)
+        embed.add_field(name=":first_place: : Do you know what you can have by becoming a VIP ?", value="Here are all the advantages !", inline=False)
         embed.add_field(name=":slot_machine: Discord Advantages : \n", value=Discord_perks, inline=True)
         embed.add_field(name=":slot_machine: More Advantages !", value=More_perks, inline=True)
-        embed.add_field(name=":rainbow_puke: Whats coming next ?  :rainbow_puke: ", value=later, inline=True)
-        embed.add_field(name=":ban: What you won't have.", value=NoGo, inline=True)
-        embed.add_field(name=":btc: Wanna enter the Pack ? Copy the URL below !  :btc:", value=pay, inline=True)
+        embed.add_field(name=":track_next: Whats coming next ?  :track_next:", value=later, inline=True)
+        embed.add_field(name=":head_bandage: What you won't have.", value=NoGo, inline=True)
+        embed.add_field(name=":moneybag: Wanna enter the Pack ? Copy the URL below !  :moneybag:", value=pay, inline=True)
         embed.set_footer(text="Request achieved on")
         return embed
 
