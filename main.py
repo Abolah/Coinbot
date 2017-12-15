@@ -5,7 +5,7 @@ import side_info
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = ""
+secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DRReAQ.9OXdsjDeX2EFOemvHP77YFHxmMc"
 
 
 @client.event
@@ -416,6 +416,19 @@ async def code(ctx):
     await client.send_typing(ctx.message.channel)
     source_code = side_info.code.Code()
     embed = source_code.affichage()
+    await client.send_message(ctx.message.channel, embed=embed)
+
+
+@client.command(pass_context=True)
+async def wolf(ctx):
+    """
+    Display the advantages of becoming a VIP member
+    :param ctx:
+    :return:
+    """
+    await client.send_typing(ctx.message.channel)
+    vip = side_info.wolf.Wolf()
+    embed = vip.affichage()
     await client.send_message(ctx.message.channel, embed=embed)
 
 
