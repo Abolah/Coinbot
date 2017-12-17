@@ -39,6 +39,7 @@ class Info:
         help_cmd = "Type !help followed by the name of the command (without the '!'. \n For Example !help order to display the help about the order command"
 
         data_info = "```css\n" + all + btc + rex + finex + polo + topia + binance + top + cmc + order + whale + info + help + conv + name + sum + stats + list + wolf + code + money + "```"
+        help_info = "```css\n" + help_cmd + "```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn4.iconfinder.com/data/icons/space-and-astronomy-1/800/robot-512.png")
@@ -49,5 +50,5 @@ class Info:
                         inline=False)
         embed.add_field(name=":information_source: Informations about Coinbot", value=data_info)
 
-        embed.add_field(name="Do you need help about a command ?", value=help_cmd)
+        embed.add_field(name=":information_source: Do you need help about a command ?", value=help_info)
         return embed
