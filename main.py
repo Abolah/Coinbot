@@ -7,8 +7,7 @@ import requests
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DQ40XA.WGSmtwM5-I2yHIHBL_uoeLp3iHs"
-
+secret_token = ""
 
 @client.event
 async def on_ready():
