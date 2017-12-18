@@ -1,11 +1,13 @@
+import discord
 from discord.ext.commands import Bot
 import request_api
 import request_database
 import side_info
+import requests
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = ""
+secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DQ40XA.WGSmtwM5-I2yHIHBL_uoeLp3iHs"
 
 
 @client.event
@@ -17,6 +19,14 @@ async def on_ready():
     print("Logged in as :")
     print(client.user.name)
     print(client.user.id)
+
+    bitcoin_price_url = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
+    data = requests.get(bitcoin_price_url).json()
+    price_in_usd = data['bpi']['USD']['rate']
+    price_in_usd = price_in_usd.split(".")[0]
+    btc_text = "BTC Price : "
+    btc_status = btc_text + price_in_usd
+    await client.change_presence(game=discord.Game(name=btc_status))
 
 
 @client.command(pass_context=True)
@@ -371,6 +381,7 @@ async def infos(ctx):
         await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
     except Exception as e:
         print("Global Error on !infos\n", e)
+
 
 """
 @client.command(pass_context=True)
