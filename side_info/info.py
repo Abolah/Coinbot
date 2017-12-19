@@ -44,7 +44,7 @@ class Info:
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn4.iconfinder.com/data/icons/space-and-astronomy-1/800/robot-512.png")
         embed.set_footer(text="Request achieved on")
-        embed.add_field(name=":hammer: Version", value="1.6.1")
+        embed.add_field(name=":hammer: Version", value="1.7")
         embed.add_field(name=":star2: Request about Coinbot's commands",
                         value="Here are the informations I could retrieve " + self.auth,
                         inline=False)

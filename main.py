@@ -4,10 +4,12 @@ import request_api
 import request_database
 import side_info
 import requests
+import time
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = ""
+secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DQ40XA.WGSmtwM5-I2yHIHBL_uoeLp3iHs"
+
 
 @client.event
 async def on_ready():
@@ -18,14 +20,9 @@ async def on_ready():
     print("Logged in as :")
     print(client.user.name)
     print(client.user.id)
-
-    bitcoin_price_url = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
-    data = requests.get(bitcoin_price_url).json()
-    price_in_usd = data['bpi']['USD']['rate']
-    price_in_usd = price_in_usd.split(".")[0]
-    btc_text = "BTC Price : "
-    btc_status = btc_text + price_in_usd
-    await client.change_presence(game=discord.Game(name=btc_status))
+    starttime = time.time()
+    await btcgame()
+    time.sleep(1 - ((time.time() - starttime) % 1))
 
 
 @client.command(pass_context=True)
@@ -465,5 +462,20 @@ async def sum(ctx, url=None, limit=10):
     await client.send_message(ctx.message.channel, list_v[0][1])
 
 
+async def btcgame():
+    """
+    Display the bitcoin price in the user list
+
+    """
+    bitcoin_price_url = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
+    data = requests.get(bitcoin_price_url).json()
+    price_in_usd = data['bpi']['USD']['rate']
+    price_in_usd = price_in_usd.split(".")[0]
+    btc_text = "BTC Price : "
+    btc_status = btc_text + price_in_usd
+    await client.change_presence(game=discord.Game(name=btc_status))
+
+
 # Put your secret Discord Dev App Token between the quotes
+
 client.run(secret_token)
