@@ -475,6 +475,19 @@ async def btcgame():
     btc_status = btc_text + price_in_usd
     await client.change_presence(game=discord.Game(name=btc_status))
 
+@client.command(pass_context=True)
+async def voc(ctx):
+    """
+        This command is used to know all the advantages of being a VIP in Wolf of Poloniex's Discord server.
+
+        Example : !wolf
+        """
+    await client.send_typing(ctx.message.channel)
+    vocab = side_info.wolf.Wolf()
+    embed = vip.affichage()
+    await client.send_message(ctx.message.channel, embed=embed)
+
+
 
 # Put your secret Discord Dev App Token between the quotes
 
