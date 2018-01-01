@@ -172,7 +172,7 @@ class whale:
         try:
             for i in reversed(book):
                 if i[1] == "Sell" and sell < limit:
-                    whale_sell += "[" + str(i[0]) + "] " + "Selling for " + "{0:.3f}".format(float(i[2])) + " " + symb + " at " + "{0:.8f}".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
+                    whale_sell += "[" + str(i[0]) + "] " + "Selling for " + "{0:.3f}".format(float(i[2])) + symb + " at " + "{0:.8f}".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
                     sell += 1
                 if sell == limit:
                     break
