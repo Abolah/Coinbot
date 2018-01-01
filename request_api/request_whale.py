@@ -156,7 +156,7 @@ class whale:
         try:
             for i in book:
                 if i[1] == "Buy" and buy < limit:
-                    whale_buy += "[" + str(i[0]) + "] " + "Buying for " + "{0:.3f}".format(float(i[2])) + " " + symb + " at " + "{0:.8f}".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
+                    whale_buy += "[" + str(i[0]) + "] " + "Buying for " + "{0:.3f}".format(float(i[2])) + symb + " at " + "{0:.8f}".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
                     buy += 1
                 if buy == limit:
                     break
