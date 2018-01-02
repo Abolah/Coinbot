@@ -17,8 +17,7 @@ class Event_Crypto:
         self.color = randint(0, 0xffffff)
         return
 
-    @staticmethod
-    async def get_html():
+    async def get_html(self):
         data_http = ""
         generalevent = "http://www.coincalendar.info/"
         async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
@@ -32,8 +31,7 @@ class Event_Crypto:
                 data_http = -1
         return data_http
 
-    @staticmethod
-    def stripwhite(text):
+    def stripwhite(self, text):
         lst = text.split('"')
         for i, item in enumerate(lst):
             if not i % 2:
@@ -63,7 +61,6 @@ class Event_Crypto:
         return list_event
 
     def affichage_event(self, list_event, limit):
-        global date_2
         event_value = ""
         list_event_final = []
         date_now = datetime.datetime.now()
@@ -81,7 +78,7 @@ class Event_Crypto:
                 if date_2 >= date_1:
                     list_event_final.append(i)
             except Exception as e:
-                print("No date available")
+                print("No date available", e)
         if limit < len(list_event_final):
             for i in range(limit, len(list_event_final)):
                 if i <= limit + 10:
@@ -98,8 +95,9 @@ class Event_Crypto:
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
         embed.set_footer(text="Request achieved on")
         embed.add_field(name=":star2: Request about the incoming events",
-                        value="Here are the information that i could retrieve" + self.auth, inline=False)
-        embed.add_field(name=":floppy_disk: Information about the incoming events", value=event_value,
+                        value="Here are the informations I could retrieve " +
+                              self.auth, inline=False)
+        embed.add_field(name=":floppy_disk: Information about the incoming event", value=event_value,
                         inline=True)
         return embed
 

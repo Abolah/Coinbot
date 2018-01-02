@@ -382,17 +382,16 @@ async def infos(ctx):
 @client.command(pass_context=True)
 async def event(ctx, limit=0):
     """
-    This command is used to retrieve the incoming event in the Cryptomarket.
+    This command is used to know the incoming events
     The website used is coincalendar.
 
-    You can switch pages to see event coming later
+    The limit of the command is the page displayed
 
-    Example: !event  | !event 3
+    Example : !event | !event 3
     """
-
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
-    await statistiques.stats_add("?event", "")
+    await statistiques.stats_add("!event", "")
 
     events = side_info.event_crypto.Event_Crypto(ctx.message.author)
     embed = await events.get_event(limit)
