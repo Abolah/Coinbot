@@ -8,7 +8,7 @@ import time
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = ""
+secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS1KHA.ZGIXCdscQ6dvlGszisVUzkwYYvE"
 
 
 @client.event
@@ -476,16 +476,22 @@ async def btcgame():
 @client.command(pass_context=True)
 async def voc(ctx):
     """
-        This command is used to know all the advantages of being a VIP in Wolf of Poloniex's Discord server.
+    This command is used to know all the advantages of being a VIP in Wolf of Poloniex's Discord server.
 
-        Example : !voc rsi
-        """
+    Example : !voc rsi
+    """
     await client.send_typing(ctx.message.channel)
     vocab = side_info.wolf.Wolf()
     embed = vocab.affichage()
     await client.send_message(ctx.message.channel, embed=embed)
 
 
-# Put your secret Discord Dev App Token between the quotes
+@client.command(pass_context=True)
+async def doge(ctx):
+    await client.send_typing(ctx.message.channel)
+    dogeLord = side_info.doge.Doge()
+    embed = dogeLord.affichage()
+    await client.send_message(ctx.message.channel, embed=embed)
+
 
 client.run(secret_token)

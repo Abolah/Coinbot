@@ -8,4 +8,4 @@ from side_info import sumarize
 from side_info import code
 from side_info import wolf
 from side_info import vocab
-
+from side_info import doge
