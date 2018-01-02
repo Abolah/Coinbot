@@ -25,7 +25,8 @@ class Info:
         top = "!top\n"
         cmc = "!cmc\n"
         order = "!order [price] [profit][stop-loss]\n"
-        whale = "!whale [Coin] [Limit in BTC]\n\n"
+        whale = "!whale [Coin] [Limit in BTC]\n"
+        event = "!event\n\n"
         info = "!infos\n"
         help = "!help [command name]\n"
         conv = "!conv [coin][number of coins]\n"
@@ -38,13 +39,13 @@ class Info:
         money = "!money\n"
         help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order \n This will display the help about the order command"
 
-        data_info = "```css\n" + all + btc + rex + finex + polo + topia + binance + top + cmc + order + whale + info + help + conv + name + sum + stats + list + wolf + code + money + "```"
+        data_info = "```css\n" + all + btc + rex + finex + polo + topia + binance + top + cmc + order + whale + event + info + help + conv + name + sum + stats + list + wolf + code + money + "```"
         help_info = "```" + help_cmd + "```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn4.iconfinder.com/data/icons/space-and-astronomy-1/800/robot-512.png")
         embed.set_footer(text="Request achieved on")
-        embed.add_field(name=":hammer: Version", value="1.7.1")
+        embed.add_field(name=":hammer: Version", value="1.8")
         embed.add_field(name=":star2: Request about Coinbot's commands",
                         value="Here are the informations I could retrieve " + self.auth,
                         inline=False)

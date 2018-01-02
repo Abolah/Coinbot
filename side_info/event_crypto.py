@@ -60,43 +60,45 @@ class Event_Crypto:
                         list_event.append(data)
                 except json.decoder.JSONDecodeError:
                     print("Invalid event : Delete")
-
         return list_event
 
     def affichage_event(self, list_event, limit):
+        global date_2
         event_value = ""
         list_event_final = []
         date_now = datetime.datetime.now()
         date_1 = datetime.datetime.strptime(
             str(str(date_now.year) + "-" + str(date_now.month) + "-" + str(date_now.day)), "%Y-%m-%d")
         limit = limit * 10
-        try:
-            for i in list_event:
+        for i in list_event:
+            print(i)
+            try:
                 date = str(i["startDate"]).split("T")
                 date_2 = datetime.datetime.strptime(date[0], "%Y-%m-%d")
+            except Exception as e:
+                print("startdate", e)
+            try:
                 if date_2 >= date_1:
                     list_event_final.append(i)
-
-            if limit < len(list_event_final):
-                for i in range(limit, len(list_event_final)):
-                    if i <= limit + 10:
-                        date_event = str(list_event_final[i]["startDate"]).split("T")
-                        event_value += "[" + date_event[0] + "] " + list_event_final[i]["name"] + "\n"
-                    else:
-                        break
-            else:
-                event_value = "No more event to come sorry"
-        except:
-            event_value = "CoinCalendar seems to be unreachable"
+            except Exception as e:
+                print("No date available")
+        if limit < len(list_event_final):
+            for i in range(limit, len(list_event_final)):
+                if i <= limit + 10:
+                    date_event = str(list_event_final[i]["startDate"]).split("T")
+                    event_value += "[" + date_event[0] + "] " + list_event_final[i]["name"] + "\n"
+                else:
+                    break
+        else:
+            event_value = "No more event to come sorry"
 
         event_value = "```css\n" + event_value + "```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
         embed.set_footer(text="Request achieved on")
-        embed.add_field(name=":star2: Request about the Cryptomarket's events ",
-                        value="Here are the information that I could retrieve " + self.auth,
-                        inline=False)
+        embed.add_field(name=":star2: Request about the incoming events",
+                        value="Here are the information that i could retrieve" + self.auth, inline=False)
         embed.add_field(name=":floppy_disk: Information about the incoming events", value=event_value,
                         inline=True)
         return embed
