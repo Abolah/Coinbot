@@ -20,11 +20,11 @@ class Doge:
         price = "```css\n" + "Price : " + "{0:.3f}".format(
             float(data[0]["price_usd"])) + "$\n" + "Target : Moon" + "```"
 
-        haiku1 = "Roses are red, Violet are blue.\nAll in DOGE, he will never fail you."
+        haiku1 = "Roses are red, Violet are blue.\nAll IN DOGE, he will never fail you."
         haiku2 = "Roses are red, Violet are blue.\nIf you question DOGE, Burn will do you."
         haiku3 = "Roses are red, Violet are blue.\nWith DOGE there is no such thing,\nas too much value"
         haiku4 = "Roses are red, Violet are blue.\nThe only thing that matters,\nis DOGE revenue"
-        haiku5 = "Once upon a time,\n A stranger entered the Pack.\n\nDubbed and amazed,\nby the beautiful cryptospace, he asked\n'What coin should I invest? Target Sir?'\n\nOut of the blue,\nOur Saviour Mcgruff came through,\nHe explained what we all knew:\nDOGE is our virtue "
+        haiku5 = "Once upon a time,\nA stranger entered the Pack.\n\nDubbed and amazed,\nby the beautiful cryptospace, he asked\n'What coin should I invest? Target Sir?'\n\nOut of the blue,\nOur Saviour McGruff came through,\nHe explained what we all knew:\nDOGE is our virtue "
         haiku6 = "Roses are red, Violet are blue.\nI can't really rhyme, but the Shibas are mine"
         haiku7 = "BTC, Ethereum, Litecoin or maybe even Ripple,\nIt doesn't really matter.\nCompared to DOGE,\nEverything is cripple."
         haiku8 = "DOGE is love, DOGE is life,\nIf you wanna make money, Better sell your wife."
