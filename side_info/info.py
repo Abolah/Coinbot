@@ -36,7 +36,7 @@ class Info:
         list = "!db info\n\n"
         wolf = "!wolf\n"
         code = "!bot\n"
-        money = "!money\n"
+        money = "!ressources\n"
         help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order \n This will display the help about the order command"
 
         data_info = "```css\n" + all + btc + rex + finex + polo + topia + binance + top + cmc + order + whale + event + info + help + conv + name + sum + stats + list + wolf + code + money + "```"

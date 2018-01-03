@@ -108,7 +108,7 @@ Example : !sum www.url.com
 ```
 !db [command] : Can stock someone favorite coin (up to 5 coin/person)
 
-!db add [Rank] [Coin] {Commentaire} : Add a coin for the person using the command in the Database
+!db add [Rank] [Coin] {Comment} : Add a coin for the person using the command in the Database
 Example !db add 5 eth I like Vitalik
 
 !db del [Rank] OU [Coin] : Delete the coin depending on the rank or the coin itself for the person who uses the command

@@ -8,7 +8,7 @@ import time
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = ""
+secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS5p3Q.ADQdLKVgzgmS_6Kmink6dgH2rHo"
 
 
 @client.event
@@ -399,7 +399,7 @@ async def event(ctx, limit=0):
 
 
 @client.command(pass_context=True)
-async def money(ctx):
+async def ressources(ctx):
     """
     This command is used to display Abolah's donation addresses.
     If you like this bot you can donate to help me improving the bot :)

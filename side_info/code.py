@@ -17,7 +17,7 @@ class Code:
         embed.set_author(name="Abolah", url="https://twitter.com/Abolaah",
                          icon_url="https://vignette.wikia.nocookie.net/epicrapbattlesofhistory/images/e/eb/Deal_with_it_rainbow_style_by_j_brony-d4cwgad.png")
         embed.add_field(name=":star2:Do you like my work ? :star2:",
-                        value="```You can donate to this addresses:\nBTC : 1jc3V3T5mefuD9asa7en976NKVGssQuMq\nETH(ERC20 friendly) : abowallet.eth\nDOGE : DSEaEfD4NQ68xbD92wN9UgcL66qZtwiFJB\nLTC : LQS415ftVrkSjjmFUyKNVBhY1fJzFLSKaz\nDash : XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz```")
+                        value="```You can donate to theses addresses:\nBTC : 1jc3V3T5mefuD9asa7en976NKVGssQuMq\nETH(ERC20 friendly) : abowallet.eth\nDOGE : DSEaEfD4NQ68xbD92wN9UgcL66qZtwiFJB\nLTC : LQS415ftVrkSjjmFUyKNVBhY1fJzFLSKaz\nDash : XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz```")
         embed.add_field(name=":information_source: Do you need help ? :information_source:",
                         value="```Send me a message at :\n@Abolah#6887 on Discord\n@Abolaah on Twitter.```")
         embed.add_field(name=":interrobang:Can I use the Bot on my own server ? :interrobang:",
