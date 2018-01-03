@@ -8,7 +8,7 @@ import time
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS4-6A.etSH81OYF3J6Bx6iSz8DGb7KuYM"
+secret_token = ""
 
 
 @client.event
