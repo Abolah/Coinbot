@@ -8,7 +8,7 @@ import time
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = ""
+secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS4-6A.etSH81OYF3J6Bx6iSz8DGb7KuYM"
 
 
 @client.event
@@ -413,13 +413,13 @@ async def money(ctx):
 
 
 @client.command(pass_context=True)
-async def code(ctx):
+async def bot(ctx):
     """
-    This command is used to display the url to the source code of this Bot on GitHub.
+    This command is used to display some informations about the bot.
     Don't hesitate to Star it and Fork if you want to :)
-    The code will remain open source an free for everyone.
+    The code will remain open source and free for everyone.
 
-    Example : !code
+    Example : !bot
     """
     await client.send_typing(ctx.message.channel)
     source_code = side_info.code.Code()
@@ -488,6 +488,11 @@ async def voc(ctx):
 
 @client.command(pass_context=True)
 async def doge(ctx):
+    """
+        Praise our Lord and Savior, the Mighty DOGE
+
+        Example : !doge
+    """
     await client.send_typing(ctx.message.channel)
     dogeLord = side_info.doge.Doge()
     embed = dogeLord.affichage()
