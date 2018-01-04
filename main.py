@@ -8,11 +8,7 @@ import time
 
 client = Bot(command_prefix='!')
 channel = None
-<<<<<<< Updated upstream
-secret_token = ""
-=======
 secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
->>>>>>> Stashed changes
 
 
 @client.event
