@@ -28,8 +28,13 @@ class Doge:
         haiku6 = "Roses are red, Violet are blue.\nI can't really rhyme, but the Shibas are mine"
         haiku7 = "BTC, Ethereum, Litecoin or maybe even Ripple,\nIt doesn't really matter.\nCompared to DOGE,\nEverything is cripple."
         haiku8 = "DOGE is love, DOGE is life,\nIf you wanna make money, Better sell your wife."
+        haiku9 = "Roses are red, Violet are blue.\nIf you don't like DOGE, F*CK YOU !"
+        haiku10 = "Real Wolves from the Pack don’t howl at full moon.\nThey are heading to the moon.\nThey bought DOGE."
+        haiku11 = "A Dogecoin a day,\nKeeps bankruptcy away."
+        haiku12 = "A wise man once told,\n'God helps those who help themselves'\nGet God on your side.\nBuy DOGE and be wise."
+        haiku13 = "When the markets get tough,\nThe toughs buy DOGE."
 
-        choice = random.choice([haiku1, haiku2, haiku3, haiku4, haiku5, haiku6, haiku7, haiku8])
+        choice = random.choice([haiku1, haiku2, haiku3, haiku4, haiku5, haiku6, haiku7, haiku8, haiku9, haiku10, haiku11, haiku12, haiku13])
         choice = "```css\n" + choice + "```"
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com")
