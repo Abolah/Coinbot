@@ -163,7 +163,7 @@ class Listsql:
         return embed
 
     def db_query(self, arg, rank, coin, comment):
-        conn = self.connect
+        conn = self.connect()
         if arg.lower() == "add":
             data = self.add(conn, rank, coin, comment)
             result = self.affichage(data)
