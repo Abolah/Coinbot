@@ -36,7 +36,7 @@ class Wolf:
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com", timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url=url_logo)
-        embed.add_field(name=":first_place: : Do you know what you can have by becoming a VIP ?", value="Here are all the advantages !", inline=False)
+        embed.add_field(name=":first_place: Do you know what you can have by becoming a VIP ?", value="Here are all the advantages !", inline=False)
         embed.add_field(name=":slot_machine: Discord Advantages : \n", value=Discord_perks, inline=True)
         embed.add_field(name=":slot_machine: More Advantages !", value=More_perks, inline=True)
         embed.add_field(name=":track_next: Whats coming next ?  :track_next:", value=later, inline=True)

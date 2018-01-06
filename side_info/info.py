@@ -34,7 +34,7 @@ class Info:
         sum = "!sum [url]\n\n"
         stats = "!stats\n"
         list = "!db info\n\n"
-        wolf = "!wolf\n"
+        wolf = "!masons\n"
         code = "!bot\n"
         money = "!ressources\n"
         help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order \n This will display the help about the order command"

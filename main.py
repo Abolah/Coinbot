@@ -430,9 +430,9 @@ async def bot(ctx):
 @client.command(pass_context=True)
 async def masons(ctx):
     """
-    This command is used to know all the advantages of being a VIP in Wolf of Poloniex's Discord server.
+    This command is used to know all the advantages of being a VIP in the Bitcoin Masons Discord server.
 
-    Example : !wolf
+    Example : !masons
     """
     await client.send_typing(ctx.message.channel)
     vip = side_info.wolf.Wolf()
