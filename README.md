@@ -14,6 +14,20 @@ To Install Python3.6 you can follow this tutorial :
 
 * [Tutorial](https://unix.stackexchange.com/questions/332641/how-to-install-python-3-6)
 
+## Install dependencies
+
+If you do not have pip, you can use the following
+
+```
+curl https://bootstrap.pypa.io/get-pip.py | python3.6
+```
+
+Install all the requirements :
+```
+python3.6 -m pip install -r requirements.txt
+```
+
+Those dependencies are :
 ```
 discord aiohttp asyncio requests aylien-apiclient beautifulsoup4
 
@@ -23,6 +37,7 @@ beautifulsoup4 is used only for !event
 ### Installation
 
 You don't need to install anything, just git clone the repository, put your secret token and launch main.py
+
 
 ```
 python3.6 main.py
@@ -40,7 +55,7 @@ To see if the bot is running correctly just run the command !infos
 ```
 !infos
 ```
-# The commands 
+# The commands
 
 ```
 !infos : List of all the available commands
@@ -81,7 +96,7 @@ Example : !order 750 5 10
 Example : !whale xzc || !whale xzc 5
 ```
 ```
-!stats  :  Retrieve the most used commands 
+!stats  :  Retrieve the most used commands
 Example : !stats || !stats !rex || !stats xzc
 ```
 ```
@@ -134,7 +149,7 @@ Using the !db command needs to init the database to start registering the coins
 
 ## Tools Used:
 
-* [PyCharm](https://www.jetbrains.com/pycharm/) - L'IDE de développement 
+* [PyCharm](https://www.jetbrains.com/pycharm/) - L'IDE de développement
 * [DIscord.py](https://github.com/Rapptz/discord.py) - Le wrapper de communication Discord pour python
 
 
