@@ -9,7 +9,7 @@ import time
 client = Bot(command_prefix='!')
 channel = None
 secret_token = ""
-
+MAXIMUM_COINS = 3
 
 @client.event
 async def on_ready():
@@ -38,7 +38,7 @@ async def all(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
     try:
-        for i in coin:
+        for i in coin[:MAXIMUM_COINS]:
             await statistiques.stats_add("!all", i.lower())
             all_coin = request_api.request_all.all_currencies(i.lower(), ctx.message.author)
             result = await all_coin.query_all()
@@ -52,6 +52,8 @@ async def all(ctx, *coin):
 
 @client.command(pass_context=True)
 async def rex(ctx, *coin):
+
+    print(coin[:1])
     """
     This command is used to know the value of a coin listed on Bittrex
     BTC-Coin Pair only.
@@ -62,7 +64,7 @@ async def rex(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
     try:
-        for i in coin:
+        for i in coin[:MAXIMUM_COINS]:
             await statistiques.stats_add("!rex", i.lower())
             bittrex = request_api.request_bittrex.bittrex(i.lower(), ctx.message.author)
             result = await bittrex.bittrex_query()
@@ -86,7 +88,7 @@ async def polo(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
     try:
-        for i in coin:
+        for i in coin[:MAXIMUM_COINS]:
             await statistiques.stats_add("!polo", i.lower())
             poloniex = request_api.request_poloniex.Poloniex(i.lower(), ctx.message.author)
             result = await poloniex.poloniex_query()
@@ -110,7 +112,7 @@ async def topia(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
     try:
-        for i in coin:
+        for i in coin[:MAXIMUM_COINS]:
             await statistiques.stats_add("!topia", i.lower())
             cryptopia = request_api.request_cryptopia.Cryptopia(i.lower(), ctx.message.author)
             result = await cryptopia.cryptopia_query()
@@ -134,7 +136,7 @@ async def finex(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
     try:
-        for i in coin:
+        for i in coin[:MAXIMUM_COINS]:
             await statistiques.stats_add("!finex", i.lower())
             bitfinex = request_api.request_bitfinex.Bitfinex(i.lower(), ctx.message.author)
             result = await bitfinex.bitfinex_query()
@@ -158,7 +160,7 @@ async def binance(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     statistiques = request_database.stats_sql.Stats(ctx.message.author)
     try:
-        for i in coin:
+        for i in coin[:MAXIMUM_COINS]:
             await statistiques.stats_add("!binance", i.lower())
             binance_api = request_api.request_binance.Binance(i.lower(), ctx.message.author)
             result = await binance_api.binance_query()
