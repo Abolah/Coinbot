@@ -1,0 +1,6 @@
+discord
+aiohttp
+asyncio
+requests
+aylien-apiclient
+beautifulsoup4
