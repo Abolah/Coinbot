@@ -428,7 +428,7 @@ async def bot(ctx):
 
 
 @client.command(pass_context=True)
-async def wolf(ctx):
+async def masons(ctx):
     """
     This command is used to know all the advantages of being a VIP in Wolf of Poloniex's Discord server.
 
