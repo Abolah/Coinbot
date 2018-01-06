@@ -9,7 +9,8 @@ import time
 client = Bot(command_prefix='!')
 channel = None
 secret_token = ""
-MAXIMUM_COINS = 3
+
+MAXIMUM_COINS = 10
 
 @client.event
 async def on_ready():
