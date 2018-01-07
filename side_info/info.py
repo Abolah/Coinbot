@@ -36,7 +36,7 @@ class Info:
         list = "!db info\n\n"
         wolf = "!masons\n"
         code = "!bot\n"
-        money = "!ressources\n"
+        money = "!resources\n"
         help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order \n This will display the help about the order command"
 
         data_info = "```css\n" + all + btc + rex + finex + polo + topia + binance + top + cmc + order + whale + event + info + help + conv + name + sum + stats + list + wolf + code + money + "```"
@@ -45,7 +45,7 @@ class Info:
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn4.iconfinder.com/data/icons/space-and-astronomy-1/800/robot-512.png")
         embed.set_footer(text="Request achieved on")
-        embed.add_field(name=":hammer: Version", value="1.9")
+        embed.add_field(name=":hammer: Version", value="1.9.5")
         embed.add_field(name=":star2: Request about Coinbot's commands",
                         value="Here are the informations I could retrieve " + self.auth,
                         inline=False)

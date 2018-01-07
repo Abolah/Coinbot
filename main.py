@@ -402,7 +402,7 @@ async def event(ctx, limit=0):
 
 
 @client.command(pass_context=True)
-async def ressources(ctx):
+async def resources(ctx):
     """
     This command is used to display Abolah's donation addresses.
     If you like this bot you can donate to help me improving the bot :)
