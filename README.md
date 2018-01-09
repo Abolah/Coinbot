@@ -1,5 +1,7 @@
 # CoinBot
 
+[![Build Status](https://travis-ci.org/Abolah/Coinbot.svg?branch=master)](https://travis-ci.org/Abolah/Coinbot)
+
 Coinbot is a Discord bot created in Python and used to display some usefull informations about CryptoMarket trading.
 
 ## Getting Started
