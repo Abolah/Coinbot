@@ -181,6 +181,8 @@ async def whale(ctx, arg, limit=4):
 
     A parameter can be added to set a limit in the number of BTC put in the order (Default is 4)
 
+    NOTE : You can't ask for BTC Whales (because you can buy/sell BTC with/against BTC)
+
     Example : !whale eth
               !whale eth 10
     """
