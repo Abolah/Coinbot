@@ -4,13 +4,14 @@ import request_api
 import request_database
 import side_info
 import requests
-import time
+import threading
 
 client = Bot(command_prefix='!')
 channel = None
 secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
 
 MAXIMUM_COINS = 10
+
 
 @client.event
 async def on_ready():
@@ -21,9 +22,7 @@ async def on_ready():
     print("Logged in as :")
     print(client.user.name)
     print(client.user.id)
-    starttime = time.time()
-    await btcgame()
-    time.sleep(10 - ((time.time() - starttime) % 10))
+    btcgame()
 
 
 @client.command(pass_context=True)
@@ -53,7 +52,6 @@ async def all(ctx, *coin):
 
 @client.command(pass_context=True)
 async def rex(ctx, *coin):
-
     print(coin[:1])
     """
     This command is used to know the value of a coin listed on Bittrex
@@ -464,18 +462,18 @@ async def sum(ctx, url=None, limit=10):
     await client.send_message(ctx.message.channel, list_v[0][1])
 
 
-async def btcgame():
+def btcgame():
     """
     Display the bitcoin price in the user list
-
     """
+    threading.Timer(10.0, btcgame).start()
     bitcoin_price_url = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
     data = requests.get(bitcoin_price_url).json()
     price_in_usd = data['bpi']['USD']['rate']
     price_in_usd = price_in_usd.split(".")[0]
-    btc_text = "BTC Price : "
-    btc_status = btc_text + price_in_usd + " USD"
-    await client.change_presence(game=discord.Game(name=btc_status))
+    btc_text = "BTC : "
+    btc_status = btc_text + price_in_usd + " $"
+    client.change_presence(game=discord.Game(name=btc_status))
 
 
 @client.command(pass_context=True)

@@ -6,7 +6,8 @@ Coinbot is a Discord bot created in Python and used to display some useful infor
 
 ## I can host the bot for you, if you want !
 * [Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=367061304042586124&permissions=116736&scope=bot)
-Send me a discord message to @Abolah#6887 or @Abolaah on Twitter.
+
+Send me a discord message to @Abolah#6887 or @Abolaah on Twitter if you want help about the hosting.
 
 ## If you want to test it, you can join this server :
 * [Testing](https://discord.gg/PVyNRca)
