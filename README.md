@@ -2,7 +2,11 @@
 
 [![Build Status](https://travis-ci.org/Abolah/Coinbot.svg?branch=master)](https://travis-ci.org/Abolah/Coinbot)
 
-Coinbot is a Discord bot created in Python and used to display some usefull informations about CryptoMarket trading.
+Coinbot is a Discord bot created in Python and used to display some useful informations about CryptoMarket trading.
+
+## I can host the bot for you, if you want !
+* [Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=367061304042586124&permissions=116736&scope=bot)
+Send me a discord message to @Abolah#6887 or @Abolaah on Twitter.
 
 ## Getting Started
 
@@ -110,9 +114,8 @@ Example : !name eth
 Example : !event  || !event 2
 ```
 ```
-!money :  Get the donation informations
-Example : !money
-If you want to modify the donation addresses you can go to Coinbot/side_info/donate.py
+!bot :  Display some informations about me and the bot
+Example : !bot
 ```
 ```
 !conv [coin][quantité] :  To convert the coin value in BTC/USD
@@ -151,23 +154,25 @@ Using the !db command needs to init the database to start registering the coins
 
 ## Tools Used:
 
-* [PyCharm](https://www.jetbrains.com/pycharm/) - L'IDE de développement
-* [DIscord.py](https://github.com/Rapptz/discord.py) - Le wrapper de communication Discord pour python
+* [PyCharm](https://www.jetbrains.com/pycharm/) - Python IDE
+* [Discord.py](https://github.com/Rapptz/discord.py) - Python wrapper for Discord
 
 
 ## Donation
 
 If you want to help me with this bot. You can donate BTC and ETH to the following addresses
 ```
-ETH  [abowallet.eth]
+ETH(ERC20 friendly)  [abowallet.eth]
 BTC  [1jc3V3T5mefuD9asa7en976NKVGssQuMq]
+DOGE [D9zKYJgqnTWcu8ZCVzzKrqQkjzwuhymHh9]
+LTC  [LQS415ftVrkSjjmFUyKNVBhY1fJzFLSKaz]
+DASH [XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz]
 ```
 
-## Autors
+## Authors
 
 * **Pridwen** - *Forked from* [Pridwen](https://github.com/Pridwen/Celestina)
 * **Abolah** - *Initial work* - [Abolah](https://github.com/Abolah)
-
 
 ## License
 

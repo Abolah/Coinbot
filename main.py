@@ -474,7 +474,7 @@ async def btcgame():
     price_in_usd = data['bpi']['USD']['rate']
     price_in_usd = price_in_usd.split(".")[0]
     btc_text = "BTC Price : "
-    btc_status = btc_text + price_in_usd
+    btc_status = btc_text + price_in_usd + " USD"
     await client.change_presence(game=discord.Game(name=btc_status))
 
 

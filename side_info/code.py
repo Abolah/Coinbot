@@ -12,12 +12,14 @@ class Code:
     def affichage(self):
         embed = discord.Embed(title="Github URL", colour=discord.Colour(0x2dca6f),
                               url="https://github.com/Abolah/Coinbot",
-                              description=":hammer_pick: I am the developper of CoinBot.```\nYou can check out the source code here,\nhttps://github.com/Abolah/Coinbot```")
-        embed.set_thumbnail(url="https://cdn4.iconfinder.com/data/icons/space-and-astronomy-1/800/robot-512.png")
+                              description=":hammer_pick: I am the developer of CoinBot.```\nYou can check out the source code here,\nhttps://github.com/Abolah/Coinbot""```")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.set_author(name="Abolah", url="https://twitter.com/Abolaah",
                          icon_url="https://vignette.wikia.nocookie.net/epicrapbattlesofhistory/images/e/eb/Deal_with_it_rainbow_style_by_j_brony-d4cwgad.png")
+        embed.add_field(name=":star2:This awesome logo was created by RickySanchez :star2:",
+                        value="```You can contact him with his discord ID : @RickySanchez#5887 ```")
         embed.add_field(name=":star2:Do you like my work ? :star2:",
-                        value="```You can donate to theses addresses:\nBTC : 1jc3V3T5mefuD9asa7en976NKVGssQuMq\nETH(ERC20 friendly) : abowallet.eth\nDOGE : DSEaEfD4NQ68xbD92wN9UgcL66qZtwiFJB\nLTC : LQS415ftVrkSjjmFUyKNVBhY1fJzFLSKaz\nDash : XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz```")
+                        value="```You can donate to theses addresses:\nBTC : 1jc3V3T5mefuD9asa7en976NKVGssQuMq\nETH(ERC20 friendly) : abowallet.eth\nDOGE : D9zKYJgqnTWcu8ZCVzzKrqQkjzwuhymHh9\nLTC : LQS415ftVrkSjjmFUyKNVBhY1fJzFLSKaz\nDash : XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz```")
         embed.add_field(name=":information_source: Do you need help ? :information_source:",
                         value="```Send me a message at :\n@Abolah#6887 on Discord\n@Abolaah on Twitter.```")
         embed.add_field(name=":interrobang:Can I use the Bot on my own server ? :interrobang:",
