@@ -8,13 +8,16 @@ Coinbot is a Discord bot created in Python and used to display some useful infor
 * [Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=367061304042586124&permissions=116736&scope=bot)
 Send me a discord message to @Abolah#6887 or @Abolaah on Twitter.
 
+## If you want to test it, you can join this server :
+* [Testing](https://discord.gg/PVyNRca)
+
 ## Getting Started
 
 The bot is ready to deploy. Just add your Bot Secret token you created with your discord dev account.
 
 ### Prerequisites
 
-You'll need python3.6 installed and some dependancies.
+You'll need python3.6 installed and some dependencies.
 
 To Install Python3.6 you can follow this tutorial :
 
@@ -118,7 +121,7 @@ Example : !event  || !event 2
 Example : !bot
 ```
 ```
-!conv [coin][quantité] :  To convert the coin value in BTC/USD
+!conv [coin][quantity] :  To convert the coin value in BTC/USD
 Example : !conv eth 10.245
 ```
 ```
