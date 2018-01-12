@@ -22,7 +22,8 @@ async def on_ready():
     print("Logged in as :")
     print(client.user.name)
     print(client.user.id)
-    btcgame()
+    client.change_presence(game=discord.Game(name="TEST"))
+    #btcgame()
 
 
 @client.command(pass_context=True)
@@ -466,14 +467,16 @@ def btcgame():
     """
     Display the bitcoin price in the user list
     """
-    threading.Timer(10.0, btcgame).start()
+    threading.Timer(1.0, btcgame).start()
     bitcoin_price_url = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
     data = requests.get(bitcoin_price_url).json()
     price_in_usd = data['bpi']['USD']['rate']
     price_in_usd = price_in_usd.split(".")[0]
     btc_text = "BTC : "
     btc_status = btc_text + price_in_usd + " $"
-    client.change_presence(game=discord.Game(name=btc_status))
+    game = client.change_presence(game=discord.Game(name=btc_status))
+    print(btc_status)
+    return game
 
 
 @client.command(pass_context=True)
