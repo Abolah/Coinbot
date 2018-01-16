@@ -10,7 +10,7 @@ class Wolf:
         return
 
     def affichage(self):
-        url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png"
+        url_logo = "https://cdn.discordapp.com/attachments/389024205985021954/402873687797268502/BMlogo.png"
         wolf_knowledge = "+ Full access to the channels where The Wolf himself  will come and share some knowledge !\n\n"
         ico_sales = "+ Access to selected Pre-ICO sales where the analysts  picks ICOs with great potential and great pre-sales bonuses !\n\n"
         group = "+ You'll be part of a group focused on learning and empowering the members !\n"
