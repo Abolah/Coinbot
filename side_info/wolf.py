@@ -26,7 +26,7 @@ class Wolf:
         Howling = "AI-Powered crypto-signals bot\n"
         Trader_bot = "# High-End automated, algorithmic trading bot\n"
         get_vip = "https://www.bitcoinmasons.com/ \n"
-        price = "0.025 BTC | ~$420"
+        price = "0.038 BTC | ~$420"
 
         Discord_perks = "```diff\n" + wolf_knowledge + ico_sales + group + "```"
         More_perks = "```diff\n" + videos + wolf_trade + news + talks + education + tech_analysis + leverage + fun + "```"
