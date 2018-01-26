@@ -74,12 +74,14 @@ class all_currencies:
         except Exception as e:
             print(e)
             return -1
-
         try:
             for i in self.generalcmc:
                 if i["symbol"] == self.coin.upper():
+                    self.symbol = i["symbol"]
                     self.long_name = i["name"]
                     self.idcoin = i["id"]
+                    cmcal = self.long_name + " (" + self.symbol + ")"
+                    print("CMCAL name : " + cmcal)
                     break
         except Exception as e:
             print(e)

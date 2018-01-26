@@ -23,7 +23,7 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     client.change_presence(game=discord.Game(name="TEST"))
-    #btcgame()
+    # btcgame()
 
 
 @client.command(pass_context=True)
@@ -49,6 +49,45 @@ async def all(ctx, *coin):
                 await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
         print("Global Error on !all\n", e)
+
+
+@client.command(pass_context=True)
+async def catalysts(ctx, *event_type, *coin):
+    try:
+        print("Coin : " + coin)
+        print("Event : " + event_type)
+        cmc_coin = side_info.catalysts.Catalysts()
+        result = await cmc_coin.get_catalysts()
+        if channel is None:
+            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+        else:
+            await client.send_message(channel, ctx.message.author.mention, embed=result)
+    except Exception as e:
+        print("Global Error on !all\n", e)
+
+    await client.send_typing(ctx.message.channel)
+    catalyst = side_info.catalysts.Catalysts(ctx.message.author)
+    embed = await catalyst.get_catalysts()
+    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
+
+
+@client.command(pass_context=True)
+async def event(ctx, limit=0):
+    """
+    This command is used to know the incoming events
+    The website used is coincalendar.
+
+    The limit of the command is the page displayed
+
+    Example : !event | !event 3
+    """
+    await client.send_typing(ctx.message.channel)
+    statistiques = request_database.stats_sql.Stats(ctx.message.author)
+    await statistiques.stats_add("!event", "")
+
+    events = side_info.event_crypto.Event_Crypto(ctx.message.author)
+    embed = await events.get_event(limit)
+    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
 
 
 @client.command(pass_context=True)
@@ -384,31 +423,11 @@ async def infos(ctx):
 
 
 @client.command(pass_context=True)
-async def event(ctx, limit=0):
-    """
-    This command is used to know the incoming events
-    The website used is coincalendar.
-
-    The limit of the command is the page displayed
-
-    Example : !event | !event 3
-    """
-    await client.send_typing(ctx.message.channel)
-    statistiques = request_database.stats_sql.Stats(ctx.message.author)
-    await statistiques.stats_add("!event", "")
-
-    events = side_info.event_crypto.Event_Crypto(ctx.message.author)
-    embed = await events.get_event(limit)
-    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
-
-
-@client.command(pass_context=True)
 async def resources(ctx):
     """
-    This command is used to display Abolah's donation addresses.
-    If you like this bot you can donate to help me improving the bot :)
+    This command is used to display Masons's ref links and resources.
 
-    Example : !money
+    Example : !resources
     """
     await client.send_typing(ctx.message.channel)
     dona = side_info.donate.Donate()
