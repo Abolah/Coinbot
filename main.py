@@ -52,23 +52,31 @@ async def all(ctx, *coin):
 
 
 @client.command(pass_context=True)
-async def catalysts(ctx, *event_type, *coin):
-    try:
-        print("Coin : " + coin)
-        print("Event : " + event_type)
-        cmc_coin = side_info.catalysts.Catalysts()
-        result = await cmc_coin.get_catalysts()
-        if channel is None:
-            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-        else:
-            await client.send_message(channel, ctx.message.author.mention, embed=result)
-    except Exception as e:
-        print("Global Error on !all\n", e)
+async def catalysts(ctx, coin="", event_type=""):
+    em = discord.Embed(title='Events', description='Incoming Events : ', colour=0xDEADBF)
+    if event_type == "":
+        resultE = "No event"
+        print (resultE)
+    else :
+        resultE = "Event : " + event_type
+        print(resultE)
+        em.add_field(name="Event Type", value=resultE)
 
-    await client.send_typing(ctx.message.channel)
-    catalyst = side_info.catalysts.Catalysts(ctx.message.author)
-    embed = await catalyst.get_catalysts()
-    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
+    if coin == "":
+        resultC = "No coin"
+        print (resultC)
+    else :
+        resultC = "Coin : " + coin
+        print(resultC)
+        em.add_field(name="Coin", value=resultC)
+
+    if event_type == "" and coin == "":
+        error = "You need to specify at least 1 param"
+        print(error)
+        em.add_field(name=":Coin", value=error)
+
+    await client.send_message(ctx.message.channel, embed=em)
+
 
 
 @client.command(pass_context=True)
