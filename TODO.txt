@@ -1,0 +1,6 @@
+Coinmarketcal api
+Teamup add
+rename the functions and classes
+refactor this whole shit
+Clean the code
+remove database shit

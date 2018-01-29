@@ -56,16 +56,16 @@ async def catalysts(ctx, coin="", event_type=""):
     em = discord.Embed(title='Events', description='Incoming Events : ', colour=0xDEADBF)
     if event_type == "":
         resultE = "No event"
-        print (resultE)
-    else :
+        print(resultE)
+    else:
         resultE = "Event : " + event_type
         print(resultE)
         em.add_field(name="Event Type", value=resultE)
 
     if coin == "":
         resultC = "No coin"
-        print (resultC)
-    else :
+        print(resultC)
+    else:
         resultC = "Coin : " + coin
         print(resultC)
         em.add_field(name="Coin", value=resultC)
@@ -76,7 +76,6 @@ async def catalysts(ctx, coin="", event_type=""):
         em.add_field(name=":Coin", value=error)
 
     await client.send_message(ctx.message.channel, embed=em)
-
 
 
 @client.command(pass_context=True)
