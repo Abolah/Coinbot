@@ -27,19 +27,17 @@ class Info:
         order = "!order [price] [profit][stop-loss]\n"
         whale = "!whale [Coin] [Limit in BTC]\n"
         event = "!event\n\n"
-        info = "!infos\n"
+        infos = "!infos\n"
         help = "!help [command name]\n"
         conv = "!conv [coin][number of coins]\n"
         name = "!name [coin]\n"
         sum = "!sum [url]\n\n"
-        stats = "!stats\n"
-        list = "!db info\n\n"
         wolf = "!masons\n"
-        code = "!bot\n"
-        money = "!resources\n"
+        bot = "!bot\n"
+        resources = "!resources\n"
         help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order \n This will display the help about the order command"
 
-        data_info = "```css\n" + all + btc + rex + finex + polo + topia + binance + top + cmc + order + whale + event + info + help + conv + name + sum + stats + list + wolf + code + money + "```"
+        data_info = "```css\n" + all + btc + rex + finex + polo + topia + binance + top + cmc + order + whale + event + infos + help + conv + name + sum + wolf + bot + resources + "```"
         help_info = "```" + help_cmd + "```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))

@@ -68,7 +68,6 @@ class Event_Crypto:
             str(str(date_now.year) + "-" + str(date_now.month) + "-" + str(date_now.day)), "%Y-%m-%d")
         limit = limit * 10
         for i in list_event:
-            print(i)
             try:
                 date = str(i["startDate"]).split("T")
                 date_2 = datetime.datetime.strptime(date[0], "%Y-%m-%d")

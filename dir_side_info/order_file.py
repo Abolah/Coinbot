@@ -11,14 +11,13 @@ class Order:
         self.auth = self.auth[0]
         return
 
-    def order(self, price, profit, loss
-              ):
+    def order(self, price, profit, loss):
         if float(price) > 1:
             price = float(float(price) / (10 ** 8))
 
         fees = 0.0025 * float(price)
         price = float(price) + fees
-        name = "\nCommission of 0.25% included"
+        name = "\n0.25% Trading fee included"
         fees_sl1 = (float(price) + float(float(loss) / 100) * float(price)) * 0.0025
         fees_sl2 = (float(price) + float(float(loss) / 200) * float(price)) * 0.0025
         sl1 = float(price) - float(float(loss) / 100) * float(price) - fees_sl1 + 2 * fees

@@ -1,2 +1,0 @@
-from request_database import list_sql
-from request_database import stats_sql

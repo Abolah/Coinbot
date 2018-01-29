@@ -3,13 +3,14 @@ import discord
 from random import randint
 
 
-class Code:
+class Class_Bot:
     def __init__(self):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         return
 
-    def affichage(self):
+    @staticmethod
+    def function_display():
         embed = discord.Embed(title="Github URL", colour=discord.Colour(0x2dca6f),
                               url="https://github.com/Abolah/Coinbot",
                               description=":hammer_pick: I am the developer of CoinBot.```\nYou can check out the source code here,\nhttps://github.com/Abolah/Coinbot""```")
@@ -27,6 +28,6 @@ class Code:
 
         return embed
 
-    async def get_code(self):
-        embed = self.affichage
+    async def function_get_code(self):
+        embed = self.function_display()
         return embed

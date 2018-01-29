@@ -7,7 +7,7 @@ import discord
 import time
 
 
-class all_currencies:
+class Class_all_currencies:
     def __init__(self, arg, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
@@ -35,7 +35,7 @@ class all_currencies:
             self.coin_rex = self.coin
         return
 
-    async def fetch(self):
+    async def function_fetch(self):
         list_json = []
         list_name = ["Bitfinex", "Bittrex", "Cryptopia", "Poloniex", "Binance", "Coinmarketcap"]
         list_urls = ["https://api.bitfinex.com/v1/pubticker/" + self.pair_finex,
