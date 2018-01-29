@@ -3,7 +3,7 @@ import datetime
 from random import randint
 
 
-class Order:
+class Class_Order:
     def __init__(self, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
@@ -11,7 +11,7 @@ class Order:
         self.auth = self.auth[0]
         return
 
-    def order(self, price, profit, loss):
+    def function_order(self, price, profit, loss):
         if float(price) > 1:
             price = float(float(price) / (10 ** 8))
 

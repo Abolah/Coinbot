@@ -7,7 +7,7 @@ from random import randint
 import time
 
 
-class bittrex:
+class Class_Bittrex:
     def __init__(self, arg, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
@@ -25,7 +25,7 @@ class bittrex:
         self.auth = self.auth[0]
         return
 
-    async def general_cmc(self):
+    async def function_cmc(self):
         if self.coin.upper() == "BCC":
             tmp = "BCH"
         else:
@@ -51,7 +51,7 @@ class bittrex:
             print(e)
         return 0
 
-    async def fetch(self):
+    async def function_fetch(self):
         list_json = []
         list_name = ["Bittrex", "Coinmarketcap"]
         list_urls = ["https://bittrex.com/api/v1.1/public/getmarketsummary?market=" + self.pair,
@@ -73,7 +73,7 @@ class bittrex:
                 return 0
         return list_json
 
-    def affichage(self, list_json):
+    def function_display(self, list_json):
         rex_json = {}
         cmc_json = {}
         for i in list_json:
@@ -151,7 +151,7 @@ class bittrex:
         return embed
 
     async def bittrex_query(self):
-        await self.general_cmc()
-        data = await self.fetch()
-        affichage = self.affichage(data)
+        await self.function_cmc()
+        data = await self.function_fetch()
+        affichage = self.function_display(data)
         return affichage

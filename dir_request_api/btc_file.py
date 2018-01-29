@@ -7,7 +7,7 @@ from random import randint
 import time
 
 
-class bitcoin:
+class Class_bitcoin:
     def __init__(self):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
@@ -40,7 +40,7 @@ class bitcoin:
                 return 0
         return list_json
 
-    def affichage(self, list_json, author):
+    def function_display(self, list_json, author):
         value = ""
         value_other = ""
         won_value = 0.000888

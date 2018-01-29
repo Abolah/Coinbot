@@ -6,13 +6,13 @@ import asyncio
 from random import randint
 
 
-class Topcoin:
+class Class_Topcoin:
     def __init__(self):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
 
     @staticmethod
-    async def fetch():
+    async def function_fetch():
         list_json = []
         list_name = ["CoinmarketcapLimit", "Coinmarketcap"]
         list_urls = ["https://api.coinmarketcap.com/v1/ticker/?limit=200",
@@ -33,7 +33,7 @@ class Topcoin:
         return list_json
 
     @staticmethod
-    def to_list(json_data):
+    def function_to_list(json_data):
         list = []
         try:
             for i in json_data:
@@ -51,11 +51,11 @@ class Topcoin:
         return list
 
     @staticmethod
-    def top_sorting(list):
+    def function_top_sorting(list):
         sorted_list = sorted(list, key=lambda x: x[3])
         return sorted_list
 
-    def format_affichage(self, sorted_list, data_global, author):
+    def function_format_display(self, sorted_list, data_global, author):
         url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png"
         try:
             author = str(author).split("#")
@@ -116,10 +116,10 @@ class Topcoin:
     async def query_top(self, author):
         json_global = ""
         sorted = []
-        result = await self.fetch()
+        result = await self.function_fetch()
         if result[0][1] == "CoinmarketcapLimit":
-            sorted = self.top_sorting(self.to_list(result[0][0]))
+            sorted = self.function_top_sorting(self.function_to_list(result[0][0]))
         if result[1][1] == "Coinmarketcap":
             json_global = result[1][0]
-        embed = self.format_affichage(sorted, json_global, author)
+        embed = self.function_format_display(sorted, json_global, author)
         return embed

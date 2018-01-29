@@ -7,7 +7,7 @@ from random import randint
 import time
 
 
-class Poloniex:
+class Class_Poloniex:
     def __init__(self, arg, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
@@ -26,7 +26,7 @@ class Poloniex:
         self.auth = self.auth[0]
         return
 
-    async def general_cmc(self):
+    async def function_cmc(self):
         try:
             async with aiohttp.ClientSession() as session:
                 async with async_timeout.timeout(5):
@@ -68,7 +68,7 @@ class Poloniex:
                     list_json.append([e, name])
         return list_json
 
-    def affichage(self, list_json):
+    def function_display(self, list_json):
         polo_json = {}
         cmc_json = {}
         for i in list_json:
@@ -140,7 +140,7 @@ class Poloniex:
         return embed
 
     async def poloniex_query(self):
-        await self.general_cmc()
+        await self.function_cmc()
         data = await self.fetch()
-        affichage = self.affichage(data)
+        affichage = self.function_display(data)
         return affichage

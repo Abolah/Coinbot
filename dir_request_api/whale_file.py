@@ -6,7 +6,7 @@ import datetime
 from random import randint
 
 
-class whale:
+class Class_whale:
     def __init__(self, arg, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
@@ -32,7 +32,7 @@ class whale:
             self.key_kraken = self.coin.upper() + "XBT"
         return
 
-    async def fetch(self):
+    async def function_fetch(self):
         list_json = []
         list_urls = ["https://bittrex.com/api/v1.1/public/getorderbook?market=" + self.key_rex + "&type=both",
                      "https://api.bitfinex.com/v1/book/" + self.key_finex + "?limit_bids=125&limit_asks=125",
@@ -57,7 +57,7 @@ class whale:
         return list_json
 
     @staticmethod
-    async def sort_kraken(book_kraken, seuil):
+    async def function_sort_kraken(book_kraken, seuil):
         global key_k
         book_out = []
         print(book_kraken)
@@ -73,7 +73,7 @@ class whale:
         return book_out
 
     @staticmethod
-    async def sort_all(list_json, seuil):
+    async def function_sort_all(list_json, seuil):
         book_sorted = []
         for exchange in list_json:
             if exchange[1] == "Bitfinex":
@@ -136,7 +136,7 @@ class whale:
         final_book = sorted(book_sorted, key=lambda x: x[3], reverse=True)
         return final_book
 
-    async def affichage(self, book):
+    async def function_display(self, book):
         coin_wanted = self.coin.upper()
         limit = 10
         sell = 0
@@ -189,7 +189,7 @@ class whale:
 
     async def query_whale(self, limit):
         print(limit)
-        list_book = await self.fetch()
-        list_sorted = await self.sort_all(list_book, limit)
-        embed = await self.affichage(list_sorted)
+        list_book = await self.function_fetch()
+        list_sorted = await self.function_sort_all(list_book, limit)
+        embed = await self.function_display(list_sorted)
         return embed

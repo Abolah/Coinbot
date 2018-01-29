@@ -60,7 +60,7 @@ async def rex(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     try:
         for i in coin[:MAXIMUM_COINS]:
-            bittrex = request_api.request_bittrex.bittrex(i.lower(), ctx.message.author)
+            bittrex = dir_request_api.bittrex_file.Class_Bittrex(i.lower(), ctx.message.author)
             result = await bittrex.bittrex_query()
             if channel is None:
                 await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
@@ -82,7 +82,7 @@ async def polo(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     try:
         for i in coin[:MAXIMUM_COINS]:
-            poloniex = request_api.request_poloniex.Poloniex(i.lower(), ctx.message.author)
+            poloniex = dir_request_api.poloniex_file.Class_Poloniex(i.lower(), ctx.message.author)
             result = await poloniex.poloniex_query()
             if channel is None:
                 await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
@@ -104,7 +104,7 @@ async def topia(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     try:
         for i in coin[:MAXIMUM_COINS]:
-            cryptopia = request_api.request_cryptopia.Cryptopia(i.lower(), ctx.message.author)
+            cryptopia = dir_request_api.cryptopia_file.Class_Cryptopia(i.lower(), ctx.message.author)
             result = await cryptopia.cryptopia_query()
             if channel is None:
                 await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
@@ -126,7 +126,7 @@ async def finex(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     try:
         for i in coin[:MAXIMUM_COINS]:
-            bitfinex = request_api.request_bitfinex.Bitfinex(i.lower(), ctx.message.author)
+            bitfinex = dir_request_api.bitfinex_file.Class_Bitfinex(i.lower(), ctx.message.author)
             result = await bitfinex.bitfinex_query()
             if channel is None:
                 await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
@@ -148,7 +148,7 @@ async def binance(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     try:
         for i in coin[:MAXIMUM_COINS]:
-            binance_api = request_api.request_binance.Binance(i.lower(), ctx.message.author)
+            binance_api = dir_request_api.binance_file.Class_Binance(i.lower(), ctx.message.author)
             result = await binance_api.binance_query()
             if channel is None:
                 await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
@@ -174,7 +174,7 @@ async def whale(ctx, arg, limit=4):
     global channel
     await client.send_typing(ctx.message.channel)
     try:
-        whale_exchange = request_api.request_whale.whale(arg, ctx.message.author)
+        whale_exchange = dir_request_api.whale_file.whale(arg, ctx.message.author)
         result = await whale_exchange.query_whale(limit)
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
@@ -195,7 +195,7 @@ async def cmc(ctx):
     global channel
     await client.send_typing(ctx.message.channel)
     try:
-        CoinMarketCap = request_api.request_marketcap.Coinmarketcap()
+        CoinMarketCap = dir_request_api.cmc_file.Coinmarketcap()
         result = await CoinMarketCap.cmc_query(ctx.message.author)
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
@@ -215,7 +215,7 @@ async def top(ctx):
     global channel
     await client.send_typing(ctx.message.channel)
     try:
-        top_coin = request_api.request_top.Topcoin()
+        top_coin = dir_request_api.top_file.Class_Topcoin()
         result = await top_coin.query_top(ctx.message.author)
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
@@ -234,9 +234,9 @@ async def btc(ctx):
     """
     global channel
     await client.send_typing(ctx.message.channel)
-    Bitcoin = request_api.request_btc.bitcoin()
+    Bitcoin = dir_request_api.btc_file.Class_bitcoin()
     json = await Bitcoin.fetch()
-    result = Bitcoin.affichage(json, ctx.message.author)
+    result = Bitcoin.function_display(json, ctx.message.author)
     if channel is None:
         await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
     else:
@@ -256,8 +256,8 @@ async def order(ctx, price, profit, loss):
     """
     await client.send_typing(ctx.message.channel)
     try:
-        the_order = side_info.order_info.Order(ctx.message.author)
-        embed = the_order.order(price, profit, loss)
+        the_order = dir_side_info.order_file.Class_Order(ctx.message.author)
+        embed = the_order.function_order(price, profit, loss)
         await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
     except Exception as e:
         print("Global Error on !order\n", e)

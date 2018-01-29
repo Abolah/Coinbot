@@ -6,14 +6,14 @@ import async_timeout
 from random import randint
 
 
-class Coinmarketcap:
+class Class_Coinmarketcap:
 
     def __init__(self):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
 
     @staticmethod
-    async def fetch():
+    async def function_fetch():
         list_json = []
         list_name = ["Bitcoin", "Coinmarketcap"]
         list_urls = ["https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=USD",
@@ -34,13 +34,13 @@ class Coinmarketcap:
                 return 0
         return list_json
 
-    def format_affichage(self, json_data, json_data_btc, author):
+    def funciton_display_format(self, json_data, json_data_btc, author):
 
         url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png"
         try:
             author = str(author).split("#")
         except:
-            author = "khey"
+            author = "Buddy o' mine"
         try:
             marketcap = "Market Cap = " + "$ " + "{:,}".format(json_data["total_market_cap_usd"]) + "\n"
             volume = "Market Volume : " + "$ " + "{:,}".format(json_data["total_24h_volume_usd"]) + "\n"
@@ -77,10 +77,10 @@ class Coinmarketcap:
     async def cmc_query(self, author):
         json_data = ""
         json_data_btc = ""
-        result = await self.fetch()
+        result = await self.function_fetch()
         if result[0][1] == "Bitcoin":
             json_data_btc = result[0][0]
         if result[1][1] == "Coinmarketcap":
             json_data = result[1][0]
-        embed = self.format_affichage(json_data, json_data_btc, author)
+        embed = self.funciton_display_format(json_data, json_data_btc, author)
         return embed
