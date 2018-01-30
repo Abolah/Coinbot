@@ -129,32 +129,6 @@ Example : !conv eth 10.245
 !sum [url]{limit} :  Shorten an article from a website
 Example : !sum www.url.com
 ```
-```
-!db [command] : Can stock someone favorite coin (up to 5 coin/person)
-
-!db add [Rank] [Coin] {Comment} : Add a coin for the person using the command in the Database
-Example !db add 5 eth I like Vitalik
-
-!db del [Rank] OU [Coin] : Delete the coin depending on the rank or the coin itself for the person who uses the command
-Example : !db del 5
-
-!db get [coin] or [nickname] : Allow to retrieve the coin or the nickname of a person
-Example : !db get xzc
-
-!db info : Command's information
-```
-
-## Warning
-
-Using the !stats command needs to init the database to start registering the stats
-```
-!stats init
-```
-
-Using the !db command needs to init the database to start registering the coins
-```
-!db init
-```
 
 ## Tools Used:
 
@@ -173,9 +147,7 @@ LTC  [LQS415ftVrkSjjmFUyKNVBhY1fJzFLSKaz]
 DASH [XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz]
 ```
 
-## Authors
-
-* **Pridwen** - *Forked from* [Pridwen](https://github.com/Pridwen/Celestina)
+## Author
 * **Abolah** - *Initial work* - [Abolah](https://github.com/Abolah)
 
 ## License
