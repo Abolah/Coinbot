@@ -3,13 +3,13 @@ import discord
 from random import randint
 
 
-class Wolf:
+class Class_Masons:
     def __init__(self):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         return
 
-    def affichage(self):
+    def function_display(self):
         url_logo = "https://cdn.discordapp.com/attachments/389024205985021954/402873687797268502/BMlogo.png"
         wolf_knowledge = "+ Full access to the channels where The Wolf himself  will come and share some knowledge !\n\n"
         ico_sales = "+ Access to selected Pre-ICO sales where the analysts  picks ICOs with great potential and great pre-sales bonuses !\n\n"
@@ -46,5 +46,5 @@ class Wolf:
         return embed
 
     async def get_wolf(self):
-        embed = self.affichage
+        embed = self.function_display()
         return embed

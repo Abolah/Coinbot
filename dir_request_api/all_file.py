@@ -7,7 +7,7 @@ import discord
 import time
 
 
-class Class_all_currencies:
+class Class_All:
     def __init__(self, arg, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
@@ -61,7 +61,7 @@ class Class_all_currencies:
                 return 0
         return list_json
 
-    async def general_cmc(self):
+    async def function_cmc(self):
         try:
             async with aiohttp.ClientSession() as session:
                 async with async_timeout.timeout(5):
@@ -88,7 +88,7 @@ class Class_all_currencies:
             return -1
         return 0
 
-    def affichage(self, list_json):
+    def function_display(self, list_json):
         finex_json = polo_json = bin_json = topia_json = rex_json = cmc_json = 0
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
@@ -226,7 +226,7 @@ class Class_all_currencies:
         return embed
 
     async def query_all(self):
-        await self.general_cmc()
-        data = await self.fetch()
-        embed = self.affichage(data)
+        await self.function_cmc()
+        data = await self.function_fetch()
+        embed = self.function_display(data)
         return embed

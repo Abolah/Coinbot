@@ -6,7 +6,7 @@ import datetime
 from random import randint
 
 
-class Conv:
+class Class_Conv:
     def __init__(self, auth):
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
@@ -15,7 +15,7 @@ class Conv:
         self.id = "None"
         return
 
-    async def price(self, coin, qty):
+    async def function_price(self, coin, qty):
         global total_btc, total_usd
         url = "https://api.coinmarketcap.com/v1/ticker/?limit=1000"
         result = []
@@ -43,7 +43,7 @@ class Conv:
         result.append(total_usd)
         return result
 
-    def affichage(self, data, coin, qty):
+    def function_display(self, data, coin, qty):
 
         if isinstance(data[0], float):
             value = "```css\n" + qty + " " + coin.upper() + " are worth " + "{0:.8f}".format(

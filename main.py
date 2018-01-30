@@ -32,13 +32,12 @@ async def all(ctx, *coin):
     Bitfinex; Bittrex, Cryptopia, Poloniex and Binance
 
     Example : !all eth
-    ```
     """
     global channel
     await client.send_typing(ctx.message.channel)
     try:
         for i in coin[:MAXIMUM_COINS]:
-            all_coin = dir_request_api.all_file.Class_all_currencies(i.lower(), ctx.message.author)
+            all_coin = dir_request_api.all_file.Class_All(i.lower(), ctx.message.author)
             result = await all_coin.query_all()
             if channel is None:
                 await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
@@ -174,7 +173,7 @@ async def whale(ctx, arg, limit=4):
     global channel
     await client.send_typing(ctx.message.channel)
     try:
-        whale_exchange = dir_request_api.whale_file.whale(arg, ctx.message.author)
+        whale_exchange = dir_request_api.whale_file.Class_whale(arg, ctx.message.author)
         result = await whale_exchange.query_whale(limit)
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
@@ -195,7 +194,7 @@ async def cmc(ctx):
     global channel
     await client.send_typing(ctx.message.channel)
     try:
-        CoinMarketCap = dir_request_api.cmc_file.Coinmarketcap()
+        CoinMarketCap = dir_request_api.cmc_file.Class_Coinmarketcap()
         result = await CoinMarketCap.cmc_query(ctx.message.author)
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
@@ -293,7 +292,7 @@ async def catalysts(ctx, coin="", event_type=""):
 
 
 @client.command(pass_context=True)
-async def conv(ctx, coin, qty):
+async def convert(ctx, coin, qty):
     """
     This command is used to convert the amount of coins you have into BTC and US$
 
@@ -304,9 +303,9 @@ async def conv(ctx, coin, qty):
     """
     await client.send_typing(ctx.message.channel)
     try:
-        convert = side_info.conv_price.Conv(ctx.message.author)
-        data = await convert.price(coin, qty)
-        embed = convert.affichage(data, coin, qty)
+        conv = dir_side_info.convert_file.Class_Conv(ctx.message.author)
+        data = await conv.function_price(coin, qty)
+        embed = conv.function_display(data, coin, qty)
         await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
     except Exception as e:
         print("Global Error on !conv\n", e)
@@ -321,9 +320,9 @@ async def name(ctx, coin):
     """
     await client.send_typing(ctx.message.channel)
     try:
-        coin_name = side_info.name.Name(ctx.message.author, coin.lower())
-        data = await coin_name.query_name()
-        embed = await coin_name.affichage(data)
+        coin_name = dir_side_info.name_file.Class_Name(ctx.message.author, coin.lower())
+        data = await coin_name.function_query_name()
+        embed = await coin_name.function_display(data)
         await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
     except Exception as e:
         print("Global Error on !name\n", e)
@@ -338,8 +337,8 @@ async def infos(ctx):
     """
     await client.send_typing(ctx.message.channel)
     try:
-        info = side_info.info.Info(ctx.message.author)
-        embed = info.info()
+        info = dir_side_info.informations_file.Class_Info(ctx.message.author)
+        embed = info.function_informations()
         await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
     except Exception as e:
         print("Global Error on !infos\n", e)
@@ -353,8 +352,8 @@ async def resources(ctx):
     Example : !resources
     """
     await client.send_typing(ctx.message.channel)
-    dona = side_info.donate.Donate()
-    embed = dona.affichage()
+    dona = dir_side_info.resources_file.Class_Resources
+    embed = dona.function_display()
     await client.send_message(ctx.message.channel, embed=embed)
 
 
@@ -368,7 +367,7 @@ async def bot(ctx):
     Example : !bot
     """
     await client.send_typing(ctx.message.channel)
-    bot_var = side_info.code.Class_Bot()
+    bot_var = dir_side_info.bot_file.Class_Bot()
     embed = bot_var.function_display()
     await client.send_message(ctx.message.channel, embed=embed)
 
@@ -384,7 +383,7 @@ async def event(ctx, limit=0):
     Example : !event | !event 3
     """
     await client.send_typing(ctx.message.channel)
-    events = side_info.event_crypto.Event_Crypto(ctx.message.author)
+    events = dir_side_info.events_file.Class_Events(ctx.message.author)
     embed = await events.get_event(limit)
     await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
 
@@ -397,8 +396,8 @@ async def masons(ctx):
     Example : !masons
     """
     await client.send_typing(ctx.message.channel)
-    vip = side_info.wolf.Wolf()
-    embed = vip.affichage()
+    vip = dir_side_info.masons_file.Class_Masons()
+    embed = vip.function_display()
     await client.send_message(ctx.message.channel, embed=embed)
 
 
@@ -413,8 +412,8 @@ async def sum(ctx, url=None, limit=10):
     Example : !sum https://www.forbes.com/sites/forbestechcouncil/2017/11/27/five-reasons-bitcoin-will-be-your-best-high-growth-investment-for-2018/#229c706c47e8
     """
     await client.send_typing(ctx.message.channel)
-    sum_infos = side_info.sumarize.Sumarize(ctx.message.author, url, limit)
-    list_v = sum_infos.sum()
+    sum_infos = dir_side_info.sumarize_file.Class_Summarize(ctx.message.author, url, limit)
+    list_v = sum_infos.function_sum()
     await client.send_message(ctx.message.channel, list_v[0][0])
     await client.send_message(ctx.message.channel, list_v[0][1])
 
@@ -443,8 +442,8 @@ async def doge(ctx):
         Example : !doge
     """
     await client.send_typing(ctx.message.channel)
-    dogeLord = side_info.doge.Doge()
-    embed = dogeLord.affichage()
+    dogeLord = dir_side_info.doge_file.Class_Doge()
+    embed = dogeLord.function_display()
     await client.send_message(ctx.message.channel, embed=embed)
 
 

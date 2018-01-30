@@ -6,7 +6,7 @@ import async_timeout
 import asyncio
 
 
-class Name:
+class Class_Name:
     def __init__(self, auth, arg):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
@@ -16,7 +16,7 @@ class Name:
         return
 
     @staticmethod
-    async def query_name():
+    async def function_query_name():
         url = "https://api.coinmarketcap.com/v1/ticker/?limit=1000"
         data = ""
         async with aiohttp.ClientSession() as session:
@@ -29,7 +29,7 @@ class Name:
                 data = e
         return data
 
-    async def affichage(self, data):
+    async def function_display(self, data):
         idcoin = "NONE"
         long_name = "NONE"
         price_usd = "0"

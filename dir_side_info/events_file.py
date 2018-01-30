@@ -9,7 +9,7 @@ import re
 from random import randint
 
 
-class Event_Crypto:
+class Class_Events:
     def __init__(self, auth):
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
@@ -17,7 +17,8 @@ class Event_Crypto:
         self.color = randint(0, 0xffffff)
         return
 
-    async def get_html(self):
+    @staticmethod
+    async def function_get_html():
         data_http = ""
         generalevent = "http://www.coincalendar.info/"
         async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
@@ -31,14 +32,15 @@ class Event_Crypto:
                 data_http = -1
         return data_http
 
-    def stripwhite(self, text):
+    @staticmethod
+    def funciton_stripwhite(text):
         lst = text.split('"')
         for i, item in enumerate(lst):
             if not i % 2:
                 lst[i] = re.sub("\s+", "", item)
         return '"'.join(lst)
 
-    def parsing(self, data):
+    def function_parsing(self, data):
         list_event = []
         if data == -1:
             return list_event.append(-1)
@@ -48,19 +50,20 @@ class Event_Crypto:
             data = str(i).replace('<script type="application/ld+json">', "						  	").replace(
                 "</script>", "")
             try:
-                data = json.loads(self.stripwhite(data).replace(",}", "}").replace("\n", "").replace("\r", ""))
+                data = json.loads(self.funciton_stripwhite(data).replace(",}", "}").replace("\n", "").replace("\r", ""))
                 if data not in list_event:
                     list_event.append(data)
             except json.decoder.JSONDecodeError:
                 try:
-                    data = json.loads(self.stripwhite(data).replace(",}", "}"))
+                    data = json.loads(self.funciton_stripwhite(data).replace(",}", "}"))
                     if data not in list_event:
                         list_event.append(data)
                 except json.decoder.JSONDecodeError:
                     print("Invalid event : Delete")
         return list_event
 
-    def affichage_event(self, list_event, limit):
+    def function_display(self, list_event, limit):
+        global date_2
         event_value = ""
         list_event_final = []
         date_now = datetime.datetime.now()
@@ -101,7 +104,7 @@ class Event_Crypto:
         return embed
 
     async def get_event(self, limit):
-        data = await self.get_html()
-        list_event = self.parsing(data)
-        embed = self.affichage_event(list_event, limit)
+        data = await self.function_get_html()
+        list_event = self.function_parsing(data)
+        embed = self.function_display(list_event, limit)
         return embed

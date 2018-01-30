@@ -3,7 +3,7 @@ from random import randint
 from aylienapiclient import textapi
 
 
-class Sumarize:
+class Class_Summarize:
     def __init__(self, auth, url, limit):
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
@@ -15,15 +15,15 @@ class Sumarize:
         self.limit = int(limit)
         return
 
-    def sum(self):
-        value_sum = value_sent = sumarize = ""
+    def function_sum(self):
+        value_sum = value_sent = summarize = ""
         list_v = []
         try:
-            sumarize = self.client.Summarize({'url': self.url, 'sentences_number': self.limit})
+            summarize = self.client.Summarize({'url': self.url, 'sentences_number': self.limit})
         except Exception as e:
             print(e)
         try:
-            for i in sumarize['sentences']:
+            for i in summarize['sentences']:
                 value_sum += str(i) + "\n\n"
             value_sum = "```" + value_sum + "```"
         except Exception as e:

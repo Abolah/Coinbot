@@ -6,13 +6,13 @@ import requests
 import json
 
 
-class Doge:
+class Class_Doge:
     def __init__(self):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         return
 
-    def affichage(self):
+    def function_display(self):
         priceURL = "https://api.coinmarketcap.com/v1/ticker/dogecoin/?convert=EUR"
         paramprice = "price_usd"
         resp = requests.get(url=priceURL, params=paramprice)

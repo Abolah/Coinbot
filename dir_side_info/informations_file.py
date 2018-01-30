@@ -3,10 +3,7 @@ import datetime
 import discord
 
 
-# event = "!event {If following page : 1,2,3,etc} : Display the next events\n\n"
-
-
-class Info:
+class Class_Info:
     def __init__(self, auth):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
@@ -14,7 +11,7 @@ class Info:
         self.auth = self.auth[0]
         return
 
-    def info(self):
+    def function_informations(self):
         all = "!all [coins(s)]\n"
         btc = "!btc\n"
         rex = "!rex [coin(s)]\n"
@@ -29,7 +26,7 @@ class Info:
         event = "!event\n\n"
         infos = "!infos\n"
         help = "!help [command name]\n"
-        conv = "!conv [coin][number of coins]\n"
+        conv = "!convert [coin][number of coins]\n"
         name = "!name [coin]\n"
         sum = "!sum [url]\n\n"
         wolf = "!masons\n"
@@ -43,7 +40,7 @@ class Info:
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.set_footer(text="Request achieved on")
-        embed.add_field(name=":hammer: Version", value="2.0")
+        embed.add_field(name=":hammer: Version", value="2.1")
         embed.add_field(name=":star2: Request about Coinbot's commands",
                         value="Here are the informations I could retrieve " + self.auth,
                         inline=False)
