@@ -7,20 +7,23 @@ import asyncio
 from random import randint
 
 
-class Catalysts:
-    def __init__(self, arg, auth):
+class Class_Catalysts:
+    def __init__(self, coin, event, auth):
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
-        self.coin = arg
+        self.event = event
+        self.coin = coin
         self.long_name = "None"
         self.idcoin = "None"
         self.generalcmc = "None"
         self.symbol = "None"
         return
 
-    async def general_cmc(self):
+    async def function_cmc(self, coin):
+        global cmcal
+        print("Coin : " + coin)
         try:
             async with aiohttp.ClientSession() as session:
                 async with async_timeout.timeout(5):
@@ -47,18 +50,14 @@ class Catalysts:
             return -1
         return cmcal
 
-    async def coinmarketcal(self):
+    @staticmethod
+    async def function_display_event(self):
         print("yo")
 
-    async def display_event(self):
-        print("yo")
-
-
-
-
-
-    async def get_catalysts(self, limit):
-        data = await self.general_cmc()
-        list_event = self.coinmarketcal(data)
-        embed = self.display_event(list_event, limit)
+    async def get_catalysts(self, coin, event):
+        print("Catalysts file, get_catalysts function")
+        print("Coin : " + coin)
+        print("Event : " + event)
+        data = await self.function_cmc(coin)
+        embed = self.function_display_event(data)
         return embed
