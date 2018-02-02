@@ -1,10 +1,7 @@
-import json
-import discord
+from pymarketcap import Pymarketcap
 import datetime
-import aiohttp
-import async_timeout
-import asyncio
 from random import randint
+import json
 
 
 class Class_Catalysts:
@@ -13,48 +10,34 @@ class Class_Catalysts:
         self.auth = self.auth[0]
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
-        self.long_name = "None"
-        self.idcoin = "None"
-        self.generalcmc = "None"
-        self.symbol = "None"
         return
 
-    async def function_cmc(self, coin):
-        global cmcal
-        print("Coin : " + coin)
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with async_timeout.timeout(5):
-                    async with session.get("https://api.coinmarketcap.com/v1/ticker/?limit=1000&convert=EUR") as resp:
-                        if resp.status == 200:
-                            self.generalcmc = await resp.json()
-        except asyncio.TimeoutError as e:
-            self.generalcmc = "Timeout Error"
-            print(e)
-        except Exception as e:
-            print(e)
-            return -1
-        try:
-            for i in self.generalcmc:
-                if i["symbol"] == self.coin.upper():
-                    self.symbol = i["symbol"]
-                    self.long_name = i["name"]
-                    self.idcoin = i["id"]
-                    cmcal = self.long_name + " (" + self.symbol + ")"
-                    print("CMCAL name : " + cmcal)
-                    break
-        except Exception as e:
-            print(e)
-            return -1
-        return cmcal
+    @staticmethod
+    def function_cmc(coin):
+        global name, ticker
+        coin = coin.upper()
+        coinmarketcap = Pymarketcap()
+        cmc_json = coinmarketcap.ticker(coin)
+        ticker = cmc_json["symbol"]
+        name = cmc_json["name"]
+        full_name = name + "%20" + "(" + ticker + ")"
+        return full_name
 
-    async def function_display_event(self, data):
-        print(data)
+    @staticmethod
+    def function_cmcal(full_name, event_type):
+        cmcal_url = "https://coinmarketcal.com/api/events?page=1&max=16&coins=" + full_name + "&showPastEvent=false"
+        print(cmcal_url)
+        return event_type
 
-    async def get_catalysts(self, coin, event_type):
-        print("Catalysts file, get_catalysts function")
-        print("Coin : " + coin)
-        print("Event : " + event_type)
-        data = await self.function_cmc(coin)
-        embed = self.function_display_event(data)
-        return embed
+
+
+
+    @staticmethod
+    def function_display_event(data, pwet):
+        print(data, pwet)
+        return data
+
+    def get_catalysts(self, coin, event_type):
+        get_coin = self.function_cmc(coin)
+        get_event = self.function_cmcal(get_coin, event_type)
+        return get_event

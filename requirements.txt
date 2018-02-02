@@ -1,3 +1,4 @@
+pymarketcap
 async_timeout
 discord
 aiohttp
