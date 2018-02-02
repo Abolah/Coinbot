@@ -8,13 +8,11 @@ from random import randint
 
 
 class Class_Catalysts:
-    def __init__(self, coin, event, auth):
+    def __init__(self, auth):
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
-        self.event = event
-        self.coin = coin
         self.long_name = "None"
         self.idcoin = "None"
         self.generalcmc = "None"
@@ -50,14 +48,13 @@ class Class_Catalysts:
             return -1
         return cmcal
 
-    @staticmethod
-    async def function_display_event(self):
-        print("yo")
+    async def function_display_event(self, data):
+        print(data)
 
-    async def get_catalysts(self, coin, event):
+    async def get_catalysts(self, coin, event_type):
         print("Catalysts file, get_catalysts function")
         print("Coin : " + coin)
-        print("Event : " + event)
+        print("Event : " + event_type)
         data = await self.function_cmc(coin)
         embed = self.function_display_event(data)
         return embed

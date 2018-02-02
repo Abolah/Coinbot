@@ -1,13 +1,12 @@
+[logo]: https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png
+
 # CoinBot
 
 [![Build Status](https://travis-ci.org/Abolah/Coinbot.svg?branch=master)](https://travis-ci.org/Abolah/Coinbot)
 
 Coinbot is a Discord bot created in Python and used to display some useful informations about CryptoMarket trading.
 
-## I can host the bot for you, if you want !
-* [Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=367061304042586124&permissions=116736&scope=bot)
-
-Send me a discord message to @Abolah#6887 or @Abolaah on Twitter if you want help about the hosting.
+Send me a discord message to @Abolah#1337 or @Abolaah on Twitter if you want informations about the hosting.
 
 ## If you want to test it, you can join this server :
 * [Testing](https://discord.gg/PVyNRca)

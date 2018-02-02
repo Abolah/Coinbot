@@ -12,6 +12,7 @@ class Class_Order:
         return
 
     def function_order(self, price, profit, loss):
+        print("Price : " + price)
         if float(price) > 1:
             price = float(float(price) / (10 ** 8))
 

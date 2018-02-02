@@ -7,7 +7,7 @@ import threading
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = ""
+secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
 
 MAXIMUM_COINS = 10
 
@@ -263,29 +263,24 @@ async def order(ctx, price, profit, loss):
 
 
 @client.command(pass_context=True)
-async def catalysts(ctx, coin="", event_type=""):
+async def cata(ctx, coin="", event_type=""):
     print("Command code")
-    if event_type == "":
-        resultE = "No event"
-        print(resultE)
-    else:
-        resultE = "Event : " + event_type
-        print(resultE)
-
     if coin == "":
         resultC = "No coin"
         print(resultC)
-    else:
-        resultC = "Coin : " + coin
-        print(resultC)
+    print("Coin : " + coin)
+
+    if event_type == "":
+        resultE = "No event"
+        print(resultE)
+    print("Event : " + event_type)
 
     if event_type == "" and coin == "":
         error = "You need to specify at least 1 param"
         print(error)
 
-        var_catalysts = dir_side_info.catalysts_file.Class_Catalysts(ctx.message.author)
-        var_embed = var_catalysts.get_catalysts(coin, event)
-        print(var_embed)
+    var_catalysts = dir_side_info.catalysts_file.Class_Catalysts(ctx.message.author)
+    var_embed = var_catalysts.get_catalysts(coin, event_type)
 
 
 @client.command(pass_context=True)

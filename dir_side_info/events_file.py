@@ -17,8 +17,7 @@ class Class_Events:
         self.color = randint(0, 0xffffff)
         return
 
-    @staticmethod
-    async def function_get_html():
+    async def function_get_html(self):
         data_http = ""
         generalevent = "http://www.coincalendar.info/"
         async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
@@ -32,8 +31,7 @@ class Class_Events:
                 data_http = -1
         return data_http
 
-    @staticmethod
-    def funciton_stripwhite(text):
+    def function_stripwhite(self, text):
         lst = text.split('"')
         for i, item in enumerate(lst):
             if not i % 2:
@@ -50,12 +48,12 @@ class Class_Events:
             data = str(i).replace('<script type="application/ld+json">', "						  	").replace(
                 "</script>", "")
             try:
-                data = json.loads(self.funciton_stripwhite(data).replace(",}", "}").replace("\n", "").replace("\r", ""))
+                data = json.loads(self.function_stripwhite(data).replace(",}", "}").replace("\n", "").replace("\r", ""))
                 if data not in list_event:
                     list_event.append(data)
             except json.decoder.JSONDecodeError:
                 try:
-                    data = json.loads(self.funciton_stripwhite(data).replace(",}", "}"))
+                    data = json.loads(self.function_stripwhite(data).replace(",}", "}"))
                     if data not in list_event:
                         list_event.append(data)
                 except json.decoder.JSONDecodeError:
@@ -67,13 +65,13 @@ class Class_Events:
         event_value = ""
         list_event_final = []
         date_now = datetime.datetime.now()
-        date_1 = datetime.datetime.strptime(
-            str(str(date_now.year) + "-" + str(date_now.month) + "-" + str(date_now.day)), "%Y-%m-%d")
+        date_1 = datetime.datetime.strptime(str(str(date_now.year) + "-" + str(date_now.month) + "-" + str(date_now.day)), "%Y-%m-%d")
         limit = limit * 10
         for i in list_event:
             try:
                 date = str(i["startDate"]).split("T")
                 date_2 = datetime.datetime.strptime(date[0], "%Y-%m-%d")
+                print("Date_2 : " + date_2)
             except Exception as e:
                 print("startdate", e)
             try:
