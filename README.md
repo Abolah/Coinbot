@@ -1,4 +1,4 @@
-[logo]: https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png
+![CoinBot](https://cdn.discordapp.com/attachments/212339499076681739/408983409478598665/CoinBot_little.png)
 
 # CoinBot
 
