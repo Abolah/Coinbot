@@ -265,19 +265,18 @@ async def order(ctx, price, profit, loss):
 @client.command(pass_context=True)
 async def cata(ctx, coin="", event_type=""):
     if coin == "":
-        resultC = "No coin\n"
-        print(resultC)
+        coin = ""
 
     if event_type == "":
-        resultE = "No event\n"
-        print(resultE)
+        event_type = ""
 
     if event_type == "" and coin == "":
-        error = "You need to specify at least 1 param\n"
-        print(error)
+        coin = ""
+        event_type = ""
 
     var_catalysts = dir_side_info.catalysts_file.Class_Catalysts(ctx.message.author)
-    var_catalysts.get_catalysts(coin, event_type)
+    embed = var_catalysts.get_catalysts(coin, event_type)
+    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
 
 
 @client.command(pass_context=True)
