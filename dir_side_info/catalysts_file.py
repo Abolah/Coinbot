@@ -43,7 +43,7 @@ class Class_Catalysts:
 
         with urllib.request.urlopen(cmcal_url) as url:
             data_json = json.loads(url.read().decode())
-        event = "["
+        event = ""
         for i in data_json:
             title = str(i["title"])
             coin_name = str(i["coin_name"])
@@ -52,7 +52,7 @@ class Class_Catalysts:
             date = date[0]
             desc = str(i["description"])
             cat = str(i["categories"])
-            event += coin_name + "]" + " [" + date + "]" + " " + cat + " " + title + desc + "\n" + "["
+            event += "[" + coin_name + "]" + " [" + date + "]" + " " + cat + "\n[" + title + "] \n" + desc + "\n"
         return event
 
     def function_display(self, event):

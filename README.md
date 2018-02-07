@@ -38,9 +38,8 @@ python3.6 -m pip install -r requirements.txt
 
 Those dependencies are :
 ```
-discord aiohttp asyncio requests aylien-apiclient beautifulsoup4
+discord aiohttp asyncio requests aylien-apiclient pymarketcal
 
-beautifulsoup4 is used only for !event
 ```
 
 ### Installation
