@@ -1,6 +1,5 @@
 from dir_side_info import convert_file
 from dir_side_info import resources_file
-from dir_side_info import events_file
 from dir_side_info import informations_file
 from dir_side_info import name_file
 from dir_side_info import order_file

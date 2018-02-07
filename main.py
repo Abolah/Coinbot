@@ -263,7 +263,14 @@ async def order(ctx, price, profit, loss):
 
 
 @client.command(pass_context=True)
-async def cata(ctx, coin="", event_type=""):
+async def event(ctx, coin="", event_type=""):
+    """
+        This command will display the next events to come.
+        The events are retrieved from Coinmarketcal.com
+
+
+        Example : !event [coin]
+        """
     if coin == "":
         coin = ""
 
@@ -274,6 +281,7 @@ async def cata(ctx, coin="", event_type=""):
         coin = ""
         event_type = ""
 
+    await client.send_typing(ctx.message.channel)
     var_catalysts = dir_side_info.catalysts_file.Class_Catalysts(ctx.message.author)
     embed = var_catalysts.get_catalysts(coin, event_type)
     await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
@@ -358,22 +366,6 @@ async def bot(ctx):
     bot_var = dir_side_info.bot_file.Class_Bot()
     embed = bot_var.function_display()
     await client.send_message(ctx.message.channel, embed=embed)
-
-
-@client.command(pass_context=True)
-async def event(ctx, limit=0):
-    """
-    This command is used to know the incoming events
-    The website used is coincalendar.
-
-    The limit of the command is the page displayed
-
-    Example : !event | !event 3
-    """
-    await client.send_typing(ctx.message.channel)
-    events = dir_side_info.events_file.Class_Events(ctx.message.author)
-    embed = await events.get_event(limit)
-    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
 
 
 @client.command(pass_context=True)

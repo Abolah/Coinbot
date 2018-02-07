@@ -40,7 +40,7 @@ class Class_Info:
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.set_footer(text="Request achieved on")
-        embed.add_field(name=":hammer: Version", value="2.1")
+        embed.add_field(name=":hammer: Version", value="2.2")
         embed.add_field(name=":star2: Request about Coinbot's commands",
                         value="Here are the informations I could retrieve " + self.auth,
                         inline=False)

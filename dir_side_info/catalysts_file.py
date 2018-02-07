@@ -14,8 +14,7 @@ class Class_Catalysts:
         self.color = randint(0, 0xffffff)
         return
 
-    @staticmethod
-    def function_cmc(coin):
+    def function_cmc(self, coin):
         if coin == "":
             full_name = ""
         else:
@@ -28,48 +27,49 @@ class Class_Catalysts:
             full_name = name + "%20" + "(" + ticker + ")"
         return full_name
 
-    @staticmethod
     def function_cmcal(self, full_name, event_type):
-        global title, coin_name, date, desc, cat
         event_type = event_type.capitalize()
         if event_type == "" and full_name == "":
             cmcal_url = "https://coinmarketcal.com/api/events?page=1&max=5&showPastEvent=false"
         elif full_name == "":
-            cmcal_url = "https://coinmarketcal.com/api/events?page=1&max=5&categories=" + event_type + "&showPastEvent=false"
+            cmcal_url = "https://coinmarketcal.com/api/events?page=1&max=5&categories={}&showPastEvent=false".format(
+                event_type)
         elif event_type == "":
-            cmcal_url = "https://coinmarketcal.com/api/events?page=1&max=5&coins=" + full_name + "&showPastEvent=false"
+            cmcal_url = "https://coinmarketcal.com/api/events?page=1&max=5&coins={}&showPastEvent=false".format(
+                full_name)
         else:
-            cmcal_url = "https://coinmarketcal.com/api/events?page=1&max=5&coins=" + full_name + "&categories=" + event_type + "&showPastEvent=false"
+            cmcal_url = "https://coinmarketcal.com/api/events?page=1&max=5&coins={}&categories={}&showPastEvent=false".format(
+                full_name, event_type)
 
         with urllib.request.urlopen(cmcal_url) as url:
-            full_json = json.loads(url.read().decode())
-        for i in full_json:
-            title = i["title"]
-            coin_name = i["coin_name"]
-            date_event = i["date_event"]
+            data_json = json.loads(url.read().decode())
+        event = "["
+        for i in data_json:
+            title = str(i["title"])
+            coin_name = str(i["coin_name"])
+            date_event = str(i["date_event"])
             date = date_event.split("T")
             date = date[0]
-            desc = i["description"]
-            cat = i["categories"]
-            print(title)
-            print(coin_name)
-            print(date)
-            print(desc)
-            print(cat)
-            print(" \n\n")
+            desc = str(i["description"])
+            cat = str(i["categories"])
+            event += coin_name + "]" + " [" + date + "]" + " " + cat + " " + title + desc + "\n" + "["
+        return event
 
-        embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com", timestamp=datetime.datetime.utcfromtimestamp(self.time))
+    def function_display(self, event):
+        events = "```css\n" + event + "```"
+        embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
+                              timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
-        embed.set_footer(text="Request achieved")
-        embed.add_field(name=":star2: Incoming events :star2:",
+        embed.set_footer(text="Request achieved at")
+        embed.add_field(name=":calendar_spiral:  Incoming events :calendar_spiral: ",
                         value="Here are the informations I could retrieve " + self.auth, inline=False)
-        embed.add_field(name=":floppy_disk: Information about the incoming event", value="pwet", inline=True)
-
+        embed.add_field(name=":floppy_disk: Information about the incoming events", value=events, inline=True)
+        embed.add_field(name= "Data retrieved with :heart: from : ", value="```py\nCoinmarketcal.com\n```", inline=False)
         return embed
 
-
     def get_catalysts(self, coin, event_type):
-        print(event_type)
         get_coin = self.function_cmc(coin)
-        embed = self.function_cmcal(get_coin, event_type)
+        event = self.function_cmcal(get_coin, event_type)
+        embed = self.function_display(event)
+
         return embed
