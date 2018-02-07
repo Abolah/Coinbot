@@ -52,7 +52,7 @@ class Class_Catalysts:
             date = date[0]
             desc = str(i["description"])
             cat = str(i["categories"])
-            event += "[" + coin_name + "]" + " [" + date + "]" + " " + cat + "\n[" + title + "] \n" + desc + "\n"
+            event += "[" + coin_name + "]" + " [" + date + "]" + " " + cat + "\n[" + title + "] \n" + desc + "\n\n"
         return event
 
     def function_display(self, event):
