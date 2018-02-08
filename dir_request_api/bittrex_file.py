@@ -144,8 +144,8 @@ class Class_Bittrex:
         embed.add_field(name=":star2: Request about " + str(self.long_name),
                         value="Here are the informations I could retrieve " + self.auth,
                         inline=False)
-        embed.add_field(name=":dragon: Bittrex Information", value=value_rex, inline=True)
         embed.add_field(name=":medal: CoinMarketCap Information", value=value_mc, inline=True)
+        embed.add_field(name=":dragon: Bittrex Information", value=value_rex, inline=False)
         embed.add_field(name=":information_source: Additional Informations", value=value_annex)
 
         return embed

@@ -134,8 +134,8 @@ class Class_Poloniex:
         embed.add_field(name=":star2: Request about " + self.long_name,
                         value="Here are the informations I could retrieve " + self.auth,
                         inline=False)
-        embed.add_field(name=":crystal_ball: Poloniex Informations", value=value_polo, inline=True)
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=True)
+        embed.add_field(name=":crystal_ball: Poloniex Informations", value=value_polo, inline=False)
         embed.add_field(name=":information_source: Additional Informations", value=value_annex)
         return embed
 
