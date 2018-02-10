@@ -4,6 +4,10 @@
 
 [![Build Status](https://travis-ci.org/Abolah/Coinbot.svg?branch=master)](https://travis-ci.org/Abolah/Coinbot)
 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+[![Discord Bots](https://discordbots.org/api/widget/367061304042586124.svg)](https://discordbots.org/bot/367061304042586124)
+
 Coinbot is a Discord bot created in Python and used to display some useful informations about CryptoMarket trading.
 
 Send me a discord message to @Abolah#1337 or @Abolaah on Twitter if you want informations about the hosting.

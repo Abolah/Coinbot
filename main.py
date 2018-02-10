@@ -21,7 +21,6 @@ async def on_ready():
     print("Logged in as :")
     print(client.user.name)
     print(client.user.id)
-    client.change_presence(game=discord.Game(name="TEST"))
     # btcgame()
 
 
@@ -362,7 +361,7 @@ async def bot(ctx):
     """
     await client.send_typing(ctx.message.channel)
     bot_var = dir_side_info.bot_file.Class_Bot()
-    embed = bot_var.function_display()
+    embed = bot_var.function_display(str(len(client.servers)))
     await client.send_message(ctx.message.channel, embed=embed)
 
 

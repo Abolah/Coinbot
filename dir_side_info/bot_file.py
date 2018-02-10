@@ -1,16 +1,18 @@
 import datetime
 import discord
 from random import randint
+from discord.ext.commands import Bot
 
 
 class Class_Bot:
     def __init__(self):
+        client = Bot(command_prefix='!')
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         return
 
-    @staticmethod
-    def function_display():
+
+    def function_display(self, srv_count):
         embed = discord.Embed(title="Github URL", colour=discord.Colour(0x2dca6f),
                               url="https://github.com/Abolah/Coinbot",
                               description=":hammer_pick: I am the developer of CoinBot.```\nYou can check out the source code here,\nhttps://github.com/Abolah/Coinbot""```")
@@ -25,9 +27,11 @@ class Class_Bot:
                         value="```Send me a message at :\n@Abolah#1337 on Discord\n@Abolaah on Twitter.```")
         embed.add_field(name=":interrobang:Can I use the Bot on my own server ? :interrobang:",
                         value="```Yes, the bot is and will remain free to use for anyone.\nIf you want me to host the bot for you, send me a message.```")
+        embed.add_field(name="CoinBot is installed on several Discord servers !",
+                        value="```Number of servers CoinBot is installed on : "+ srv_count +"```")
 
         return embed
 
-    async def function_get_code(self):
-        embed = self.function_display()
+    async def function_get_code(self,srv_count):
+        embed = self.function_display(srv_count)
         return embed
