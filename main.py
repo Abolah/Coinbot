@@ -8,11 +8,14 @@ import aiohttp
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
+secret_token = ""
 
-dbltoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM2NzA2MTMwNDA0MjU4NjEyNCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTE3NzY1NDEyfQ.qz8ylYE4Xoy31mzRAx_xkz1jNwT-cgXLEBTRfOWBX-o"
+# Discorbots.org code. Comment this if you install CoinBot on your own server.
+dbltoken = ""
 url = "https://discordbots.org/api/bots/367061304042586124/stats"
 headers = {"Authorization": dbltoken}
+# END of Discorbots.org code.
+
 
 MAXIMUM_COINS = 10
 
@@ -402,7 +405,7 @@ async def masons(ctx):
 
 
 @client.command(pass_context=True)
-async def sum(ctx, url=None, limit=10):
+async def sum(ctx, article_url=None, limit=10):
     """
     This command is used to shorten a website article.
     The parameter is the url of the article.
@@ -412,7 +415,7 @@ async def sum(ctx, url=None, limit=10):
     Example : !sum https://www.forbes.com/sites/forbestechcouncil/2017/11/27/five-reasons-bitcoin-will-be-your-best-high-growth-investment-for-2018/#229c706c47e8
     """
     await client.send_typing(ctx.message.channel)
-    sum_infos = dir_side_info.sumarize_file.Class_Summarize(ctx.message.author, url, limit)
+    sum_infos = dir_side_info.sumarize_file.Class_Summarize(ctx.message.author, article_url, limit)
     list_v = sum_infos.function_sum()
     await client.send_message(ctx.message.channel, list_v[0][0])
     await client.send_message(ctx.message.channel, list_v[0][1])

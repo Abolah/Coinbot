@@ -31,22 +31,10 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="360">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bot_file.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dir_side_info/bot_file.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,7 +97,6 @@
         <option value="$PROJECT_DIR$/dir_side_info/convert_file.py" />
         <option value="$PROJECT_DIR$/dir_side_info/name_file.py" />
         <option value="$PROJECT_DIR$/dir_side_info/masons_file.py" />
-        <option value="$PROJECT_DIR$/dir_side_info/sumarize_file.py" />
         <option value="$PROJECT_DIR$/dir_side_info/doge_file.py" />
         <option value="$PROJECT_DIR$/dir_side_info/resources_file.py" />
         <option value="$PROJECT_DIR$/dir_side_info/order_file.py" />
@@ -127,6 +114,7 @@
         <option value="$PROJECT_DIR$/dir_request_api/__init__.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/dir_side_info/bot_file.py" />
+        <option value="$PROJECT_DIR$/dir_side_info/sumarize_file.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -237,6 +225,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32903227" />
       <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.5021322" side_tool="true" weight="0.29032257" />
@@ -244,9 +233,10 @@
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.3286638" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" weight="0.33512932" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.32903227" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13326226" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13539445" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286638" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -265,7 +255,6 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Salesforce" order="12" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
       <window_info anchor="right" id="Data View" order="5" />
     </layout>
     <layout-to-restore>
@@ -274,29 +263,29 @@
       <window_info anchor="bottom" id="DB Execution Console" order="16" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.5021322" side_tool="true" weight="0.29032257" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="right" id="SciView" order="5" />
+      <window_info anchor="right" id="JSON Viewer" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32903227" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.2273707" />
       <window_info anchor="bottom" id="Inspection Results" order="17" weight="0.32903227" />
-      <window_info anchor="right" id="JSON Viewer" order="3" />
-      <window_info anchor="bottom" id="Python Console" order="11" weight="0.32903227" />
+      <window_info anchor="right" id="Data View" order="6" />
       <window_info anchor="bottom" id="Log Manager" order="14" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Execute Anonymous" order="10" />
       <window_info id="DB Browser" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.32903227" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.5021322" side_tool="true" weight="0.29032257" />
+      <window_info anchor="right" id="SciView" order="5" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.32903227" />
-      <window_info anchor="right" id="Data View" order="6" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13059701" />
     </layout-to-restore>
   </component>
@@ -388,13 +377,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="36" column="12" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dir_side_info/sumarize_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -550,10 +532,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dir_side_info/sumarize_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="360">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>

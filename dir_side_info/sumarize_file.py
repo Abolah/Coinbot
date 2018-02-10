@@ -4,14 +4,14 @@ from aylienapiclient import textapi
 
 
 class Class_Summarize:
-    def __init__(self, auth, url, limit):
+    def __init__(self, auth, article_url, limit):
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         self.id = "None"
         self.client = textapi.Client("57b03f56", "a9d04e2fb4b3a79c090c02d2c2797eda")
-        self.url = url
+        self.url = article_url
         self.limit = int(limit)
         return
 
