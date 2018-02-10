@@ -12,7 +12,7 @@ secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
 
 dbltoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM2NzA2MTMwNDA0MjU4NjEyNCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTE3NzY1NDEyfQ.qz8ylYE4Xoy31mzRAx_xkz1jNwT-cgXLEBTRfOWBX-o"
 url = "https://discordbots.org/api/bots/367061304042586124/stats"
-headers = {"Authorization" : dbltoken}
+headers = {"Authorization": dbltoken}
 
 MAXIMUM_COINS = 10
 
@@ -31,6 +31,20 @@ async def on_ready():
     async with aiohttp.ClientSession() as aioclient:
         await aioclient.post(url, data=payload, headers=headers)
     # btcgame()
+
+
+@client.event
+async def on_server_join():
+    payload = {"server_count": len(client.servers)}
+    async with aiohttp.ClientSession() as aioclient:
+        await aioclient.post(url, data=payload, headers=headers)
+
+
+@client.event
+async def on_server_remove():
+    payload = {"server_count": len(client.servers)}
+    async with aiohttp.ClientSession() as aioclient:
+        await aioclient.post(url, data=payload, headers=headers)
 
 
 @client.command(pass_context=True)
