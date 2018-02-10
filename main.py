@@ -7,7 +7,7 @@ import threading
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
+secret_token = ""
 
 MAXIMUM_COINS = 10
 
@@ -45,6 +45,27 @@ async def all(ctx, *coin):
                 await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
         print("Global Error on !all\n", e)
+
+
+@client.command(pass_context=True)
+async def finex(ctx, *coin):
+    """
+    This command is used to know the value of a coin listed on Bitfinex
+    BTC-Coin Pair only.
+
+    Example : !finex eth
+    """
+    await client.send_typing(ctx.message.channel)
+    try:
+        for i in coin[:MAXIMUM_COINS]:
+            bitfinex = dir_request_api.bitfinex.Class_Bitfinex(ctx.message.author)
+            result = await bitfinex.bitfinex(i)
+            if channel is None:
+                await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+            else:
+                await client.send_message(channel, ctx.message.author.mention, embed=result)
+    except Exception as e:
+        print("Global Error on !fnx\n", e)
 
 
 @client.command(pass_context=True)
@@ -111,28 +132,6 @@ async def topia(ctx, *coin):
                 await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
         print("Global Error on !topia\n", e)
-
-
-@client.command(pass_context=True)
-async def finex(ctx, *coin):
-    """
-    This command is used to know the value of a coin listed on Bitfinex
-    BTC-Coin Pair only.
-
-    Example : !finex eth
-    """
-    global channel
-    await client.send_typing(ctx.message.channel)
-    try:
-        for i in coin[:MAXIMUM_COINS]:
-            bitfinex = dir_request_api.bitfinex_file.Class_Bitfinex(i.lower(), ctx.message.author)
-            result = await bitfinex.bitfinex_query()
-            if channel is None:
-                await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-            else:
-                await client.send_message(channel, ctx.message.author.mention, embed=result)
-    except Exception as e:
-        print("Global Error on !finex\n", e)
 
 
 @client.command(pass_context=True)
@@ -267,7 +266,6 @@ async def event(ctx, coin="", event_type=""):
     """
         This command will display the next events to come.
         The events are retrieved from Coinmarketcal.com
-
 
         Example : !event [coin]
         """

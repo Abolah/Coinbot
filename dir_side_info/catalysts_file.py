@@ -12,11 +12,13 @@ class Class_Catalysts:
         self.auth = self.auth[0]
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
+        self.cmcal_default = "https://coinmarketcal.com/api/events?page=1&max=5&showPastEvent=false"
+        self.empty_name = ""
         return
 
     def function_cmc(self, coin):
         if coin == "":
-            full_name = ""
+            full_name = self.empty_name
         else:
             global name, ticker
             coin = coin.upper()
@@ -30,7 +32,7 @@ class Class_Catalysts:
     def function_cmcal(self, full_name, event_type):
         event_type = event_type.capitalize()
         if event_type == "" and full_name == "":
-            cmcal_url = "https://coinmarketcal.com/api/events?page=1&max=5&showPastEvent=false"
+            cmcal_url = self.cmcal_default
         elif full_name == "":
             cmcal_url = "https://coinmarketcal.com/api/events?page=1&max=5&categories={}&showPastEvent=false".format(
                 event_type)
@@ -64,7 +66,7 @@ class Class_Catalysts:
         embed.add_field(name=":calendar_spiral:  Incoming events :calendar_spiral: ",
                         value="Here are the informations I could retrieve " + self.auth, inline=False)
         embed.add_field(name=":floppy_disk: Information about the incoming events", value=events, inline=True)
-        embed.add_field(name= "Data retrieved with :heart: from : ", value="```py\nCoinmarketcal.com\n```", inline=False)
+        embed.add_field(name="Data retrieved with :heart: from : ", value="```py\nCoinmarketcal.com\n```", inline=False)
         return embed
 
     def get_catalysts(self, coin, event_type):
