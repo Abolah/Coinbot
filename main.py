@@ -8,7 +8,7 @@ import aiohttp
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = ""
+secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
 
 # Discorbots.org code. Comment this if you install CoinBot on your own server.
 dbltoken = ""
@@ -70,6 +70,21 @@ async def all(ctx, *coin):
                 await client.send_message(channel, ctx.message.author.mention, embed=result)
     except Exception as e:
         print("Global Error on !all\n", e)
+
+
+@client.command(pass_context=True)
+async def bnc(ctx, *coin):
+    """
+        This command is used to know the value of a coin listed on Binance
+        BTC-Coin Pair only.
+
+        Example : !binance eth
+        """
+    await client.send_typing(ctx.message.channel)
+    for i in coin[:MAXIMUM_COINS]:
+        binance_api = dir_request_api.binance.Class_Binance(ctx.message.author)
+        binance_api.binance_query(i)
+
 
 
 @client.command(pass_context=True)
