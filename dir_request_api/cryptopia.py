@@ -5,7 +5,7 @@ from random import randint
 import requests
 
 
-class Class_Binance:
+class Class_Cryptopia:
     def __init__(self, auth):
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
@@ -14,9 +14,8 @@ class Class_Binance:
         self.name = "None"
         self.default_ticker = "BTC"
         self.default_print = "Default Print"
-        self.binance_api_url_btc = "https://www.binance.com/api/v1/ticker/24hr?symbol={}BTC"
-        self.binance_api_url_usdt = "https://www.binance.com/api/v1/ticker/24hr?symbol={}USDT"
-        self.default_cmc = "btc"
+        self.cryptopia_api_url_btc = "https://www.cryptopia.co.nz/api/GetMarket/{}_BTC"
+        self.cryptopia_api_url_usdt = "https://www.cryptopia.co.nz/api/GetMarket/{}_USDT"
         return
 
     def function_cmc(self, coin):
@@ -36,38 +35,38 @@ class Class_Binance:
         self.name = cmc_json["name"]
         return value_mc
 
-    def function_binance(self, coin):
+    def function_cryptopia(self, coin):
         coin = coin.upper()
         if coin == "BTC":
-            api_url = self.binance_api_url_usdt.format(coin)
+            api_url = self.cryptopia_api_url_usdt.format(coin)
         else:
-            api_url = self.binance_api_url_btc.format(coin)
+            api_url = self.cryptopia_api_url_btc.format(coin)
 
         r = requests.get(api_url)
-        binance_json = r.json()
+        topia_json = r.json()
 
         if coin == "BTC":
-            pair = "Pair : USDT-" + coin + "\n"
-            last = "Last : " + "{0:.2f}".format(float(binance_json["lastPrice"])) + "\n"
-            bid = "Bid : " + "{0:.2f}".format(float(binance_json["bidPrice"])) + "\n"
-            ask = "Ask : " + "{0:.2f}".format(float(binance_json["askPrice"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
-            high = "24 High : " + binance_json["highPrice"] + "\n"
-            low = "24 Low : " + binance_json["lowPrice"] + "\n"
-            value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            pair = "Pair : BTC-" + coin + "\n"
+            last = "Last : " + "{0:.2f}".format(topia_json["Data"]["LastPrice"]) + "\n"
+            bid = "Bid : " + "{0:.2f}".format(topia_json["Data"]["BidPrice"]) + "\n"
+            ask = "Ask : " + "{0:.2f}".format(topia_json["Data"]["AskPrice"]) + "\n"
+            volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + " BTC" + "\n"
+            high = "24 High : " + "{0:.8f}".format(topia_json["Data"]["High"]) + "\n"
+            low = "24 Low : " + "{0:.8f}".format(topia_json["Data"]["Low"]) + "\n"
+            value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         else:
             pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.8f}".format(float(binance_json["lastPrice"])) + "\n"
-            bid = "Bid : " + "{0:.8f}".format(float(binance_json["bidPrice"])) + "\n"
-            ask = "Ask : " + "{0:.8f}".format(float(binance_json["askPrice"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
-            high = "1d High : " + binance_json["highPrice"] + "\n"
-            low = "1d Low : " + binance_json["lowPrice"] + "\n"
-            value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            last = "Last : " + "{0:.8f}".format(topia_json["Data"]["LastPrice"]) + "\n"
+            bid = "Bid : " + "{0:.8f}".format(topia_json["Data"]["BidPrice"]) + "\n"
+            ask = "Ask : " + "{0:.8f}".format(topia_json["Data"]["AskPrice"]) + "\n"
+            volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + " BTC" + "\n"
+            high = "24 High : " + "{0:.8f}".format(topia_json["Data"]["High"]) + "\n"
+            low = "24 Low : " + "{0:.8f}".format(topia_json["Data"]["Low"]) + "\n"
+            value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
 
-        return value_bin
+        return value_topia
 
-    def function_display(self, value_mc, value_bin):
+    def function_display(self, value_mc, value_topia):
         name_logo = self.name.replace(" ", "-").lower()
         url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/" + name_logo + ".png"
 
@@ -78,11 +77,11 @@ class Class_Binance:
         embed.add_field(name=":star2: Request about " + self.name,
                         value="Here are the informations I could retrieve " + self.auth, inline=False)
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=True)
-        embed.add_field(name=":game_die: Binance Informations", value=value_bin, inline=False)
+        embed.add_field(name=":space_invader: Cryptopia Informations", value=value_topia, inline=False)
         return embed
 
-    async def binance(self, coin):
+    async def cryptopia(self, coin):
         tickers = self.function_cmc(coin)
-        values = self.function_binance(coin)
+        values = self.function_cryptopia(coin)
         embed = self.function_display(tickers, values)
         return embed

@@ -21,23 +21,19 @@ class Class_Bitfinex:
 
     def function_cmc(self, coin):
         global cmc_json, ticker
-        if coin == "":
-            value_mc = self.default_cmc
-        else:
-            coin = coin.upper()
-            coinmarketcap = Pymarketcap()
-            cmc_json = coinmarketcap.ticker(coin, convert="EUR")
-            marketcap = "MC : " + "$ " + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n"
-            price = "Price : " + "$" + "{0:.3f}".format(float(cmc_json["price_usd"])) + " | " + "{0:.3f}".format(
-                float(cmc_json["price_eur"])) + "€      \n"
-            rank = "Rank : [Rank " + str(cmc_json["rank"]) + "]\n"
-            change_1 = "1h Swing : " + str(cmc_json["percent_change_1h"]) + "%\n"
-            change_24 = "24h Swing : " + str(cmc_json["percent_change_24h"]) + "%\n"
-            change_7 = "7 days Swing : " + str(cmc_json["percent_change_7d"]) + "%\n"
-            value_mc = "```css\n" + str(rank) + str(marketcap) + str(price) + str(change_1) + str(change_24) + str(
-                change_7) + "```"
+        coin = coin.upper()
+        coinmarketcap = Pymarketcap()
+        cmc_json = coinmarketcap.ticker(coin, convert="EUR")
 
-            self.name = cmc_json["name"]
+        marketcap = str("MC : " + "$ " + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
+        price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_json["price_usd"])) + " | " + "{0:.3f}".format(float(cmc_json["price_eur"])) + "€      \n")
+        rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
+        change_1 = str("1h Swing : " + str(cmc_json["percent_change_1h"]) + "%\n")
+        change_24 = str("24h Swing : " + str(cmc_json["percent_change_24h"]) + "%\n")
+        change_7 = str("7 days Swing : " + str(cmc_json["percent_change_7d"]) + "%\n")
+        value_mc = "```css\n" + rank + marketcap + price + change_1 + change_24 + change_7 + "```"
+
+        self.name = cmc_json["name"]
         return value_mc
 
     def function_bitfinex(self, coin):
@@ -76,7 +72,7 @@ class Class_Bitfinex:
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url=url_logo)
-        embed.set_footer(text="Request achieved on")
+        embed.set_footer(text="Request achieved :")
         embed.add_field(name=":star2: Request about " + self.name,
                         value="Here are the informations I could retrieve " + self.auth, inline=False)
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=True)
@@ -84,7 +80,7 @@ class Class_Bitfinex:
         return embed
 
     async def bitfinex(self, coin):
-        ticker = self.function_cmc(coin)
+        tickers = self.function_cmc(coin)
         values = self.function_bitfinex(coin)
-        embed = self.function_display(ticker, values)
+        embed = self.function_display(tickers, values)
         return embed

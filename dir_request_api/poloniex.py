@@ -5,7 +5,7 @@ from random import randint
 import requests
 
 
-class Class_Binance:
+class Class_Poloniex:
     def __init__(self, auth):
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
@@ -14,9 +14,9 @@ class Class_Binance:
         self.name = "None"
         self.default_ticker = "BTC"
         self.default_print = "Default Print"
-        self.binance_api_url_btc = "https://www.binance.com/api/v1/ticker/24hr?symbol={}BTC"
-        self.binance_api_url_usdt = "https://www.binance.com/api/v1/ticker/24hr?symbol={}USDT"
-        self.default_cmc = "btc"
+        self.poloniex_api_url = "https://poloniex.com/public?command=returnTicker"
+        self.key = "None"
+        self.pair = "None"
         return
 
     def function_cmc(self, coin):
@@ -36,38 +36,41 @@ class Class_Binance:
         self.name = cmc_json["name"]
         return value_mc
 
-    def function_binance(self, coin):
-        coin = coin.upper()
-        if coin == "BTC":
-            api_url = self.binance_api_url_usdt.format(coin)
+    def function_poloniex(self, coin):
+        if coin.upper() == "BTC":
+            self.pair = coin + "_USDT"
+            self.key = "USDT_BTC"
         else:
-            api_url = self.binance_api_url_btc.format(coin)
+            self.pair = coin + "_BTC"
+            self.key = "BTC_" + coin.upper()
 
+        api_url = self.poloniex_api_url
         r = requests.get(api_url)
-        binance_json = r.json()
+        poloniex_json = r.json()
 
         if coin == "BTC":
-            pair = "Pair : USDT-" + coin + "\n"
-            last = "Last : " + "{0:.2f}".format(float(binance_json["lastPrice"])) + "\n"
-            bid = "Bid : " + "{0:.2f}".format(float(binance_json["bidPrice"])) + "\n"
-            ask = "Ask : " + "{0:.2f}".format(float(binance_json["askPrice"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
-            high = "24 High : " + binance_json["highPrice"] + "\n"
-            low = "24 Low : " + binance_json["lowPrice"] + "\n"
-            value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+
+            pair = "Pair :" + self.key.replace("_", "-") + "\n"
+            last = "Last : " + "{0:.2f}".format(float(poloniex_json[self.key]["last"])) + "\n"
+            bid = "Bid : " + "{0:.2f}".format(float(poloniex_json[self.key]["highestBid"])) + "\n"
+            ask = "Ask : " + "{0:.2f}".format(float(poloniex_json[self.key]["lowestAsk"])) + "\n"
+            volume = "Volume : " + "{0:.2f}".format(float(poloniex_json[self.key]["baseVolume"])) + " BTC" + "\n"
+            high = "1d High : " + poloniex_json[self.key]["high24hr"] + "\n"
+            low = "1d Low : " + poloniex_json[self.key]["low24hr"] + "\n"
+            value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         else:
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.8f}".format(float(binance_json["lastPrice"])) + "\n"
-            bid = "Bid : " + "{0:.8f}".format(float(binance_json["bidPrice"])) + "\n"
-            ask = "Ask : " + "{0:.8f}".format(float(binance_json["askPrice"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
-            high = "1d High : " + binance_json["highPrice"] + "\n"
-            low = "1d Low : " + binance_json["lowPrice"] + "\n"
-            value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            pair = "Pair :" + self.key.replace("_", "-") + "\n"
+            last = "Last : " + poloniex_json[self.key]["last"] + "\n"
+            bid = "Bid : " + poloniex_json[self.key]["highestBid"] + "\n"
+            ask = "Ask : " + poloniex_json[self.key]["lowestAsk"] + "\n"
+            volume = "Volume : " + "{0:.2f}".format(float(poloniex_json[self.key]["baseVolume"])) + " BTC" + "\n"
+            high = "1d High : " + poloniex_json[self.key]["high24hr"] + "\n"
+            low = "1d Low : " + poloniex_json[self.key]["low24hr"] + "\n"
+            value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
 
-        return value_bin
+        return value_polo
 
-    def function_display(self, value_mc, value_bin):
+    def function_display(self, value_mc, value_polo):
         name_logo = self.name.replace(" ", "-").lower()
         url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/" + name_logo + ".png"
 
@@ -78,11 +81,11 @@ class Class_Binance:
         embed.add_field(name=":star2: Request about " + self.name,
                         value="Here are the informations I could retrieve " + self.auth, inline=False)
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=True)
-        embed.add_field(name=":game_die: Binance Informations", value=value_bin, inline=False)
+        embed.add_field(name=":crystal_ball: Poloniex Informations", value=value_polo, inline=False)
         return embed
 
-    async def binance(self, coin):
+    async def poloniex(self, coin):
         tickers = self.function_cmc(coin)
-        values = self.function_binance(coin)
+        values = self.function_poloniex(coin)
         embed = self.function_display(tickers, values)
         return embed

@@ -5,7 +5,7 @@ from random import randint
 import requests
 
 
-class Class_Binance:
+class Class_Bittrex:
     def __init__(self, auth):
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
@@ -14,8 +14,8 @@ class Class_Binance:
         self.name = "None"
         self.default_ticker = "BTC"
         self.default_print = "Default Print"
-        self.binance_api_url_btc = "https://www.binance.com/api/v1/ticker/24hr?symbol={}BTC"
-        self.binance_api_url_usdt = "https://www.binance.com/api/v1/ticker/24hr?symbol={}USDT"
+        self.bittrex_api_url_btc = "https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-{}"
+        self.bittrex_api_url_usdt = "https://bittrex.com/api/v1.1/public/getmarketsummary?market=usdt-{}"
         self.default_cmc = "btc"
         return
 
@@ -36,38 +36,36 @@ class Class_Binance:
         self.name = cmc_json["name"]
         return value_mc
 
-    def function_binance(self, coin):
-        coin = coin.upper()
-        if coin == "BTC":
-            api_url = self.binance_api_url_usdt.format(coin)
+    def function_bittrex(self, coin):
+        if coin == "btc":
+            api_url = self.bittrex_api_url_usdt.format(coin)
         else:
-            api_url = self.binance_api_url_btc.format(coin)
+            api_url = self.bittrex_api_url_btc.format(coin)
 
         r = requests.get(api_url)
-        binance_json = r.json()
-
-        if coin == "BTC":
-            pair = "Pair : USDT-" + coin + "\n"
-            last = "Last : " + "{0:.2f}".format(float(binance_json["lastPrice"])) + "\n"
-            bid = "Bid : " + "{0:.2f}".format(float(binance_json["bidPrice"])) + "\n"
-            ask = "Ask : " + "{0:.2f}".format(float(binance_json["askPrice"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
-            high = "24 High : " + binance_json["highPrice"] + "\n"
-            low = "24 Low : " + binance_json["lowPrice"] + "\n"
-            value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        bittrex_json = r.json()
+        if coin == "btc":
+            name = "Pair :" + str(bittrex_json["result"][0]["MarketName"]) + "\n"
+            volume = "Volume : " + "{0:.2f}".format(bittrex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
+            last = "Last : " + "{0:.2f}".format(bittrex_json["result"][0]["Last"]) + "\n"
+            bid = "Bid : " + "{0:.2f}".format(bittrex_json["result"][0]["Bid"]) + "\n"
+            ask = "Ask : " + "{0:.2f}".format(bittrex_json["result"][0]["Ask"]) + "\n"
+            low = "1d Low : " + "{0:.2f}".format(bittrex_json["result"][0]["Low"]) + "\n"
+            high = "1d High : " + "{0:.2f}".format(bittrex_json["result"][0]["High"]) + "\n"
+            value_rex = "```css\n" + name + volume + last + bid + ask + high + low + "```"
         else:
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.8f}".format(float(binance_json["lastPrice"])) + "\n"
-            bid = "Bid : " + "{0:.8f}".format(float(binance_json["bidPrice"])) + "\n"
-            ask = "Ask : " + "{0:.8f}".format(float(binance_json["askPrice"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
-            high = "1d High : " + binance_json["highPrice"] + "\n"
-            low = "1d Low : " + binance_json["lowPrice"] + "\n"
-            value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            name = "Pair :" + str(bittrex_json["result"][0]["MarketName"]) + "\n"
+            volume = "Volume : " + "{0:.2f}".format(bittrex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
+            last = "Last : " + "{0:.8f}".format(bittrex_json["result"][0]["Last"]) + "\n"
+            bid = "Bid : " + "{0:.8f}".format(bittrex_json["result"][0]["Bid"]) + "\n"
+            ask = "Ask : " + "{0:.8f}".format(bittrex_json["result"][0]["Ask"]) + "\n"
+            low = "1d Low : " + "{0:.8f}".format(bittrex_json["result"][0]["Low"]) + "\n"
+            high = "1d High : " + "{0:.8f}".format(bittrex_json["result"][0]["High"]) + "\n"
+            value_rex = "```css\n" + name + volume + last + bid + ask + high + low + "```"
 
-        return value_bin
+        return value_rex
 
-    def function_display(self, value_mc, value_bin):
+    def function_display(self, value_mc, value_rex):
         name_logo = self.name.replace(" ", "-").lower()
         url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/" + name_logo + ".png"
 
@@ -78,11 +76,11 @@ class Class_Binance:
         embed.add_field(name=":star2: Request about " + self.name,
                         value="Here are the informations I could retrieve " + self.auth, inline=False)
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=True)
-        embed.add_field(name=":game_die: Binance Informations", value=value_bin, inline=False)
+        embed.add_field(name=":dragon: Bittrex Informations", value=value_rex, inline=False)
         return embed
 
-    async def binance(self, coin):
+    async def bittrex(self, coin):
         tickers = self.function_cmc(coin)
-        values = self.function_binance(coin)
+        values = self.function_bittrex(coin)
         embed = self.function_display(tickers, values)
         return embed

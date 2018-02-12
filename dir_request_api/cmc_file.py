@@ -34,7 +34,7 @@ class Class_Coinmarketcap:
                 return 0
         return list_json
 
-    def funciton_display_format(self, json_data, json_data_btc, author):
+    def function_display_format(self, json_data, json_data_btc, author):
 
         url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png"
         try:
@@ -82,5 +82,5 @@ class Class_Coinmarketcap:
             json_data_btc = result[0][0]
         if result[1][1] == "Coinmarketcap":
             json_data = result[1][0]
-        embed = self.funciton_display_format(json_data, json_data_btc, author)
+        embed = self.function_display_format(json_data, json_data_btc, author)
         return embed
