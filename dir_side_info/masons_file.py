@@ -42,7 +42,7 @@ class Class_Masons:
         embed.add_field(name=":track_next: Whats coming next ?  :track_next:", value=later, inline=True)
         embed.add_field(name=":head_bandage: What you won't have.", value=NoGo, inline=True)
         embed.add_field(name=":moneybag: Wanna enter the Pack ? Copy the URL below !  :moneybag:", value=pay, inline=True)
-        embed.set_footer(text="Request achieved on")
+        embed.set_footer(text="Request achieved :")
         return embed
 
     async def get_wolf(self):

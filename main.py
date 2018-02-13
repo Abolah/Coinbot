@@ -8,7 +8,7 @@ import aiohttp
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = ""
+secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
 
 # Discorbots.org code. Comment this if you install CoinBot on your own server.
 dbltoken = ""
@@ -159,6 +159,25 @@ async def topia(ctx, *coin):
     for i in coin[:MAXIMUM_COINS]:
         cryptopia = dir_request_api.cryptopia.Class_Cryptopia(ctx.message.author)
         result = await cryptopia.cryptopia(i)
+        if channel is None:
+            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+        else:
+            await client.send_message(channel, ctx.message.author.mention, embed=result)
+
+
+@client.command(pass_context=True)
+async def hit(ctx, *coin):
+    """
+    This command is used to know the value of a coin listed on HitBTC
+    BTC-Coin Pair only.
+
+    Example : !hit eth
+    """
+    global channel
+    await client.send_typing(ctx.message.channel)
+    for i in coin[:MAXIMUM_COINS]:
+        hitbtc = dir_request_api.hitbtc.Class_HitBTC(ctx.message.author)
+        result = await hitbtc.hitbtc(i)
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
         else:

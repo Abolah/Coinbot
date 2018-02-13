@@ -219,7 +219,7 @@ class Class_All:
             print("err main_binance", e)
 
         embed.set_thumbnail(url=url_logo)
-        embed.set_footer(text="Request achieved on")
+        embed.set_footer(text="Request achieved :")
 
         return embed
 

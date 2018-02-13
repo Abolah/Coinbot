@@ -62,7 +62,7 @@ class Class_Catalysts:
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
-        embed.set_footer(text="Request achieved at")
+        embed.set_footer(text="Request achieved :")
         embed.add_field(name=":calendar_spiral:  Incoming events :calendar_spiral: ",
                         value="Here are the informations I could retrieve " + self.auth, inline=False)
         embed.add_field(name=":floppy_disk: Information about the incoming events", value=events, inline=True)

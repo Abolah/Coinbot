@@ -49,7 +49,7 @@ class Class_Name:
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/" + idcoin + ".png")
-        embed.set_footer(text="Request achieved on")
+        embed.set_footer(text="Request achieved :")
         embed.add_field(name=":star2: Request for the name of " + self.coin.upper(),
                         value="Here are the information that I could retrieve " + self.auth,
                         inline=False)
