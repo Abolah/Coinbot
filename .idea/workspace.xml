@@ -31,28 +31,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1720">
-              <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dir_request_api/all.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="252" lean-forward="true" selection-start-line="252" selection-end-line="252" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <element signature="e#178#365#0" />
-                <element signature="e#463#1367#0" />
-                <element signature="e#1422#1429#0" />
-                <element signature="e#4146#5889#0" />
-                <element signature="e#1568#1575#0" />
-                <element signature="e#1639#1646#0" />
-                <element signature="e#9290#9301#0" />
-                <element signature="e#1709#1718#0" />
-              </folding>
+            <state relative-caret-position="440">
+              <caret line="59" column="7" lean-forward="true" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -126,14 +106,14 @@
         <option value="$PROJECT_DIR$/dir_side_info/name_file.py" />
         <option value="$PROJECT_DIR$/dir_side_info/order_file.py" />
         <option value="$PROJECT_DIR$/dir_request_api/hitbtc.py" />
-        <option value="$PROJECT_DIR$/dir_side_info/informations_file.py" />
-        <option value="$PROJECT_DIR$/dir_request_api/__init__.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/dir_request_api/bitfinex.py" />
         <option value="$PROJECT_DIR$/dir_request_api/bittrex.py" />
         <option value="$PROJECT_DIR$/dir_request_api/poloniex.py" />
-        <option value="$PROJECT_DIR$/dir_request_api/all.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/dir_request_api/__init__.py" />
+        <option value="$PROJECT_DIR$/dir_request_api/all.py" />
+        <option value="$PROJECT_DIR$/dir_side_info/informations_file.py" />
       </list>
     </option>
   </component>
@@ -243,6 +223,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32903227" />
@@ -250,10 +231,10 @@
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286638" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11567164" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11673774" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.1380597" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -270,24 +251,24 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.11247335" />
-      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.32903227" />
-      <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
-      <window_info anchor="right" id="JSON Viewer" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="right" id="Data View" order="2" />
       <window_info id="Structure" order="2" weight="0.1380597" />
       <window_info anchor="right" id="Commander" order="3" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="1" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.32903227" />
+      <window_info anchor="right" id="JSON Viewer" order="0" />
+      <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="right" id="Data View" order="2" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Database" order="1" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" weight="0.32903227" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Python Console" order="2" />
+      <window_info id="Favorites" order="0" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,6 +292,19 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_request_api/all.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5040">
+          <caret line="252" lean-forward="true" selection-start-line="252" selection-end-line="252" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/request_api/request_marketcap.py" />
     <entry file="file://$PROJECT_DIR$/request_api/request_cmcThread.py" />
     <entry file="file://$PROJECT_DIR$/request_api/request_allThread.py" />
@@ -450,29 +444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dir_side_info/informations_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="37" column="92" selection-start-line="37" selection-start-column="92" selection-end-line="37" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dir_request_api/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/dir_request_api/btc_file.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
@@ -532,28 +503,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dir_request_api/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#1#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dir_request_api/all.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="252" lean-forward="true" selection-start-line="252" selection-end-line="252" />
+        <state relative-caret-position="420">
+          <caret line="247" column="103" selection-start-line="247" selection-start-column="103" selection-end-line="247" selection-end-column="103" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#178#365#0" />
-            <element signature="e#463#1367#0" />
-            <element signature="e#1422#1429#0" />
-            <element signature="e#4146#5889#0" />
-            <element signature="e#1568#1575#0" />
-            <element signature="e#1639#1646#0" />
-            <element signature="e#9290#9301#0" />
-            <element signature="e#1709#1718#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_side_info/informations_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1720">
-          <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
+        <state relative-caret-position="440">
+          <caret line="59" column="7" lean-forward="true" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
         </state>
       </provider>
     </entry>
