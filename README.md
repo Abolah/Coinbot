@@ -89,6 +89,9 @@ To see if the bot is running correctly just run the command !infos
 !rex [coin(s)] : Get the value of the coin on Bittrex
 ```
 ```
+!hit [coin(s)] : Get the value of the coin on HitBTC
+```
+```
 !top : Get the highest gain and loss of the coins
 ```
 ```

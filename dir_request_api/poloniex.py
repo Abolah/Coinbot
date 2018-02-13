@@ -12,8 +12,6 @@ class Class_Poloniex:
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         self.name = "None"
-        self.default_ticker = "BTC"
-        self.default_print = "Default Print"
         self.poloniex_api_url = "https://poloniex.com/public?command=returnTicker"
         self.key = "None"
         self.pair = "None"

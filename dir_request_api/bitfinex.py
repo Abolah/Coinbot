@@ -16,7 +16,6 @@ class Class_Bitfinex:
         self.default_print = "Default Print"
         self.bitfinex_api_url_btc = "https://api.bitfinex.com/v1/pubticker/{}btc"
         self.bitfinex_api_url_usdt = "https://api.bitfinex.com/v1/pubticker/btcusd"
-        self.default_cmc = "You need to provide a coin to check."
         return
 
     def function_cmc(self, coin):

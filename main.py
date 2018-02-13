@@ -73,6 +73,25 @@ async def all(ctx, *coin):
 
 
 @client.command(pass_context=True)
+async def a(ctx, *coin):
+    """
+    This command is used to know the price of a coin on the following exchanges
+    Bitfinex; Bittrex, Cryptopia, Poloniex and Binance
+
+    Example : !all eth
+    """
+    global channel
+    await client.send_typing(ctx.message.channel)
+    for i in coin[:MAXIMUM_COINS]:
+        all_coin = dir_request_api.all.Class_All(ctx.message.author)
+        result = await all_coin.all(i.lower())
+        if channel is None:
+            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+        else:
+            await client.send_message(channel, ctx.message.author.mention, embed=result)
+
+
+@client.command(pass_context=True)
 async def bnc(ctx, *coin):
     """
         This command is used to know the value of a coin listed on Binance
@@ -83,7 +102,7 @@ async def bnc(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     for i in coin[:MAXIMUM_COINS]:
         binance_api = dir_request_api.binance.Class_Binance(ctx.message.author)
-        result = await binance_api.binance(i)
+        result = await binance_api.binance(i.lower())
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
         else:
@@ -101,7 +120,7 @@ async def fnx(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     for i in coin[:MAXIMUM_COINS]:
         bitfinex = dir_request_api.bitfinex.Class_Bitfinex(ctx.message.author)
-        result = await bitfinex.bitfinex(i)
+        result = await bitfinex.bitfinex(i.lower())
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
         else:
@@ -120,7 +139,7 @@ async def rex(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     for i in coin[:MAXIMUM_COINS]:
         bittrex = dir_request_api.bittrex.Class_Bittrex(ctx.message.author)
-        result = await bittrex.bittrex(i)
+        result = await bittrex.bittrex(i.lower())
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
         else:
@@ -139,7 +158,7 @@ async def polo(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     for i in coin[:MAXIMUM_COINS]:
         poloniex = dir_request_api.poloniex.Class_Poloniex(ctx.message.author)
-        result = await poloniex.poloniex(i)
+        result = await poloniex.poloniex(i.lower())
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
         else:
@@ -158,7 +177,7 @@ async def topia(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     for i in coin[:MAXIMUM_COINS]:
         cryptopia = dir_request_api.cryptopia.Class_Cryptopia(ctx.message.author)
-        result = await cryptopia.cryptopia(i)
+        result = await cryptopia.cryptopia(i.lower())
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
         else:
@@ -177,7 +196,7 @@ async def hit(ctx, *coin):
     await client.send_typing(ctx.message.channel)
     for i in coin[:MAXIMUM_COINS]:
         hitbtc = dir_request_api.hitbtc.Class_HitBTC(ctx.message.author)
-        result = await hitbtc.hitbtc(i)
+        result = await hitbtc.hitbtc(i.lower())
         if channel is None:
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
         else:

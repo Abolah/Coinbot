@@ -16,7 +16,6 @@ class Class_Bittrex:
         self.default_print = "Default Print"
         self.bittrex_api_url_btc = "https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-{}"
         self.bittrex_api_url_usdt = "https://bittrex.com/api/v1.1/public/getmarketsummary?market=usdt-{}"
-        self.default_cmc = "btc"
         return
 
     def function_cmc(self, coin):
