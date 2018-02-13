@@ -244,7 +244,7 @@ class Class_All:
         embed.add_field(name=":dragon: Bittrex Informations", value=bittrex_value, inline=True)
         embed.add_field(name=":game_die: Binance Informations", value=binance_value, inline=True)
         embed.add_field(name=":space_invader: Cryptopia Informations", value=cryptopia_value, inline=True)
-        embed.add_field(name=":octopus: HitBTC Informations", value=hitbtc_value, inline=False)
+        embed.add_field(name=":octopus: HitBTC Informations", value=hitbtc_value, inline=True)
         embed.add_field(name=":crystal_ball: Poloniex Informations", value=poloniex_value, inline=True)
         embed.set_footer(text="Request achieved :")
 
