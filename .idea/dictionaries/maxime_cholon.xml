@@ -2,8 +2,10 @@
   <dictionary name="maxime.cholon">
     <words>
       <w>affichage</w>
+      <w>btcap</w>
       <w>btcgame</w>
       <w>cmcal</w>
+      <w>cmcap</w>
       <w>coinmarketcap</w>
       <w>conv</w>
       <w>idcoin</w>
@@ -11,6 +13,8 @@
       <w>paramprice</w>
       <w>pwet</w>
       <w>spoonfed</w>
+      <w>topcoin</w>
+      <w>topia</w>
     </words>
   </dictionary>
 </component>

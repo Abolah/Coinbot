@@ -33,7 +33,7 @@ async def on_ready():
     payload = {"server_count": len(client.servers)}
     async with aiohttp.ClientSession() as aioclient:
         await aioclient.post(url, data=payload, headers=headers)
-    # btcgame()
+        # btcgame()
 
 
 @client.event
@@ -73,7 +73,25 @@ async def all(ctx, *coin):
 
 
 @client.command(pass_context=True)
-async def finex(ctx, *coin):
+async def bnc(ctx, *coin):
+    """
+        This command is used to know the value of a coin listed on Binance
+        BTC-Coin Pair only.
+
+        Example : !binance eth
+        """
+    await client.send_typing(ctx.message.channel)
+    for i in coin[:MAXIMUM_COINS]:
+        binance_api = dir_request_api.binance.Class_Binance(ctx.message.author)
+        result = await binance_api.binance(i)
+        if channel is None:
+            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+        else:
+            await client.send_message(channel, ctx.message.author.mention, embed=result)
+
+
+@client.command(pass_context=True)
+async def fnx(ctx, *coin):
     """
     This command is used to know the value of a coin listed on Bitfinex
     BTC-Coin Pair only.
@@ -81,16 +99,13 @@ async def finex(ctx, *coin):
     Example : !finex eth
     """
     await client.send_typing(ctx.message.channel)
-    try:
-        for i in coin[:MAXIMUM_COINS]:
-            bitfinex = dir_request_api.bitfinex.Class_Bitfinex(ctx.message.author)
-            result = await bitfinex.bitfinex(i)
-            if channel is None:
-                await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-            else:
-                await client.send_message(channel, ctx.message.author.mention, embed=result)
-    except Exception as e:
-        print("Global Error on !fnx\n", e)
+    for i in coin[:MAXIMUM_COINS]:
+        bitfinex = dir_request_api.bitfinex.Class_Bitfinex(ctx.message.author)
+        result = await bitfinex.bitfinex(i)
+        if channel is None:
+            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+        else:
+            await client.send_message(channel, ctx.message.author.mention, embed=result)
 
 
 @client.command(pass_context=True)
@@ -103,16 +118,13 @@ async def rex(ctx, *coin):
     """
     global channel
     await client.send_typing(ctx.message.channel)
-    try:
-        for i in coin[:MAXIMUM_COINS]:
-            bittrex = dir_request_api.bittrex_file.Class_Bittrex(i.lower(), ctx.message.author)
-            result = await bittrex.bittrex_query()
-            if channel is None:
-                await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-            else:
-                await client.send_message(channel, ctx.message.author.mention, embed=result)
-    except Exception as e:
-        print("Global Error on !rex\n", e)
+    for i in coin[:MAXIMUM_COINS]:
+        bittrex = dir_request_api.bittrex.Class_Bittrex(ctx.message.author)
+        result = await bittrex.bittrex(i)
+        if channel is None:
+            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+        else:
+            await client.send_message(channel, ctx.message.author.mention, embed=result)
 
 
 @client.command(pass_context=True)
@@ -125,16 +137,13 @@ async def polo(ctx, *coin):
     """
     global channel
     await client.send_typing(ctx.message.channel)
-    try:
-        for i in coin[:MAXIMUM_COINS]:
-            poloniex = dir_request_api.poloniex_file.Class_Poloniex(i.lower(), ctx.message.author)
-            result = await poloniex.poloniex_query()
-            if channel is None:
-                await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-            else:
-                await client.send_message(channel, ctx.message.author.mention, embed=result)
-    except Exception as e:
-        print("Global Error on !polo\n", e)
+    for i in coin[:MAXIMUM_COINS]:
+        poloniex = dir_request_api.poloniex.Class_Poloniex(ctx.message.author)
+        result = await poloniex.poloniex(i)
+        if channel is None:
+            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+        else:
+            await client.send_message(channel, ctx.message.author.mention, embed=result)
 
 
 @client.command(pass_context=True)
@@ -147,42 +156,17 @@ async def topia(ctx, *coin):
     """
     global channel
     await client.send_typing(ctx.message.channel)
-    try:
-        for i in coin[:MAXIMUM_COINS]:
-            cryptopia = dir_request_api.cryptopia_file.Class_Cryptopia(i.lower(), ctx.message.author)
-            result = await cryptopia.cryptopia_query()
-            if channel is None:
-                await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-            else:
-                await client.send_message(channel, ctx.message.author.mention, embed=result)
-    except Exception as e:
-        print("Global Error on !topia\n", e)
+    for i in coin[:MAXIMUM_COINS]:
+        cryptopia = dir_request_api.cryptopia.Class_Cryptopia(ctx.message.author)
+        result = await cryptopia.cryptopia(i)
+        if channel is None:
+            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+        else:
+            await client.send_message(channel, ctx.message.author.mention, embed=result)
 
 
 @client.command(pass_context=True)
-async def binance(ctx, *coin):
-    """
-    This command is used to know the value of a coin listed on Binance
-    BTC-Coin Pair only.
-
-    Example : !binance eth
-    """
-    global channel
-    await client.send_typing(ctx.message.channel)
-    try:
-        for i in coin[:MAXIMUM_COINS]:
-            binance_api = dir_request_api.binance_file.Class_Binance(i.lower(), ctx.message.author)
-            result = await binance_api.binance_query()
-            if channel is None:
-                await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-            else:
-                await client.send_message(channel, ctx.message.author.mention, embed=result)
-    except Exception as e:
-        print("Global Error on !binance\n", e)
-
-
-@client.command(pass_context=True)
-async def whale(ctx, arg, limit=4):
+async def whale(ctx, arg, limit=1):
     """
     This command is used to know the big orders placed by whales on several exchanges.
     The command return the Number of coin bought at which price and the number of coin sold at which price
@@ -217,15 +201,12 @@ async def cmc(ctx):
     """
     global channel
     await client.send_typing(ctx.message.channel)
-    try:
-        CoinMarketCap = dir_request_api.cmc_file.Class_Coinmarketcap()
-        result = await CoinMarketCap.cmc_query(ctx.message.author)
-        if channel is None:
-            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-        else:
-            await client.send_message(channel, ctx.message.author.mention, embed=result)
-    except Exception as e:
-        print("Global Error on !cmc\n", e)
+    CoinMarketCap = dir_request_api.coinmarketcap.Class_Coinmarketcap(ctx.message.author)
+    result = await CoinMarketCap.cmc_query()
+    if channel is None:
+        await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+    else:
+        await client.send_message(channel, ctx.message.author.mention, embed=result)
 
 
 @client.command(pass_context=True)
@@ -237,15 +218,12 @@ async def top(ctx):
     """
     global channel
     await client.send_typing(ctx.message.channel)
-    try:
-        top_coin = dir_request_api.top_file.Class_Topcoin()
-        result = await top_coin.query_top(ctx.message.author)
-        if channel is None:
-            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-        else:
-            await client.send_message(channel, ctx.message.author.mention, embed=result)
-    except Exception as e:
-        print("Global Error on !top\n", e)
+    top_coin = dir_request_api.top.Class_Topcoin(ctx.message.author)
+    result = await top_coin.query_top()
+    if channel is None:
+        await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+    else:
+        await client.send_message(channel, ctx.message.author.mention, embed=result)
 
 
 @client.command(pass_context=True)
