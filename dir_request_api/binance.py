@@ -74,7 +74,7 @@ class Class_Binance:
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url=url_logo)
-        embed.set_footer(text="Request achieved:")
+        embed.set_footer(text="Request achieved :")
         embed.add_field(name=":star2: Request about " + self.name,
                         value="Here are the informations I could retrieve " + self.auth, inline=False)
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=True)

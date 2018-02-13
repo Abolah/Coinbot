@@ -8,7 +8,7 @@ import aiohttp
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
+secret_token = ""
 
 # Discorbots.org code. Comment this if you install CoinBot on your own server.
 dbltoken = ""
@@ -166,7 +166,7 @@ async def topia(ctx, *coin):
 
 
 @client.command(pass_context=True)
-async def whale(ctx, arg, limit=4):
+async def whale(ctx, arg, limit=1):
     """
     This command is used to know the big orders placed by whales on several exchanges.
     The command return the Number of coin bought at which price and the number of coin sold at which price
@@ -202,8 +202,11 @@ async def cmc(ctx):
     global channel
     await client.send_typing(ctx.message.channel)
     CoinMarketCap = dir_request_api.coinmarketcap.Class_Coinmarketcap(ctx.message.author)
-    await CoinMarketCap.cmc_query()
-
+    result = await CoinMarketCap.cmc_query()
+    if channel is None:
+        await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+    else:
+        await client.send_message(channel, ctx.message.author.mention, embed=result)
 
 
 @client.command(pass_context=True)
@@ -215,15 +218,12 @@ async def top(ctx):
     """
     global channel
     await client.send_typing(ctx.message.channel)
-    try:
-        top_coin = dir_request_api.top_file.Class_Topcoin()
-        result = await top_coin.query_top(ctx.message.author)
-        if channel is None:
-            await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-        else:
-            await client.send_message(channel, ctx.message.author.mention, embed=result)
-    except Exception as e:
-        print("Global Error on !top\n", e)
+    top_coin = dir_request_api.top.Class_Topcoin(ctx.message.author)
+    result = await top_coin.query_top()
+    if channel is None:
+        await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+    else:
+        await client.send_message(channel, ctx.message.author.mention, embed=result)
 
 
 @client.command(pass_context=True)
