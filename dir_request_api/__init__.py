@@ -9,3 +9,4 @@ from dir_request_api import poloniex
 from dir_request_api import hitbtc
 from dir_request_api import coinmarketcap
 from dir_request_api import top
+from dir_request_api import all
