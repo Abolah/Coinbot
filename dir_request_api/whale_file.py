@@ -185,6 +185,7 @@ class Class_whale:
             whale_sell = "```css\n" + whale_sell + "```"
 
         embed.add_field(name=":whale: Informations about the Asking Whales", value=whale_sell, inline=False)
+        embed.set_footer(text="Request achieved:")
         return embed
 
     async def query_whale(self, limit):

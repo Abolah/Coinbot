@@ -25,7 +25,7 @@ class Class_Binance:
         coinmarketcap = Pymarketcap()
         cmc_json = coinmarketcap.ticker(coin, convert="EUR")
         rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
-        marketcap = str("MC : " + "$ " + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
+        marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
         price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_json["price_usd"])) + " | " + "{0:.3f}".format(
             float(cmc_json["price_eur"])) + "€      \n")
         change_1 = str("1h Swing : " + str(cmc_json["percent_change_1h"]) + "%\n")

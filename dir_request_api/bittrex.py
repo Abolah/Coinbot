@@ -24,7 +24,7 @@ class Class_Bittrex:
         coinmarketcap = Pymarketcap()
         cmc_json = coinmarketcap.ticker(coin, convert="EUR")
         rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
-        marketcap = str("MC : " + "$ " + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
+        marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
         price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_json["price_usd"])) + " | " + "{0:.3f}".format(
             float(cmc_json["price_eur"])) + "€      \n")
         change_1 = str("1h Swing : " + str(cmc_json["percent_change_1h"]) + "%\n")
@@ -44,7 +44,7 @@ class Class_Bittrex:
         r = requests.get(api_url)
         bittrex_json = r.json()
         if coin == "btc":
-            name = "Pair :" + str(bittrex_json["result"][0]["MarketName"]) + "\n"
+            name = "Pair : " + str(bittrex_json["result"][0]["MarketName"]) + "\n"
             volume = "Volume : " + "{0:.2f}".format(bittrex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
             last = "Last : " + "{0:.2f}".format(bittrex_json["result"][0]["Last"]) + "\n"
             bid = "Bid : " + "{0:.2f}".format(bittrex_json["result"][0]["Bid"]) + "\n"
@@ -53,7 +53,7 @@ class Class_Bittrex:
             high = "1d High : " + "{0:.2f}".format(bittrex_json["result"][0]["High"]) + "\n"
             value_rex = "```css\n" + name + volume + last + bid + ask + high + low + "```"
         else:
-            name = "Pair :" + str(bittrex_json["result"][0]["MarketName"]) + "\n"
+            name = "Pair : " + str(bittrex_json["result"][0]["MarketName"]) + "\n"
             volume = "Volume : " + "{0:.2f}".format(bittrex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
             last = "Last : " + "{0:.8f}".format(bittrex_json["result"][0]["Last"]) + "\n"
             bid = "Bid : " + "{0:.8f}".format(bittrex_json["result"][0]["Bid"]) + "\n"

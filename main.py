@@ -8,7 +8,7 @@ import aiohttp
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
+secret_token = ""
 
 # Discorbots.org code. Comment this if you install CoinBot on your own server.
 dbltoken = ""
@@ -75,7 +75,7 @@ async def bnc(ctx, *coin):
         This command is used to know the value of a coin listed on Binance
         BTC-Coin Pair only.
 
-        Example : !binance eth
+        Example : !bnc eth
         """
     await client.send_typing(ctx.message.channel)
     for i in coin[:MAXIMUM_COINS]:
@@ -93,7 +93,7 @@ async def fnx(ctx, *coin):
     This command is used to know the value of a coin listed on Bitfinex
     BTC-Coin Pair only.
 
-    Example : !finex eth
+    Example : !fnx eth
     """
     await client.send_typing(ctx.message.channel)
     for i in coin[:MAXIMUM_COINS]:
