@@ -23,7 +23,7 @@ class Class_Poloniex:
         coinmarketcap = Pymarketcap()
         cmc_json = coinmarketcap.ticker(coin, convert="EUR")
         rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
-        marketcap = str("MC : " + "$ " + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
+        marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
         price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_json["price_usd"])) + " | " + "{0:.3f}".format(
             float(cmc_json["price_eur"])) + "€      \n")
         change_1 = str("1h Swing : " + str(cmc_json["percent_change_1h"]) + "%\n")
@@ -48,7 +48,7 @@ class Class_Poloniex:
 
         if coin == "BTC":
 
-            pair = "Pair :" + self.key.replace("_", "-") + "\n"
+            pair = "Pair : " + self.key.replace("_", "-") + "\n"
             last = "Last : " + "{0:.2f}".format(float(poloniex_json[self.key]["last"])) + "\n"
             bid = "Bid : " + "{0:.2f}".format(float(poloniex_json[self.key]["highestBid"])) + "\n"
             ask = "Ask : " + "{0:.2f}".format(float(poloniex_json[self.key]["lowestAsk"])) + "\n"
@@ -57,7 +57,7 @@ class Class_Poloniex:
             low = "1d Low : " + poloniex_json[self.key]["low24hr"] + "\n"
             value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         else:
-            pair = "Pair :" + self.key.replace("_", "-") + "\n"
+            pair = "Pair : " + self.key.replace("_", "-") + "\n"
             last = "Last : " + poloniex_json[self.key]["last"] + "\n"
             bid = "Bid : " + poloniex_json[self.key]["highestBid"] + "\n"
             ask = "Ask : " + poloniex_json[self.key]["lowestAsk"] + "\n"

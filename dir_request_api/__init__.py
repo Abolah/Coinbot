@@ -1,4 +1,3 @@
-from dir_request_api import all_file
 from dir_request_api import btc_file
 from dir_request_api import whale_file
 from dir_request_api import bitfinex

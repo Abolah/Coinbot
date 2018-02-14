@@ -77,13 +77,13 @@ To see if the bot is running correctly just run the command !infos
 !polo [coin(s)] : Get the value of the coin on Poloniex
 ```
 ```
-!binance [coin(s)] : Get the value of the coin on Binance
+!bnc [coin(s)] : Get the value of the coin on Binance
 ```
 ```
 !topia [coin(s)] : Get the value of the coin on Cryptopia
 ```
 ```
-!finex [coin(s)] : Get the value of the coin on Bitfinex
+!fnx [coin(s)] : Get the value of the coin on Bitfinex
 ```
 ```
 !rex [coin(s)] : Get the value of the coin on Bittrex
@@ -151,7 +151,7 @@ DASH [XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz]
 ```
 
 ## Author
-* **Abolah** - *Initial work* - [Abolah](https://github.com/Abolah)
+* **Abolah** - [Abolah](https://twitter.com/Abolaah)
 
 ## License
 

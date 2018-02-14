@@ -74,7 +74,7 @@ class Class_Topcoin:
             0] + " : " + str(sorted_list[3][3]) + " %\n"
         lose5 = "Rank [" + str(sorted_list[4][1]) + "] [" + sorted_list[4][5] + "] " + sorted_list[4][
             0] + " : " + str(sorted_list[4][3]) + " %\n"
-        value_loose = "```js\n" + lose1 + lose2 + lose3 + lose4 + lose5 + "```"
+        value_loose = "```css\n" + lose1 + lose2 + lose3 + lose4 + lose5 + "```"
 
         return value_loose
 

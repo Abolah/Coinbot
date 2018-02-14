@@ -33,7 +33,7 @@ class Class_All:
         coinmarketcap = Pymarketcap()
         cmc_json = coinmarketcap.ticker(coin, convert="EUR")
         rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
-        marketcap = str("MC : " + "$ " + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
+        marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
         price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_json["price_usd"])) + " | " + "{0:.3f}".format(
             float(cmc_json["price_eur"])) + "€      \n")
         change_1 = str("1h Swing : " + str(cmc_json["percent_change_1h"]) + "%\n")
@@ -65,7 +65,7 @@ class Class_All:
             pair = "Pair : BTC-" + coin.upper() + "\n"
             last = "Last : " + "{0:.8f}".format(float(bitfinex_json["last_price"])) + "\n"
             bid = "Bid : " + "{0:.8f}".format(float(bitfinex_json["bid"])) + "\n"
-            ask = "Ask : " + "{0:.8f}".format(float(bitfinex_json["ask"])) + "\n\n"
+            ask = "Ask : " + "{0:.8f}".format(float(bitfinex_json["ask"])) + "\n"
             volume = "Volume : " + "{0:.2f}".format(float(bitfinex_json["volume"])) + " BTC" + "\n"
             high = "High : " + "{0:.8f}".format(float(bitfinex_json["low"])) + "\n"
             low = "Low : " + "{0:.8f}".format(float(bitfinex_json["high"])) + "\n"
@@ -82,7 +82,7 @@ class Class_All:
         r = requests.get(api_url)
         bittrex_json = r.json()
         if coin == "btc":
-            name = "Pair :" + str(bittrex_json["result"][0]["MarketName"]) + "\n"
+            name = "Pair : " + str(bittrex_json["result"][0]["MarketName"]) + "\n"
             volume = "Volume : " + "{0:.2f}".format(bittrex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
             last = "Last : " + "{0:.2f}".format(bittrex_json["result"][0]["Last"]) + "\n"
             bid = "Bid : " + "{0:.2f}".format(bittrex_json["result"][0]["Bid"]) + "\n"
@@ -91,7 +91,7 @@ class Class_All:
             high = "1d High : " + "{0:.2f}".format(bittrex_json["result"][0]["High"]) + "\n"
             value_rex = "```css\n" + name + volume + last + bid + ask + high + low + "```"
         else:
-            name = "Pair :" + str(bittrex_json["result"][0]["MarketName"]) + "\n"
+            name = "Pair : " + str(bittrex_json["result"][0]["MarketName"]) + "\n"
             volume = "Volume : " + "{0:.2f}".format(bittrex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
             last = "Last : " + "{0:.8f}".format(bittrex_json["result"][0]["Last"]) + "\n"
             bid = "Bid : " + "{0:.8f}".format(bittrex_json["result"][0]["Bid"]) + "\n"
@@ -206,10 +206,11 @@ class Class_All:
         api_url = self.poloniex_api_url
         r = requests.get(api_url)
         poloniex_json = r.json()
+        print(poloniex_json[self.key])
 
         if coin == "BTC":
 
-            pair = "Pair :" + self.key.replace("_", "-") + "\n"
+            pair = "Pair : " + self.key.replace("_", "-") + "\n"
             last = "Last : " + "{0:.2f}".format(float(poloniex_json[self.key]["last"])) + "\n"
             bid = "Bid : " + "{0:.2f}".format(float(poloniex_json[self.key]["highestBid"])) + "\n"
             ask = "Ask : " + "{0:.2f}".format(float(poloniex_json[self.key]["lowestAsk"])) + "\n"
@@ -218,7 +219,7 @@ class Class_All:
             low = "1d Low : " + poloniex_json[self.key]["low24hr"] + "\n"
             value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         else:
-            pair = "Pair :" + self.key.replace("_", "-") + "\n"
+            pair = "Pair : " + self.key.replace("_", "-") + "\n"
             last = "Last : " + poloniex_json[self.key]["last"] + "\n"
             bid = "Bid : " + poloniex_json[self.key]["highestBid"] + "\n"
             ask = "Ask : " + poloniex_json[self.key]["lowestAsk"] + "\n"
@@ -244,9 +245,8 @@ class Class_All:
         embed.add_field(name=":dragon: Bittrex Informations", value=bittrex_value, inline=True)
         embed.add_field(name=":game_die: Binance Informations", value=binance_value, inline=True)
         embed.add_field(name=":space_invader: Cryptopia Informations", value=cryptopia_value, inline=True)
-        embed.add_field(name=":octopus: HitBTC Informations", value=hitbtc_value, inline=False)
+        embed.add_field(name=":octopus: HitBTC Informations", value=hitbtc_value, inline=True)
         embed.add_field(name=":crystal_ball: Poloniex Informations", value=poloniex_value, inline=True)
-
         embed.set_footer(text="Request achieved :")
 
         return embed

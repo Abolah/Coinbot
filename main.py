@@ -8,7 +8,7 @@ import aiohttp
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
+secret_token = ""
 
 # Discorbots.org code. Comment this if you install CoinBot on your own server.
 dbltoken = ""
@@ -54,29 +54,7 @@ async def on_server_remove():
 async def all(ctx, *coin):
     """
     This command is used to know the price of a coin on the following exchanges
-    Bitfinex; Bittrex, Cryptopia, Poloniex and Binance
-
-    Example : !all eth
-    """
-    global channel
-    await client.send_typing(ctx.message.channel)
-    try:
-        for i in coin[:MAXIMUM_COINS]:
-            all_coin = dir_request_api.all_file.Class_All(i.lower(), ctx.message.author)
-            result = await all_coin.query_all()
-            if channel is None:
-                await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-            else:
-                await client.send_message(channel, ctx.message.author.mention, embed=result)
-    except Exception as e:
-        print("Global Error on !all\n", e)
-
-
-@client.command(pass_context=True)
-async def a(ctx, *coin):
-    """
-    This command is used to know the price of a coin on the following exchanges
-    Bitfinex; Bittrex, Cryptopia, Poloniex and Binance
+    Bitfinex, Bittrex, Cryptopia, Poloniex, Binance and HitBTC
 
     Example : !all eth
     """
@@ -97,7 +75,7 @@ async def bnc(ctx, *coin):
         This command is used to know the value of a coin listed on Binance
         BTC-Coin Pair only.
 
-        Example : !binance eth
+        Example : !bnc eth
         """
     await client.send_typing(ctx.message.channel)
     for i in coin[:MAXIMUM_COINS]:
@@ -115,7 +93,7 @@ async def fnx(ctx, *coin):
     This command is used to know the value of a coin listed on Bitfinex
     BTC-Coin Pair only.
 
-    Example : !finex eth
+    Example : !fnx eth
     """
     await client.send_typing(ctx.message.channel)
     for i in coin[:MAXIMUM_COINS]:

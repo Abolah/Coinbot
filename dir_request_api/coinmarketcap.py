@@ -18,28 +18,24 @@ class Class_Coinmarketcap:
     async def function_cmcap(self):
         r = requests.get(self.cmc_global_api)
         cmc_json = r.json()
-        print(cmc_json)
 
         marketcap = "Market Cap = ${:,}".format(cmc_json["total_market_cap_usd"]) + "\n"
         volume = "Market Volume : ${:,}".format(cmc_json["total_24h_volume_usd"]) + "\n"
         dominance = "Bitcoin Dominance = " + str(cmc_json["bitcoin_percentage_of_market_cap"]) + "%\n"
         active_markets = "Pairs : " + str(cmc_json["active_markets"]) + "\n"
         value = "```css\n" + marketcap + dominance + volume + active_markets + "```"
-        print(value)
 
         return value
 
     async def function_btcap(self):
         coinmarketcap = Pymarketcap()
         cmc_btc = coinmarketcap.ticker("bitcoin", convert=self.currency)
-        print(cmc_btc)
-
-        price = "BTC Price : " + "$ " + "{:,}".format(float(cmc_btc["price_usd"])) + "\n"
+        price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_btc["price_usd"])) + " | " + "{0:.3f}".format(
+            float(cmc_btc["price_eur"])) + "€      \n")
         volume = "24h Volume: "  "$ " + "{:,}".format(float(cmc_btc["24h_volume_usd"])) + "\n"
         change_1 = "24h Swing : " + str(cmc_btc["percent_change_24h"]) + "%\n"
         change_7 = "7 days Swing : " + str(cmc_btc["percent_change_7d"]) + "%\n\n"
         value_btc = "```css\n" + price + volume + change_1 + change_7 + "```"
-        print(value_btc)
 
         return value_btc
 
