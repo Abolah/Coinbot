@@ -52,12 +52,10 @@ You don't need to install anything, just git clone the repository, put your secr
 ```
 python3.6 main.py
 ```
-If you want to run the bot on a VPS you should install Screen and run the bot on another detached screen to not stop the bot.
+If you want to run the bot on a VPS you should install Supervisor and run the bot on a supervisor instance so that the bot will automatically relaunch if it stop.
 
 ```
-screen -S CoinBot
-python3.6 main.py
-Ctrl A + D
+supervisorctl start CoinBot
 ```
 
 
@@ -107,10 +105,6 @@ Example : !order 750 5 10
 ```
 !whale [coin] {Limit in BTC, based with 4 BTC}  :  Retrieve the Whale orders on the differents exchanges
 Example : !whale xzc || !whale xzc 5
-```
-```
-!stats  :  Retrieve the most used commands
-Example : !stats || !stats !rex || !stats xzc
 ```
 ```
 !name [name] :  Get the full name of the coin and some additionnal infos
