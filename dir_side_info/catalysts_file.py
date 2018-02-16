@@ -48,7 +48,7 @@ class Class_Catalysts:
         event = ""
         for i in data_json:
             title = str(i["title"])
-            coin_name = str(i["coin_name"])
+            coin_name = str(i["coins"][0]["symbol"])
             date_event = str(i["date_event"])
             date = date_event.split("T")
             date = date[0]
