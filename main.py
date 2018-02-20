@@ -8,7 +8,7 @@ import aiohttp
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = ""
+secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
 
 # Discorbots.org code. Comment this if you install CoinBot on your own server.
 dbltoken = ""

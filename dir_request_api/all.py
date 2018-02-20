@@ -52,24 +52,27 @@ class Class_All:
             api_url = self.bitfinex_api_url_btc.format(coin)
         r = requests.get(api_url)
         bitfinex_json = r.json()
-        if coin == "btc":
-            pair = "Pair : USDT-" + coin.upper() + "\n"
-            last = "Last : " + "{0:.2f}".format(float(bitfinex_json["last_price"])) + "\n"
-            bid = "Bid : " + "{0:.2f}".format(float(bitfinex_json["bid"])) + "\n"
-            ask = "Ask : " + "{0:.2f}".format(float(bitfinex_json["ask"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(bitfinex_json["volume"])) + " BTC" + "\n"
-            high = "High : " + "{0:.8f}".format(float(bitfinex_json["low"])) + "\n"
-            low = "Low : " + "{0:.8f}".format(float(bitfinex_json["high"])) + "\n"
-            value_finex = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        if bitfinex_json["message"] == "Unknown symbol":
+            value_finex = "```css\nThis Coin is not listed on Bitfinex. ```"
         else:
-            pair = "Pair : BTC-" + coin.upper() + "\n"
-            last = "Last : " + "{0:.8f}".format(float(bitfinex_json["last_price"])) + "\n"
-            bid = "Bid : " + "{0:.8f}".format(float(bitfinex_json["bid"])) + "\n"
-            ask = "Ask : " + "{0:.8f}".format(float(bitfinex_json["ask"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(bitfinex_json["volume"])) + " BTC" + "\n"
-            high = "High : " + "{0:.8f}".format(float(bitfinex_json["low"])) + "\n"
-            low = "Low : " + "{0:.8f}".format(float(bitfinex_json["high"])) + "\n"
-            value_finex = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            if coin == "btc":
+                pair = "Pair : USDT-" + coin.upper() + "\n"
+                last = "Last : " + "{0:.2f}".format(float(bitfinex_json["last_price"])) + "\n"
+                bid = "Bid : " + "{0:.2f}".format(float(bitfinex_json["bid"])) + "\n"
+                ask = "Ask : " + "{0:.2f}".format(float(bitfinex_json["ask"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(bitfinex_json["volume"])) + " BTC" + "\n"
+                high = "High : " + "{0:.8f}".format(float(bitfinex_json["low"])) + "\n"
+                low = "Low : " + "{0:.8f}".format(float(bitfinex_json["high"])) + "\n"
+                value_finex = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            else:
+                pair = "Pair : BTC-" + coin.upper() + "\n"
+                last = "Last : " + "{0:.8f}".format(float(bitfinex_json["last_price"])) + "\n"
+                bid = "Bid : " + "{0:.8f}".format(float(bitfinex_json["bid"])) + "\n"
+                ask = "Ask : " + "{0:.8f}".format(float(bitfinex_json["ask"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(bitfinex_json["volume"])) + " BTC" + "\n"
+                high = "High : " + "{0:.8f}".format(float(bitfinex_json["low"])) + "\n"
+                low = "Low : " + "{0:.8f}".format(float(bitfinex_json["high"])) + "\n"
+                value_finex = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
 
         return value_finex
 
@@ -81,25 +84,27 @@ class Class_All:
 
         r = requests.get(api_url)
         bittrex_json = r.json()
-        if coin == "btc":
-            name = "Pair : " + str(bittrex_json["result"][0]["MarketName"]) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(bittrex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
-            last = "Last : " + "{0:.2f}".format(bittrex_json["result"][0]["Last"]) + "\n"
-            bid = "Bid : " + "{0:.2f}".format(bittrex_json["result"][0]["Bid"]) + "\n"
-            ask = "Ask : " + "{0:.2f}".format(bittrex_json["result"][0]["Ask"]) + "\n"
-            low = "1d Low : " + "{0:.2f}".format(bittrex_json["result"][0]["Low"]) + "\n"
-            high = "1d High : " + "{0:.2f}".format(bittrex_json["result"][0]["High"]) + "\n"
-            value_rex = "```css\n" + name + volume + last + bid + ask + high + low + "```"
+        if bittrex_json["message"] == "INVALID_MARKET":
+            value_rex = "```css\nThis Coin is not listed on Bittrex. ```"
         else:
-            name = "Pair : " + str(bittrex_json["result"][0]["MarketName"]) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(bittrex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
-            last = "Last : " + "{0:.8f}".format(bittrex_json["result"][0]["Last"]) + "\n"
-            bid = "Bid : " + "{0:.8f}".format(bittrex_json["result"][0]["Bid"]) + "\n"
-            ask = "Ask : " + "{0:.8f}".format(bittrex_json["result"][0]["Ask"]) + "\n"
-            low = "1d Low : " + "{0:.8f}".format(bittrex_json["result"][0]["Low"]) + "\n"
-            high = "1d High : " + "{0:.8f}".format(bittrex_json["result"][0]["High"]) + "\n"
-            value_rex = "```css\n" + name + volume + last + bid + ask + high + low + "```"
-
+            if coin == "btc":
+                name = "Pair : " + str(bittrex_json["result"][0]["MarketName"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(bittrex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
+                last = "Last : " + "{0:.2f}".format(bittrex_json["result"][0]["Last"]) + "\n"
+                bid = "Bid : " + "{0:.2f}".format(bittrex_json["result"][0]["Bid"]) + "\n"
+                ask = "Ask : " + "{0:.2f}".format(bittrex_json["result"][0]["Ask"]) + "\n"
+                low = "1d Low : " + "{0:.2f}".format(bittrex_json["result"][0]["Low"]) + "\n"
+                high = "1d High : " + "{0:.2f}".format(bittrex_json["result"][0]["High"]) + "\n"
+                value_rex = "```css\n" + name + volume + last + bid + ask + high + low + "```"
+            else:
+                name = "Pair : " + str(bittrex_json["result"][0]["MarketName"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(bittrex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
+                last = "Last : " + "{0:.8f}".format(bittrex_json["result"][0]["Last"]) + "\n"
+                bid = "Bid : " + "{0:.8f}".format(bittrex_json["result"][0]["Bid"]) + "\n"
+                ask = "Ask : " + "{0:.8f}".format(bittrex_json["result"][0]["Ask"]) + "\n"
+                low = "1d Low : " + "{0:.8f}".format(bittrex_json["result"][0]["Low"]) + "\n"
+                high = "1d High : " + "{0:.8f}".format(bittrex_json["result"][0]["High"]) + "\n"
+                value_rex = "```css\n" + name + volume + last + bid + ask + high + low + "```"
         return value_rex
 
     async def function_binance(self, coin):
@@ -111,26 +116,27 @@ class Class_All:
 
         r = requests.get(api_url)
         binance_json = r.json()
-
-        if coin == "BTC":
-            pair = "Pair : USDT-" + coin + "\n"
-            last = "Last : " + "{0:.2f}".format(float(binance_json["lastPrice"])) + "\n"
-            bid = "Bid : " + "{0:.2f}".format(float(binance_json["bidPrice"])) + "\n"
-            ask = "Ask : " + "{0:.2f}".format(float(binance_json["askPrice"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
-            high = "24 High : " + binance_json["highPrice"] + "\n"
-            low = "24 Low : " + binance_json["lowPrice"] + "\n"
-            value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        if binance_json["msg"] == "Invalid symbol.":
+            value_bin = "```css\nThis Coin is not listed on Binance. ```"
         else:
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.8f}".format(float(binance_json["lastPrice"])) + "\n"
-            bid = "Bid : " + "{0:.8f}".format(float(binance_json["bidPrice"])) + "\n"
-            ask = "Ask : " + "{0:.8f}".format(float(binance_json["askPrice"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
-            high = "1d High : " + binance_json["highPrice"] + "\n"
-            low = "1d Low : " + binance_json["lowPrice"] + "\n"
-            value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
-
+            if coin == "BTC":
+                pair = "Pair : USDT-" + coin + "\n"
+                last = "Last : " + "{0:.2f}".format(float(binance_json["lastPrice"])) + "\n"
+                bid = "Bid : " + "{0:.2f}".format(float(binance_json["bidPrice"])) + "\n"
+                ask = "Ask : " + "{0:.2f}".format(float(binance_json["askPrice"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
+                high = "24 High : " + binance_json["highPrice"] + "\n"
+                low = "24 Low : " + binance_json["lowPrice"] + "\n"
+                value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            else:
+                pair = "Pair : BTC-" + coin + "\n"
+                last = "Last : " + "{0:.8f}".format(float(binance_json["lastPrice"])) + "\n"
+                bid = "Bid : " + "{0:.8f}".format(float(binance_json["bidPrice"])) + "\n"
+                ask = "Ask : " + "{0:.8f}".format(float(binance_json["askPrice"])) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
+                high = "1d High : " + binance_json["highPrice"] + "\n"
+                low = "1d Low : " + binance_json["lowPrice"] + "\n"
+                value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         return value_bin
 
     async def function_cryptopia(self, coin):
@@ -142,26 +148,27 @@ class Class_All:
 
         r = requests.get(api_url)
         topia_json = r.json()
-
-        if coin == "BTC":
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.2f}".format(topia_json["Data"]["LastPrice"]) + "\n"
-            bid = "Bid : " + "{0:.2f}".format(topia_json["Data"]["BidPrice"]) + "\n"
-            ask = "Ask : " + "{0:.2f}".format(topia_json["Data"]["AskPrice"]) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + " BTC" + "\n"
-            high = "24 High : " + "{0:.8f}".format(topia_json["Data"]["High"]) + "\n"
-            low = "24 Low : " + "{0:.8f}".format(topia_json["Data"]["Low"]) + "\n"
-            value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        if topia_json["Error"] == "Market {}_BTC not found".format(coin):
+            value_topia = "```css`\nThis coin is not listed on Cryptopia.```"
         else:
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.8f}".format(topia_json["Data"]["LastPrice"]) + "\n"
-            bid = "Bid : " + "{0:.8f}".format(topia_json["Data"]["BidPrice"]) + "\n"
-            ask = "Ask : " + "{0:.8f}".format(topia_json["Data"]["AskPrice"]) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + " BTC" + "\n"
-            high = "24 High : " + "{0:.8f}".format(topia_json["Data"]["High"]) + "\n"
-            low = "24 Low : " + "{0:.8f}".format(topia_json["Data"]["Low"]) + "\n"
-            value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
-
+            if coin == "BTC":
+                pair = "Pair : USD-" + coin + "\n"
+                last = "Last : " + "{0:.2f}".format(topia_json["Data"]["LastPrice"]) + "\n"
+                bid = "Bid : " + "{0:.2f}".format(topia_json["Data"]["BidPrice"]) + "\n"
+                ask = "Ask : " + "{0:.2f}".format(topia_json["Data"]["AskPrice"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + " BTC" + "\n"
+                high = "24 High : " + "{0:.8f}".format(topia_json["Data"]["High"]) + "\n"
+                low = "24 Low : " + "{0:.8f}".format(topia_json["Data"]["Low"]) + "\n"
+                value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            else:
+                pair = "Pair : BTC-" + coin + "\n"
+                last = "Last : " + "{0:.8f}".format(topia_json["Data"]["LastPrice"]) + "\n"
+                bid = "Bid : " + "{0:.8f}".format(topia_json["Data"]["BidPrice"]) + "\n"
+                ask = "Ask : " + "{0:.8f}".format(topia_json["Data"]["AskPrice"]) + "\n"
+                volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + " BTC" + "\n"
+                high = "24 High : " + "{0:.8f}".format(topia_json["Data"]["High"]) + "\n"
+                low = "24 Low : " + "{0:.8f}".format(topia_json["Data"]["Low"]) + "\n"
+                value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         return value_topia
 
     async def function_hitbtc(self, coin):
@@ -173,26 +180,45 @@ class Class_All:
 
         r = requests.get(api_url)
         hitbtc_json = r.json()
-
-        if coin == "BTC":
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.2}".format(hitbtc_json["last"]) + "\n"
-            bid = "Bid : " + "{0:.2}".format(hitbtc_json["bid"]) + "\n"
-            ask = "Ask : " + "{0:.2}".format(hitbtc_json["ask"]) + "\n"
-            volume = "Volume : " + "{0:.2}".format(hitbtc_json["volumeQuote"]) + " BTC" + "\n"
-            high = "24 High : " + "{0:.8}".format(hitbtc_json["high"]) + "\n"
-            low = "24 Low : " + "{0:.8}".format(hitbtc_json["low"]) + "\n"
-            value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        if hitbtc_json["error"]["message"] == "Symbol not found":
+            value_hitbtc = "```css`\nThis coin is not listed on HitBTC.```"
         else:
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.8}".format(hitbtc_json["last"]) + "\n"
-            bid = "Bid : " + "{0:.8}".format(hitbtc_json["bid"]) + "\n"
-            ask = "Ask : " + "{0:.8}".format(hitbtc_json["ask"]) + "\n"
-            volume = "Volume : " + "{0:.2}".format(hitbtc_json["volumeQuote"]) + " BTC" + "\n"
-            high = "24 High : " + "{0:.8}".format(hitbtc_json["high"]) + "\n"
-            low = "24 Low : " + "{0:.8}".format(hitbtc_json["low"]) + "\n"
-            value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
-
+            if coin == "BTC":
+                pair = "Pair : USD-" + coin + "\n"
+                last = "Last : " + "{0:.2}".format(hitbtc_json["last"]) + "\n"
+                bid = "Bid : " + "{0:.2}".format(hitbtc_json["bid"]) + "\n"
+                ask = "Ask : " + "{0:.2}".format(hitbtc_json["ask"]) + "\n"
+                volume = "Volume : " + "{0:.2}".format(hitbtc_json["volume"]) + " BTC" + "\n"
+                high = "24 High : " + "{0:.8}".format(hitbtc_json["high"]) + "\n"
+                low = "24 Low : " + "{0:.8}".format(hitbtc_json["low"]) + "\n"
+                value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            else:
+                pair = "Pair : BTC-" + coin + "\n"
+                if hitbtc_json["last"] is None:
+                    last = "Last : No value \n"
+                else:
+                    last = "Last : " + "{0:.8}".format(hitbtc_json["last"]) + "\n"
+                if hitbtc_json["bid"] is None:
+                    bid = "Bid : No value \n"
+                else:
+                    bid = "Bid : " + "{0:.8}".format(hitbtc_json["bid"]) + "\n"
+                if hitbtc_json["ask"] is None:
+                    ask = "Ask : No value \n"
+                else:
+                    ask = "Ask : " + "{0:.8}".format(hitbtc_json["ask"]) + "\n"
+                if hitbtc_json["volumeQuote"] is None:
+                    volume = "Volume : No value \n"
+                else:
+                    volume = "Volume : " + "{0:.2}".format(hitbtc_json["volume"]) + " BTC" + "\n"
+                if hitbtc_json["high"] is None:
+                    high = "High : No value \n"
+                else:
+                    high = "24 High : " + "{0:.8}".format(hitbtc_json["high"]) + "\n"
+                if hitbtc_json["low"] is None:
+                    low = "Low : No value \n"
+                else:
+                    low = "24 Low : " + "{0:.8}".format(hitbtc_json["low"]) + "\n"
+                value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         return value_hitbtc
 
     async def function_poloniex(self, coin):
@@ -220,18 +246,35 @@ class Class_All:
             value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         else:
             pair = "Pair : " + self.key.replace("_", "-") + "\n"
-            last = "Last : " + poloniex_json[self.key]["last"] + "\n"
-            bid = "Bid : " + poloniex_json[self.key]["highestBid"] + "\n"
-            ask = "Ask : " + poloniex_json[self.key]["lowestAsk"] + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(poloniex_json[self.key]["baseVolume"])) + " BTC" + "\n"
-            high = "1d High : " + poloniex_json[self.key]["high24hr"] + "\n"
-            low = "1d Low : " + poloniex_json[self.key]["low24hr"] + "\n"
+            if poloniex_json[self.key]["last"] == "":
+                last = "Error"
+            else:
+                last = "Last : " + poloniex_json[self.key]["last"] + "\n"
+            if poloniex_json[self.key]["highestBid"] == "":
+                bid = "Error"
+            else:
+                bid = "Bid : " + poloniex_json[self.key]["highestBid"] + "\n"
+            if poloniex_json[self.key]["lowestAsk"] == "":
+                ask = "Error"
+            else:
+                ask = "Ask : " + poloniex_json[self.key]["lowestAsk"] + "\n"
+            if poloniex_json[self.key]["baseVolume"] == "":
+                volume = "Error"
+            else:
+                volume = "Volume : " + "{0:.2f}".format(float(poloniex_json[self.key]["baseVolume"])) + " BTC" + "\n"
+            if poloniex_json[self.key]["high24hr"] == "":
+                high = "Error"
+            else:
+                high = "1d High : " + poloniex_json[self.key]["high24hr"] + "\n"
+            if poloniex_json[self.key]["low24hr"] == "":
+                low = "Error"
+            else:
+                low = "1d Low : " + poloniex_json[self.key]["low24hr"] + "\n"
             value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
 
         return value_polo
 
-    def function_display(self, cmc_value, bitfinex_value, bittrex_value, binance_value, cryptopia_value, hitbtc_value,
-                         poloniex_value):
+    def function_display(self, cmc_value, bitfinex_value, bittrex_value, binance_value, cryptopia_value, hitbtc_value):
         name_logo = self.name.replace(" ", "-").lower()
         url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/" + name_logo + ".png"
 
@@ -246,7 +289,7 @@ class Class_All:
         embed.add_field(name=":game_die: Binance Informations", value=binance_value, inline=True)
         embed.add_field(name=":space_invader: Cryptopia Informations", value=cryptopia_value, inline=True)
         embed.add_field(name=":octopus: HitBTC Informations", value=hitbtc_value, inline=True)
-        embed.add_field(name=":crystal_ball: Poloniex Informations", value=poloniex_value, inline=True)
+        # embed.add_field(name=":crystal_ball: Poloniex Informations", value=poloniex_value, inline=True)
         embed.set_footer(text="Request achieved :")
 
         return embed
@@ -259,7 +302,7 @@ class Class_All:
         binance_value = await self.function_binance(coin)
         cryptopia_value = await self.function_cryptopia(coin)
         hitbtc_value = await self.function_hitbtc(coin)
-        poloniex_value = await self.function_poloniex(coin)
+        # poloniex_value = await self.function_poloniex(coin)
         embed = self.function_display(cmc_value, bitfinex_value, bittrex_value, binance_value, cryptopia_value,
-                                      hitbtc_value, poloniex_value)
+                                      hitbtc_value)
         return embed
