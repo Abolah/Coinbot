@@ -52,9 +52,8 @@ class Class_All:
             api_url = self.bitfinex_api_url_btc.format(coin)
         r = requests.get(api_url)
         bitfinex_json = r.json()
-        if bitfinex_json["message"] == "Unknown symbol":
-            value_finex = "```css\nThis Coin is not listed on Bitfinex. ```"
-        else:
+
+        if "message" not in bitfinex_json:
             if coin == "btc":
                 pair = "Pair : USDT-" + coin.upper() + "\n"
                 last = "Last : " + "{0:.2f}".format(float(bitfinex_json["last_price"])) + "\n"
@@ -73,6 +72,8 @@ class Class_All:
                 high = "High : " + "{0:.8f}".format(float(bitfinex_json["low"])) + "\n"
                 low = "Low : " + "{0:.8f}".format(float(bitfinex_json["high"])) + "\n"
                 value_finex = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        else:
+            value_finex = "```css\n This coin is not listed on Bitfinex.\n```"
 
         return value_finex
 
@@ -81,12 +82,10 @@ class Class_All:
             api_url = self.bittrex_api_url_usdt.format(coin)
         else:
             api_url = self.bittrex_api_url_btc.format(coin)
-
         r = requests.get(api_url)
         bittrex_json = r.json()
-        if bittrex_json["message"] == "INVALID_MARKET":
-            value_rex = "```css\nThis Coin is not listed on Bittrex. ```"
-        else:
+
+        if "INVALID_MARKET" not in bittrex_json["message"]:
             if coin == "btc":
                 name = "Pair : " + str(bittrex_json["result"][0]["MarketName"]) + "\n"
                 volume = "Volume : " + "{0:.2f}".format(bittrex_json["result"][0]["BaseVolume"]) + " BTC" + "\n"
@@ -105,6 +104,8 @@ class Class_All:
                 low = "1d Low : " + "{0:.8f}".format(bittrex_json["result"][0]["Low"]) + "\n"
                 high = "1d High : " + "{0:.8f}".format(bittrex_json["result"][0]["High"]) + "\n"
                 value_rex = "```css\n" + name + volume + last + bid + ask + high + low + "```"
+        else:
+            value_rex = "```css\nThis coin is not listed on Bittrex. ```"
         return value_rex
 
     async def function_binance(self, coin):
@@ -113,12 +114,10 @@ class Class_All:
             api_url = self.binance_api_url_usdt.format(coin)
         else:
             api_url = self.binance_api_url_btc.format(coin)
-
         r = requests.get(api_url)
         binance_json = r.json()
-        if binance_json["msg"] == "Invalid symbol.":
-            value_bin = "```css\nThis Coin is not listed on Binance. ```"
-        else:
+
+        if "msg" not in binance_json:
             if coin == "BTC":
                 pair = "Pair : USDT-" + coin + "\n"
                 last = "Last : " + "{0:.2f}".format(float(binance_json["lastPrice"])) + "\n"
@@ -137,6 +136,9 @@ class Class_All:
                 high = "1d High : " + binance_json["highPrice"] + "\n"
                 low = "1d Low : " + binance_json["lowPrice"] + "\n"
                 value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        else:
+            value_bin = "```css\nThis coin is not listed on Binance. ```"
+
         return value_bin
 
     async def function_cryptopia(self, coin):
@@ -145,12 +147,10 @@ class Class_All:
             api_url = self.cryptopia_api_url_usdt.format(coin)
         else:
             api_url = self.cryptopia_api_url_btc.format(coin)
-
         r = requests.get(api_url)
         topia_json = r.json()
-        if topia_json["Error"] == "Market {}_BTC not found".format(coin):
-            value_topia = "```css`\nThis coin is not listed on Cryptopia.```"
-        else:
+        error = topia_json["Error"]
+        if error is None:
             if coin == "BTC":
                 pair = "Pair : USD-" + coin + "\n"
                 last = "Last : " + "{0:.2f}".format(topia_json["Data"]["LastPrice"]) + "\n"
@@ -169,6 +169,8 @@ class Class_All:
                 high = "24 High : " + "{0:.8f}".format(topia_json["Data"]["High"]) + "\n"
                 low = "24 Low : " + "{0:.8f}".format(topia_json["Data"]["Low"]) + "\n"
                 value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        else:
+            value_topia = "```css\nThis coin is not listed on Cryptopia.\n```"
         return value_topia
 
     async def function_hitbtc(self, coin):
@@ -177,12 +179,10 @@ class Class_All:
             api_url = self.hitbtc_api_url_usdt.format(coin)
         else:
             api_url = self.hitbtc_api_url_btc.format(coin)
-
         r = requests.get(api_url)
         hitbtc_json = r.json()
-        if hitbtc_json["error"]["message"] == "Symbol not found":
-            value_hitbtc = "```css`\nThis coin is not listed on HitBTC.```"
-        else:
+
+        if "error" not in hitbtc_json:
             if coin == "BTC":
                 pair = "Pair : USD-" + coin + "\n"
                 last = "Last : " + "{0:.2}".format(hitbtc_json["last"]) + "\n"
@@ -219,6 +219,9 @@ class Class_All:
                 else:
                     low = "24 Low : " + "{0:.8}".format(hitbtc_json["low"]) + "\n"
                 value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        else:
+            value_hitbtc = "```css\nThis coin is not listed on HitBTC.\n```"
+
         return value_hitbtc
 
     async def function_poloniex(self, coin):
