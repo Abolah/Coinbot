@@ -15,7 +15,7 @@ class Class_Bot:
     def function_display(srv_count):
         embed = discord.Embed(title="Github URL", colour=discord.Colour(0x2dca6f),
                               url="https://github.com/Abolah/Coinbot",
-                              description=":hammer_pick: I am the developer of CoinBot.```\nYou can check out the source code here,\nhttps://github.com/Abolah/Coinbot""```")
+                              description=":hammer_pick: I am the developer of CoinBot.```\nIf you have requests or issues send me a message on Discord !```")
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.set_author(name="Abolah", url="https://twitter.com/Abolaah",
                          icon_url="https://vignette.wikia.nocookie.net/epicrapbattlesofhistory/images/e/eb/Deal_with_it_rainbow_style_by_j_brony-d4cwgad.png")
