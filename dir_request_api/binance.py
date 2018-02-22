@@ -46,24 +46,63 @@ class Class_Binance:
         r = requests.get(api_url)
         binance_json = r.json()
 
-        if coin == "BTC":
-            pair = "Pair : USDT-" + coin + "\n"
-            last = "Last : " + "{0:.2f}".format(float(binance_json["lastPrice"])) + "\n"
-            bid = "Bid : " + "{0:.2f}".format(float(binance_json["bidPrice"])) + "\n"
-            ask = "Ask : " + "{0:.2f}".format(float(binance_json["askPrice"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
-            high = "24 High : " + binance_json["highPrice"] + "\n"
-            low = "24 Low : " + binance_json["lowPrice"] + "\n"
-            value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        if "msg" not in binance_json:
+            if coin == "BTC":
+                pair = "Pair : USDT-" + coin + "\n"
+                if binance_json["lastPrice"] is None:
+                    last = "Last : Unknown\n"
+                else:
+                    last = "Last : {}\n".format(float(binance_json["lastPrice"]))
+                if binance_json["bidPrice"] is None:
+                    bid = "Bid : Unknown\n"
+                else:
+                    bid = "Bid : {}\n".format(float(binance_json["bidPrice"]))
+                if binance_json["askPrice"] is None:
+                    ask = "Ask : Unknown\n"
+                else:
+                    ask = "Ask : {}\n".format(float(binance_json["askPrice"]))
+                if binance_json["volume"] is None:
+                    volume = "Volume : Unknown\n"
+                else:
+                    volume = "Volume : {} BTC\n".format(float(binance_json["volume"]))
+                if binance_json["highPrice"] is None:
+                    high = "1d High : Unknown\n"
+                else:
+                    high = "1d High : {}\n".format(float(binance_json["highPrice"]))
+                if binance_json["lowPrice"] is None:
+                    low = "1d Low : Unknown\n"
+                else:
+                    low = "1d Low : {}\n".format(float(binance_json["lowPrice"]))
+                value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            else:
+                pair = "Pair : BTC-" + coin + "\n"
+                if binance_json["lastPrice"] is None:
+                    last = "Last : Unknown\n"
+                else:
+                    last = "Last : {}\n".format(float(binance_json["lastPrice"]))
+                if binance_json["bidPrice"] is None:
+                    bid = "Bid : Unknown\n"
+                else:
+                    bid = "Bid : {}\n".format(float(binance_json["bidPrice"]))
+                if binance_json["askPrice"] is None:
+                    ask = "Ask : Unknown\n"
+                else:
+                    ask = "Ask : {}\n".format(float(binance_json["askPrice"]))
+                if binance_json["volume"] is None:
+                    volume = "Volume : Unknown\n"
+                else:
+                    volume = "Volume : {} BTC\n".format(float(binance_json["volume"]))
+                if binance_json["highPrice"] is None:
+                    high = "1d High : Unknown\n"
+                else:
+                    high = "1d High : {}\n".format(float(binance_json["highPrice"]))
+                if binance_json["lowPrice"] is None:
+                    low = "1d Low : Unknown\n"
+                else:
+                    low = "1d Low : {}\n".format(float(binance_json["lowPrice"]))
+                value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         else:
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.8f}".format(float(binance_json["lastPrice"])) + "\n"
-            bid = "Bid : " + "{0:.8f}".format(float(binance_json["bidPrice"])) + "\n"
-            ask = "Ask : " + "{0:.8f}".format(float(binance_json["askPrice"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(binance_json["quoteVolume"])) + " BTC" + "\n"
-            high = "1d High : " + binance_json["highPrice"] + "\n"
-            low = "1d Low : " + binance_json["lowPrice"] + "\n"
-            value_bin = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            value_bin = "```css\n{} is not listed on Binance. ```".format(self.name)
 
         return value_bin
 

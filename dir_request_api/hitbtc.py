@@ -45,24 +45,63 @@ class Class_HitBTC:
         r = requests.get(api_url)
         hitbtc_json = r.json()
 
-        if coin == "BTC":
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.2}".format(hitbtc_json["last"]) + "\n"
-            bid = "Bid : " + "{0:.2}".format(hitbtc_json["bid"]) + "\n"
-            ask = "Ask : " + "{0:.2}".format(hitbtc_json["ask"]) + "\n"
-            volume = "Volume : " + "{0:.2}".format(hitbtc_json["volumeQuote"]) + " BTC" + "\n"
-            high = "24 High : " + "{0:.8}".format(hitbtc_json["high"]) + "\n"
-            low = "24 Low : " + "{0:.8}".format(hitbtc_json["low"]) + "\n"
-            value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        if "error" not in hitbtc_json:
+            if coin == "BTC":
+                pair = "Pair : USD-" + coin + "\n"
+                if hitbtc_json["last"] is None:
+                    last = "Last : Unknown\n"
+                else:
+                    last = "Last : {}\n".format(hitbtc_json["last"])
+                if hitbtc_json["bid"] is None:
+                    bid = "Bid : Unknown\n"
+                else:
+                    bid = "Bid : {}\n".format(hitbtc_json["bid"])
+                if hitbtc_json["ask"] is None:
+                    ask = "Ask : Unknown\n"
+                else:
+                    ask = "Ask : {}\n".format(hitbtc_json["ask"])
+                if hitbtc_json["volume"] is None:
+                    volume = "Volume : Unknown\n"
+                else:
+                    volume = "Volume : {} BTC\n".format(hitbtc_json["volume"])
+                if hitbtc_json["high"] is None:
+                    high = "1 High : Unknown\n"
+                else:
+                    high = "1d High : {}\n".format(hitbtc_json["high"])
+                if hitbtc_json["low"] is None:
+                    low = "1d Low : Unknown\n"
+                else:
+                    low = "1d Low : {}\n".format(hitbtc_json["low"])
+                value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            else:
+                pair = "Pair : BTC-" + coin + "\n"
+                if hitbtc_json["last"] is None:
+                    last = "Last : Unknown\n"
+                else:
+                    last = "Last : {}\n".format(hitbtc_json["last"])
+                if hitbtc_json["bid"] is None:
+                    bid = "Bid : Unknown\n"
+                else:
+                    bid = "Bid : {}\n".format(hitbtc_json["bid"])
+                if hitbtc_json["ask"] is None:
+                    ask = "Ask : Unknown\n"
+                else:
+                    ask = "Ask : {}\n".format(hitbtc_json["ask"])
+                if hitbtc_json["volume"] is None:
+                    volume = "Volume : Unknown\n"
+                else:
+                    volume = "Volume : {} BTC\n".format(hitbtc_json["volume"])
+                if hitbtc_json["high"] is None:
+                    high = "1 High : Unknown\n"
+                else:
+                    high = "1d High : {}\n".format(hitbtc_json["high"])
+                if hitbtc_json["low"] is None:
+                    low = "1d Low : Unknown\n"
+                else:
+                    low = "1d Low : {}\n".format(hitbtc_json["low"])
+                value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         else:
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.8}".format(hitbtc_json["last"]) + "\n"
-            bid = "Bid : " + "{0:.8}".format(hitbtc_json["bid"]) + "\n"
-            ask = "Ask : " + "{0:.8}".format(hitbtc_json["ask"]) + "\n"
-            volume = "Volume : " + "{0:.2}".format(hitbtc_json["volumeQuote"]) + " BTC" + "\n"
-            high = "24 High : " + "{0:.8}".format(hitbtc_json["high"]) + "\n"
-            low = "24 Low : " + "{0:.8}".format(hitbtc_json["low"]) + "\n"
-            value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            value_hitbtc = "```css\n{} is not listed on HitBTC.\n```".format(self.name)
 
         return value_hitbtc
 

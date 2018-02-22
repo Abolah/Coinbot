@@ -14,11 +14,11 @@ class Class_Info:
     def function_informations(self):
         btc = "!btc\n"
         all = "!all [coins(s)]\n"
-        rex = "!rex [coin(s)]\n"
         finex = "!fnx [coin(s)]\n"
+        binance = "!bnc [coin(s)]\n"
+        rex = "!rex [coin(s)]\n"
         polo = "!polo [coin(s)]\n"
         topia = "!topia [coin(s)]\n"
-        binance = "!bnc [coin(s)]\n"
         hitbtc = "!hit [coin(s)]\n\n"
         top = "!top\n"
         cmc = "!cmc\n"
@@ -39,7 +39,7 @@ class Class_Info:
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":hammer: Version", value="2.6")
+        embed.add_field(name=":hammer: Version", value="2.7")
         embed.add_field(name=":star2: Request about Coinbot's commands",
                         value="Here are the informations I could retrieve " + self.auth,
                         inline=False)

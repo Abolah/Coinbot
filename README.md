@@ -6,11 +6,12 @@
 
 [![Discord Bots](https://discordbots.org/api/widget/367061304042586124.svg)](https://discordbots.org/bot/367061304042586124)
 
+If you Like CoinBot don't forget to upvote it on clicking on the widget above.
+
 Coinbot is a Discord bot created in Python and used to display some useful informations about CryptoMarket trading.
 
-Send me a discord message to @Abolah#1337 or @Abolaah on Twitter if you want informations about the hosting.
 
-## If you want to test it, you can join this server :
+## If you want to test it or help me in the development, you can join this server :
 * [CoinBot Test Server](https://discord.gg/PVyNRca)
 
 ## Getting Started
@@ -111,8 +112,8 @@ Example : !whale xzc || !whale xzc 5
 Example : !name eth
 ```
 ```
-!event {next page :1,2,3 etc} :  Retrieve the incoming events
-Example : !event  || !event 2
+!event [coin] :  Retrieve the incoming events. Adding a coin is optional
+Example : !event  || !event eth
 ```
 ```
 !bot :  Display some informations about me and the bot
@@ -135,7 +136,7 @@ Example : !sum www.url.com
 
 ## Donation
 
-If you want to help me with this bot. You can donate BTC and ETH to the following addresses
+If you want to help me with this bot. You can donate to the following addresses
 ```
 ETH(ERC20 friendly)  [abowallet.eth]
 BTC  [1jc3V3T5mefuD9asa7en976NKVGssQuMq]

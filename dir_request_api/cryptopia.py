@@ -41,28 +41,67 @@ class Class_Cryptopia:
             api_url = self.cryptopia_api_url_usdt.format(coin)
         else:
             api_url = self.cryptopia_api_url_btc.format(coin)
-
         r = requests.get(api_url)
         topia_json = r.json()
 
-        if coin == "BTC":
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.2f}".format(topia_json["Data"]["LastPrice"]) + "\n"
-            bid = "Bid : " + "{0:.2f}".format(topia_json["Data"]["BidPrice"]) + "\n"
-            ask = "Ask : " + "{0:.2f}".format(topia_json["Data"]["AskPrice"]) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + " BTC" + "\n"
-            high = "24 High : " + "{0:.8f}".format(topia_json["Data"]["High"]) + "\n"
-            low = "24 Low : " + "{0:.8f}".format(topia_json["Data"]["Low"]) + "\n"
-            value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+        error = topia_json["Error"]
+        if error is None:
+            if coin == "BTC":
+                pair = "Pair : USD-" + coin + "\n"
+                if topia_json["Data"]["LastPrice"] is None:
+                    last = "Last : Unknown\n"
+                else:
+                    last = "Last : {}\n".format(topia_json["Data"]["LastPrice"])
+                if topia_json["Data"]["BidPrice"] is None:
+                    bid = "Bid : Unknown\n"
+                else:
+                    bid = "Bid : {}\n".format(topia_json["Data"]["BidPrice"])
+                if topia_json["Data"]["AskPrice"] is None:
+                    ask = "Ask : Unknown\n"
+                else:
+                    ask = "Ask : {}\n".format(topia_json["Data"]["AskPrice"])
+                if topia_json["Data"]["Volume"] is None:
+                    volume = "Volume : Unknown\n"
+                else:
+                    volume = "Volume : {} BTC\n".format(topia_json["Data"]["Volume"])
+                if topia_json["Data"]["High"] is None:
+                    high = "1d High : Unknown\n"
+                else:
+                    high = "1d High : " + "{}\n".format(topia_json["Data"]["High"])
+                if topia_json["Data"]["Low"] is None:
+                    low = "1d Low : Unknown\n"
+                else:
+                    low = "1d Low : " + "{}\n".format(topia_json["Data"]["Low"])
+                value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "\n```"
+            else:
+                pair = "Pair : BTC-" + coin + "\n"
+                if topia_json["Data"]["LastPrice"] is None:
+                    last = "Last : Unknown\n"
+                else:
+                    last = "Last : {}\n".format(topia_json["Data"]["LastPrice"])
+                if topia_json["Data"]["BidPrice"] is None:
+                    bid = "Bid : Unknown\n"
+                else:
+                    bid = "Bid : {}\n".format(topia_json["Data"]["BidPrice"])
+                if topia_json["Data"]["AskPrice"] is None:
+                    ask = "Ask : Unknown\n"
+                else:
+                    ask = "Ask : {}\n".format(topia_json["Data"]["AskPrice"])
+                if topia_json["Data"]["Volume"] is None:
+                    volume = "Volume : Unknown\n"
+                else:
+                    volume = "Volume : {} BTC\n".format(topia_json["Data"]["Volume"])
+                if topia_json["Data"]["High"] is None:
+                    high = "1d High : Unknown\n"
+                else:
+                    high = "1d High : " + "{}\n".format(topia_json["Data"]["High"])
+                if topia_json["Data"]["Low"] is None:
+                    low = "1d Low : Unknown\n"
+                else:
+                    low = "1d Low : " + "{}\n".format(topia_json["Data"]["Low"])
+                value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "\n```"
         else:
-            pair = "Pair : BTC-" + coin + "\n"
-            last = "Last : " + "{0:.8f}".format(topia_json["Data"]["LastPrice"]) + "\n"
-            bid = "Bid : " + "{0:.8f}".format(topia_json["Data"]["BidPrice"]) + "\n"
-            ask = "Ask : " + "{0:.8f}".format(topia_json["Data"]["AskPrice"]) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(topia_json["Data"]["BaseVolume"]) + " BTC" + "\n"
-            high = "24 High : " + "{0:.8f}".format(topia_json["Data"]["High"]) + "\n"
-            low = "24 Low : " + "{0:.8f}".format(topia_json["Data"]["Low"]) + "\n"
-            value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            value_topia = "```css\n{} is not listed on Cryptopia.\n```".format(self.name)
 
         return value_topia
 

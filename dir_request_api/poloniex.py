@@ -46,25 +46,64 @@ class Class_Poloniex:
         r = requests.get(api_url)
         poloniex_json = r.json()
 
-        if coin == "BTC":
+        try:
+            if coin == "BTC":
+                pair = "Pair : " + self.key.replace("_", "-") + "\n"
+                if poloniex_json[self.key]["last"] is None:
+                    last = "Last : Unknown\n"
+                else:
+                    last = "Last : {}\n".format(float(poloniex_json[self.key]["last"]))
+                if poloniex_json[self.key]["highestBid"] is None:
+                    bid = "Bid : Unknown\n"
+                else:
+                    bid = "Bid : {}\n".format(float(poloniex_json[self.key]["highestBid"]))
+                if poloniex_json[self.key]["lowestAsk"] is None:
+                    ask = "Ask : Unknow\n"
+                else:
+                    ask = "Ask : {}\n".format(float(poloniex_json[self.key]["lowestAsk"]))
+                if poloniex_json[self.key]["quoteVolume"] is None:
+                    volume = "Volume : Unknown\n"
+                else:
+                    volume = "Volume : {} BTC\n".format(float(poloniex_json[self.key]["quoteVolume"]))
+                if poloniex_json[self.key]["high24hr"] is None:
+                    high = "1d High : Unknown\n"
+                else:
+                    high = "1d High : {}\n".format(poloniex_json[self.key]["high24hr"])
+                if poloniex_json[self.key]["low24hr"] is None:
+                    low = "1d Low : Unknown\n"
+                else:
+                    low = "1d Low : {}\n".format(poloniex_json[self.key]["low24hr"])
+                value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+            else:
+                pair = "Pair : " + self.key.replace("_", "-") + "\n"
+                if poloniex_json[self.key]["last"] is None:
+                    last = "Last : Unknown\n"
+                else:
+                    last = "Last : {}\n".format(float(poloniex_json[self.key]["last"]))
+                if poloniex_json[self.key]["highestBid"] is None:
+                    bid = "Bid : Unknown\n"
+                else:
+                    bid = "Bid : {}\n".format(float(poloniex_json[self.key]["highestBid"]))
 
-            pair = "Pair : " + self.key.replace("_", "-") + "\n"
-            last = "Last : " + "{0:.2f}".format(float(poloniex_json[self.key]["last"])) + "\n"
-            bid = "Bid : " + "{0:.2f}".format(float(poloniex_json[self.key]["highestBid"])) + "\n"
-            ask = "Ask : " + "{0:.2f}".format(float(poloniex_json[self.key]["lowestAsk"])) + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(poloniex_json[self.key]["baseVolume"])) + " BTC" + "\n"
-            high = "1d High : " + poloniex_json[self.key]["high24hr"] + "\n"
-            low = "1d Low : " + poloniex_json[self.key]["low24hr"] + "\n"
-            value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
-        else:
-            pair = "Pair : " + self.key.replace("_", "-") + "\n"
-            last = "Last : " + poloniex_json[self.key]["last"] + "\n"
-            bid = "Bid : " + poloniex_json[self.key]["highestBid"] + "\n"
-            ask = "Ask : " + poloniex_json[self.key]["lowestAsk"] + "\n"
-            volume = "Volume : " + "{0:.2f}".format(float(poloniex_json[self.key]["baseVolume"])) + " BTC" + "\n"
-            high = "1d High : " + poloniex_json[self.key]["high24hr"] + "\n"
-            low = "1d Low : " + poloniex_json[self.key]["low24hr"] + "\n"
-            value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
+                if poloniex_json[self.key]["lowestAsk"] is None:
+                    ask = "Ask : Unknown\n"
+                else:
+                    ask = "Ask : {}\n".format(float(poloniex_json[self.key]["lowestAsk"]))
+                if poloniex_json[self.key]["quoteVolume"] is None:
+                    volume = "Volume : Unknown\n"
+                else:
+                    volume = "Volume : {} BTC\n".format(poloniex_json[self.key]["quoteVolume"])
+                if poloniex_json[self.key]["high24hr"] is None:
+                    high = "1d High : Unknown\n"
+                else:
+                    high = "1d High : {}\n".format(poloniex_json[self.key]["high24hr"])
+                if poloniex_json[self.key]["low24hr"] is None:
+                    low = "1d Low : Unknown\n"
+                else:
+                    low = "1d Low : {}\n".format(float(poloniex_json[self.key]["low24hr"]))
+                value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "\n```"
+        except KeyError:
+            value_polo = "```css\n{} is not listed on Poloniex.\n```".format(self.name)
 
         return value_polo
 
