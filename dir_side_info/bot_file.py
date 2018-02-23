@@ -25,7 +25,7 @@ class Class_Bot:
                         value="```Send me a message at :\n@Abolah#1337 on Discord\n@Abolaah on Twitter.```")
         embed.add_field(name=":interrobang:Are you interested in joining an awesome trading group ?",
                         value="```Join me here : https://goo.gl/MNjCBc\n```")
-        embed.add_field(name="CoinBot is already installed on several Discord servers !",
+        embed.add_field(name="CoinBot is famous !",
                         value="```CoinBot is installed on " + srv_count + " Discord servers !```")
 
         return embed

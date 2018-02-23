@@ -17,7 +17,7 @@ headers = {"Authorization": dbltoken}
 # END of Discorbots.org code.
 
 
-MAXIMUM_COINS = 10
+MAXIMUM_COINS = 5
 
 
 @client.event
@@ -29,11 +29,10 @@ async def on_ready():
     print("Logged in as :")
     print(client.user.name)
     print(client.user.id)
-
+    await client.change_presence(game=discord.Game(name="!infos for help"))
     payload = {"server_count": len(client.servers)}
     async with aiohttp.ClientSession() as aioclient:
         await aioclient.post(url, data=payload, headers=headers)
-        # btcgame()
 
 
 @client.event
@@ -56,6 +55,8 @@ async def all(ctx, *coin):
     This command is used to know the price of a coin on the following exchanges
     Bitfinex, Bittrex, Cryptopia, Poloniex, Binance and HitBTC
 
+    You can ask for as much as 5 coins at the same time.
+
     Example : !all eth
     """
     global channel
@@ -75,6 +76,8 @@ async def bnc(ctx, *coin):
         This command is used to know the value of a coin listed on Binance
         BTC-Coin Pair only.
 
+        You can ask for as much as 5 coins at the same time.
+
         Example : !bnc eth
         """
     await client.send_typing(ctx.message.channel)
@@ -93,6 +96,8 @@ async def fnx(ctx, *coin):
     This command is used to know the value of a coin listed on Bitfinex
     BTC-Coin Pair only.
 
+    You can ask for as much as 5 coins at the same time.
+
     Example : !fnx eth
     """
     await client.send_typing(ctx.message.channel)
@@ -110,6 +115,8 @@ async def rex(ctx, *coin):
     """
     This command is used to know the value of a coin listed on Bittrex
     BTC-Coin Pair only.
+
+    You can ask for as much as 5 coins at the same time.
 
     Example : !rex eth
     """
@@ -130,6 +137,8 @@ async def polo(ctx, *coin):
     This command is used to know the value of a coin listed on Poloniex
     BTC-Coin Pair only.
 
+    You can ask for as much as 5 coins at the same time.
+
     Example : !polo eth
     """
     global channel
@@ -149,6 +158,8 @@ async def topia(ctx, *coin):
     This command is used to know the value of a coin listed on Cryptopia
     BTC-Coin Pair only.
 
+    You can ask for as much as 5 coins at the same time.
+
     Example : !topia eth
     """
     global channel
@@ -167,6 +178,8 @@ async def hit(ctx, *coin):
     """
     This command is used to know the value of a coin listed on HitBTC
     BTC-Coin Pair only.
+
+    You can ask for as much as 5 coins at the same time.
 
     Example : !hit eth
     """
@@ -310,18 +323,14 @@ async def convert(ctx, coin, qty):
     This command is used to convert the amount of coins you have into BTC and US$
 
     The first parameter is the coin name (ex eth)
-    The second parameter is the number of coin you have ( ex 2.5)
+    The second parameter is the number of coin you have (ex 2.5)
 
-    Example : !conv eth 2.5
+    Example : !convert eth 2.5
     """
     await client.send_typing(ctx.message.channel)
-    try:
-        conv = dir_side_info.convert_file.Class_Conv(ctx.message.author)
-        data = await conv.function_price(coin, qty)
-        embed = conv.function_display(data, coin, qty)
-        await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
-    except Exception as e:
-        print("Global Error on !conv\n", e)
+    conv_var = dir_side_info.convert.Class_Conv(ctx.message.author)
+    embed = await conv_var.function_convert(coin, qty)
+    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
 
 
 @client.command(pass_context=True)
@@ -349,25 +358,9 @@ async def infos(ctx):
     Example : !infos
     """
     await client.send_typing(ctx.message.channel)
-    try:
-        info = dir_side_info.informations_file.Class_Info(ctx.message.author)
-        embed = info.function_informations()
-        await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
-    except Exception as e:
-        print("Global Error on !infos\n", e)
-
-
-@client.command(pass_context=True)
-async def resources(ctx):
-    """
-    This command is used to display Masons's ref links and resources.
-
-    Example : !resources
-    """
-    await client.send_typing(ctx.message.channel)
-    dona = dir_side_info.resources_file.Class_Resources
-    embed = dona.function_display()
-    await client.send_message(ctx.message.channel, embed=embed)
+    info = dir_side_info.informations_file.Class_Info(ctx.message.author)
+    embed = info.function_informations()
+    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
 
 
 @client.command(pass_context=True)
@@ -382,19 +375,6 @@ async def bot(ctx):
     await client.send_typing(ctx.message.channel)
     bot_var = dir_side_info.bot_file.Class_Bot()
     embed = bot_var.function_display(str(len(client.servers)))
-    await client.send_message(ctx.message.channel, embed=embed)
-
-
-@client.command(pass_context=True)
-async def masons(ctx):
-    """
-    This command is used to know all the advantages of being a VIP in the Bitcoin Masons Discord server.
-
-    Example : !masons
-    """
-    await client.send_typing(ctx.message.channel)
-    vip = dir_side_info.masons_file.Class_Masons()
-    embed = vip.function_display()
     await client.send_message(ctx.message.channel, embed=embed)
 
 
@@ -426,7 +406,7 @@ def btcgame():
     price_in_usd = price_in_usd.split(".")[0]
     btc_text = "BTC : "
     btc_status = btc_text + price_in_usd + " $"
-    game = client.change_presence(game=discord.Game(name=btc_status))
+    game = client.change_presence(game=discord.Game(name="!infos for help"))
     print(btc_status)
     return game
 

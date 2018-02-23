@@ -37,8 +37,8 @@ class Class_All:
             marketcap = "MarketCap : Unknown\n"
         else:
             marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
-        price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_json["price_usd"])) + " | " + "{0:.3f}".format(
-            float(cmc_json["price_eur"])) + "€\n")
+
+        price = str("Price : ${0:.3f}".format(float(cmc_json["price_usd"])) + " | {0:.3f}€\n".format(float(cmc_json["price_eur"])))
         if cmc_json["percent_change_1h"] is None:
             change_1 = "1h Swing : Unknown\n"
         else:
