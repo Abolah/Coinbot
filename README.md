@@ -64,8 +64,8 @@ To see if the bot is running correctly just run the command !infos
 ```
 !infos
 ```
-# The commands
 
+## The commands
 ```
 !infos : List of all the available commands
 ```
@@ -120,22 +120,16 @@ Example : !event  || !event eth
 Example : !bot
 ```
 ```
-!conv [coin][quantity] :  To convert the coin value in BTC/USD
-Example : !conv eth 10.245
+!convert [coin][quantity] :  To convert the coin value in BTC/USD
+Example : !convert eth 10.245
 ```
 ```
 !sum [url]{limit} :  Shorten an article from a website
 Example : !sum www.url.com
 ```
 
-## Tools Used:
 
-* [PyCharm](https://www.jetbrains.com/pycharm/) - Python IDE
-* [Discord.py](https://github.com/Rapptz/discord.py) - Python wrapper for Discord
-
-
-## Donation
-
+## Donations
 If you want to help me with this bot. You can donate to the following addresses
 ```
 ETH(ERC20 friendly)  [abowallet.eth]
@@ -149,5 +143,4 @@ DASH [XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz]
 * **Abolah** - [Abolah](https://twitter.com/Abolaah)
 
 ## License
-
 This project is under the GNU General Public License as seen in license.md
