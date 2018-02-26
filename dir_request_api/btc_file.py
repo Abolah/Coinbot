@@ -115,6 +115,6 @@ class Class_bitcoin:
         embed.set_footer(text="Request achieved :")
         embed.add_field(name=":star2: Request about Bitcoin",
                         value="Here are the informations I could retrieve " + str(author[0]), inline=False)
-        embed.add_field(name=":trophy: Informations about Bitcoin", value=value)
+        embed.add_field(name=":trophy: Informations about Bitcoin", value=value, inline=False)
         embed.add_field(name=" :flag_mp: Informations about the other Exchanges", value=value_other)
         return embed
