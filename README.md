@@ -141,6 +141,7 @@ DASH [XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz]
 
 ## Author
 * **Abolah** - [Abolah](https://twitter.com/Abolaah)
+* **Pridwen** - [Pridwen](https://github.com/Pridwen)
 
 ## License
 This project is under the GNU General Public License as seen in license.md
