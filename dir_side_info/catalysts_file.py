@@ -2,8 +2,7 @@ import discord
 from pymarketcap import Pymarketcap
 import datetime
 from random import randint
-import json
-import urllib.request
+import requests
 
 
 class Class_Catalysts:
@@ -20,7 +19,6 @@ class Class_Catalysts:
         if coin == "":
             full_name = self.empty_name
         else:
-            global name, ticker
             coin = coin.upper()
             coinmarketcap = Pymarketcap()
             cmc_json = coinmarketcap.ticker(coin)
@@ -43,8 +41,8 @@ class Class_Catalysts:
             cmcal_url = "https://coinmarketcal.com/api/events?page=1&max=5&coins={}&categories={}&showPastEvent=false".format(
                 full_name, event_type)
 
-        with urllib.request.urlopen(cmcal_url) as url:
-            data_json = json.loads(url.read().decode())
+        r = requests.get(cmcal_url)
+        data_json = r.json()
         event = ""
         for i in data_json:
             title = str(i["title"])

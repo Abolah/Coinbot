@@ -28,7 +28,6 @@ class Class_All:
         return
 
     async def function_cmc(self, coin):
-        global cmc_json, ticker
         coin = coin.upper()
         coinmarketcap = Pymarketcap()
         cmc_json = coinmarketcap.ticker(coin, convert="EUR")
@@ -57,7 +56,6 @@ class Class_All:
         return value_mc
 
     async def function_bitfinex(self, coin):
-        global bitfinex_json, value_annex
         if coin == "btc":
             api_url = self.bitfinex_api_url_usdt
         else:

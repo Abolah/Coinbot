@@ -20,7 +20,6 @@ class Class_Binance:
         return
 
     def function_cmc(self, coin):
-        global cmc_json, ticker
         coin = coin.upper()
         coinmarketcap = Pymarketcap()
         cmc_json = coinmarketcap.ticker(coin, convert="EUR")
