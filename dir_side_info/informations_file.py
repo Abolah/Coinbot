@@ -27,19 +27,20 @@ class Class_Info:
         event = "!event\n\n"
         infos = "!infos\n"
         help = "!help [command name]\n"
-        conv = "!convert [coin][number of coins]\n"
+        conv = "!convert [coin] [number of coins]\n"
+        balance = "!balance [coin] [address]\n"
         name = "!name [coin]\n"
         sum = "!sum [url]\n"
         bot = "!bot\n"
         help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order \n This will display the help about the order command"
 
-        data_info = "```css\n" + btc + all + finex + binance + rex + polo + topia + hitbtc + top + cmc + order + whale + event + infos + help + conv + name + sum + bot + "```"
+        data_info = "```css\n" + btc + all + finex + binance + rex + polo + topia + hitbtc + top + cmc + order + whale + event + infos + help + conv + balance + name + sum + bot + "```"
         help_info = "```" + help_cmd + "```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":hammer: Version", value="2.8")
+        embed.add_field(name=":hammer: Version", value="2.9")
         embed.add_field(name=":star2: Request about Coinbot's commands",
                         value="Here are the informations I could retrieve " + self.auth,
                         inline=False)

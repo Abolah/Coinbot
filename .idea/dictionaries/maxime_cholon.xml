@@ -2,6 +2,7 @@
   <dictionary name="maxime.cholon">
     <words>
       <w>affichage</w>
+      <w>blockchain</w>
       <w>btcap</w>
       <w>btcgame</w>
       <w>cmcal</w>
@@ -10,6 +11,7 @@
       <w>coinmarketcap</w>
       <w>conv</w>
       <w>convv</w>
+      <w>getbalance</w>
       <w>hitbtc</w>
       <w>idcoin</w>
       <w>infos</w>

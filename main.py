@@ -274,6 +274,26 @@ async def btc(ctx):
 
 
 @client.command(pass_context=True)
+async def balance(ctx, coin, address):
+    """
+    This command is used to know the balance of an ETH or BTC wallet
+
+    NOTE: Only BTC and ETH are supported yet.
+
+    Example : !balance eth 0x670B7A9497f79Ef57BbFFFB553d979E7aD225344
+              !balance btc 1jc3V3T5mefuD9asa7en976NKVGssQuMq
+    """
+    global channel
+    await client.send_typing(ctx.message.channel)
+    balances = dir_request_api.balance.Class_Balance(ctx.message.author)
+    result = await balances.balance(coin, address)
+    if channel is None:
+        await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+    else:
+        await client.send_message(channel, ctx.message.author.mention, embed=result)
+
+
+@client.command(pass_context=True)
 async def order(ctx, price, profit, loss):
     """
     This command is used to calculate the exit point of a trade depending of the profit target and the stop-loss target
