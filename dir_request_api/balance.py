@@ -55,7 +55,6 @@ class Class_Balance:
 
     async def balance(self, coin, address):
         self.coin = coin.lower()
-        print(self.coin)
         if self.coin == "eth":
             self.address = address.lower()
             self.function_getbalance_eth()
