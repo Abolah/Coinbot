@@ -2,7 +2,7 @@
 
 # CoinBot
 
-[![Build Status](https://travis-ci.org/Abolah/Coinbot.svg?branch=master)](https://travis-ci.org/Abolah/Coinbot)    [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Build Status](https://travis-ci.org/Abolah/Coinbot.svg?branch=master)](https://travis-ci.org/Abolah/Coinbot)    [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)   [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4fea7d74f6ad46b8986776d4614bd612)](https://www.codacy.com/app/Abolah/Coinbot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Abolah/Coinbot&amp;utm_campaign=Badge_Grade)
 
 [![Discord Bots](https://discordbots.org/api/widget/367061304042586124.svg)](https://discordbots.org/bot/367061304042586124)
 
