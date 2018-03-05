@@ -30,6 +30,8 @@ class Class_Balance:
         url = self.btc_blockchain_url.format(self.address)
         r = requests.get(url)
         btc_value = r.json()
+        btc_value = btc_value/100000000
+        print(btc_value)
         self.btc_balance = "```\nYour address : {}\n\nYou have {} BTC in your wallet.\n```".format(self.address, btc_value)
 
     def function_display(self):
@@ -52,7 +54,6 @@ class Class_Balance:
         return display
 
     async def balance(self, coin, address):
-        global embed
         self.coin = coin.lower()
         print(self.coin)
         if self.coin == "eth":
