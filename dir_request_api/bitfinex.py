@@ -35,7 +35,6 @@ class Class_Bitfinex:
         return value_mc
 
     def function_bitfinex(self, coin):
-        global bitfinex_json, value_annex
         if coin == "btc":
             api_url = self.bitfinex_api_url_usdt
         else:

@@ -12,7 +12,8 @@ class Class_bitcoin:
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
 
-    async def fetch(self):
+    @staticmethod
+    async def fetch():
         list_json = []
         list_urls = ["https://api.kraken.com/0/public/Ticker?pair=XBTUSD",
                      "https://www.bitstamp.net/api/v2/ticker/btcusd",
@@ -44,10 +45,7 @@ class Class_bitcoin:
         value = ""
         value_other = ""
         won_value = 0.000888
-        try:
-            author = str(author).split("#")
-        except:
-            author = "khey"
+        author = str(author).split("#")
 
         for i in list_json:
             if i[1] == "Kraken":

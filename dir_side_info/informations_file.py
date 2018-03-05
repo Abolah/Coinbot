@@ -33,7 +33,7 @@ class Class_Info:
         bot = "!bot\n"
         help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order \n This will display the help about the order command"
 
-        data_info = "```css\n"+ btc + all + finex + binance + rex + polo + topia + hitbtc + top + cmc + order + whale + event + infos + help + conv + name + sum + bot + "```"
+        data_info = "```css\n" + btc + all + finex + binance + rex + polo + topia + hitbtc + top + cmc + order + whale + event + infos + help + conv + name + sum + bot + "```"
         help_info = "```" + help_cmd + "```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))

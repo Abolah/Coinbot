@@ -58,12 +58,10 @@ class Class_whale:
 
     @staticmethod
     async def function_sort_kraken(book_kraken, seuil):
-        global key_k
         book_out = []
         print(book_kraken)
         for key in book_kraken["result"]:
             key_k = key
-            break
         for i in book_kraken["result"][key_k]["asks"]:
             if float(i[1]) * float(i[0]) >= seuil:
                 book_out.append(["Kraken", "Sell", float(i[1]) * float(i[0]), float(i[0])])
