@@ -2,7 +2,6 @@ import datetime
 import discord
 from random import randint
 import requests
-from pyetherscan import Address
 
 
 class Class_Balance:
@@ -13,6 +12,8 @@ class Class_Balance:
         self.color = randint(0, 0xffffff)
         self.default_print = "Default Print"
         self.btc_blockchain_url = "https://blockchain.info/q/addressbalance/{}"
+        self.eth_blockchain_url = "https://api.etherscan.io/api?module=account&action=balance&address={}&tag=latest&apikey={}"
+        self.etherscan_api_key = ""
         self.address = "None"
         self.coin = "None"
         self.eth_balance = "None"
@@ -21,8 +22,10 @@ class Class_Balance:
         return
 
     def function_getbalance_eth(self):
-        eth_address = Address(self.address.lower())
-        value = eth_address.balance
+        url = self.eth_blockchain_url.format(self.address,self.etherscan_api_key)
+        r = requests.get(url)
+        eth_value = r.json()
+        value = int(eth_value["result"])
         eth_value = value/1000000000000000000
         self.eth_balance = "```\nYour address : {}\n\nYou have {} ETH in your wallet.\n```".format(self.address, eth_value)
 
