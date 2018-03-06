@@ -2,6 +2,7 @@ import datetime
 import discord
 from random import randint
 import requests
+from pymarketcap import Pymarketcap
 
 
 class Class_Balance:
@@ -15,6 +16,9 @@ class Class_Balance:
         self.eth_blockchain_url = "https://api.etherscan.io/api?module=account&action=balance&address={}&tag=latest&apikey={}"
         self.ethplorer_api_url = "https://api.ethplorer.io/getAddressInfo/{}?apiKey=freekey"
         self.etherscan_api_key = ""
+        self.price_btc = "None"
+        self.price_usd = "None"
+        self.price_eur = "None"
         self.address = "None"
         self.coin = "None"
         self.eth_balance = "None"
@@ -23,35 +27,54 @@ class Class_Balance:
         self.error = "None"
         return
 
+    def function_cmc(self):
+        coin = self.coin.upper()
+        coinmarketcap = Pymarketcap()
+        cmc_json = coinmarketcap.ticker(coin, convert="EUR")
+        self.price_usd = float(cmc_json["price_usd"])
+        self.price_eur = float(cmc_json["price_eur"])
+        self.price_btc = float(cmc_json["price_btc"])
+        return
+
     def function_getbalance_eth(self):
-        url = self.eth_blockchain_url.format(self.address,self.etherscan_api_key)
+        url = self.eth_blockchain_url.format(self.address, self.etherscan_api_key)
         r = requests.get(url)
         eth_value = r.json()
-        value = int(eth_value["result"])
-        eth_value = value/1000000000000000000
-        self.eth_balance = "```\nYour address : {}\n\nYou have {} ETH in your wallet.\n```".format(self.address, eth_value)
+        value = float(eth_value["result"])
+        eth_value = float(value / 1000000000000000000)
+        total_usd = float(self.price_usd) * eth_value
+        total_btc = float(self.price_btc) * eth_value
+        total_eur = float(self.price_eur) * eth_value
+        self.eth_balance = "```css\nYour address:\n{}\n\nYou have {} ETH in your wallet.\nYour wallet's value is:\n{} BTC\n$ {}\n{} €.\n```".format(
+            self.address, eth_value, total_btc, total_usd, total_eur)
+        return
 
     def function_getbalance_btc(self):
         url = self.btc_blockchain_url.format(self.address)
         r = requests.get(url)
         btc_value = r.json()
-        btc_value = btc_value/100000000
-        print(btc_value)
-        self.btc_balance = "```\nYour address : {}\n\nYou have {} BTC in your wallet.\n```".format(self.address, btc_value)
+        btc_value = btc_value / 100000000
+        total_usd = float(self.price_usd) * btc_value
+        total_btc = float(self.price_btc) * btc_value
+        total_eur = float(self.price_eur) * btc_value
+        self.btc_balance = "```css\nYour address:\n{}\n\nYou have {} BTC in your wallet.\nYour wallet's value is:\n{} BTC\n$ {}\n{} €.\n```".format(self.address, btc_value, total_btc, total_usd, total_eur)
+        return
 
     def function_get_token(self):
         url = self.ethplorer_api_url.format(self.address)
         r = requests.get(url)
         tokens_data = r.json()
         data = tokens_data["tokens"]
-        list = []
+        tokens_list = []
         for i in data:
             value = int(i["balance"])
             balance = value / 1000000000000000000
             name = i["tokenInfo"]["name"]
-            token = "```css\nTkn: {}\nQty: {}\n```".format(name, str(balance))
-            list.append(token)
-        self.tokens = ''.join(list)
+            token = "Tkn: {}\nQty: {}\n".format(name, str(balance))
+            tokens_list.append(token)
+        self.tokens = ''.join(tokens_list)
+        self.tokens = "```css\n" + self.tokens + "```"
+        return
 
     def function_display(self):
         if self.coin == "eth" or self.coin == "token":
@@ -60,10 +83,12 @@ class Class_Balance:
             url_logo = "https://s2.coinmarketcap.com/static/img/coins/32x32/1.png"
         else:
             url_logo = ""
-        display = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com", timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        display = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
+                                timestamp=datetime.datetime.utcfromtimestamp(self.time))
         display.set_thumbnail(url=url_logo)
         display.set_footer(text="Request achieved :")
-        display.add_field(name=":star2: Request about your wallet", value="Here are the informations I could retrieve " + self.auth, inline=False)
+        display.add_field(name=":star2: Request about your wallet",
+                          value="Here are the informations I could retrieve " + self.auth, inline=False)
         if self.coin == "eth":
             display.add_field(name="ETH wallet", value=self.eth_balance, inline=True)
         elif self.coin == "btc":
@@ -77,10 +102,12 @@ class Class_Balance:
     async def balance(self, coin, address):
         self.coin = coin.lower()
         if self.coin == "eth":
+            self.function_cmc()
             self.address = address.lower()
             self.function_getbalance_eth()
             embed = self.function_display()
         elif self.coin == "btc":
+            self.function_cmc()
             self.address = address
             self.function_getbalance_btc()
             embed = self.function_display()
