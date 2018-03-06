@@ -40,7 +40,6 @@ class Class_Topcoin:
                 i["percent_change_7d"] = 0
             list.append([i["name"], int(i["rank"]), float(i["percent_change_1h"]), float(i["percent_change_24h"]),
                          float(i["percent_change_7d"]), i["symbol"]])
-
         sorted_list = sorted(list, key=lambda x: x[3])
         return sorted_list
 

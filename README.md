@@ -125,8 +125,9 @@ Example : !convert eth 10.245
 ```
 ```
 This command is used to know the balance of an ETH or BTC wallet
-NOTE: Only BTC and ETH are supported yet.
+NOTE: Only BTC and ETH (with ERC20 tokens) are supported yet.
 Example : !balance eth 0x670B7A9497f79Ef57BbFFFB553d979E7aD225344
+          !balance token 0x670b7a9497f79ef57bbfffb553d979e7ad225344
           !balance btc 1jc3V3T5mefuD9asa7en976NKVGssQuMq
 ```
 ```

@@ -13,11 +13,13 @@ class Class_Balance:
         self.default_print = "Default Print"
         self.btc_blockchain_url = "https://blockchain.info/q/addressbalance/{}"
         self.eth_blockchain_url = "https://api.etherscan.io/api?module=account&action=balance&address={}&tag=latest&apikey={}"
+        self.ethplorer_api_url = "https://api.ethplorer.io/getAddressInfo/{}?apiKey=freekey"
         self.etherscan_api_key = ""
         self.address = "None"
         self.coin = "None"
         self.eth_balance = "None"
         self.btc_balance = "None"
+        self.tokens = "None"
         self.error = "None"
         return
 
@@ -37,8 +39,22 @@ class Class_Balance:
         print(btc_value)
         self.btc_balance = "```\nYour address : {}\n\nYou have {} BTC in your wallet.\n```".format(self.address, btc_value)
 
+    def function_get_token(self):
+        url = self.ethplorer_api_url.format(self.address)
+        r = requests.get(url)
+        tokens_data = r.json()
+        data = tokens_data["tokens"]
+        list = []
+        for i in data:
+            value = int(i["balance"])
+            balance = value / 1000000000000000000
+            name = i["tokenInfo"]["name"]
+            token = "```css\nTkn: {}\nQty: {}\n```".format(name, str(balance))
+            list.append(token)
+        self.tokens = ''.join(list)
+
     def function_display(self):
-        if self.coin == "eth":
+        if self.coin == "eth" or self.coin == "token":
             url_logo = "https://s2.coinmarketcap.com/static/img/coins/32x32/1027.png"
         elif self.coin == "btc":
             url_logo = "https://s2.coinmarketcap.com/static/img/coins/32x32/1.png"
@@ -52,6 +68,8 @@ class Class_Balance:
             display.add_field(name="ETH wallet", value=self.eth_balance, inline=True)
         elif self.coin == "btc":
             display.add_field(name="BTC wallet", value=self.btc_balance, inline=False)
+        elif self.coin == "token":
+            display.add_field(name="Tokens in your wallet", value=self.tokens, inline=True)
         else:
             display.add_field(name="Something went wrong", value=self.error, inline=False)
         return display
@@ -65,6 +83,10 @@ class Class_Balance:
         elif self.coin == "btc":
             self.address = address
             self.function_getbalance_btc()
+            embed = self.function_display()
+        elif self.coin == "token":
+            self.address = address
+            self.function_get_token()
             embed = self.function_display()
         else:
             self.error = "```css\nCoin Error. Only ETH and BTC are supported currently.\n```"
