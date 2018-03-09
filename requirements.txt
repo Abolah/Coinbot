@@ -1,4 +1,3 @@
-pyetherscan
 pymarketcap
 async_timeout
 discord
