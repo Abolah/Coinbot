@@ -468,13 +468,8 @@ class Class_All:
         return value_polo
 
     def function_display(self, cmc_value, bitfinex_value, bittrex_value, binance_value, cryptopia_value, hitbtc_value, poloniex_value):
-        name_logo = self.name.replace(" ", "-").lower()
-        url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/" + name_logo + ".png"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
-        embed.add_field(name=":star2: Request achieved about " + self.name,
-                        value="Here are the informations I could retrieve " + self.auth, inline=False)
-        embed.set_thumbnail(url=url_logo)
         embed.add_field(name=":medal: CoinMarketCap Informations", value=cmc_value, inline=False)
         embed.add_field(name=":fleur_de_lis: Bitfinex Informations", value=bitfinex_value, inline=True)
         embed.add_field(name=":dragon: Bittrex Informations", value=bittrex_value, inline=True)

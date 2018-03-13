@@ -30,7 +30,6 @@ class Class_Name:
         return data
 
     async def function_display(self, data):
-        idcoin = "NONE"
         long_name = "NONE"
         price_usd = "0"
         price_btc = "0"
@@ -38,7 +37,6 @@ class Class_Name:
             for i in data:
                 if i["symbol"] == self.coin.upper():
                     long_name = i["name"]
-                    idcoin = i["id"]
                     price_btc = i["price_btc"]
                     price_usd = i["price_usd"]
                     break
@@ -48,11 +46,6 @@ class Class_Name:
             data = "```Error name\n```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
-        embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/" + idcoin + ".png")
+        embed.add_field(name=":tada: Information about the coin " + self.coin.upper(), value=data)
         embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":star2: Request for the name of " + self.coin.upper(),
-                        value="Here are the information that I could retrieve " + self.auth,
-                        inline=False)
-        embed.add_field(name=":tada: Information about the coin " + self.coin.upper(), value=data,
-                        inline=True)
         return embed

@@ -52,19 +52,19 @@ class Class_Catalysts:
             date = date[0]
             desc = str(i["description"])
             cat = str(i["categories"])
-            event += "[" + coin_name + "]" + " [" + date + "]" + " " + cat + "\n[" + title + "] \n" + desc + "\n\n"
+            cat = cat.split("['")
+            cat = cat[1].split("']")
+            cat = cat[0]
+            event += "[" + coin_name + "]" + " [" + date + "]" + " " + "[" + cat + "]" + "\n[" + title + "] \n" + desc + "\n\n"
         return event
 
     def function_display(self, event):
         events = "```css\n" + event + "```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
-        embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
-        embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":calendar_spiral:  Incoming events :calendar_spiral: ",
-                        value="Here are the informations I could retrieve " + self.auth, inline=False)
         embed.add_field(name=":floppy_disk: Information about the incoming events", value=events, inline=True)
         embed.add_field(name="Data retrieved with :heart: from : ", value="```py\nCoinmarketcal.com\n```", inline=False)
+        embed.set_footer(text="Request achieved :")
         return embed
 
     def get_catalysts(self, coin, event_type):

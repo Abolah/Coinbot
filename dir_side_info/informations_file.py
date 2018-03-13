@@ -22,29 +22,31 @@ class Class_Info:
         hitbtc = "!hit [coin(s)]\n\n"
         top = "!top\n"
         cmc = "!cmc\n"
-        order = "!order [price] [profit][stop-loss]\n"
-        whale = "!whale [Coin] [Limit in BTC]\n"
+        order = "!order [price][profit][stop-loss]\n"
+        whale = "!whale [Coin][Limit in BTC]\n"
         event = "!event\n\n"
         infos = "!infos\n"
         help = "!help [command name]\n"
-        conv = "!convert [coin] [number of coins]\n"
-        balance = "!balance [coin] [address]\n"
+        conv = "!convert [coin][number of coins]\n"
+        balance = "!balance [coin][address]\n"
         name = "!name [coin]\n"
         sum = "!sum [url]\n"
         bot = "!bot\n"
-        help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order \n This will display the help about the order command"
+        updates = "!updates\n"
+        help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order."
 
-        data_info = "```css\n" + btc + all + finex + binance + rex + polo + topia + hitbtc + top + cmc + order + whale + event + infos + help + conv + balance + name + sum + bot + "```"
+        data_info = "```css\n" + btc + all + finex + binance + rex + polo + topia + hitbtc + "```"
+        coins_info = "```css\n" + top + cmc + order + whale + event + "```"
+        side_info =  "```css\n" + infos + help + conv + balance + name + sum + bot + updates + "```"
         help_info = "```" + help_cmd + "```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":hammer: Version", value="3.0")
-        embed.add_field(name=":star2: Request about Coinbot's commands",
-                        value="Here are the informations I could retrieve " + self.auth,
-                        inline=False)
-        embed.add_field(name=":information_source: Informations about Coinbot", value=data_info)
+        embed.add_field(name=":hammer: Version", value="3.1", inline=False)
+        embed.add_field(name=":moneybag: Exchanges Commands", value=data_info)
+        embed.add_field(name=":money_with_wings: Coins Commands", value=coins_info)
+        embed.add_field(name=":robot: Side Commands", value=side_info)
 
         embed.add_field(name=":information_source: Do you need help about a command ?", value=help_info)
         return embed

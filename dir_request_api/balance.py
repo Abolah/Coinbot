@@ -86,9 +86,6 @@ class Class_Balance:
         display = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                                 timestamp=datetime.datetime.utcfromtimestamp(self.time))
         display.set_thumbnail(url=url_logo)
-        display.set_footer(text="Request achieved :")
-        display.add_field(name=":star2: Request about your wallet",
-                          value="Here are the informations I could retrieve " + self.auth, inline=False)
         if self.coin == "eth":
             display.add_field(name="ETH wallet", value=self.eth_balance, inline=True)
         elif self.coin == "btc":

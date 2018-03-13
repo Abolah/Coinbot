@@ -42,13 +42,9 @@ class Class_Coinmarketcap:
     async def display(self, value, value_btc):
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
-        embed.set_thumbnail(url=self.url_logo)
-        embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":star2: Request on the whole CryptoMarket",
-                        value="Here are the informations I could retrieve " + self.auth,
-                        inline=False)
         embed.add_field(name=":trophy: CoinMarketCap Informations", value=value)
         embed.add_field(name=":medal: Bitcoin Informations", value=value_btc, inline=True)
+        embed.set_footer(text="Request achieved :")
         return embed
 
     async def cmc_query(self):

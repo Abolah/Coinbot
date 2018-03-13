@@ -105,17 +105,11 @@ class Class_HitBTC:
         return value_hitbtc
 
     def function_display(self, value_mc, value_hitbtc):
-        name_logo = self.name.replace(" ", "-").lower()
-        url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/" + name_logo + ".png"
-
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
-        embed.set_thumbnail(url=url_logo)
-        embed.set_footer(text="Request achieved  :")
-        embed.add_field(name=":star2: Request about " + self.name,
-                        value="Here are the informations I could retrieve " + self.auth, inline=False)
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=True)
         embed.add_field(name=":octopus: HitBTC Informations", value=value_hitbtc, inline=False)
+        embed.set_footer(text="Request achieved :")
         return embed
 
     async def hitbtc(self, coin):

@@ -39,7 +39,7 @@ class Class_Doge:
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com")
         embed.set_thumbnail(url="http://www.unixstickers.com/image/cache/data/stickers/dogecoin/Doge.sh-600x600.png")
-        embed.add_field(name=":star2: Request about our Lord and Savior DOGE :star2:", value="Praise him !",
+        embed.add_field(name=":star2: Our Lord and Savior DOGE :star2:", value="Praise him !",
                         inline=False)
         embed.add_field(name=":information_source: Informations about DOGE", value=price)
         embed.add_field(name=":musical_note: Your Haiku :musical_note: ", value=choice)

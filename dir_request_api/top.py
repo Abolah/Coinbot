@@ -78,17 +78,12 @@ class Class_Topcoin:
         return value_loose
 
     async def function_format_display(self, side, win, lose):
-
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
-        embed.set_thumbnail(url=self.url_logo)
-        embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":star2: Request about the Top 200 coins",
-                        value="Here are the informations I could retrieve " + self.auth,
-                        inline=False)
         embed.add_field(name=":chart_with_upwards_trend: Top Win 24h", value=win)
         embed.add_field(name=":chart_with_downwards_trend: Top Lose 24h", value=lose)
         embed.add_field(name=":information_source: Additional Informations", value=side)
+        embed.set_footer(text="Request achieved :")
         return embed
 
     async def query_top(self):

@@ -41,13 +41,10 @@ class Class_Order:
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
-        embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":star2: Request about the orders of " + self.auth,
-                        value="Here are the information that I could retrieve " + self.auth,
-                        inline=False)
         embed.add_field(name=":chart_with_upwards_trend: Information about your take profit", value=data_achat,
                         inline=True)
         embed.add_field(name=":chart_with_downwards_trend: Information about your stop loss", value=data_vente,
                         inline=True)
         embed.add_field(name=":information_source: Additional information", value=data_annexe, inline=True)
+        embed.set_footer(text="Request achieved :")
         return embed

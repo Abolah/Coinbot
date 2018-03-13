@@ -143,9 +143,6 @@ class Class_whale:
         whale_sell = ""
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
-        embed.add_field(name=":star2: Request about the Whales",
-                        value="Here are the informations I could retrieve " + self.auth,
-                        inline=False)
 
         if self.coin.upper() == "BTC":
             symb = " $US"

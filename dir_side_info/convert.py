@@ -39,13 +39,8 @@ class Class_Conv:
     async def function_display(self, value):
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
-        embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/" + self.id + ".png")
+        embed.add_field(name=":tada: Information about your coin's value", value=value)
         embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":star2: Request of " + self.auth,
-                        value="Here are the information that I could retrieve " + self.auth,
-                        inline=False)
-        embed.add_field(name=":tada: Information about your coin's price", value=value,
-                        inline=True)
         return embed
 
     async def function_convert(self, coin, qty):

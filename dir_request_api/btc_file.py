@@ -45,7 +45,6 @@ class Class_bitcoin:
         value = ""
         value_other = ""
         won_value = 0.000888
-        author = str(author).split("#")
 
         for i in list_json:
             if i[1] == "Kraken":
@@ -109,10 +108,7 @@ class Class_bitcoin:
         value = "```css\n" + value + " ```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
-        embed.set_thumbnail(url="https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png")
-        embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":star2: Request about Bitcoin",
-                        value="Here are the informations I could retrieve " + str(author[0]), inline=False)
         embed.add_field(name=":trophy: Informations about Bitcoin", value=value, inline=False)
         embed.add_field(name=" :flag_mp: Informations about the other Exchanges", value=value_other)
+        embed.set_footer(text="Request achieved :")
         return embed
