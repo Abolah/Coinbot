@@ -5,6 +5,7 @@ import dir_side_info
 import requests
 import threading
 import aiohttp
+import asyncio
 
 client = Bot(command_prefix='!')
 channel = None
@@ -396,6 +397,24 @@ async def bot(ctx):
     bot_var = dir_side_info.bot_file.Class_Bot()
     embed = bot_var.function_display(str(len(client.servers)))
     await client.send_message(ctx.message.channel, embed=embed)
+
+
+@client.command(pass_context=True)
+async def updates(ctx):
+    """
+    This command will send the latest updates of the bot in the user's private message
+
+    Example : !updates
+    """
+    update_var = dir_side_info.updates.Class_update()
+    embed = update_var.function_display()
+    await client.send_message(ctx.message.author, embed=embed)
+    author = str(ctx.message.author).split("#")
+    author = author[0]
+    message = await client.send_message(ctx.message.channel, "Check your DM's " + author)
+    await asyncio.sleep(5)
+    await client.delete_message(message)
+    await asyncio.sleep(3)
 
 
 @client.command(pass_context=True)

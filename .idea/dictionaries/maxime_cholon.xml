@@ -7,6 +7,7 @@
       <w>btcgame</w>
       <w>cmcal</w>
       <w>cmcap</w>
+      <w>coinbot</w>
       <w>coinmarketcal</w>
       <w>coinmarketcap</w>
       <w>conv</w>
@@ -21,6 +22,7 @@
       <w>spoonfed</w>
       <w>topcoin</w>
       <w>topia</w>
+      <w>upvote</w>
     </words>
   </dictionary>
 </component>
