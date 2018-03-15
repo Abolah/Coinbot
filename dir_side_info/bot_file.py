@@ -11,9 +11,9 @@ class Class_Bot:
 
     @staticmethod
     def function_display(srv_count):
-        embed = discord.Embed(title="CoinBot's Website", colour=discord.Colour(0x2dca6f),
-                              url="https://discordbots.org/bot/367061304042586124",
-                              description=":hammer_pick: I am the developer of CoinBot.```\nIf you have requests or issues send me a message on Discord ! @Abolah#1337```")
+        embed = discord.Embed(title="KoinBot's Website", colour=discord.Colour(0x2dca6f),
+                              url="https://koinbot.io",
+                              description=":hammer_pick: I am the developer of KoinBot.```\nIf you have requests or issues send me a message on Discord ! @Abolah#1337```")
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.set_author(name="Abolah", url="https://twitter.com/Abolaah",
                          icon_url="https://vignette.wikia.nocookie.net/epicrapbattlesofhistory/images/e/eb/Deal_with_it_rainbow_style_by_j_brony-d4cwgad.png")
@@ -25,8 +25,8 @@ class Class_Bot:
                         value="```Send me a message at :\n@Abolah#1337 on Discord\n@Abolaah on Twitter.```")
         embed.add_field(name=":interrobang:Are you interested in joining an awesome trading group ?",
                         value="```\nClick the link !```[Join me here](https://goo.gl/MNjCBc)")
-        embed.add_field(name="CoinBot is famous !",
-                        value="```CoinBot is installed on " + srv_count + " Discord servers !```")
+        embed.add_field(name="KoinBot is famous !",
+                        value="```KoinBot is installed on " + srv_count + " Discord servers !```")
 
         return embed
 

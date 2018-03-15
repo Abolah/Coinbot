@@ -34,19 +34,22 @@ class Class_Info:
         bot = "!bot\n"
         updates = "!updates\n"
         help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order."
+        update = " Please type !updates regularly to know about Koinbot's latests updates. This way you wont miss any new feature."
 
         data_info = "```css\n" + btc + all + finex + binance + rex + polo + topia + hitbtc + "```"
         coins_info = "```css\n" + top + cmc + order + whale + event + "```"
-        side_info =  "```css\n" + infos + help + conv + balance + name + sum + bot + updates + "```"
+        side_info = "```css\n" + infos + help + conv + balance + name + sum + bot + updates + "```"
         help_info = "```" + help_cmd + "```"
+        update_info = "```" + update + "```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":hammer: Version", value="3.1", inline=False)
+        embed.add_field(name=":hammer: Version", value="3.1.5", inline=False)
         embed.add_field(name=":moneybag: Exchanges Commands", value=data_info)
         embed.add_field(name=":money_with_wings: Coins Commands", value=coins_info)
         embed.add_field(name=":robot: Side Commands", value=side_info)
-
         embed.add_field(name=":information_source: Do you need help about a command ?", value=help_info)
+        embed.add_field(name=":information_source: Koinbot has updates !", value=update_info)
+
         return embed

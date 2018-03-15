@@ -432,7 +432,7 @@ async def sum(ctx, article_url=None, limit=10):
 
 def btcgame():
     """
-    Display the bitcoin price in the user list
+    Buggy atm (WIP)
     """
     threading.Timer(1.0, btcgame).start()
     bitcoin_price_url = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
@@ -449,9 +449,8 @@ def btcgame():
 @client.command(pass_context=True)
 async def doge(ctx):
     """
-        Praise our Lord and Savior, the Mighty DOGE
-
-        Example : !doge
+    Praise our Lord and Savior, the Mighty DOGE
+    Example : !doge
     """
     await client.send_typing(ctx.message.channel)
     dogeLord = dir_side_info.doge_file.Class_Doge()
