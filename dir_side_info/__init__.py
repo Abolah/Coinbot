@@ -1,5 +1,4 @@
 from dir_side_info import informations_file
-from dir_side_info import name_file
 from dir_side_info import order_file
 from dir_side_info import sumarize_file
 from dir_side_info import bot_file
