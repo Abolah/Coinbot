@@ -4,6 +4,7 @@ import discord
 import aiohttp
 import async_timeout
 import asyncio
+from pymarketcap import Pymarketcap
 
 
 class Class_Name:
@@ -12,8 +13,11 @@ class Class_Name:
         self.color = randint(0, 0xffffff)
         self.auth = str(auth).split("#")
         self.auth = self.auth[0]
-        self.coin = arg
+        self.name = "None"
         return
+
+
+
 
     @staticmethod
     async def function_query_name():

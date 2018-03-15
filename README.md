@@ -124,7 +124,7 @@ Example : !bot
 Example : !convert eth 10.245
 ```
 ```
-This command is used to know the balance of an ETH or BTC wallet
+!balance [coin] [Address]
 NOTE: Only BTC and ETH (with ERC20 tokens) are supported yet.
 Example : !balance eth 0x670B7A9497f79Ef57BbFFFB553d979E7aD225344
           !balance token 0x670b7a9497f79ef57bbfffb553d979e7ad225344
@@ -133,6 +133,10 @@ Example : !balance eth 0x670B7A9497f79Ef57BbFFFB553d979E7aD225344
 ```
 !sum [url]{limit} :  Shorten an article from a website
 Example : !sum www.url.com
+```
+```
+!updates : Display the Changelog in your Privates Messages
+Example : !updates
 ```
 
 

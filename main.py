@@ -362,13 +362,9 @@ async def name(ctx, coin):
     Example : !name eth
     """
     await client.send_typing(ctx.message.channel)
-    try:
-        coin_name = dir_side_info.name_file.Class_Name(ctx.message.author, coin.lower())
-        data = await coin_name.function_query_name()
-        embed = await coin_name.function_display(data)
-        await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
-    except Exception as e:
-        print("Global Error on !name\n", e)
+    coin_name = dir_side_info.name.Class_Name()
+    embed = await coin_name.get_name(coin)
+    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=embed)
 
 
 @client.command(pass_context=True)
