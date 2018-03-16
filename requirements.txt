@@ -1,5 +1,4 @@
 cython
-libcurl
 async_timeout
 discord
 aiohttp
