@@ -6,3 +6,5 @@ asyncio
 requests
 aylien-apiclient
 beautifulsoup4
+cython
+libcurl
