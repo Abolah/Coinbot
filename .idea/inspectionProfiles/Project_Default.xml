@@ -40,6 +40,7 @@
           <option value="discord.message.Message.*" />
           <option value="main.e" />
           <option value="int.*" />
+          <option value="pymarketcap.Pymarketcap" />
         </list>
       </option>
     </inspection_tool>

@@ -1,8 +1,8 @@
 import datetime
 from random import randint
 import discord
-from pymarketcap import Pymarketcap
 import requests
+from pymarketcap import Pymarketcap
 
 
 class Class_All:
@@ -29,7 +29,7 @@ class Class_All:
 
     async def function_cmc(self, coin):
         coin = coin.upper()
-        coinmarketcap = Pymarketcap()
+        coinmarketcap = Pymarketcap(timeout=10)
         cmc_json = coinmarketcap.ticker(coin, convert="EUR")
         rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
         if cmc_json["market_cap_usd"] is None:
