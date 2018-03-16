@@ -1,4 +1,5 @@
-pymarketcap
+cython
+libcurl
 async_timeout
 discord
 aiohttp
@@ -6,5 +7,4 @@ asyncio
 requests
 aylien-apiclient
 beautifulsoup4
-cython
-libcurl
+pymarketcap
