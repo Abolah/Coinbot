@@ -34,7 +34,7 @@ class Class_Info:
         bot = "!bot\n"
         updates = "!updates\n"
         help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order."
-        update = " Please type !updates regularly to know about Koinbot's latests updates. This way you wont miss any new feature."
+        update = " Please type !updates regularly to know about Coinbot's latest updates. This way you wont miss any new feature."
 
         data_info = "```css\n" + btc + all + finex + binance + rex + polo + topia + hitbtc + "```"
         coins_info = "```css\n" + top + cmc + order + whale + event + "```"

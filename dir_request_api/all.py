@@ -62,6 +62,7 @@ class Class_All:
             api_url = self.bitfinex_api_url_btc.format(coin)
         r = requests.get(api_url)
         bitfinex_json = r.json()
+        print(bitfinex_json)
 
         if "message" not in bitfinex_json:
             if coin == "btc":
@@ -118,7 +119,8 @@ class Class_All:
                 else:
                     low = "1d Low : {}\n".format(float(bitfinex_json["low"]))
                 value_finex = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
-
+        elif "code" in bitfinex_json:
+            value_finex = "```css\n Bitfinex looks broken.\n```"
         else:
             value_finex = "```css\n{} is not listed on Bitfinex.\n```".format(self.name)
 

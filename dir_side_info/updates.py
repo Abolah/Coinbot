@@ -10,9 +10,9 @@ class Class_update:
         return
 
     def function_display(self):
-        embed = discord.Embed(title="Koinbot's CHANGELOG", colour=discord.Colour(self.color), description="Here are the latest update for CoinBot")
+        embed = discord.Embed(title="Coinbot's CHANGELOG", colour=discord.Colour(self.color), description="Here are the latest update for CoinBot")
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
-        embed.add_field(name="V3.1.5 Date: 15 March 2018", value="```\nComplete rebranding of the bot. It's name is now Koinbot\nAlso modified the !name command.\n```", inline=False)
+        embed.add_field(name="V3.1.5 Date: 21 March 2018", value="```\nError management for Bitfinex\nAlso modified the !name command.\n```", inline=False)
         embed.add_field(name="V3.1 Date: 13 March 2018", value="```\nModified the layout of all commands.\nModified some behaviours and solved some issues.\n```", inline=False)
         embed.add_field(name="V3.0 Date: 13 March 2018", value="```\nAdded the !updates command.\nModified some behaviours and solved some issues.\n```", inline=False)
         embed.add_field(name=":star:Thank you for your support !:star:",

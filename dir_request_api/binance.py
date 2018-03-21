@@ -21,7 +21,7 @@ class Class_Binance:
 
     def function_cmc(self, coin):
         coin = coin.upper()
-        coinmarketcap = Pymarketcap()
+        coinmarketcap = Pymarketcap(timeout=10)
         cmc_json = coinmarketcap.ticker(coin, convert="EUR")
         rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
         marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
@@ -31,8 +31,8 @@ class Class_Binance:
         change_24 = str("24h Swing : " + str(cmc_json["percent_change_24h"]) + "%\n")
         change_7 = str("7 days Swing : " + str(cmc_json["percent_change_7d"]) + "%\n")
         value_mc = "```css\n" + rank + marketcap + price + change_1 + change_24 + change_7 + "```"
-
         self.name = cmc_json["name"]
+
         return value_mc
 
     def function_binance(self, coin):
