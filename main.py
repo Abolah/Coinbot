@@ -11,7 +11,7 @@ client = Bot(command_prefix='!')
 channel = None
 secret_token = ""
 
-# Discorbots.org code. Comment this if you install CoinBot on your own server.
+# START of Discorbots.org code.
 dbltoken = ""
 url = "https://discordbots.org/api/bots/367061304042586124/stats"
 headers = {"Authorization": dbltoken}
