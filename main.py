@@ -389,9 +389,15 @@ async def bot(ctx):
 
     Example : !bot
     """
+    global member
     await client.send_typing(ctx.message.channel)
     bot_var = dir_side_info.bot_file.Class_Bot()
-    embed = bot_var.function_display(str(len(client.servers)))
+    srv_count = str(len(client.servers))
+    user_count = 0
+    for server in client.servers:
+        for member in server.members:
+            user_count += 1
+    embed = bot_var.function_display(srv_count, user_count)
     await client.send_message(ctx.message.channel, embed=embed)
 
 
