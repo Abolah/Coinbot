@@ -62,7 +62,6 @@ class Class_All:
             api_url = self.bitfinex_api_url_btc.format(coin)
         r = requests.get(api_url)
         bitfinex_json = r.json()
-        print(bitfinex_json)
 
         if "message" not in bitfinex_json:
             if coin == "btc":
