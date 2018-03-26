@@ -42,9 +42,13 @@ async def on_ready():
     async with aiohttp.ClientSession() as aioclient:
         await aioclient.post(url, data=payload, headers=headers)
 
-
 @client.event
-async def on_server_join():
+async def on_server_join(server):
+    print("Joining Server : ", server)
+    p = server.members
+    on_join = dir_side_info.welcome.Class_On_join()
+    welcome = await on_join.function_welcome()
+    await channel.send_message(embed=welcome)
     payload = {"server_count": len(client.servers)}
     async with aiohttp.ClientSession() as aioclient:
         await aioclient.post(url, data=payload, headers=headers)
