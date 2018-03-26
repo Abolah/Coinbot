@@ -34,35 +34,28 @@ If you do not have pip, you can use the following
 curl https://bootstrap.pypa.io/get-pip.py | python3.6
 ```
 
-Install all the requirements :
+Install all the required dependancies :
 ```
 python3.6 -m pip install -r requirements.txt
 ```
 
-Those dependencies are :
-```
-discord aiohttp asyncio requests aylien-apiclient pymarketcal
-
-```
-
 ### Installation
 
-You don't need to install anything, just git clone the repository, put your secret token and launch main.py
+You just have to install the dependies as seen above then put your secret Discord token (the Etherscan one is optionnal but if you don't put it the !balance command will not work) and launch main.py
 
 
 ```
-python3.6 main.py
+python3.6 PathToCoinbot/main.py
 ```
-If you want to run the bot on a VPS you should install Supervisor and run the bot on a supervisor instance so that the bot will automatically relaunch if it stop.
+If you want to run the bot on a VPS you should install Supervisor and run the bot on a supervisor instance. This way if the bot crashes supervisor will autorelaunch it.
 
 ```
 supervisorctl start CoinBot
 ```
 
-
-To see if the bot is running correctly just run the command !infos
+To see if the bot is running correctly just run the command !bot
 ```
-!infos
+!bot
 ```
 
 ## The commands
@@ -135,12 +128,13 @@ Example : !balance eth 0x670B7A9497f79Ef57BbFFFB553d979E7aD225344
 Example : !sum www.url.com
 ```
 ```
-!updates : Display the Changelog in your Privates Messages
+!updates : Display the Changelog in your privates messages
 Example : !updates
 ```
 
 
 ## Donations
+Donations are much appreciated. Thank you for your support.
 If you want to help me with this bot. You can donate to the following addresses
 ```
 ETH(ERC20 friendly)  [abowallet.eth]
