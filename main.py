@@ -37,18 +37,18 @@ async def on_ready():
     print("Logged in as :")
     print(client.user.name)
     print(client.user.id)
-    await client.change_presence(game=discord.Game(name="!infos for help"))
+    btcgame()
     payload = {"server_count": len(client.servers)}
     async with aiohttp.ClientSession() as aioclient:
         await aioclient.post(url, data=payload, headers=headers)
 
+
 @client.event
 async def on_server_join(server):
     print("Joining Server : ", server)
-    p = server.members
     on_join = dir_side_info.welcome.Class_On_join()
     welcome = await on_join.function_welcome()
-    await channel.send_message(embed=welcome)
+    await channel.send_message(server, embed=welcome)
     payload = {"server_count": len(client.servers)}
     async with aiohttp.ClientSession() as aioclient:
         await aioclient.post(url, data=payload, headers=headers)
@@ -451,15 +451,14 @@ def btcgame():
     """
     Buggy atm (WIP)
     """
-    threading.Timer(1.0, btcgame).start()
     bitcoin_price_url = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
     data = requests.get(bitcoin_price_url).json()
-    price_in_usd = data['bpi']['USD']['rate']
-    price_in_usd = price_in_usd.split(".")[0]
-    btc_text = "BTC : "
-    btc_status = btc_text + price_in_usd + " $"
-    game = client.change_presence(game=discord.Game(name="!infos for help"))
+    price_in_usd = data['bpi']['USD']['rate'].split(".")[0]
+    print(price_in_usd)
+    btc_status = "BTC : ${}".format(price_in_usd)
+    game = client.change_presence(game=discord.Game(name=btc_status))
     print(btc_status)
+    asyncio.sleep(5)
     return game
 
 
