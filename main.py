@@ -3,7 +3,6 @@ from discord.ext.commands import Bot
 import dir_request_api
 import dir_side_info
 import requests
-import threading
 import aiohttp
 import asyncio
 import logging
@@ -16,7 +15,7 @@ logger.addHandler(handler)
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DS-CCQ.ihzwNJDXfr4dlpemi65d30ioh8U"
+secret_token = ""
 
 # START of Discorbots.org code.
 dbltoken = ""
@@ -37,7 +36,6 @@ async def on_ready():
     print("Logged in as :")
     print(client.user.name)
     print(client.user.id)
-    btcgame()
     payload = {"server_count": len(client.servers)}
     async with aiohttp.ClientSession() as aioclient:
         await aioclient.post(url, data=payload, headers=headers)
@@ -454,12 +452,10 @@ def btcgame():
     bitcoin_price_url = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
     data = requests.get(bitcoin_price_url).json()
     price_in_usd = data['bpi']['USD']['rate'].split(".")[0]
-    print(price_in_usd)
     btc_status = "BTC : ${}".format(price_in_usd)
-    game = client.change_presence(game=discord.Game(name=btc_status))
     print(btc_status)
+    client.change_presence(game=discord.Game(name=btc_status))
     asyncio.sleep(5)
-    return game
 
 
 @client.command(pass_context=True)
@@ -473,5 +469,5 @@ async def doge(ctx):
     embed = dogeLord.function_display()
     await client.send_message(ctx.message.channel, embed=embed)
 
-
+btcgame()
 client.run(secret_token)
