@@ -19,14 +19,17 @@ class Class_Catalysts:
         return
 
     def function_accesstoken(self):
-        access_url = "https://api.coinmarketcal.com/oauth/v2/token?grant_type={}&client_id={}&client_secret={}".format(
-            self.grant_type, self.client_id, self.client_secret)
-        r = requests.get(access_url)
-        data_json = r.json()
-        token = data_json["access_token"]
-        self.access_token = token
+        if self.access_token == "":
+            access_url = "https://api.coinmarketcal.com/oauth/v2/token?grant_type={}&client_id={}&client_secret={}".format(self.grant_type, self.client_id, self.client_secret)
+            r = requests.get(access_url)
+            data_json = r.json()
+            token = data_json["access_token"]
+            self.access_token = token
+        else:
+            print("CoinmarketCal Token already exists")
 
-    def function_cmc(self, coin):
+    @staticmethod
+    def function_cmc(coin):
         if coin == "":
             id_coin = ""
         else:
@@ -37,10 +40,8 @@ class Class_Catalysts:
         return id_coin
 
     def function_cmcal(self, id_coin, event_type):
-        print(self.access_token)
         if event_type == "" and id_coin == "":
             cmcal_url = self.cmcal_default.format(self.access_token)
-            print(cmcal_url)
         elif id_coin == "":
             cmcal_url = "https://api.coinmarketcal.com/v1/events?access_token={}&page=1&max=5&categories={}".format(self.access_token, event_type)
         elif event_type == "":
@@ -50,6 +51,7 @@ class Class_Catalysts:
 
         r = requests.get(cmcal_url)
         data_json = r.json()
+        print(data_json)
         event = ""
         for i in data_json:
             title = str(i["title"])

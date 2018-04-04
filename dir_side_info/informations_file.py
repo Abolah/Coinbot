@@ -50,6 +50,6 @@ class Class_Info:
         embed.add_field(name=":money_with_wings: Coins Commands", value=coins_info)
         embed.add_field(name=":robot: Side Commands", value=side_info)
         embed.add_field(name=":information_source: Do you need help about a command ?", value=help_info)
-        embed.add_field(name=":information_source: Koinbot has updates !", value=update_info)
+        embed.add_field(name=":information_source: Coinbot has updates !", value=update_info)
 
         return embed

@@ -453,7 +453,6 @@ def btcgame():
     data = requests.get(bitcoin_price_url).json()
     price_in_usd = data['bpi']['USD']['rate'].split(".")[0]
     btc_status = "BTC : ${}".format(price_in_usd)
-    print(btc_status)
     client.change_presence(game=discord.Game(name=btc_status))
     asyncio.sleep(5)
 
