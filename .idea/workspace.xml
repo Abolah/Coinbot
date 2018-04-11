@@ -15,7 +15,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/CoinBot$Plotly.coverage" NAME="Plotly Coverage Results" MODIFIED="1521389596538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
     <SUITE FILE_PATH="coverage/Coinbot$CoinBot.coverage" NAME="CoinBot Coverage Results" MODIFIED="1522855834233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CoinBot$CoinBot.coverage" NAME="CoinBot Coverage Results" MODIFIED="1523437768828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CoinBot$CoinBot.coverage" NAME="CoinBot Coverage Results" MODIFIED="1523441189732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coinbot$Test.coverage" NAME="Test Coverage Results" MODIFIED="1519231643008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
   </component>
   <component name="DatabaseView">
@@ -35,29 +35,17 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="2">
+              <caret line="231" column="7" lean-forward="true" selection-start-line="231" selection-start-column="7" selection-end-line="231" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bitfinex.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dir_request_api/bitfinex.py">
+      <file leaf-file-name="whale_file.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dir_request_api/whale_file.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="47" column="107" selection-start-line="47" selection-start-column="107" selection-end-line="47" selection-end-column="107" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dir_request_api/all.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="68" column="107" lean-forward="true" selection-start-line="59" selection-start-column="8" selection-end-line="68" selection-end-column="107" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="274">
+              <caret line="152" column="30" selection-start-line="152" selection-start-column="30" selection-end-line="152" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -115,7 +103,6 @@
         <option value="$PROJECT_DIR$/dir_request_api/hitbtc.py" />
         <option value="$PROJECT_DIR$/dir_request_api/poloniex.py" />
         <option value="$PROJECT_DIR$/dir_request_api/top.py" />
-        <option value="$PROJECT_DIR$/dir_request_api/whale_file.py" />
         <option value="$PROJECT_DIR$/dir_side_info/convert.py" />
         <option value="$PROJECT_DIR$/dir_side_info/doge_file.py" />
         <option value="$PROJECT_DIR$/dir_side_info/order_file.py" />
@@ -138,8 +125,9 @@
         <option value="$PROJECT_DIR$/dir_side_info/welcome.py" />
         <option value="$PROJECT_DIR$/dir_request_api/mexbook.py" />
         <option value="$PROJECT_DIR$/dir_request_api/all.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/dir_request_api/bitfinex.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/dir_request_api/whale_file.py" />
       </list>
     </option>
   </component>
@@ -164,7 +152,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,6 +173,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -305,9 +293,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3297414" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.32903227" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49307036" weight="0.48814654" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49307036" visible="true" weight="0.37931034" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4992948" visible="true" weight="0.116204694" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992948" visible="true" weight="0.11727079" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" weight="0.32982087" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="5" />
@@ -406,13 +394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="79" column="61" selection-start-line="79" selection-start-column="61" selection-end-line="79" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dir_request_api/whale_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="144" column="86" selection-start-line="144" selection-start-column="86" selection-end-line="144" selection-end-column="86" />
         </state>
       </provider>
     </entry>
@@ -542,17 +523,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dir_request_api/all.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="68" column="107" lean-forward="true" selection-start-line="59" selection-start-column="8" selection-end-line="68" selection-end-column="107" />
+        <state relative-caret-position="1280">
+          <caret line="68" column="107" selection-start-line="59" selection-start-column="8" selection-end-line="68" selection-end-column="107" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -563,6 +537,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
           <caret line="47" column="107" selection-start-line="47" selection-start-column="107" selection-end-line="47" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="231" column="7" lean-forward="true" selection-start-line="231" selection-start-column="7" selection-end-line="231" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_request_api/whale_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="152" column="30" selection-start-line="152" selection-start-column="30" selection-end-line="152" selection-end-column="30" />
         </state>
       </provider>
     </entry>
