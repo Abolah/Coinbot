@@ -36,7 +36,6 @@ class Class_BitmexOrderBook:
     def function_orderbook(self):
         r = requests.get(self.bitmex_order_book)
         order_book_json = r.json()
-        book = ""
         for i in order_book_json:
             size = str(i["size"])
             price = str(i["price"])

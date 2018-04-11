@@ -60,22 +60,6 @@ async def on_server_remove():
 
 
 @client.command(pass_context=True)
-async def mexbook(ctx):
-    """
-    This command is used to know the price of a coin on the following exchanges
-    Bitfinex, Bittrex, Cryptopia, Poloniex, Binance and HitBTC
-
-    You can ask for as much as 5 coins at the same time.
-
-    Example : !all eth
-    """
-    global channel
-    await client.send_typing(ctx.message.channel)
-    bitmex_orderbook = dir_request_api.mexbook.Class_BitmexOrderBook(ctx.message.author)
-    result = await bitmex_orderbook.bitmex()
-    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
-
-@client.command(pass_context=True)
 async def all(ctx, *coin):
     """
     This command is used to know the price of a coin on the following exchanges
@@ -218,6 +202,23 @@ async def hit(ctx, *coin):
             await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
         else:
             await client.send_message(channel, ctx.message.author.mention, embed=result)
+
+
+@client.command(pass_context=True)
+async def mexbook(ctx):
+    """
+    This command is used to know the price of a coin on the following exchanges
+    Bitfinex, Bittrex, Cryptopia, Poloniex, Binance and HitBTC
+
+    You can ask for as much as 5 coins at the same time.
+
+    Example : !all eth
+    """
+    global channel
+    await client.send_typing(ctx.message.channel)
+    bitmex_orderbook = dir_request_api.mexbook.Class_BitmexOrderBook(ctx.message.author)
+    result = await bitmex_orderbook.bitmex()
+    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
 
 
 @client.command(pass_context=True)
