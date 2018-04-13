@@ -207,12 +207,9 @@ async def hit(ctx, *coin):
 @client.command(pass_context=True)
 async def mexbook(ctx):
     """
-    This command is used to know the price of a coin on the following exchanges
-    Bitfinex, Bittrex, Cryptopia, Poloniex, Binance and HitBTC
+    This command display the 10 last Orders on Bitmex OrderBook
 
-    You can ask for as much as 5 coins at the same time.
-
-    Example : !all eth
+    Example : !mexbook
     """
     global channel
     await client.send_typing(ctx.message.channel)
