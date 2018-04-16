@@ -21,8 +21,6 @@ class Class_Bot:
                         value="```You can donate to theses addresses:\nETH(ERC20 friendly) : abowallet.eth\nBTC  : 1jc3V3T5mefuD9asa7en976NKVGssQuMq\nDOGE : D9zKYJgqnTWcu8ZCVzzKrqQkjzwuhymHh9\nLTC  : LQS415ftVrkSjjmFUyKNVBhY1fJzFLSKaz\nDash : XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz```")
         embed.add_field(name=":information_source: Do you need help ? :information_source:",
                         value="```Send me a message at :\n@Abolah#1337 on Discord\n@Abolaah on Twitter.```")
-        embed.add_field(name=":interrobang:Are you interested in joining an awesome trading group ?",
-                        value="```\nClick the link !```[Join me here](https://goo.gl/MNjCBc)")
         embed.add_field(name="CoinBot is famous !",
                         value="```CoinBot is installed on " + srv_count + " Discord servers and used by " + str(user_count) + " users !```")
 

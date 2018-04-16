@@ -58,8 +58,8 @@ class Class_whale:
 
     @staticmethod
     async def function_sort_kraken(book_kraken, seuil):
+        global key_k
         book_out = []
-        print(book_kraken)
         for key in book_kraken["result"]:
             key_k = key
         for i in book_kraken["result"][key_k]["asks"]:
@@ -72,6 +72,7 @@ class Class_whale:
 
     @staticmethod
     async def function_sort_all(list_json, seuil):
+        global key_key
         book_sorted = []
         for exchange in list_json:
             if exchange[1] == "Bitfinex":
@@ -135,7 +136,6 @@ class Class_whale:
         return final_book
 
     async def function_display(self, book):
-        coin_wanted = self.coin.upper()
         limit = 10
         sell = 0
         buy = 0
@@ -144,14 +144,17 @@ class Class_whale:
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
 
-        if self.coin.upper() == "BTC":
-            symb = " $US"
+        if self.coin.upper() == "USD":
+            symb = "USD"
+            coin_wanted = "BTC"
         else:
-            symb = " BTC"
+            symb = self.coin.upper()
+            coin_wanted = "BTC"
         try:
             for i in book:
                 if i[1] == "Buy" and buy < limit:
-                    whale_buy += "[" + str(i[0]) + "] " + "Buying for " + "{0:.3f}".format(float(i[2])) + symb + " at " + "{0:.8f}".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
+                    whale_buy += "[" + str(i[0]) + "] " + "Buying " + "{0:.3f} ".format(
+                        float(i[2])) + symb + " at " + "{0:.8f} ".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
                     buy += 1
                 if buy == limit:
                     break
@@ -167,7 +170,8 @@ class Class_whale:
         try:
             for i in reversed(book):
                 if i[1] == "Sell" and sell < limit:
-                    whale_sell += "[" + str(i[0]) + "] " + "Selling for " + "{0:.3f}".format(float(i[2])) + symb + " at " + "{0:.8f}".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
+                    whale_sell += "[" + str(i[0]) + "] " + "Selling " + "{0:.3f} ".format(
+                        float(i[2])) + symb + " at " + "{0:.8f} ".format(float(i[3])) + symb + "/" + coin_wanted + "\n"
                     sell += 1
                 if sell == limit:
                     break
@@ -184,7 +188,6 @@ class Class_whale:
         return embed
 
     async def query_whale(self, limit):
-        print(limit)
         list_book = await self.function_fetch()
         list_sorted = await self.function_sort_all(list_book, limit)
         embed = await self.function_display(list_sorted)

@@ -205,18 +205,36 @@ async def hit(ctx, *coin):
 
 
 @client.command(pass_context=True)
-async def whale(ctx, arg, limit=1):
+async def mexbook(ctx):
+    """
+    This command display the 10 last Orders on Bitmex OrderBook
+
+    Example : !mexbook
+    """
+    global channel
+    await client.send_typing(ctx.message.channel)
+    bitmex_orderbook = dir_request_api.mexbook.Class_BitmexOrderBook(ctx.message.author)
+    result = await bitmex_orderbook.bitmex()
+    await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+
+
+@client.command(pass_context=True)
+async def whale(ctx, arg):
     """
     This command is used to know the big orders placed by whales on several exchanges.
     The command return the Number of coin bought at which price and the number of coin sold at which price
 
     A parameter can be added to set a limit in the number of BTC put in the order (Default is 4)
 
-    NOTE : You can't ask for BTC Whales (because you can buy/sell BTC with/against BTC)
+    NOTE : If you want to see BTC whales just type USD
 
     Example : !whale eth
               !whale eth 10
     """
+    if arg == "usd":
+        limit = 100000
+    else:
+        limit = 1
     global channel
     await client.send_typing(ctx.message.channel)
     try:
@@ -467,6 +485,7 @@ async def doge(ctx):
     dogeLord = dir_side_info.doge_file.Class_Doge()
     embed = dogeLord.function_display()
     await client.send_message(ctx.message.channel, embed=embed)
+
 
 btcgame()
 client.run(secret_token)

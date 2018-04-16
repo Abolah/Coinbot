@@ -74,10 +74,16 @@ class Class_Catalysts:
         return embed
 
     def get_catalysts(self, coin, event_type):
-        print(event_type)
-        self.function_accesstoken()
-        get_coin = self.function_cmc(coin)
-        event = self.function_cmcal(get_coin, event_type)
-        embed = self.function_display(event)
-
-        return embed
+        if self.access_token == "":
+            print("Token cmcal est vide")
+            self.function_accesstoken()
+            get_coin = self.function_cmc(coin)
+            event = self.function_cmcal(get_coin, event_type)
+            embed = self.function_display(event)
+            return embed
+        else:
+            print("token exists")
+            get_coin = self.function_cmc(coin)
+            event = self.function_cmcal(get_coin, event_type)
+            embed = self.function_display(event)
+            return embed

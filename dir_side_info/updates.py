@@ -12,6 +12,7 @@ class Class_update:
     def function_display(self):
         embed = discord.Embed(title="Coinbot's CHANGELOG", colour=discord.Colour(self.color), description="Here are the latest update for CoinBot")
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
+        embed.add_field(name="V3.3 Date: 11 April 2018",value="```\nAdded the !mexbook command to display Bitmex orderbook.\n```", inline=False)
         embed.add_field(name="V3.2 Date: 4 April 2018",value="```\nFixed the !event command with the new coinmarketcal api.\n```", inline=False)
         embed.add_field(name="V3.1.5 Date: 21 March 2018", value="```\nError management for Bitfinex\nAlso modified the !name command.\n```", inline=False)
         embed.add_field(name="V3.1 Date: 13 March 2018", value="```\nModified the layout of all commands.\nModified some behaviours and solved some issues.\n```", inline=False)

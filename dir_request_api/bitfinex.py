@@ -42,12 +42,9 @@ class Class_Bitfinex:
             api_url = self.bitfinex_api_url_btc.format(coin)
         r = requests.get(api_url)
         bitfinex_json = r.json()
+        status_code = bitfinex_json["code"]
 
-        s = requests.get(self.bitfinex_url_status)
-        status_json = s.json()
-        status_code = status_json[0]
-
-        if status_code == 0:
+        if status_code == 503:
             value_finex = "```css\nIt looks like Bitfinex is in maintenance. Can't retrieve any data.\n```"
         else:
             if "message" not in bitfinex_json:
