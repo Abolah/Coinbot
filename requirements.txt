@@ -1,4 +1,4 @@
-cython
+cython==0.28.2
 async_timeout
 discord
 aiohttp
