@@ -18,7 +18,7 @@ class Class_Doge:
         resp = requests.get(url=priceURL, params=paramprice)
         data = json.loads(resp.text)
         price = "```css\n" + "Price : " + "{0:.3f}".format(
-            float(data[0]["price_usd"])) + "$\n" + "Target : Moon" + "```"
+            float(data[0]["price_usd"])) + "$  |  {0:.8f} BTC\n".format(float(data[0]["price_btc"])) + "Target : Moon" + "```"
 
         haiku1 = "Roses are red, Violet are blue.\nAll IN DOGE, he will never fail you."
         haiku2 = "Roses are red, Violet are blue.\nIf you question DOGE, Burn will do you."
@@ -33,8 +33,9 @@ class Class_Doge:
         haiku11 = "A Dogecoin a day,\nKeeps bankruptcy away."
         haiku12 = "A wise man once told,\n'God helps those who help themselves'\nGet God on your side.\nBuy DOGE and be wise."
         haiku13 = "When the markets get tough,\nThe toughs buy DOGE."
+        haiku14 = "Swaggity Swooty,\nWolf's lofi is so shitty."
 
-        choice = random.choice([haiku1, haiku2, haiku3, haiku4, haiku5, haiku6, haiku7, haiku8, haiku9, haiku10, haiku11, haiku12, haiku13])
+        choice = random.choice([haiku1, haiku2, haiku3, haiku4, haiku5, haiku6, haiku7, haiku8, haiku9, haiku10, haiku11, haiku12, haiku13, haiku14])
         choice = "```css\n" + choice + "```"
 
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com")
