@@ -20,18 +20,34 @@ class Class_Cryptopia:
 
     def function_cmc(self, coin):
         coin = coin.upper()
-        coinmarketcap = Pymarketcap()
-        cmc_json = coinmarketcap.ticker(coin, convert="EUR")
-        rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
-        marketcap = str("MC : " + "$ " + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
-        price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_json["price_usd"])) + " | " + "{0:.3f}".format(
-            float(cmc_json["price_eur"])) + "€      \n")
-        change_1 = str("1h Swing : " + str(cmc_json["percent_change_1h"]) + "%\n")
-        change_24 = str("24h Swing : " + str(cmc_json["percent_change_24h"]) + "%\n")
-        change_7 = str("7 days Swing : " + str(cmc_json["percent_change_7d"]) + "%\n")
-        value_mc = "```css\n" + rank + marketcap + price + change_1 + change_24 + change_7 + "```"
+        coinmarketcap = Pymarketcap(timeout=10)
+        try:
+            cmc_json = coinmarketcap.ticker(coin, convert="EUR")
+            self.name = cmc_json["name"]
+            rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
+            if cmc_json["market_cap_usd"] is None:
+                marketcap = "MarketCap : Unknown\n"
+            else:
+                marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
 
-        self.name = cmc_json["name"]
+            price = str("Price : ${0:.3f}".format(float(cmc_json["price_usd"])) + " | {0:.3f}€\n".format(
+                float(cmc_json["price_eur"])))
+            if cmc_json["percent_change_1h"] is None:
+                change_1 = "1h Swing : Unknown\n"
+            else:
+                change_1 = str("1h Swing : " + str(cmc_json["percent_change_1h"]) + "%\n")
+            if cmc_json["percent_change_24h"] is None:
+                change_24 = "24h Swing : Unknown\n"
+            else:
+                change_24 = str("24h Swing : " + str(cmc_json["percent_change_24h"]) + "%\n")
+            if cmc_json["percent_change_7d"] is None:
+                change_7 = "7 days Swing : Unknown\n"
+            else:
+                change_7 = str("7 days Swing : " + str(cmc_json["percent_change_7d"]) + "%\n")
+            value_mc = "```css\n" + rank + marketcap + price + change_1 + change_24 + change_7 + "```"
+        except KeyError:
+            value_mc = "```css\nThis ticker does not exist on Coinmarketcap.\nMaybe you made a typo in the coin's ticker.```"
+
         return value_mc
 
     def function_cryptopia(self, coin):
@@ -104,7 +120,7 @@ class Class_Cryptopia:
 
         return value_topia
 
-    def function_display(self, value_mc, value_topia):
+    def function_display_ok(self, value_mc, value_topia):
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=True)
@@ -112,8 +128,19 @@ class Class_Cryptopia:
         embed.set_footer(text="Request achieved :")
         return embed
 
+    def function_display_err(self, cmc_value):
+        embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
+                              timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed.add_field(name=":medal: CoinMarketCap Informations", value=cmc_value, inline=False)
+        embed.set_footer(text="Request achieved :")
+
+        return embed
+
     async def cryptopia(self, coin):
         tickers = self.function_cmc(coin)
-        values = self.function_cryptopia(coin)
-        embed = self.function_display(tickers, values)
+        if tickers == "```css\nThis ticker does not exist on Coinmarketcap.\nMaybe you made a typo in the coin's ticker.```":
+            embed = self.function_display_err(tickers)
+        else:
+            values = self.function_cryptopia(coin)
+            embed = self.function_display_ok(tickers, values)
         return embed

@@ -29,35 +29,45 @@ class Class_All:
         return
 
     async def function_cmc(self, coin):
+        global cmc_json
+        if coin == "iota":
+            coin = "miota"
         coin = coin.upper()
         coinmarketcap = Pymarketcap(timeout=10)
-        cmc_json = coinmarketcap.ticker(coin, convert="EUR")
-        rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
-        if cmc_json["market_cap_usd"] is None:
-            marketcap = "MarketCap : Unknown\n"
-        else:
-            marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
+        try:
+            cmc_json = coinmarketcap.ticker(coin, convert="EUR")
+            self.name = cmc_json["name"]
+            rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
+            if cmc_json["market_cap_usd"] is None:
+                marketcap = "MarketCap : Unknown\n"
+            else:
+                marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
 
-        price = str("Price : ${0:.3f}".format(float(cmc_json["price_usd"])) + " | {0:.3f}€\n".format(float(cmc_json["price_eur"])))
-        if cmc_json["percent_change_1h"] is None:
-            change_1 = "1h Swing : Unknown\n"
-        else:
-            change_1 = str("1h Swing : " + str(cmc_json["percent_change_1h"]) + "%\n")
-        if cmc_json["percent_change_24h"] is None:
-            change_24 = "24h Swing : Unknown\n"
-        else:
-            change_24 = str("24h Swing : " + str(cmc_json["percent_change_24h"]) + "%\n")
-        if cmc_json["percent_change_7d"] is None:
-            change_7 = "7 days Swing : Unknown\n"
-        else:
-            change_7 = str("7 days Swing : " + str(cmc_json["percent_change_7d"]) + "%\n")
-        value_mc = "```css\n" + rank + marketcap + price + change_1 + change_24 + change_7 + "```"
+            price = str("Price : ${0:.3f}".format(float(cmc_json["price_usd"])) + " | {0:.3f}€\n".format(
+                float(cmc_json["price_eur"])))
+            if cmc_json["percent_change_1h"] is None:
+                change_1 = "1h Swing : Unknown\n"
+            else:
+                change_1 = str("1h Swing : " + str(cmc_json["percent_change_1h"]) + "%\n")
+            if cmc_json["percent_change_24h"] is None:
+                change_24 = "24h Swing : Unknown\n"
+            else:
+                change_24 = str("24h Swing : " + str(cmc_json["percent_change_24h"]) + "%\n")
+            if cmc_json["percent_change_7d"] is None:
+                change_7 = "7 days Swing : Unknown\n"
+            else:
+                change_7 = str("7 days Swing : " + str(cmc_json["percent_change_7d"]) + "%\n")
+            value_mc = "```css\n" + rank + marketcap + price + change_1 + change_24 + change_7 + "```"
+        except KeyError:
+            value_mc = "```css\nThis ticker does not exist on Coinmarketcap.\nMaybe you made a typo in the coin's ticker.```"
 
-        self.name = cmc_json["name"]
         return value_mc
 
     async def function_bitfinex(self, coin):
-        if coin == "btc":
+        if coin == "iota" or coin == "miota":
+            coin = "iot"
+            api_url = self.bitfinex_api_url_btc.format(coin)
+        elif coin == "btc":
             api_url = self.bitfinex_api_url_usdt
         else:
             api_url = self.bitfinex_api_url_btc.format(coin)
@@ -193,7 +203,10 @@ class Class_All:
 
     async def function_binance(self, coin):
         coin = coin.upper()
-        if coin == "BTC":
+        if coin == "MIOTA":
+            coin = "IOTA"
+            api_url = self.binance_api_url_btc.format(coin)
+        elif coin == "BTC":
             api_url = self.binance_api_url_usdt.format(coin)
         else:
             api_url = self.binance_api_url_btc.format(coin)
@@ -275,54 +288,54 @@ class Class_All:
                 if topia_json["Data"]["LastPrice"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(topia_json["Data"]["LastPrice"])
+                    last = "Last : {0:.8f}\n".format(topia_json["Data"]["LastPrice"])
                 if topia_json["Data"]["BidPrice"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(topia_json["Data"]["BidPrice"])
+                    bid = "Bid : {0:.8f}\n".format(topia_json["Data"]["BidPrice"])
                 if topia_json["Data"]["AskPrice"] is None:
                     ask = "Ask : Unknown\n"
                 else:
-                    ask = "Ask : {}\n".format(topia_json["Data"]["AskPrice"])
+                    ask = "Ask : {0:.8f}\n".format(topia_json["Data"]["AskPrice"])
                 if topia_json["Data"]["Volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(topia_json["Data"]["Volume"])
+                    volume = "Volume : {0:.2f} BTC\n".format(topia_json["Data"]["Volume"])
                 if topia_json["Data"]["High"] is None:
                     high = "1d High : Unknown\n"
                 else:
-                    high = "1d High : " + "{}\n".format(topia_json["Data"]["High"])
+                    high = "1d High : " + "{0:.8f}\n".format(topia_json["Data"]["High"])
                 if topia_json["Data"]["Low"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : " + "{}\n".format(topia_json["Data"]["Low"])
+                    low = "1d Low : " + "{0:.8f}\n".format(topia_json["Data"]["Low"])
                 value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "\n```"
             else:
                 pair = "Pair : BTC-" + coin + "\n"
                 if topia_json["Data"]["LastPrice"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(topia_json["Data"]["LastPrice"])
+                    last = "Last : {0:.8f}\n".format(topia_json["Data"]["LastPrice"])
                 if topia_json["Data"]["BidPrice"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(topia_json["Data"]["BidPrice"])
+                    bid = "Bid : {0:.8f}\n".format(topia_json["Data"]["BidPrice"])
                 if topia_json["Data"]["AskPrice"] is None:
                     ask = "Ask : Unknown\n"
                 else:
-                    ask = "Ask : {}\n".format(topia_json["Data"]["AskPrice"])
+                    ask = "Ask : {0:.8f}\n".format(topia_json["Data"]["AskPrice"])
                 if topia_json["Data"]["Volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(topia_json["Data"]["Volume"])
+                    volume = "Volume : {0:.2f} BTC\n".format(topia_json["Data"]["Volume"])
                 if topia_json["Data"]["High"] is None:
                     high = "1d High : Unknown\n"
                 else:
-                    high = "1d High : " + "{}\n".format(topia_json["Data"]["High"])
+                    high = "1d High : " + "{0:.8f}\n".format(topia_json["Data"]["High"])
                 if topia_json["Data"]["Low"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : " + "{}\n".format(topia_json["Data"]["Low"])
+                    low = "1d Low : " + "{0:.8f}\n".format(topia_json["Data"]["Low"])
                 value_topia = "```css\n" + pair + volume + last + bid + ask + high + low + "\n```"
         else:
             value_topia = "```css\n{} is not listed on Cryptopia.\n```".format(self.name)
@@ -330,7 +343,10 @@ class Class_All:
 
     async def function_hitbtc(self, coin):
         coin = coin.upper()
-        if coin == "BTC":
+        if coin == "MIOTA":
+            coin = "IOTA"
+            api_url = self.hitbtc_api_url_btc.format(coin)
+        elif coin == "BTC":
             api_url = self.hitbtc_api_url_usdt.format(coin)
         else:
             api_url = self.hitbtc_api_url_btc.format(coin)
@@ -343,54 +359,54 @@ class Class_All:
                 if hitbtc_json["last"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(hitbtc_json["last"])
+                    last = "Last : {0:.8}\n".format(hitbtc_json["last"])
                 if hitbtc_json["bid"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(hitbtc_json["bid"])
+                    bid = "Bid : {0:.8}\n".format(hitbtc_json["bid"])
                 if hitbtc_json["ask"] is None:
                     ask = "Ask : Unknown\n"
                 else:
-                    ask = "Ask : {}\n".format(hitbtc_json["ask"])
+                    ask = "Ask : {0:.8}\n".format(hitbtc_json["ask"])
                 if hitbtc_json["volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(hitbtc_json["volume"])
+                    volume = "Volume : {0:.2} BTC\n".format(hitbtc_json["volume"])
                 if hitbtc_json["high"] is None:
                     high = "1 High : Unknown\n"
                 else:
-                    high = "1d High : {}\n".format(hitbtc_json["high"])
+                    high = "1d High : {0:.8}\n".format(hitbtc_json["high"])
                 if hitbtc_json["low"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : {}\n".format(hitbtc_json["low"])
+                    low = "1d Low : {0:.8}\n".format(hitbtc_json["low"])
                 value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
             else:
                 pair = "Pair : BTC-" + coin + "\n"
                 if hitbtc_json["last"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(hitbtc_json["last"])
+                    last = "Last : {0:.8}\n".format(hitbtc_json["last"])
                 if hitbtc_json["bid"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(hitbtc_json["bid"])
+                    bid = "Bid : {0:.8}\n".format(hitbtc_json["bid"])
                 if hitbtc_json["ask"] is None:
                     ask = "Ask : Unknown\n"
                 else:
-                    ask = "Ask : {}\n".format(hitbtc_json["ask"])
+                    ask = "Ask : {0:.8}\n".format(hitbtc_json["ask"])
                 if hitbtc_json["volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(hitbtc_json["volume"])
+                    volume = "Volume : {0:.2} BTC\n".format(hitbtc_json["volume"])
                 if hitbtc_json["high"] is None:
                     high = "1 High : Unknown\n"
                 else:
-                    high = "1d High : {}\n".format(hitbtc_json["high"])
+                    high = "1d High : {0:.8}\n".format(hitbtc_json["high"])
                 if hitbtc_json["low"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : {}\n".format(hitbtc_json["low"])
+                    low = "1d Low : {0:.8}\n".format(hitbtc_json["low"])
                 value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         else:
             value_hitbtc = "```css\n{} is not listed on HitBTC.\n```".format(self.name)
@@ -413,61 +429,61 @@ class Class_All:
                 if poloniex_json[self.key]["last"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(float(poloniex_json[self.key]["last"]))
+                    last = "Last : {0:.8f}\n".format(float(poloniex_json[self.key]["last"]))
                 if poloniex_json[self.key]["highestBid"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(float(poloniex_json[self.key]["highestBid"]))
+                    bid = "Bid : {0:.8f}\n".format(float(poloniex_json[self.key]["highestBid"]))
                 if poloniex_json[self.key]["lowestAsk"] is None:
                     ask = "Ask : Unknow\n"
                 else:
-                    ask = "Ask : {}\n".format(float(poloniex_json[self.key]["lowestAsk"]))
+                    ask = "Ask : {0:.8f}\n".format(float(poloniex_json[self.key]["lowestAsk"]))
                 if poloniex_json[self.key]["quoteVolume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(float(poloniex_json[self.key]["quoteVolume"]))
+                    volume = "Volume : {0:.2f} BTC\n".format(float(poloniex_json[self.key]["quoteVolume"]))
                 if poloniex_json[self.key]["high24hr"] is None:
                     high = "1d High : Unknown\n"
                 else:
-                    high = "1d High : {}\n".format(poloniex_json[self.key]["high24hr"])
+                    high = "1d High : {0:.8f}\n".format(poloniex_json[self.key]["high24hr"])
                 if poloniex_json[self.key]["low24hr"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : {}\n".format(poloniex_json[self.key]["low24hr"])
+                    low = "1d Low : {0:.8f}\n".format(poloniex_json[self.key]["low24hr"])
                 value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
             else:
                 pair = "Pair : " + self.key.replace("_", "-") + "\n"
                 if poloniex_json[self.key]["last"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(float(poloniex_json[self.key]["last"]))
+                    last = "Last : {0:.8}\n".format(float(poloniex_json[self.key]["last"]))
                 if poloniex_json[self.key]["highestBid"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(float(poloniex_json[self.key]["highestBid"]))
-
+                    bid = "Bid : {0:.8}\n".format(float(poloniex_json[self.key]["highestBid"]))
                 if poloniex_json[self.key]["lowestAsk"] is None:
                     ask = "Ask : Unknown\n"
                 else:
-                    ask = "Ask : {}\n".format(float(poloniex_json[self.key]["lowestAsk"]))
+                    ask = "Ask : {0:.8}\n".format(float(poloniex_json[self.key]["lowestAsk"]))
                 if poloniex_json[self.key]["quoteVolume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(poloniex_json[self.key]["quoteVolume"])
+                    volume = "Volume : {0:.2} BTC\n".format(poloniex_json[self.key]["quoteVolume"])
                 if poloniex_json[self.key]["high24hr"] is None:
                     high = "1d High : Unknown\n"
                 else:
-                    high = "1d High : {}\n".format(poloniex_json[self.key]["high24hr"])
+                    high = "1d High : {0:.8}\n".format(poloniex_json[self.key]["high24hr"])
                 if poloniex_json[self.key]["low24hr"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : {}\n".format(float(poloniex_json[self.key]["low24hr"]))
+                    low = "1d Low : {0:.8}\n".format(float(poloniex_json[self.key]["low24hr"]))
                 value_polo = "```css\n" + pair + volume + last + bid + ask + high + low + "\n```"
         except KeyError:
             value_polo = "```css\n{} is not listed on Poloniex.\n```".format(self.name)
         return value_polo
 
-    def function_display(self, cmc_value, bitfinex_value, bittrex_value, binance_value, cryptopia_value, hitbtc_value, poloniex_value):
+    def function_display_ok(self, cmc_value, bitfinex_value, bittrex_value, binance_value, cryptopia_value,
+                            hitbtc_value, poloniex_value):
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.add_field(name=":medal: CoinMarketCap Informations", value=cmc_value, inline=False)
@@ -481,14 +497,26 @@ class Class_All:
 
         return embed
 
-    async def all(self, coin):
+    def function_display_err(self, cmc_value):
+        embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
+                              timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed.add_field(name=":medal: CoinMarketCap Informations", value=cmc_value, inline=False)
+        embed.set_footer(text="Request achieved :")
 
+        return embed
+
+    async def all(self, coin):
         cmc_value = await self.function_cmc(coin)
-        bitfinex_value = await self.function_bitfinex(coin)
-        bittrex_value = await self.function_bittrex(coin)
-        binance_value = await self.function_binance(coin)
-        cryptopia_value = await self.function_cryptopia(coin)
-        hitbtc_value = await self.function_hitbtc(coin)
-        poloniex_value = await self.function_poloniex(coin)
-        embed = self.function_display(cmc_value, bitfinex_value, bittrex_value, binance_value, cryptopia_value, hitbtc_value, poloniex_value)
+        if cmc_value == "```css\nThis ticker does not exist on Coinmarketcap.\nMaybe you made a typo in the coin's ticker.```":
+            embed = self.function_display_err(cmc_value)
+        else:
+            bitfinex_value = await self.function_bitfinex(coin)
+            bittrex_value = await self.function_bittrex(coin)
+            binance_value = await self.function_binance(coin)
+            cryptopia_value = await self.function_cryptopia(coin)
+            hitbtc_value = await self.function_hitbtc(coin)
+            poloniex_value = await self.function_poloniex(coin)
+            embed = self.function_display_ok(cmc_value, bitfinex_value, bittrex_value, binance_value, cryptopia_value,
+                                             hitbtc_value, poloniex_value)
+
         return embed
