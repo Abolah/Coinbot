@@ -38,27 +38,27 @@ class Class_All:
             cmc_json = coinmarketcap.ticker(coin, convert="EUR")
             self.name = cmc_json["data"]["name"]
             rank = str("Rank : [Rank " + str(cmc_json["data"]["rank"]) + "]\n")
-            if cmc_json["data"]["market_cap_usd"] is None:
+            if cmc_json["data"]["quotes"]["USD"]["market_cap"] is None:
                 marketcap = "MarketCap : Unknown\n"
             else:
-                marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["data"]["market_cap_usd"])) + "\n")
+                marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["data"]["quotes"]["USD"]["market_cap"])) + "\n")
 
-            price = str("Price : ${0:.3f}".format(float(cmc_json["data"]["price_usd"])) + " | {0:.3f}€\n".format(
-                float(cmc_json["data"]["price_eur"])))
-            if cmc_json["data"]["percent_change_1h"] is None:
+            price = str("Price : ${0:.3f}".format(float(cmc_json["data"]["quotes"]["USD"]["price"])) + " | {0:.3f}€\n".format(
+                float(cmc_json["data"]["quotes"]["EUR"]["price"])))
+            if cmc_json["data"]["quotes"]["USD"]["percent_change_1h"] is None:
                 change_1 = "1h Swing : Unknown\n"
             else:
-                change_1 = str("1h Swing : " + str(cmc_json["data"]["percent_change_1h"]) + "%\n")
-            if cmc_json["data"]["percent_change_24h"] is None:
+                change_1 = str("1h Swing : " + str(cmc_json["data"]["quotes"]["USD"]["percent_change_1h"]) + "%\n")
+            if cmc_json["data"]["quotes"]["USD"]["percent_change_24h"] is None:
                 change_24 = "24h Swing : Unknown\n"
             else:
-                change_24 = str("24h Swing : " + str(cmc_json["data"]["percent_change_24h"]) + "%\n")
-            if cmc_json["data"]["percent_change_7d"] is None:
+                change_24 = str("24h Swing : " + str(cmc_json["data"]["quotes"]["USD"]["percent_change_24h"]) + "%\n")
+            if cmc_json["data"]["quotes"]["USD"]["percent_change_7d"] is None:
                 change_7 = "7 days Swing : Unknown\n"
             else:
-                change_7 = str("7 days Swing : " + str(cmc_json["data"]["percent_change_7d"]) + "%\n")
+                change_7 = str("7 days Swing : " + str(cmc_json["data"]["quotes"]["USD"]["percent_change_7d"]) + "%\n")
             value_mc = "```css\n" + rank + marketcap + price + change_1 + change_24 + change_7 + "```"
-        except KeyError:
+        except TypeError or KeyError:
             value_mc = "```css\nThis ticker does not exist on Coinmarketcap.\nMaybe you made a typo in the coin's ticker.```"
 
         return value_mc
@@ -92,7 +92,7 @@ class Class_All:
                 if bitfinex_json["volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(float(bitfinex_json["volume"]))
+                    volume = "Volume : {:,} BTC\n".format(float(bitfinex_json["volume"]))
                 if bitfinex_json["high"] is None:
                     high = "1d High : Unknown\n"
                 else:
@@ -119,7 +119,7 @@ class Class_All:
                 if bitfinex_json["volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(float(bitfinex_json["volume"]))
+                    volume = "Volume : {:,} BTC\n".format(float(bitfinex_json["volume"]))
                 if bitfinex_json["high"] is None:
                     high = "1d High : Unknown\n"
                 else:
@@ -148,7 +148,7 @@ class Class_All:
                 if bittrex_json["result"][0]["Volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(bittrex_json["result"][0]["Volume"])
+                    volume = "Volume : {:,} BTC\n".format(bittrex_json["result"][0]["Volume"])
                 if bittrex_json["result"][0]["Last"] is None:
                     last = "Last : Unknown\n"
                 else:
@@ -175,7 +175,7 @@ class Class_All:
                 if bittrex_json["result"][0]["Volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(bittrex_json["result"][0]["Volume"])
+                    volume = "Volume : {:,} BTC\n".format(bittrex_json["result"][0]["Volume"])
                 if bittrex_json["result"][0]["Last"] is None:
                     last = "Last : Unknown\n"
                 else:
@@ -231,7 +231,7 @@ class Class_All:
                 if binance_json["volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(float(binance_json["volume"]))
+                    volume = "Volume : {:,} BTC\n".format(float(binance_json["quoteVolume"]))
                 if binance_json["highPrice"] is None:
                     high = "1d High : Unknown\n"
                 else:
@@ -258,7 +258,7 @@ class Class_All:
                 if binance_json["volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(float(binance_json["volume"]))
+                    volume = "Volume : {:,} BTC\n".format(float(binance_json["quoteVolume"]))
                 if binance_json["highPrice"] is None:
                     high = "1d High : Unknown\n"
                 else:
@@ -300,7 +300,7 @@ class Class_All:
                 if topia_json["Data"]["Volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {0:.2f} BTC\n".format(topia_json["Data"]["Volume"])
+                    volume = "Volume : {:,} BTC\n".format(topia_json["Data"]["Volume"])
                 if topia_json["Data"]["High"] is None:
                     high = "1d High : Unknown\n"
                 else:
@@ -327,7 +327,7 @@ class Class_All:
                 if topia_json["Data"]["Volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {0:.2f} BTC\n".format(topia_json["Data"]["Volume"])
+                    volume = "Volume : {:,} BTC\n".format(topia_json["Data"]["Volume"])
                 if topia_json["Data"]["High"] is None:
                     high = "1d High : Unknown\n"
                 else:
@@ -368,10 +368,10 @@ class Class_All:
                     ask = "Ask : Unknown\n"
                 else:
                     ask = "Ask : {0:.8}\n".format(hitbtc_json["ask"])
-                if hitbtc_json["volume"] is None:
+                if hitbtc_json["volumeQuote"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {0:.2} BTC\n".format(hitbtc_json["volume"])
+                    volume = "Volume : {0:.2} BTC\n".format(hitbtc_json["volumeQuote"])
                 if hitbtc_json["high"] is None:
                     high = "1 High : Unknown\n"
                 else:
@@ -395,10 +395,10 @@ class Class_All:
                     ask = "Ask : Unknown\n"
                 else:
                     ask = "Ask : {0:.8}\n".format(hitbtc_json["ask"])
-                if hitbtc_json["volume"] is None:
+                if hitbtc_json["volumeQuote"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {0:.2} BTC\n".format(hitbtc_json["volume"])
+                    volume = "Volume : {:.2} BTC\n".format(hitbtc_json["volumeQuote"])
                 if hitbtc_json["high"] is None:
                     high = "1 High : Unknown\n"
                 else:
@@ -441,7 +441,7 @@ class Class_All:
                 if poloniex_json[self.key]["quoteVolume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {0:.2f} BTC\n".format(float(poloniex_json[self.key]["quoteVolume"]))
+                    volume = "Volume : {:,} BTC\n".format(float(poloniex_json[self.key]["quoteVolume"]))
                 if poloniex_json[self.key]["high24hr"] is None:
                     high = "1d High : Unknown\n"
                 else:

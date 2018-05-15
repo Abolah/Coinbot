@@ -15,7 +15,7 @@ logger.addHandler(handler)
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.Dc_FFA.oHkC7biKHY73J2vEwIQ4MCM1X_E"
+secret_token = ""
 
 # START of Discorbots.org code.
 dbltoken = ""

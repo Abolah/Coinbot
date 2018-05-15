@@ -13,16 +13,16 @@ class Class_Coinmarketcap:
         self.color = randint(0, 0xffffff)
         self.currency = "EUR"
         self.url_logo = "https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png"
-        self.cmc_global_api = "https://api.coinmarketcap.com/v1/global/"
+        self.cmc_global_api = "https://api.coinmarketcap.com/v2/global/?convert=EUR"
 
     async def function_cmcap(self):
         r = requests.get(self.cmc_global_api)
         cmc_json = r.json()
 
-        marketcap = "Market Cap = ${:,}".format(cmc_json["total_market_cap_usd"]) + "\n"
-        volume = "Market Volume : ${:,}".format(cmc_json["total_24h_volume_usd"]) + "\n"
-        dominance = "Bitcoin Dominance = " + str(cmc_json["bitcoin_percentage_of_market_cap"]) + "%\n"
-        active_markets = "Pairs : " + str(cmc_json["active_markets"]) + "\n"
+        marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["data"]["quotes"]["USD"]["total_market_cap"])) + "\n")
+        volume = "Market Volume : ${:,}".format(cmc_json["data"]["quotes"]["USD"]["total_volume_24h"]) + "\n"
+        dominance = "Bitcoin Dominance = " + str(cmc_json["data"]["bitcoin_percentage_of_market_cap"]) + "%\n"
+        active_markets = "Pairs : " + str(cmc_json["data"]["active_markets"]) + "\n"
         value = "```css\n" + marketcap + dominance + volume + active_markets + "```"
 
         return value
@@ -30,11 +30,11 @@ class Class_Coinmarketcap:
     async def function_btcap(self):
         coinmarketcap = Pymarketcap()
         cmc_btc = coinmarketcap.ticker("bitcoin", convert=self.currency)
-        price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_btc["price_usd"])) + " | " + "{0:.3f}".format(
-            float(cmc_btc["price_eur"])) + "€      \n")
-        volume = "24h Volume: "  "$ " + "{:,}".format(float(cmc_btc["24h_volume_usd"])) + "\n"
-        change_1 = "24h Swing : " + str(cmc_btc["percent_change_24h"]) + "%\n"
-        change_7 = "7 days Swing : " + str(cmc_btc["percent_change_7d"]) + "%\n\n"
+        print(cmc_btc)
+        price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_btc["data"]["quotes"]["USD"]["price"])) + " | " + "{0:.3f}".format(float(cmc_btc["data"]["quotes"]["EUR"]["price"])) + "€      \n")
+        volume = "24h Volume: "  "$ " + "{:,}".format(float(cmc_btc["data"]["quotes"]["USD"]["volume_24h"])) + "\n"
+        change_1 = "24h Swing : " + str(cmc_btc["data"]["quotes"]["USD"]["percent_change_24h"]) + "%\n"
+        change_7 = "7 days Swing : " + str(cmc_btc["data"]["quotes"]["USD"]["percent_change_7d"]) + "%\n\n"
         value_btc = "```css\n" + price + volume + change_1 + change_7 + "```"
 
         return value_btc
