@@ -19,14 +19,14 @@ class Class_Conv:
         return
 
     async def function_cmc(self, coin):
-
         self.coin = coin.upper()
         coinmarketcap = Pymarketcap()
         cmc_json = coinmarketcap.ticker(self.coin, convert="EUR")
+        btc_json = coinmarketcap.ticker(self.coin, convert="BTC")
 
-        self.price_usd = float(cmc_json["price_usd"])
-        self.price_eur = float(cmc_json["price_eur"])
-        self.price_btc = float(cmc_json["price_btc"])
+        self.price_usd = float(cmc_json["data"]["quotes"]["USD"]["price"])
+        self.price_eur = float(cmc_json["data"]["quotes"]["EUR"]["price"])
+        self.price_btc = float(btc_json["data"]["quotes"]["BTC"]["price"])
         return
 
     async def function_price_calc(self, qty):

@@ -16,7 +16,7 @@
     <SUITE FILE_PATH="coverage/CoinBot$CoinBot.coverage" NAME="CoinBot Coverage Results" MODIFIED="1523636586203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coinbot$Test.coverage" NAME="Test Coverage Results" MODIFIED="1519231643008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
     <SUITE FILE_PATH="coverage/CoinBot$Plotly.coverage" NAME="Plotly Coverage Results" MODIFIED="1521389596538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
-    <SUITE FILE_PATH="coverage/Coinbot$CoinBot.coverage" NAME="CoinBot Coverage Results" MODIFIED="1526391262577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Coinbot$CoinBot.coverage" NAME="CoinBot Coverage Results" MODIFIED="1526481520044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -35,8 +35,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="180">
+              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -88,9 +88,7 @@
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/dir_request_api/btc_file.py" />
         <option value="$PROJECT_DIR$/dir_request_api/top.py" />
-        <option value="$PROJECT_DIR$/dir_side_info/convert.py" />
         <option value="$PROJECT_DIR$/dir_side_info/order_file.py" />
-        <option value="$PROJECT_DIR$/dir_request_api/balance.py" />
         <option value="$PROJECT_DIR$/dir_side_info/name_file.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/dir_side_info/name.py" />
@@ -102,8 +100,6 @@
         <option value="$PROJECT_DIR$/dir_side_info/__init__.py" />
         <option value="$PROJECT_DIR$/dir_request_api/__init__.py" />
         <option value="$PROJECT_DIR$/dir_side_info/catalysts_file.py" />
-        <option value="$PROJECT_DIR$/dir_side_info/welcome.py" />
-        <option value="$PROJECT_DIR$/dir_request_api/mexbook.py" />
         <option value="$PROJECT_DIR$/dir_request_api/whale_file.py" />
         <option value="$PROJECT_DIR$/dir_side_info/bot_file.py" />
         <option value="$PROJECT_DIR$/coinbot_conf.py" />
@@ -119,6 +115,10 @@
         <option value="$PROJECT_DIR$/dir_side_info/informations_file.py" />
         <option value="$PROJECT_DIR$/dir_side_info/updates.py" />
         <option value="$PROJECT_DIR$/dir_request_api/all.py" />
+        <option value="$PROJECT_DIR$/dir_side_info/convert.py" />
+        <option value="$PROJECT_DIR$/dir_side_info/welcome.py" />
+        <option value="$PROJECT_DIR$/dir_request_api/balance.py" />
+        <option value="$PROJECT_DIR$/dir_request_api/mexbook.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -144,7 +144,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -155,12 +154,18 @@
             <path>
               <item name="Coinbot" type="b2602c69:ProjectViewProjectNode" />
               <item name="Coinbot" type="462c0819:PsiDirectoryNode" />
+              <item name="dir_request_api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Coinbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Coinbot" type="462c0819:PsiDirectoryNode" />
               <item name="dir_side_info" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -238,7 +243,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4921875" weight="0.30495688" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="right" id="JSON Viewer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.1296" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.13226667" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" weight="0.32982087" />
       <window_info anchor="right" id="JSON Utils" order="7" weight="0.3296" />
       <window_info anchor="right" id="Database" order="4" />
@@ -273,7 +278,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <option name="time" value="21" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -293,20 +298,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dir_request_api/top.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="79" column="61" selection-start-line="79" selection-start-column="61" selection-end-line="79" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dir_side_info/convert.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="41" column="72" selection-start-line="41" selection-start-column="72" selection-end-line="41" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -353,20 +344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dir_side_info/welcome.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dir_request_api/mexbook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coinbot_conf.py" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -385,27 +362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dir_request_api/balance.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dir_side_info/bot_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="22" column="108" selection-start-line="22" selection-start-column="108" selection-end-line="22" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dir_side_info/doge_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dir_request_api/binance.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="723">
@@ -413,13 +369,6 @@
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dir_request_api/bitfinex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -461,13 +410,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dir_request_api/whale_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dir_side_info/informations_file.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -482,20 +424,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dir_side_info/welcome.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_side_info/convert.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="28" column="74" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="28" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_request_api/balance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="75" column="37" lean-forward="true" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_request_api/mexbook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dir_request_api/all.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="373" column="49" lean-forward="true" selection-start-line="373" selection-start-column="49" selection-end-line="373" selection-end-column="49" />
+        <state relative-caret-position="396">
+          <caret line="46" column="64" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="64" />
           <folding>
-            <element signature="e#1552#3463#0" />
+            <element signature="e#167#1502#0" />
+            <element signature="e#3518#6796#0" />
+            <element signature="e#6850#10190#0" />
+            <element signature="e#10244#13573#0" />
+            <element signature="e#13629#16960#0" />
+            <element signature="e#17013#20192#0" />
+            <element signature="e#20247#23820#0" />
+            <element signature="e#23997#24946#0" />
+            <element signature="e#25003#25348#0" />
+            <element signature="e#25389#26223#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_request_api/bitfinex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_request_api/whale_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-87">
+          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_side_info/bot_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="22" column="108" selection-start-line="22" selection-start-column="108" selection-end-line="22" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_request_api/top.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="908">
+          <caret line="79" column="61" selection-start-line="79" selection-start-column="61" selection-end-line="79" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_side_info/doge_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="180">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
         </state>
       </provider>
     </entry>
