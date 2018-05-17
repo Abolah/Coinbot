@@ -30,7 +30,6 @@ class Class_Coinmarketcap:
     async def function_btcap(self):
         coinmarketcap = Pymarketcap()
         cmc_btc = coinmarketcap.ticker("bitcoin", convert=self.currency)
-        print(cmc_btc)
         price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_btc["data"]["quotes"]["USD"]["price"])) + " | " + "{0:.3f}".format(float(cmc_btc["data"]["quotes"]["EUR"]["price"])) + "€      \n")
         volume = "24h Volume: "  "$ " + "{:,}".format(float(cmc_btc["data"]["quotes"]["USD"]["volume_24h"])) + "\n"
         change_1 = "24h Swing : " + str(cmc_btc["data"]["quotes"]["USD"]["percent_change_24h"]) + "%\n"

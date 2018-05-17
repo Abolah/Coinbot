@@ -19,11 +19,12 @@ class Class_Name:
         self.coin = coin.upper()
         coin = coin.upper()
         coinmarketcap = Pymarketcap()
-        cmc_json = coinmarketcap.ticker(coin, convert="EUR")
-        self.btc_price = cmc_json["price_btc"]
-        self.usd_price = cmc_json["price_usd"]
-        self.eur_price = cmc_json["price_eur"]
-        self.name = cmc_json["name"]
+        eur_json = coinmarketcap.ticker(coin, convert="EUR")
+        btc_json = coinmarketcap.ticker(coin, convert="BTC")
+        self.btc_price = btc_json["data"]["quotes"]["BTC"]["price"]
+        self.usd_price = eur_json["data"]["quotes"]["USD"]["price"]
+        self.eur_price = eur_json["data"]["quotes"]["EUR"]["price"]
+        self.name = eur_json["data"]["name"]
 
     def display(self):
         data = "```css\nThe coin " + self.coin + " has for name " + self.name + "\nThe BTC value is about : " + str(
