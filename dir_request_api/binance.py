@@ -3,7 +3,7 @@ import datetime
 import discord
 from random import randint
 import requests
-from dir_request_api import all
+
 
 
 class Class_Binance:

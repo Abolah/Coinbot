@@ -32,11 +32,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
               <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="binance.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dir_request_api/binance.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,7 +114,6 @@
         <option value="$PROJECT_DIR$/dir_request_api/whale_file.py" />
         <option value="$PROJECT_DIR$/coinbot_conf.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/dir_request_api/binance.py" />
         <option value="$PROJECT_DIR$/dir_request_api/bitfinex.py" />
         <option value="$PROJECT_DIR$/dir_request_api/bittrex.py" />
         <option value="$PROJECT_DIR$/dir_request_api/cryptopia.py" />
@@ -120,6 +131,7 @@
         <option value="$PROJECT_DIR$/dir_request_api/balance.py" />
         <option value="$PROJECT_DIR$/dir_side_info/informations_file.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/dir_request_api/binance.py" />
       </list>
     </option>
   </component>
@@ -243,11 +255,10 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4921875" weight="0.30495688" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="right" id="JSON Viewer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.13386667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.13546667" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" weight="0.32982087" />
       <window_info anchor="right" id="JSON Utils" order="7" weight="0.3296" />
       <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="SciView" order="5" />
       <window_info id="Structure" order="1" sideWeight="0.5021552" side_tool="true" weight="0.11727079" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -258,6 +269,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Data View" order="6" />
     </layout>
   </component>
@@ -343,16 +355,6 @@
           <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dir_request_api/binance.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="723">
-          <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -515,6 +517,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_request_api/binance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
