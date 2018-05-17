@@ -3,7 +3,6 @@ import datetime
 import discord
 import random
 import requests
-import json
 
 
 class Class_Doge:

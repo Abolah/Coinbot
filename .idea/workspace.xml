@@ -41,13 +41,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="binance.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dir_request_api/binance.py">
+      <file leaf-file-name="doge_file.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dir_side_info/doge_file.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="107">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -126,12 +126,12 @@
         <option value="$PROJECT_DIR$/dir_request_api/mexbook.py" />
         <option value="$PROJECT_DIR$/dir_request_api/coinmarketcap.py" />
         <option value="$PROJECT_DIR$/dir_side_info/bot_file.py" />
-        <option value="$PROJECT_DIR$/dir_side_info/doge_file.py" />
         <option value="$PROJECT_DIR$/dir_side_info/name.py" />
         <option value="$PROJECT_DIR$/dir_request_api/balance.py" />
         <option value="$PROJECT_DIR$/dir_side_info/informations_file.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/dir_request_api/binance.py" />
+        <option value="$PROJECT_DIR$/dir_side_info/doge_file.py" />
       </list>
     </option>
   </component>
@@ -255,7 +255,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4921875" weight="0.30495688" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="right" id="JSON Viewer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.13546667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.13706666" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" weight="0.32982087" />
       <window_info anchor="right" id="JSON Utils" order="7" weight="0.3296" />
       <window_info anchor="right" id="Database" order="4" />
@@ -471,13 +471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dir_side_info/doge_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dir_side_info/name.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -513,6 +506,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dir_request_api/binance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -520,12 +523,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dir_request_api/binance.py">
+    <entry file="file://$PROJECT_DIR$/dir_side_info/doge_file.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="107">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

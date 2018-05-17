@@ -5,7 +5,6 @@ from random import randint
 import requests
 
 
-
 class Class_Binance:
     def __init__(self, auth):
         self.auth = str(auth).split("#")
