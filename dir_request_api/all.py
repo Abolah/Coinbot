@@ -258,7 +258,7 @@ class Class_All:
                 if binance_json["volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {:,.2f} BTC\n".format(float(binance_json["volume"]))
+                    volume = "Volume : {:,.2f} BTC\n".format(float(binance_json["quoteVolume"]))
                 if binance_json["highPrice"] is None:
                     high = "1d High : Unknown\n"
                 else:
