@@ -3,22 +3,22 @@ import datetime
 import discord
 import random
 import requests
-import json
 
 
 class Class_Doge:
     def __init__(self):
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
+        self.cmc_url = "https://api.coinmarketcap.com/v2/ticker/74/?convert=EUR"
+        self.cmc_btc_url = "https://api.coinmarketcap.com/v2/ticker/74/?convert=BTC"
         return
 
     def function_display(self):
-        priceURL = "https://api.coinmarketcap.com/v1/ticker/dogecoin/?convert=EUR"
-        paramprice = "price_usd"
-        resp = requests.get(url=priceURL, params=paramprice)
-        data = json.loads(resp.text)
-        price = "```css\n" + "Price : " + "{0:.3f}".format(
-            float(data[0]["price_usd"])) + "$  |  {0:.8f} BTC\n".format(float(data[0]["price_btc"])) + "Target : Moon" + "```"
+        r = requests.get(self.cmc_url)
+        cmc_json = r.json()
+        r_btc = requests.get(self.cmc_btc_url)
+        btc_json = r_btc.json()
+        price = "```css\n" + "Price : " + "${0:.3f}".format(float(cmc_json["data"]["quotes"]["USD"]["price"])) +" |  {0:.8f} BTC\n".format(float(btc_json["data"]["quotes"]["BTC"]["price"])) + "Target : Moon" + "```"
 
         haiku1 = "Roses are red, Violet are blue.\nAll IN DOGE, he will never fail you."
         haiku2 = "Roses are red, Violet are blue.\nIf you question DOGE, Burn will do you."

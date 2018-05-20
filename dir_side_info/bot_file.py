@@ -18,7 +18,7 @@ class Class_Bot:
         embed.set_author(name="Abolah", url="https://twitter.com/Abolaah",
                          icon_url="https://vignette.wikia.nocookie.net/epicrapbattlesofhistory/images/e/eb/Deal_with_it_rainbow_style_by_j_brony-d4cwgad.png")
         embed.add_field(name=":star2:Do you like my work ? :star2:",
-                        value="```You can donate to theses addresses:\nETH(ERC20 friendly) : abowallet.eth\nBTC  : 1jc3V3T5mefuD9asa7en976NKVGssQuMq\nDOGE : D9zKYJgqnTWcu8ZCVzzKrqQkjzwuhymHh9\nLTC  : LQS415ftVrkSjjmFUyKNVBhY1fJzFLSKaz\nDash : XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz```")
+                        value="```You can donate to theses addresses:\nETH(ERC20 friendly) : abowallet.eth\nBTC  : 1jc3V3T5mefuD9asa7en976NKVGssQuMq\nLTC  : LQS415ftVrkSjjmFUyKNVBhY1fJzFLSKaz\nDash : XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz```")
         embed.add_field(name=":information_source: Do you need help ? :information_source:",
                         value="```Send me a message at :\n@Abolah#1337 on Discord\n@Abolaah on Twitter.```")
         embed.add_field(name="CoinBot is famous !",

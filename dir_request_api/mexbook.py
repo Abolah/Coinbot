@@ -20,16 +20,34 @@ class Class_BitmexOrderBook:
     @staticmethod
     def function_cmc():
         coin = "BTC"
-        coinmarketcap = Pymarketcap()
-        cmc_json = coinmarketcap.ticker(coin, convert="EUR")
-        rank = str("Rank : [Rank " + str(cmc_json["rank"]) + "]\n")
-        marketcap = str("MC : " + "$" + "{:,}".format(float(cmc_json["market_cap_usd"])) + "\n")
-        price = str("Price : " + "$" + "{0:.3f}".format(float(cmc_json["price_usd"])) + " | " + "{0:.3f}".format(
-            float(cmc_json["price_eur"])) + "€      \n")
-        change_1 = str("1h Swing : " + str(cmc_json["percent_change_1h"]) + "%\n")
-        change_24 = str("24h Swing : " + str(cmc_json["percent_change_24h"]) + "%\n")
-        change_7 = str("7 days Swing : " + str(cmc_json["percent_change_7d"]) + "%\n")
-        value_mc = "```css\n" + rank + marketcap + price + change_1 + change_24 + change_7 + "```"
+        coinmarketcap = Pymarketcap(timeout=10)
+        try:
+            cmc_json = coinmarketcap.ticker(coin, convert="EUR")
+            rank = str("Rank : [Rank " + str(cmc_json["data"]["rank"]) + "]\n")
+            if cmc_json["data"]["quotes"]["USD"]["market_cap"] is None:
+                marketcap = "MarketCap : Unknown\n"
+            else:
+                marketcap = str(
+                    "MC : " + "$" + "{:,}".format(float(cmc_json["data"]["quotes"]["USD"]["market_cap"])) + "\n")
+
+            price = str(
+                "Price : ${0:.3f}".format(float(cmc_json["data"]["quotes"]["USD"]["price"])) + " | {0:.3f}€\n".format(
+                    float(cmc_json["data"]["quotes"]["EUR"]["price"])))
+            if cmc_json["data"]["quotes"]["USD"]["percent_change_1h"] is None:
+                change_1 = "1h Swing : Unknown\n"
+            else:
+                change_1 = str("1h Swing : " + str(cmc_json["data"]["quotes"]["USD"]["percent_change_1h"]) + "%\n")
+            if cmc_json["data"]["quotes"]["USD"]["percent_change_24h"] is None:
+                change_24 = "24h Swing : Unknown\n"
+            else:
+                change_24 = str("24h Swing : " + str(cmc_json["data"]["quotes"]["USD"]["percent_change_24h"]) + "%\n")
+            if cmc_json["data"]["quotes"]["USD"]["percent_change_7d"] is None:
+                change_7 = "7 days Swing : Unknown\n"
+            else:
+                change_7 = str("7 days Swing : " + str(cmc_json["data"]["quotes"]["USD"]["percent_change_7d"]) + "%\n")
+            value_mc = "```css\n" + rank + marketcap + price + change_1 + change_24 + change_7 + "```"
+        except TypeError or KeyError:
+            value_mc = "```css\nThis ticker does not exist on Coinmarketcap.\nMaybe you made a typo in the coin's ticker.```"
 
         return value_mc
 

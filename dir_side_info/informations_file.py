@@ -46,7 +46,11 @@ class Class_Info:
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.set_footer(text="Request achieved :")
+<<<<<<< HEAD
         embed.add_field(name=":hammer: Version", value="3.6", inline=False)
+=======
+        embed.add_field(name=":hammer: Version", value="3.5.1", inline=False)
+>>>>>>> master
         embed.add_field(name=":moneybag: Exchanges Commands", value=data_info)
         embed.add_field(name=":money_with_wings: Coins Commands", value=coins_info)
         embed.add_field(name=":robot: Side Commands", value=side_info)

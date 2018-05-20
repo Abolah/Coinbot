@@ -24,19 +24,22 @@ class Class_Balance:
         self.eth_balance = "None"
         self.btc_balance = "None"
         self.tokens = "None"
-        self.error = "None"
+        self.error = "Your Balance equals 0"
         return
 
-    def function_cmc(self):
-        coin = self.coin.upper()
+    def function_cmc(self, coin):
+        self.coin = coin.upper()
         coinmarketcap = Pymarketcap()
-        cmc_json = coinmarketcap.ticker(coin, convert="EUR")
-        self.price_usd = float(cmc_json["price_usd"])
-        self.price_eur = float(cmc_json["price_eur"])
-        self.price_btc = float(cmc_json["price_btc"])
+        cmc_json = coinmarketcap.ticker(self.coin, convert="EUR")
+        btc_json = coinmarketcap.ticker(self.coin, convert="BTC")
+
+        self.price_usd = float(cmc_json["data"]["quotes"]["USD"]["price"])
+        self.price_eur = float(cmc_json["data"]["quotes"]["EUR"]["price"])
+        self.price_btc = float(btc_json["data"]["quotes"]["BTC"]["price"])
         return
 
     def function_getbalance_eth(self):
+        self.coin = self.coin.lower()
         url = self.eth_blockchain_url.format(self.address, self.etherscan_api_key)
         r = requests.get(url)
         eth_value = r.json()
@@ -50,6 +53,7 @@ class Class_Balance:
         return
 
     def function_getbalance_btc(self):
+        self.coin = self.coin.lower()
         url = self.btc_blockchain_url.format(self.address)
         r = requests.get(url)
         btc_value = r.json()
@@ -99,12 +103,12 @@ class Class_Balance:
     async def balance(self, coin, address):
         self.coin = coin.lower()
         if self.coin == "eth":
-            self.function_cmc()
+            self.function_cmc(coin)
             self.address = address.lower()
             self.function_getbalance_eth()
             embed = self.function_display()
         elif self.coin == "btc":
-            self.function_cmc()
+            self.function_cmc(coin)
             self.address = address
             self.function_getbalance_btc()
             embed = self.function_display()

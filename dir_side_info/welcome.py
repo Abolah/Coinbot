@@ -14,7 +14,6 @@ class Class_On_join:
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.add_field(name="Nice to meet you :)",
                         value="```I'm Coinbot, you personal cryptocurrencies assistant.\nTo get started just type the `!infos` command.\nYou might also want to know about the latest updates. Just use the `!updates`command for this.\nAnd finally, the `!bot`command will give you some informations about me.```")
-
         return embed
 
     async def function_welcome(self):
