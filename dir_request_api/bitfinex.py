@@ -73,54 +73,54 @@ class Class_Bitfinex:
                 if bitfinex_json["last_price"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(float(bitfinex_json["last_price"]))
+                    last = "Last : {:,.0f}\n".format(float(bitfinex_json["last_price"]))
                 if bitfinex_json["bid"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(float(bitfinex_json["bid"]))
+                    bid = "Bid : {:,.0f}\n".format(float(bitfinex_json["bid"]))
                 if bitfinex_json["ask"] is None:
                     ask = "Ask : Unknown\n"
                 else:
-                    ask = "Ask : {}\n".format(float(bitfinex_json["ask"]))
+                    ask = "Ask : {:,.0f}\n".format(float(bitfinex_json["ask"]))
                 if bitfinex_json["volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(float(bitfinex_json["volume"]))
+                    volume = "Volume : {:,.2f} BTC\n".format(float(bitfinex_json["volume"]))
                 if bitfinex_json["high"] is None:
                     high = "1d High : Unknown\n"
                 else:
-                    high = "1d High : {}\n".format(float(bitfinex_json["high"]))
+                    high = "1d High : {:,.0f}\n".format(float(bitfinex_json["high"]))
                 if bitfinex_json["low"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : {}\n".format(float(bitfinex_json["low"]))
+                    low = "1d Low : {:,.0f}\n".format(float(bitfinex_json["low"]))
                 value_finex = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
             else:
                 pair = "Pair : BTC-" + coin.upper() + "\n"
                 if bitfinex_json["last_price"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(float(bitfinex_json["last_price"]))
+                    last = "Last : {:,.0f} sats\n".format(float(bitfinex_json["last_price"]) / 0.00000001)
                 if bitfinex_json["bid"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(float(bitfinex_json["bid"]))
+                    bid = "Bid : {:,.0f} sats\n".format(float(bitfinex_json["bid"]) / 0.00000001)
                 if bitfinex_json["ask"] is None:
                     ask = "Ask : Unknown\n"
                 else:
-                    ask = "Ask : {}\n".format(float(bitfinex_json["ask"]))
+                    ask = "Ask : {:,.0f} sats\n".format(float(bitfinex_json["ask"]) / 0.00000001)
                 if bitfinex_json["volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(float(bitfinex_json["volume"]))
+                    volume = "Volume : {:,.2f} BTC\n".format(float(bitfinex_json["volume"]))
                 if bitfinex_json["high"] is None:
                     high = "1d High : Unknown\n"
                 else:
-                    high = "1d High : {}\n".format(float(bitfinex_json["high"]))
+                    high = "1d High : {:,.0f} sats\n".format(float(bitfinex_json["high"]) / 0.00000001)
                 if bitfinex_json["low"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : {}\n".format(float(bitfinex_json["low"]))
+                    low = "1d Low : {:,.0f} sats\n".format(float(bitfinex_json["low"]) / 0.00000001)
                 value_finex = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         else:
             value_finex = "```css\n{} is not listed on Bitfinex.\n```".format(self.name)

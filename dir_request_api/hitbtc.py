@@ -57,11 +57,13 @@ class Class_HitBTC:
 
     def function_hitbtc(self, coin):
         coin = coin.upper()
-        if coin == "BTC":
-            api_url = self.hitbtc_api_url_usd.format(coin)
+        if coin == "MIOTA":
+            coin = "IOTA"
+            api_url = self.hitbtc_api_url_btc.format(coin)
+        elif coin == "BTC":
+            api_url = self.hitbtc_api_url_usdt.format(coin)
         else:
             api_url = self.hitbtc_api_url_btc.format(coin)
-
         r = requests.get(api_url)
         hitbtc_json = r.json()
 
@@ -71,58 +73,57 @@ class Class_HitBTC:
                 if hitbtc_json["last"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(hitbtc_json["last"])
+                    last = "Last : {:,.0f}\n".format(float(hitbtc_json["last"]))
                 if hitbtc_json["bid"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(hitbtc_json["bid"])
+                    bid = "Bid : {:,.0f}\n".format(float(hitbtc_json["bid"]))
                 if hitbtc_json["ask"] is None:
                     ask = "Ask : Unknown\n"
                 else:
-                    ask = "Ask : {}\n".format(hitbtc_json["ask"])
-                if hitbtc_json["volume"] is None:
+                    ask = "Ask : {:,}\n".format(float(hitbtc_json["ask"]))
+                if hitbtc_json["volumeQuote"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(hitbtc_json["volume"])
+                    volume = "Volume : {:,.2f} BTC\n".format(float(hitbtc_json["volumeQuote"]))
                 if hitbtc_json["high"] is None:
                     high = "1 High : Unknown\n"
                 else:
-                    high = "1d High : {}\n".format(hitbtc_json["high"])
+                    high = "1d High : {:,.0f}\n".format(float(hitbtc_json["high"]))
                 if hitbtc_json["low"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : {}\n".format(hitbtc_json["low"])
+                    low = "1d Low : {:,.0f}\n".format(float(hitbtc_json["low"]))
                 value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
             else:
                 pair = "Pair : BTC-" + coin + "\n"
                 if hitbtc_json["last"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(hitbtc_json["last"])
+                    last = "Last : {:,.0f} sats\n".format(float(hitbtc_json["last"]) / 0.00000001)
                 if hitbtc_json["bid"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(hitbtc_json["bid"])
+                    bid = "Bid : {:,.0f} sats\n".format(float(hitbtc_json["bid"]) / 0.00000001)
                 if hitbtc_json["ask"] is None:
                     ask = "Ask : Unknown\n"
                 else:
-                    ask = "Ask : {}\n".format(hitbtc_json["ask"])
-                if hitbtc_json["volume"] is None:
+                    ask = "Ask : {:,.0f} sats\n".format(float(hitbtc_json["ask"]) / 0.00000001)
+                if hitbtc_json["volumeQuote"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(hitbtc_json["volume"])
+                    volume = "Volume : {:,.2f} BTC\n".format(float(hitbtc_json["volumeQuote"]))
                 if hitbtc_json["high"] is None:
                     high = "1 High : Unknown\n"
                 else:
-                    high = "1d High : {}\n".format(hitbtc_json["high"])
+                    high = "1d High : {:,.0f} sats\n".format(float(hitbtc_json["high"]) / 0.00000001)
                 if hitbtc_json["low"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : {}\n".format(hitbtc_json["low"])
+                    low = "1d Low : {:,.0f} sats\n".format(float(hitbtc_json["low"]) / 0.00000001)
                 value_hitbtc = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         else:
             value_hitbtc = "```css\n{} is not listed on HitBTC.\n```".format(self.name)
-
         return value_hitbtc
 
     def function_display_ok(self, value_mc, value_hitbtc):

@@ -69,58 +69,57 @@ class Class_Bittrex:
                 if bittrex_json["result"][0]["Volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(bittrex_json["result"][0]["Volume"])
+                    volume = "Volume : {:,.2f} BTC\n".format(float(bittrex_json["result"][0]["Volume"]))
                 if bittrex_json["result"][0]["Last"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(bittrex_json["result"][0]["Last"])
+                    last = "Last : {:,.0f}\n".format(float(bittrex_json["result"][0]["Last"]))
                 if bittrex_json["result"][0]["Bid"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(bittrex_json["result"][0]["Bid"])
+                    bid = "Bid : {:,.0f}\n".format(float(bittrex_json["result"][0]["Bid"]))
                 if bittrex_json["result"][0]["Ask"] is None:
                     ask = "Ask : Unknown\n"
                 else:
-                    ask = "Ask : {}\n".format(bittrex_json["result"][0]["Ask"])
+                    ask = "Ask : {:,.0f}\n".format(float(bittrex_json["result"][0]["Ask"]))
                 if bittrex_json["result"][0]["Low"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : {}\n".format(bittrex_json["result"][0]["Low"])
+                    low = "1d Low : {:,.0f}\n".format(float(bittrex_json["result"][0]["Low"]))
                 if bittrex_json["result"][0]["High"] is None:
                     high = "1d High : Unknown\n"
                 else:
-                    high = "1d High : {}\n".format(bittrex_json["result"][0]["High"])
+                    high = "1d High : {:,.0f}\n".format(float(bittrex_json["result"][0]["High"]))
                 value_rex = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
             else:
                 pair = "Pair : BTC-" + coin.upper() + "\n"
                 if bittrex_json["result"][0]["Volume"] is None:
                     volume = "Volume : Unknown\n"
                 else:
-                    volume = "Volume : {} BTC\n".format(bittrex_json["result"][0]["Volume"])
+                    volume = "Volume : {:,.2f} BTC\n".format(float(bittrex_json["result"][0]["Volume"]))
                 if bittrex_json["result"][0]["Last"] is None:
                     last = "Last : Unknown\n"
                 else:
-                    last = "Last : {}\n".format(bittrex_json["result"][0]["Last"])
+                    last = "Last : {:,.0f} sats\n".format(float(bittrex_json["result"][0]["Last"]) / 0.00000001)
                 if bittrex_json["result"][0]["Bid"] is None:
                     bid = "Bid : Unknown\n"
                 else:
-                    bid = "Bid : {}\n".format(bittrex_json["result"][0]["Bid"])
+                    bid = "Bid : {:,.0f} sats\n".format(float(bittrex_json["result"][0]["Bid"]) / 0.00000001)
                 if bittrex_json["result"][0]["Ask"] is None:
                     ask = "Ask : Unknown\n"
                 else:
-                    ask = "Ask : {}\n".format(bittrex_json["result"][0]["Ask"])
+                    ask = "Ask : {:,.0f} sats\n".format(float(bittrex_json["result"][0]["Ask"]) / 0.00000001)
                 if bittrex_json["result"][0]["Low"] is None:
                     low = "1d Low : Unknown\n"
                 else:
-                    low = "1d Low : {}\n".format(bittrex_json["result"][0]["Low"])
+                    low = "1d Low : {:,.0f} sats\n".format(float(bittrex_json["result"][0]["Low"]) / 0.00000001)
                 if bittrex_json["result"][0]["High"] is None:
                     high = "1d High : Unknown\n"
                 else:
-                    high = "1d High : {}\n".format(bittrex_json["result"][0]["High"])
+                    high = "1d High : {:,.0f} sats\n".format(float(bittrex_json["result"][0]["High"]) / 0.00000001)
                 value_rex = "```css\n" + pair + volume + last + bid + ask + high + low + "```"
         else:
             value_rex = "```css\n{} is not listed on Bittrex. ```".format(self.name)
-
         return value_rex
 
     def function_display_ok(self, value_mc, value_rex):
