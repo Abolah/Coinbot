@@ -12,6 +12,7 @@ class Class_Binance:
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         self.name = "None"
+        self.id = "None"
         self.default_ticker = "BTC"
         self.default_print = "Default Print"
         self.binance_api_url_btc = "https://www.binance.com/api/v1/ticker/24hr?symbol={}BTC"
@@ -27,6 +28,7 @@ class Class_Binance:
         coinmarketcap = Pymarketcap(timeout=10)
         try:
             cmc_json = coinmarketcap.ticker(coin, convert="EUR")
+            self.id = cmc_json["data"]["id"]
             self.name = cmc_json["data"]["name"]
             rank = str("Rank : [Rank " + str(cmc_json["data"]["rank"]) + "]\n")
             if cmc_json["data"]["quotes"]["USD"]["market_cap"] is None:
@@ -131,6 +133,7 @@ class Class_Binance:
     def function_display_ok(self, value_mc, value_bin):
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed.set_thumbnail(url="https://s2.coinmarketcap.com/static/img/coins/32x32/{}.png".format(self.id))
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=True)
         embed.add_field(name=":game_die: Binance Informations", value=value_bin, inline=False)
         embed.set_footer(text="Request achieved :")

@@ -80,6 +80,7 @@ class Class_Topcoin:
     async def function_format_display(self, side, win, lose):
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed.set_thumbnail(url="https://lh3.googleusercontent.com/uZCnvLDpbtQB1KLbM-AGWLhx7W-MxaUmBUOup5VV9y100zE9DXZ8tY_GIEcd8LQ9QhsI=w300")
         embed.add_field(name=":chart_with_upwards_trend: Top Win 24h", value=win)
         embed.add_field(name=":chart_with_downwards_trend: Top Lose 24h", value=lose)
         embed.add_field(name=":information_source: Additional Informations", value=side)

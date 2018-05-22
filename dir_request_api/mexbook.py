@@ -70,6 +70,7 @@ class Class_BitmexOrderBook:
         order_book_sell = "```css\n" + self.book_sell + "```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed.set_thumbnail(url="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fcoin-street.com%2Fimg-contents%2Flogo%2FBitMex%2FWeb%2Flogo.png&f=1")
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=False)
         embed.add_field(name=":octopus: Bitmex OrderBook Buy", value=order_book_buy, inline=True)
         embed.add_field(name=":octopus: Bitmex OrderBook Sell", value=order_book_sell, inline=True)

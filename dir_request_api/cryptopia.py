@@ -12,6 +12,7 @@ class Class_Cryptopia:
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         self.name = "None"
+        self.id = "None"
         self.default_ticker = "BTC"
         self.default_print = "Default Print"
         self.cryptopia_api_url_btc = "https://www.cryptopia.co.nz/api/GetMarket/{}_BTC"
@@ -27,6 +28,7 @@ class Class_Cryptopia:
         try:
             cmc_json = coinmarketcap.ticker(coin, convert="EUR")
             self.name = cmc_json["data"]["name"]
+            self.id = cmc_json["data"]["id"]
             rank = str("Rank : [Rank " + str(cmc_json["data"]["rank"]) + "]\n")
             if cmc_json["data"]["quotes"]["USD"]["market_cap"] is None:
                 marketcap = "MarketCap : Unknown\n"
@@ -126,6 +128,7 @@ class Class_Cryptopia:
     def function_display_ok(self, value_mc, value_topia):
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed.set_thumbnail(url="https://s2.coinmarketcap.com/static/img/coins/32x32/{}.png".format(self.id))
         embed.add_field(name=":medal: CoinMarketCap Informations", value=value_mc, inline=True)
         embed.add_field(name=":space_invader: Cryptopia Informations", value=value_topia, inline=False)
         embed.set_footer(text="Request achieved :")

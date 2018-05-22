@@ -108,6 +108,7 @@ class Class_bitcoin:
         value = "```css\n" + value + " ```"
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed.set_thumbnail(url="https://s2.coinmarketcap.com/static/img/coins/32x32/1.png")
         embed.add_field(name=":trophy: Informations about Bitcoin", value=value, inline=False)
         embed.add_field(name=" :flag_mp: Informations about the other Exchanges", value=value_other)
         embed.set_footer(text="Request achieved :")

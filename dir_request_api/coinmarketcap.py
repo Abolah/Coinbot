@@ -41,6 +41,7 @@ class Class_Coinmarketcap:
     async def display(self, value, value_btc):
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed.set_thumbnail(url="https://lh3.googleusercontent.com/uZCnvLDpbtQB1KLbM-AGWLhx7W-MxaUmBUOup5VV9y100zE9DXZ8tY_GIEcd8LQ9QhsI=w300")
         embed.add_field(name=":trophy: CoinMarketCap Informations", value=value)
         embed.add_field(name=":medal: Bitcoin Informations", value=value_btc, inline=True)
         embed.set_footer(text="Request achieved :")

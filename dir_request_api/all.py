@@ -12,6 +12,7 @@ class Class_All:
         self.time = datetime.datetime.now().timestamp()
         self.color = randint(0, 0xffffff)
         self.name = "None"
+        self.id = "None"
         self.bitfinex_api_url_btc = "https://api.bitfinex.com/v1/pubticker/{}btc"
         self.bitfinex_api_url_usdt = "https://api.bitfinex.com/v1/pubticker/btcusd"
         self.bitfinex_url_status = "https://api.bitfinex.com/v2/platform/status"
@@ -40,6 +41,7 @@ class Class_All:
         coinmarketcap = Pymarketcap(timeout=10)
         try:
             cmc_json = coinmarketcap.ticker(coin, convert="EUR")
+            self.id = cmc_json["data"]["id"]
             self.name = cmc_json["data"]["name"]
             rank = str("Rank : [Rank " + str(cmc_json["data"]["rank"]) + "]\n")
             if cmc_json["data"]["quotes"]["USD"]["market_cap"] is None:
@@ -220,7 +222,6 @@ class Class_All:
 
         r = requests.get(api_url)
         binance_json = r.json()
-        print(binance_json)
         if "msg" not in binance_json:
             if coin == "BTC":
                 pair = "Pair : USDT-" + coin + "\n"
@@ -494,6 +495,7 @@ class Class_All:
                             hitbtc_value, poloniex_value):
         embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed.set_thumbnail(url="https://s2.coinmarketcap.com/static/img/coins/32x32/{}.png".format(self.id))
         embed.add_field(name=":medal: CoinMarketCap Informations", value=cmc_value, inline=False)
         embed.add_field(name=":fleur_de_lis: Bitfinex Informations", value=bitfinex_value, inline=True)
         embed.add_field(name=":dragon: Bittrex Informations", value=bittrex_value, inline=True)
