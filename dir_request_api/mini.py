@@ -32,7 +32,7 @@ class Class_mini:
         btc_value = float(btc_json["data"]["quotes"]["BTC"]["price"] / 0.00000001)
         usd_value = float(cmc_json["data"]["quotes"]["USD"]["price"])
         price = str("```\nHourly : {}%\nDaily : {}%\nWeekly : {}%\n```").format(cmc_json["data"]["quotes"]["USD"]["percent_change_1h"], cmc_json["data"]["quotes"]["USD"]["percent_change_24h"], cmc_json["data"]["quotes"]["USD"]["percent_change_7d"])
-        side = str("```\nRank : {}\nMarketCap : {:,.2f}M\nVolume : {}M\n```").format(cmc_json["data"]["rank"], float(cmc_json["data"]["quotes"]["USD"]["market_cap"]/1000000), 21)
+        side = str("```\nRank : {}\nMarketCap : {:,.2f}M\nVolume : {}M\n```").format(cmc_json["data"]["rank"], float(cmc_json["data"]["quotes"]["USD"]["market_cap"]/1000000), float(cmc_json["data"]["quotes"]["USD"]["volume_24h"]/1000000))
         value_mc = price + side
         embed_disp = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
                                    timestamp=datetime.datetime.utcfromtimestamp(self.time))
