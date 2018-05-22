@@ -23,6 +23,7 @@ class Class_Info:
         hitbtc = "!hit [coin(s)]\n\n"
         top = "!top\n"
         cmc = "!cmc\n"
+        mini = "!mini [coin(s)]\n"
         order = "!order [price][profit][stop-loss]\n"
         whale = "!whale [Coin][Limit in BTC]\n"
         event = "!event\n\n"
@@ -38,7 +39,7 @@ class Class_Info:
         update = " Please type !updates regularly to know about Coinbot's latest updates. This way you wont miss any new feature."
 
         data_info = "```css\n" + btc + mexbook + all + finex + binance + rex + polo + topia + hitbtc + "```"
-        coins_info = "```css\n" + top + cmc + order + whale + event + "```"
+        coins_info = "```css\n" + top + cmc + mini + order + whale + event + "```"
         side_info = "```css\n" + infos + help + conv + balance + name + sum + bot + updates + "```"
         help_info = "```" + help_cmd + "```"
         update_info = "```" + update + "```"
@@ -46,7 +47,7 @@ class Class_Info:
                               timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
         embed.set_footer(text="Request achieved :")
-        embed.add_field(name=":hammer: Version", value="3.6", inline=False)
+        embed.add_field(name=":hammer: Version", value="4.0", inline=False)
         embed.add_field(name=":moneybag: Exchanges Commands", value=data_info)
         embed.add_field(name=":money_with_wings: Coins Commands", value=coins_info)
         embed.add_field(name=":robot: Side Commands", value=side_info)

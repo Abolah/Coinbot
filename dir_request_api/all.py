@@ -32,7 +32,11 @@ class Class_All:
         global cmc_json
         if coin == "iota":
             coin = "miota"
-        coin = coin.upper()
+            coin = coin.upper()
+        elif coin == "kyber-network":
+            coin = "kyber-network"
+        else:
+            coin = coin.upper()
         coinmarketcap = Pymarketcap(timeout=10)
         try:
             cmc_json = coinmarketcap.ticker(coin, convert="EUR")
@@ -208,11 +212,15 @@ class Class_All:
             api_url = self.binance_api_url_btc.format(coin)
         elif coin == "BTC":
             api_url = self.binance_api_url_usdt.format(coin)
+        elif coin == "KYBER-NETWORK":
+            coin = "KNC"
+            api_url = self.binance_api_url_btc.format(coin)
         else:
             api_url = self.binance_api_url_btc.format(coin)
+
         r = requests.get(api_url)
         binance_json = r.json()
-
+        print(binance_json)
         if "msg" not in binance_json:
             if coin == "BTC":
                 pair = "Pair : USDT-" + coin + "\n"
@@ -506,6 +514,8 @@ class Class_All:
         return embed
 
     async def all(self, coin):
+        if coin == "knc":
+            coin = "kyber-network"
         cmc_value = await self.function_cmc(coin)
         if cmc_value == "```css\nThis ticker does not exist on Coinmarketcap.\nMaybe you made a typo in the coin's ticker.```":
             embed = self.function_display_err(cmc_value)

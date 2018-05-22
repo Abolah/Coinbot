@@ -11,3 +11,4 @@ from dir_request_api import top
 from dir_request_api import all
 from dir_request_api import balance
 from dir_request_api import mexbook
+from dir_request_api import mini

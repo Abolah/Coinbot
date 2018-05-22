@@ -12,11 +12,12 @@ class Class_update:
     def function_display(self):
         embed = discord.Embed(title="Coinbot's CHANGELOG", colour=discord.Colour(self.color), description="Here are the latest update for CoinBot")
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/393197371254767616/400637492191035404/bbot.png")
+        embed.add_field(name="V4.0 Date: 22 May 2018", value="```\nBrand new !mini command !\n```", inline=False)
         embed.add_field(name="V3.6 Date: 20 May 2018", value="```\nNo more display errors when looking at low value coins\n```", inline=False)
         embed.add_field(name="V3.5 Date: 15 May 2018", value="```\nModified the command to use CoinMarketCap V2 API.\n```", inline=False)
         embed.add_field(name="V3.4 Date: 6 May 2018", value="```\nRemoved some bugs.\nNow when you search a coin not listed on coinmarketcap the bot tells you the coin is not listed.\n```", inline=False)
-        embed.add_field(name="V3.3 Date: 11 April 2018",value="```\nAdded the !mexbook command to display Bitmex orderbook.\n```", inline=False)
-        embed.add_field(name="V3.2 Date: 4 April 2018",value="```\nFixed the !event command with the new coinmarketcal api.\n```", inline=False)
+        embed.add_field(name="V3.3 Date: 11 April 2018", value="```\nAdded the !mexbook command to display Bitmex orderbook.\n```", inline=False)
+        embed.add_field(name="V3.2 Date: 4 April 2018", value="```\nFixed the !event command with the new coinmarketcal api.\n```", inline=False)
 
 
         embed.add_field(name=":star:Thank you for your support !:star:",
