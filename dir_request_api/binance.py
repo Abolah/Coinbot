@@ -24,7 +24,11 @@ class Class_Binance:
         global cmc_json
         if coin == "iota":
             coin = "miota"
-        coin = coin.upper()
+            coin = coin.upper()
+        elif coin == "knc":
+            coin = "kyber-network"
+        else:
+            coin = coin.upper()
         coinmarketcap = Pymarketcap(timeout=10)
         try:
             cmc_json = coinmarketcap.ticker(coin, convert="EUR")

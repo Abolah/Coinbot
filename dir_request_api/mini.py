@@ -20,7 +20,7 @@ class Class_mini:
         if coin == "iota":
             coin = "miota"
             coin = coin.upper()
-        elif coin == "kyber-network":
+        elif coin == "knc":
             coin = "kyber-network"
         else:
             coin = coin.upper()
