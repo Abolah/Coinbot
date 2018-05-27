@@ -493,8 +493,7 @@ class Class_All:
 
     def function_display_ok(self, cmc_value, bitfinex_value, bittrex_value, binance_value, cryptopia_value,
                             hitbtc_value, poloniex_value):
-        embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com",
-                              timestamp=datetime.datetime.utcfromtimestamp(self.time))
+        embed = discord.Embed(colour=discord.Colour(self.color), url="https://discordapp.com", timestamp=datetime.datetime.utcfromtimestamp(self.time))
         embed.set_thumbnail(url="https://s2.coinmarketcap.com/static/img/coins/32x32/{}.png".format(self.id))
         embed.add_field(name=":medal: CoinMarketCap Informations", value=cmc_value, inline=False)
         embed.add_field(name=":fleur_de_lis: Bitfinex Informations", value=bitfinex_value, inline=True)
@@ -503,7 +502,8 @@ class Class_All:
         embed.add_field(name=":space_invader: Cryptopia Informations", value=cryptopia_value, inline=True)
         embed.add_field(name=":octopus: HitBTC Informations", value=hitbtc_value, inline=True)
         embed.add_field(name=":crystal_ball: Poloniex Informations", value=poloniex_value, inline=True)
-        embed.set_footer(text="Request achieved :")
+        embed.add_field(name="AD", value="[Great ICO !](http://google.com)", inline=True)
+        embed.set_footer(text="Requests achieved :")
 
         return embed
 

@@ -15,7 +15,7 @@ logger.addHandler(handler)
 
 client = Bot(command_prefix='!')
 channel = None
-secret_token = "Mzg5MDkyNTc0NjcwODgwNzcw.DeVkdg.Dt0Q9E7Y1F2uQVwezVw4SPfJg28"
+secret_token = ""
 
 # START of Discorbots.org code.
 dbltoken = ""
@@ -36,7 +36,7 @@ async def on_ready():
     print("Logged in as :")
     print(client.user.name)
     print(client.user.id)
-    client.change_presence(game=discord.Game(name="Type !infos to list the commands"))
+    await client.change_presence(game=discord.Game(name="Type !infos to list the commands"))
     payload = {"server_count": len(client.servers)}
     async with aiohttp.ClientSession() as aioclient:
         await aioclient.post(url, data=payload, headers=headers)

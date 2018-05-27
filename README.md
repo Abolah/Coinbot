@@ -12,7 +12,7 @@ Coinbot is a Discord bot created in Python and used to display some useful infor
 
 
 ## If you want to test it or help me in the development, you can join this server :
-* [CoinBot Test Server](https://discord.gg/PVyNRca)
+* [CoinBot Test Server](https://discord.gg/sA53D6u)
 
 ## Getting Started
 
