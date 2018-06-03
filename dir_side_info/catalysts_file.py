@@ -64,7 +64,7 @@ class Class_Catalysts:
                 date = date[0]
                 desc = str(i["description"])
                 cat = str(i["categories"][0]["name"])
-                event += "[" + coin_name + "]" + " [" + date + "]" + " " + "[" + cat + "]" + "\n[" + title + "] \n" + desc + "\n\n"
+                event += "[" + coin_name + "] [" + date + "]" + " " + "[" + cat + "]" + "\n[" + title + "] \n" + desc + "\n\n"
             self.events = "```css\n" + event + "```"
         else:
             self.function_accesstoken()

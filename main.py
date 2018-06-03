@@ -225,6 +225,24 @@ async def mini(ctx, *coin):
 
 
 @client.command(pass_context=True)
+async def listing(ctx):
+    """
+    This command is used to know the value of a coin on coinmarketcap.
+
+    You can ask for as much as 5 coins at the same time.
+
+    Example : !mini eth
+    """
+    await client.send_typing(ctx.message.channel)
+    listing_call = dir_request_api.listing.Class_listing(ctx.message.author)
+    result = await listing_call.listing_launch()
+    if channel is None:
+        await client.send_message(ctx.message.channel, ctx.message.author.mention, embed=result)
+    else:
+        await client.send_message(channel, ctx.message.author.mention, embed=result)
+
+
+@client.command(pass_context=True)
 async def mexbook(ctx):
     """
     This command display the 10 last Orders on Bitmex OrderBook
