@@ -18,9 +18,6 @@ class Class_update:
         embed.add_field(name="V3.6 Date: 20 May 2018", value="```\nNo more display errors when looking at low value coins\n```", inline=False)
         embed.add_field(name="V3.5 Date: 15 May 2018", value="```\nModified the command to use CoinMarketCap V2 API.\n```", inline=False)
         embed.add_field(name="V3.4 Date: 6 May 2018", value="```\nRemoved some bugs.\nNow when you search a coin not listed on coinmarketcap the bot tells you the coin is not listed.\n```", inline=False)
-
-
-
         embed.add_field(name=":star:Thank you for your support !:star:",
                         value="If you like Coinbot don't forget to upvote it here: https://discordbots.org/bot/367061304042586124\nYou can also donate to the addresses listed in !bot.")
         return embed

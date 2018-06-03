@@ -20,7 +20,8 @@ class Class_Info:
         rex = "!rex [coin(s)]\n"
         polo = "!polo [coin(s)]\n"
         topia = "!topia [coin(s)]\n"
-        hitbtc = "!hit [coin(s)]\n\n"
+        hitbtc = "!hit [coin(s)]\n"
+        listing = "!listing \n"
         top = "!top\n"
         cmc = "!cmc\n"
         mini = "!mini [coin(s)]\n"
@@ -38,7 +39,7 @@ class Class_Info:
         help_cmd = "Type !help followed by the name of the command (without the '!'). \n For Example: !help order."
         update = " Please type !updates regularly to know about Coinbot's latest updates. This way you wont miss any new feature."
 
-        data_info = "```css\n" + btc + mexbook + all + finex + binance + rex + polo + topia + hitbtc + "```"
+        data_info = "```css\n" + btc + mexbook + all + finex + binance + rex + polo + topia + hitbtc + listing + "```"
         coins_info = "```css\n" + top + cmc + mini + order + whale + event + "```"
         side_info = "```css\n" + infos + help + conv + balance + name + sum + bot + updates + "```"
         help_info = "```" + help_cmd + "```"

@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1dfdf84-5a8c-44b7-8067-9da3d30ee2ad" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CoinBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CoinBot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dir_request_api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dir_request_api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dir_request_api/listing.py" beforeDir="false" afterPath="$PROJECT_DIR$/dir_request_api/listing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dir_side_info/catalysts_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/dir_side_info/catalysts_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dir_request_api/all.py" beforeDir="false" afterPath="$PROJECT_DIR$/dir_request_api/all.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dir_side_info/informations_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/dir_side_info/informations_file.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dir_side_info/updates.py" beforeDir="false" afterPath="$PROJECT_DIR$/dir_side_info/updates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,10 +18,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
+            <state relative-caret-position="240">
               <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -37,20 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updates.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="updates.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dir_side_info/updates.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="informations_file.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dir_side_info/informations_file.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="49" column="59" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+            <state relative-caret-position="408">
+              <caret line="19" column="203" selection-start-line="19" selection-start-column="203" selection-end-line="19" selection-end-column="203" />
             </state>
           </provider>
         </entry>
@@ -82,13 +66,13 @@
         <option value="$PROJECT_DIR$/dir_request_api/whale_file.py" />
         <option value="$PROJECT_DIR$/dir_request_api/mini.py" />
         <option value="$PROJECT_DIR$/dir_request_api/binance.py" />
-        <option value="$PROJECT_DIR$/dir_request_api/all.py" />
         <option value="$PROJECT_DIR$/dir_request_api/__init__.py" />
         <option value="$PROJECT_DIR$/dir_side_info/catalysts_file.py" />
         <option value="$PROJECT_DIR$/dir_request_api/listing.py" />
-        <option value="$PROJECT_DIR$/dir_side_info/updates.py" />
-        <option value="$PROJECT_DIR$/dir_side_info/informations_file.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/dir_side_info/informations_file.py" />
+        <option value="$PROJECT_DIR$/dir_request_api/all.py" />
+        <option value="$PROJECT_DIR$/dir_side_info/updates.py" />
       </list>
     </option>
   </component>
@@ -230,6 +214,30 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_side_info/updates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_side_info/informations_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1128">
+          <caret line="49" column="59" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -513,13 +521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dir_request_api/all.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="504" column="42" selection-start-line="504" selection-start-column="42" selection-end-line="504" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dir_request_api/mini.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -565,27 +566,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dir_side_info/updates.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="240">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dir_side_info/informations_file.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="49" column="59" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+        <state relative-caret-position="519">
+          <caret line="44" column="44" lean-forward="true" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/dir_request_api/all.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="503" column="103" selection-start-line="503" selection-start-column="103" selection-end-line="503" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dir_side_info/updates.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+          <caret line="19" column="203" selection-start-line="19" selection-start-column="203" selection-end-line="19" selection-end-column="203" />
         </state>
       </provider>
     </entry>
