@@ -2,7 +2,7 @@
 
 # CoinBot
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)   [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4fea7d74f6ad46b8986776d4614bd612)](https://www.codacy.com/app/Abolah/Coinbot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Abolah/Coinbot&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4fea7d74f6ad46b8986776d4614bd612)](https://www.codacy.com/app/Abolah/Coinbot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Abolah/Coinbot&amp;utm_campaign=Badge_Grade)
 
 [![Discord Bots](https://discordbots.org/api/widget/367061304042586124.svg)](https://discordbots.org/bot/367061304042586124)
 
@@ -14,49 +14,6 @@ Coinbot is a Discord bot created in Python and used to display some useful infor
 ## If you want to test it or help me in the development, you can join this server :
 * [CoinBot Test Server](https://discord.gg/sA53D6u)
 
-## Getting Started
-
-The bot is ready to deploy. Just add your Bot Secret token you created with your discord dev account.
-
-### Prerequisites
-
-You'll need python3.6 installed and some dependencies.
-
-To Install Python3.6 you can follow this tutorial :
-
-* [Tutorial](https://unix.stackexchange.com/questions/332641/how-to-install-python-3-6)
-
-## Install dependencies
-
-If you do not have pip, you can use the following
-
-```
-curl https://bootstrap.pypa.io/get-pip.py | python3.6
-```
-
-Install all the required dependancies :
-```
-python3.6 -m pip install -r requirements.txt
-```
-
-### Installation
-
-You just have to install the dependies as seen above then put your secret Discord token (the Etherscan one is optionnal but if you don't put it the !balance command will not work) and launch main.py
-
-
-```
-python3.6 PathToCoinbot/main.py
-```
-If you want to run the bot on a VPS you should install Supervisor and run the bot on a supervisor instance. This way if the bot crashes supervisor will autorelaunch it.
-
-```
-supervisorctl start CoinBot
-```
-
-To see if the bot is running correctly just run the command !bot
-```
-!bot
-```
 
 ## The commands
 ```
@@ -139,7 +96,6 @@ If you want to help me with this bot. You can donate to the following addresses
 ```
 ETH(ERC20 friendly)  [abowallet.eth]
 BTC  [1jc3V3T5mefuD9asa7en976NKVGssQuMq]
-DOGE [D9zKYJgqnTWcu8ZCVzzKrqQkjzwuhymHh9]
 LTC  [LQS415ftVrkSjjmFUyKNVBhY1fJzFLSKaz]
 DASH [XkbrvfjnN1geyBJVe8igNwDYVFRPNWpRuz]
 ```
